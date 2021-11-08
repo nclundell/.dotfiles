@@ -7,13 +7,16 @@ for config in "$@"
 do
   case "${config}" in
     "all")
-      configs+=("abcde", "nvim")
+      configs+=("abcde" "nvim")
+      break
       ;;
     "personal")
-      configs+=("abcde", "nvim")
+      configs+=("abcde" "nvim")
+      break
       ;;
     "work")
       configs+=("nvim")
+      break
       ;;
     *)
       configs+=("${config}")
