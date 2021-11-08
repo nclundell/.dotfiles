@@ -25,8 +25,14 @@ return require('packer').startup(function()
 
   -- Completion
   use {
-    'hrsh7th/nvim-compe',
-    config = require('configs.completion')
+    'hrsh7th/nvim-cmp',
+    config = require('configs.completion'),
+    requires = { 
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path'
+    }
   }
 
   -- Database
@@ -52,14 +58,20 @@ return require('packer').startup(function()
 
   -- Indentation
   use {
+    'tpope/vim-sleuth'
+  }
+
+  use {
     'lukas-reineke/indent-blankline.nvim', 
     config = require('configs.indentline'),
   }
 
   -- Languages
-  use 'tpope/vim-rails'
-  use 'tpope/vim-bundler'
-  use 'tpope/vim-rake'
+  use {
+    'tpope/vim-rails',
+    'tpope/vim-bundler',
+    'tpope/vim-rake'
+  }
 
   -- LSP
   use {

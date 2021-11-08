@@ -1,39 +1,21 @@
-local map = require('utils').map
+local cmp = require('cmp')
 local wk = require("which-key")
-
--- Turn Off Search Highlight
-map('n', '<ESC>', '<CMD> nohl <CR>', { noremap = true })
-
--- Navigate Windows
---[[ map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l') ]]
-
--- Stay in Visual Mode When Indenting
---[[ map('x', '<', '<gv')
-map('x', '>', '>gv') ]]
-
--- Handle Buffers
---[[ map('n', '<leader>q', '<CMD> bd <CR>')
-map('n', '<leader>w', '<CMD> w <CR>')
-map('n', '<leader>x', '<CMD> x <CR>') ]]
-
--- OmniFunc Keymap
-map('i', '<leader><leader>', '<C-x><C-n>')
-
--- Popup Navigation
-local popup_opts = { expr = true, noremap = true, silent = false }
-map('i', '<Tab>',   'pumvisible() ? "<C-n>" : "<Tab>"',   popup_opts)
-map('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', popup_opts)
--- map('i', '<CR>',    'pumvisible() ? "<C-y>" : "<CR>"',    popup_opts)
-
----------------------
--- Leader Mappings --
----------------------
 
 -- Normal Mode
 wk.register({
+  ['<ESC>'] = { "<CMD> nohl <CR>", "Disable Highlight", noremap = true },
+  ['<C-n>'] = { cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), "Select Next Item" },
+  ['<C-p>'] = { cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), "Select Previous Item" },
+  ['<Tab>'] = { cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), "Select Next Item" },
+  ['<S-Tab>'] = { cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), "Select Previous Item" },
+  ['<C-d>'] = { cmp.mapping.scroll_docs(-4), "Scroll Up" },
+  ['<C-f>'] = { cmp.mapping.scroll_docs(4), "Scroll Down" },
+  ['<C-Space>'] = { cmp.mapping.complete(), "Complete Selection" },
+  ['<C-e>'] = { cmp.mapping.close(), "Close Popup" },
+  ['<CR>'] = { cmp.mapping.confirm({
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = true,
+  }), "Select Item" },
   [">"] = { ">gv", "Indent Right", mode = "x" },
   ["<"] = { "<gv", "Indent Left", mode = "x" },
   ["<C-h>"] = { "<C-w>h", "Move Left One Pane" },
@@ -75,40 +57,3 @@ wk.register({
   },
   ["<Space>"] = { "@=(foldlevel('.')?'za': '<Space>')<CR>", "(Un)Fold" },
 })
-
--- Visual Block Mode
---[[ wk.register({
-  ["<leader>"] = {
-    a = { "<Plug>(EasyAlign)", "Align" },
-  }
-}, {
-  mode = "x"
-}) ]]
-
------------------------
--- Standard Mappings --
------------------------
-
--- Indent Mode Mappings
---[[ wk.register({
-}, {
-  mode = "i"
-}) ]]
-
--- Normal Mode
---[[ wk.register(
-  {
-    ["<C-h>"] = { "<C-w>h", "Move Left One Pane" },
-    ["<C-j>"] = { "<C-w>j", "Move Down One Pane" },
-    ["<C-k>"] = { "<C-w>k", "Move Down Up Pane" },
-    ["<C-l>"] = { "<C-w>l", "Move Right One Pane" },
-  }
-) ]]
-
--- Visual Block Mode Mappings
---[[ wk.register({
-  [">"] = { ">gv", "Indent Right" },
-  ["<"] = { "<gv", "Indent Left" }
-}, {
-  mode = "x"
-}) ]]
