@@ -1,0 +1,28 @@
+#!/bin/sh
+
+configs=()
+
+for config in "$@" 
+do
+  case "${config}" in
+    "all")
+      configs+=("abcde", "nvim")
+      ;;
+    "personal")
+      configs+=("abcde", "nvim")
+      ;;
+    "work")
+      configs+=("nvim")
+      ;;
+    *)
+      configs+=("${config}")
+      ;;
+  esac
+done
+
+# Un-Stow Configs
+for config in "${configs[@]}"
+do
+  echo "UNINSTALLING: ${config}"
+  stow -D "${config}"
+done

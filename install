@@ -7,13 +7,13 @@ for config in "$@"
 do
   case "${config}" in
     "all")
-      configs+=("all1", "all2")
+      configs+=("abcde", "nvim")
       ;;
     "personal")
-      configs+=("personal1", "personal2")
+      configs+=("abcde", "nvim")
       ;;
     "work")
-      configs+=("work1", "work2")
+      configs+=("nvim")
       ;;
     *)
       configs+=("${config}")
@@ -53,6 +53,7 @@ else
     # Stow Configs
     for config in "${configs[@]}"
     do
+      echo "INSTALLING: ${config}"
       stow "${config}"
     done
   fi
