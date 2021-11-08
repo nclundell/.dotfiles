@@ -1,0 +1,59 @@
+#!/bin/sh
+
+configs=()
+
+# Set Configs Array
+for config in "$@" 
+do
+  case "${config}" in
+    "all")
+      configs+=("all1", "all2")
+      ;;
+    "personal")
+      configs+=("personal1", "personal2")
+      ;;
+    "work")
+      configs+=("work1", "work2")
+      ;;
+    *)
+      configs+=("${config}")
+      ;;
+  esac
+done
+
+if [ ${#configs[@]} -eq 0 ]; then
+  echo "No config given.  Please pass a config to stow."
+else
+  cd $(dirname $(readlink -f $0))
+
+  echo -e "Stashing existing changes..."
+  stash_result=$(git stash push -m "sync-dotfiles: Before syncing dotfiles")
+  needs_pop=1
+  if [ "$stash_result" = "No local changes to save" ]; then
+    needs_pop=0
+  fi
+
+  echo -e "Pulling updates from dotfiles repo..."
+  echo
+    git pull origin master
+  echo
+
+  if [[ $needs_pop -eq 1 ]]; then
+    echo -e "Popping stashed changes..."
+    echo
+    git stash pop
+  fi
+
+  unmerged_files=$(git diff --name-only --diff-filter=U)
+  if [[ ! -z $unmerged_files ]]; then
+    echo -e "The following files have merge conflicts after popping the stash:"
+    echo
+    printf %"s\n" $unmerged_files
+  else
+    # Stow Configs
+    for config in "${configs[@]}"
+    do
+      stow "${config}"
+    done
+  fi
+fi
