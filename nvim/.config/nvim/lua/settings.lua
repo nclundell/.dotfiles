@@ -7,7 +7,6 @@ local wo = vim.wo
   -- require('nord').set()
   vim.cmd [[ colorscheme doom-one ]]
   vim.cmd [[ syntax on ]]
-  vim.cmd [[ set background=dark ]]
 
 -- Folding --
   -- Enable Folding Via Tree-Sitter

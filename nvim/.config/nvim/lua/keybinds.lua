@@ -4,18 +4,6 @@ local wk = require("which-key")
 -- Normal Mode
 wk.register({
   ['<ESC>'] = { "<CMD> nohl <CR>", "Disable Highlight", noremap = true },
-  ['<C-n>'] = { cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), "Select Next Item" },
-  ['<C-p>'] = { cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), "Select Previous Item" },
-  ['<Tab>'] = { cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), "Select Next Item" },
-  ['<S-Tab>'] = { cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), "Select Previous Item" },
-  ['<C-d>'] = { cmp.mapping.scroll_docs(-4), "Scroll Up" },
-  ['<C-f>'] = { cmp.mapping.scroll_docs(4), "Scroll Down" },
-  ['<C-Space>'] = { cmp.mapping.complete(), "Complete Selection" },
-  ['<C-e>'] = { cmp.mapping.close(), "Close Popup" },
-  ['<CR>'] = { cmp.mapping.confirm({
-    behavior = cmp.ConfirmBehavior.Replace,
-    select = true,
-  }), "Select Item" },
   [">"] = { ">gv", "Indent Right", mode = "x" },
   ["<"] = { "<gv", "Indent Left", mode = "x" },
   ["<C-h>"] = { "<C-w>h", "Move Left One Pane" },
