@@ -116,10 +116,10 @@ return require('packer').startup(function()
   }
 
   -- Terminal
-  --[[ use {
+  use {
     'numtostr/FTerm.nvim',
     config = require('configs.fterm')
-  } ]]
+  }
 
   -- Treesitter
   use {
