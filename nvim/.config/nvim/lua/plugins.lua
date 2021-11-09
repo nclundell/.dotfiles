@@ -20,7 +20,8 @@ return require('packer').startup(function()
 
   -- Commenting
   use {
-    'b3nj5m1n/kommentary'
+    'numToStr/Comment.nvim',
+    config = require('configs.comment')
   }
 
   -- Completion
