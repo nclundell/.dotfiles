@@ -1,4 +1,3 @@
-local cmp = require('cmp')
 local wk = require("which-key")
 
 -- Normal Mode
