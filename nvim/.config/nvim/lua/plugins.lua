@@ -110,8 +110,11 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     config = require('configs.telescope'),
     requires = {
-      {'nvim-lua/popup.nvim'}, 
-      {'nvim-lua/plenary.nvim'},
+      'nvim-lua/popup.nvim', 
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzy-native.nvim',
+      'nvim-telescope/telescope-packer.nvim',
+      'TC72/telescope-tele-tabby.nvim',
     }
   }
 
