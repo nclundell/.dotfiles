@@ -14,8 +14,6 @@ local wo = vim.wo
   wo.foldexpr = 'nvim_treesitter#foldexpr()'
   
 -- Global Settings --
-  -- Define Leader
-  g.mapleader = ','
   
 -- Global Options --
 

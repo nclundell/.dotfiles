@@ -1,4 +1,14 @@
+local g = vim.g
+
+local ft = require('FTerm')
+local ng = require('neogit')
+local nt = require('nvim-tree')
+local ts = require('telescope')
+local tb = require('telescope.builtin')
 local wk = require("which-key")
+
+-- Define Leader
+g.mapleader = ','
 
 -- Normal Mode Mappings
 wk.register({
@@ -12,38 +22,38 @@ wk.register({
       d = { "<CMD> DBUIToggle <CR>", "Database" },
       e = {
 	name = "Explore",
-	b = { function() require('telescope.builtin').file_browser() end, "Browser" },
-	t = {function() require('nvim-tree').toggle() end,  "Tree" }
+	b = { function() tb.file_browser() end, "Browser" },
+	t = {function() nt.toggle() end,  "Tree" }
       },
       f = {
 	name = "Find",
-	f = { function() require('telescope.builtin').find_files() end, "Files" }, 
-	v = { function() require('telescope.builtin').treesitter() end, "Variables" }, 
-	w = { function() require('telescope.builtin').grep_string() end, "Word" } 
+	f = { function() tb.find_files() end, "Files" }, 
+	v = { function() tb.treesitter() end, "Variables" }, 
+	w = { function() tb.grep_string() end, "Word" } 
       },
       g = {
 	name = "Git",
-	b = { function() require('telescope.builtin').git_branches() end, "Branches" },
-	c = { function() require('telescope.builtin').git_commits() end, "Commits" },
-	f = { function() require('telescope.builtin').git_files() end, "Files" },
-	s = { function() require('neogit').open() end, "Status" },
+	b = { function() tb.git_branches() end, "Branches" },
+	c = { function() tb.git_commits() end, "Commits" },
+	f = { function() tb.git_files() end, "Files" },
+	s = { function() ng.open() end, "Status" },
       },
       p = { function() require('telescope.builtin').builtin() end, "Telescope" },
       q = { "<CMD> bd <CR>", "Close Buffer" },
       s = {
 	name = "Select",
-	c = { function() require('telescope.builtin').colorscheme() end, "ColorSchemes" },
-	p = { function() require('telescope').extensions.packer.plugins() end, "Plugins" }, 
-	t = { function() require'telescope'.extensions.tele_tabby.list() end, "Tabs" }, 
+	c = { function() tb.require('telescope.builtin').colorscheme() end, "ColorSchemes" },
+	p = { function() ts.extensions.packer.plugins() end, "Plugins" }, 
+	t = { function() ts.extensions.tele_tabby.list() end, "Tabs" }, 
       },
       t = {
 	name = "Terminal",
-	g = { function() require('FTerm').scratch({cmd = 'lazygit'}) end, "Git" },
-	t = { function() require('FTerm').toggle() end, "Toggle" },
+	g = { function() ft.scratch({cmd = 'lazygit'}) end, "Git" },
+	t = { function() ft.toggle() end, "Toggle" },
       },
       w = { "<CMD> w <CR>", "Write Buffer" },
       x = { "<CMD> x <CR>", "Write and Quit" },
-      ["/"] = { function() require('telescope.builtin').grep_string() end, "Search" },
+      ["/"] = { function() tb.grep_string() end, "Search" },
       
     },
     ["<Space>"] = { "@=(foldlevel('.')?'za': '<Space>')<CR>", "(Un)Fold" },
@@ -54,8 +64,8 @@ wk.register({
   ["<leader>"] = {
     t = {
       name = "Terminal",
-      q = { function() require('FTerm').exit() end, "Quit" },
-      t = { function() require('FTerm').toggle() end, "Toggle" },
+      q = { function() ft.exit() end, "Quit" },
+      t = { function() ft.toggle() end, "Toggle" },
     }
   }
 }, {
