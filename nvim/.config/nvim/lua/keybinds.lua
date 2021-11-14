@@ -1,14 +1,13 @@
-local g = vim.g
-
 local ft = require('FTerm')
 local ng = require('neogit')
 local nt = require('nvim-tree')
 local ts = require('telescope')
+local te = require('telescope').extensions
 local tb = require('telescope.builtin')
 local wk = require("which-key")
 
 -- Define Leader
-g.mapleader = ','
+vim.g.mapleader = ','
 
 -- Normal Mode Mappings
 wk.register({
@@ -38,13 +37,13 @@ wk.register({
 	f = { function() tb.git_files() end, "Files" },
 	s = { function() ng.open() end, "Status" },
       },
-      p = { function() require('telescope.builtin').builtin() end, "Telescope" },
+      p = { function() tb.builtin() end, "Telescope" },
       q = { "<CMD> bd <CR>", "Close Buffer" },
       s = {
 	name = "Select",
 	c = { function() tb.require('telescope.builtin').colorscheme() end, "ColorSchemes" },
-	p = { function() ts.extensions.packer.plugins() end, "Plugins" }, 
-	t = { function() ts.extensions.tele_tabby.list() end, "Tabs" }, 
+	p = { function() te.packer.plugins() end, "Plugins" }, 
+	t = { function() te.tele_tabby.list() end, "Tabs" }, 
       },
       t = {
 	name = "Terminal",
