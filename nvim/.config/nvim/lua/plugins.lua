@@ -84,6 +84,11 @@ return require('packer').startup(function()
     }
   }
 
+  -- Movement
+  use {
+    'ggandor/lightspeed.nvim'
+  }
+
   -- Pairs
   use {
     "steelsojka/pears.nvim",
@@ -129,6 +134,12 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     config = require('configs.treesitter'),
     run = function() vim.cmd [[ TSUpdate ]] end
+  }
+
+  -- Text Objects
+  use {
+    'tpope/vim-surround',
+    'wellle/targets.vim'
   }
 
   -- Which-Key
