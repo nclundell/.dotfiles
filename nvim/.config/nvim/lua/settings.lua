@@ -3,22 +3,13 @@ local g = vim.g
 local go = vim.o
 local wo = vim.wo
 
--- Colors --
-  -- require('nord').set()
-  vim.cmd [[ colorscheme doom-one ]]
-  vim.cmd [[ syntax on ]]
-
--- Folding --
-  -- Enable Folding Via Tree-Sitter
-  wo.foldmethod = 'expr'
-  wo.foldexpr = 'nvim_treesitter#foldexpr()'
-  
 -- Global Settings --
   
 -- Global Options --
-
   -- Colors
-  go.termguicolors = true
+  vim.o.termguicolors = true
+  vim.cmd [[ colorscheme doom-one ]]
+  vim.cmd [[ syntax on ]]
 
   -- Re-read File When Changed Optside of Vim
   go.autoread = true
@@ -72,4 +63,9 @@ local wo = vim.wo
 
   -- Enable Sign Column
   wo.signcolumn = 'yes'
+
+  -- Folding --
+  vim.wo.foldmethod = 'expr'
+  vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+
 
