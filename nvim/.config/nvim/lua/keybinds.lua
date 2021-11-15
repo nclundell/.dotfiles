@@ -48,6 +48,7 @@ wk.register({
       t = {
 	name = "Terminal",
 	g = { function() ft.scratch({cmd = 'lazygit'}) end, "Git" },
+	h = { function() ft.scratch({cmd = 'htop'}) end, "System Processes" },
 	t = { function() ft.toggle() end, "Toggle" },
       },
       w = { "<CMD> w <CR>", "Write Buffer" },
