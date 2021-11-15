@@ -5,7 +5,7 @@ return function()
   -- lsp.pyls.setup{}
 
   -- Ruby
-  -- lsp.solargraph.setup{}
+  lsp.solargraph.setup{}
 
   -- Typescript
   -- lsp.tsserver.setup{}
