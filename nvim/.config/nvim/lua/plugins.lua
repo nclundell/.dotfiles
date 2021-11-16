@@ -130,6 +130,7 @@ return require('packer').startup(function()
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-telescope/telescope-packer.nvim',
       'TC72/telescope-tele-tabby.nvim',
+      'camgraff/telescope-tmux.nvim'
     }
   }
 

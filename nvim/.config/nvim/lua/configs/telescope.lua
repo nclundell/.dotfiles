@@ -8,20 +8,18 @@ return function ()
       sorting_strategy = 'ascending'
     },
     extensions = {
-      packer = {
-      },
-      tele_tabby = {
-        border          = true,
-        height          = 20,
-        previewer       = false,
-        shorten_path    = false,
-        use_highlighter = true,
-        width           = 120,
-        winblend        = 10,
-      }
+      packer = {},
+      tele_tabby = {}
     }
   }
 
   -- Load Extensions
   require('telescope').load_extension('fzy_native')
 end
+-- border          = true,
+-- height          = 20,
+-- previewer       = false,
+-- shorten_path    = false,
+-- use_highlighter = true,
+-- width           = 60,
+-- winblend        = 10,

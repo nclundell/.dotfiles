@@ -3,8 +3,11 @@ local ng = require('neogit')
 local nt = require('nvim-tree')
 local ts = require('telescope')
 local te = require('telescope').extensions
+local tt = require('telescope.themes')
 local tb = require('telescope.builtin')
 local wk = require("which-key")
+
+local dropdown_layout = tt.get_dropdown({ previewer = false })
 
 -- Define Leader
 vim.g.mapleader = ','
@@ -27,6 +30,7 @@ wk.register({
       f = {
 	name = "Find",
 	f = { function() tb.find_files() end, "Files" }, 
+	p = { function() te.packer.plugins() end, "Plugins" }, 
 	v = { function() tb.treesitter() end, "Variables" }, 
 	w = { function() tb.grep_string() end, "Word" } 
       },
@@ -41,9 +45,13 @@ wk.register({
       q = { "<CMD> bd <CR>", "Close Buffer" },
       s = {
 	name = "Select",
-	c = { function() tb.require('telescope.builtin').colorscheme() end, "ColorSchemes" },
-	p = { function() te.packer.plugins() end, "Plugins" }, 
-	t = { function() te.tele_tabby.list() end, "Tabs" }, 
+	b = { function() te.tele_tabby.list(dropdown_layout) end, "Buffers" }, 
+	c = { function() tb.colorscheme(dropdown_layout) end, "ColorSchemes" },
+	t = {
+	  name = "Tmux",
+	  s = { function() te.tmux.sessions(dropdown_layout) end, "Sessions" },
+	  w = { function() te.tmux.windows(dropdown_layout) end, "Windows" }
+	}
       },
       t = {
 	name = "Terminal",
