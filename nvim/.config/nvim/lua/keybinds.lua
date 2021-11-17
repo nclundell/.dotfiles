@@ -1,3 +1,4 @@
+local dv = require('diffview')
 local ft = require('FTerm')
 local ng = require('neogit')
 local nt = require('nvim-tree')
@@ -11,9 +12,12 @@ local dropdown_layout = require('telescope.themes').get_dropdown({ previewer = f
 -- Define Leader
 vim.g.mapleader = ','
 
+-- Test
 -- Normal Mode Mappings
 wk.register({
   ['<ESC>'] = { "<CMD> nohl <CR>", "Disable Highlight"},
+  ['<C-A-j>'] = { "<CMD> tabnext <CR>", "Next Tab" },
+  ['<C-A-k>'] = { "<CMD> tabprev <CR>", "Prev Tab" },
   ["<C-h>"] = { "<C-w>h", "Move Left One Pane" },
   ["<C-j>"] = { "<C-w>j", "Move Down One Pane" },
   ["<C-k>"] = { "<C-w>k", "Move Down Up Pane" },
@@ -38,8 +42,12 @@ wk.register({
       name = "Git",
       b = { function() tb.git_branches() end, "Branches" },
       c = { function() tb.git_commits() end, "Commits" },
+      d = {
+	name = "Diff",
+	c = { function() dv.close() end, "Close" },
+	o = { function() dv.open() end, "Open" }
+      },
       f = { function() tb.git_files() end, "Files" },
-      s = { function() ng.open() end, "Status" },
     },
     p = { function() tb.builtin() end, "Telescope" },
     q = { "<CMD> bd <CR>", "Close Buffer" },

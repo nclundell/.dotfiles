@@ -52,9 +52,12 @@ return require('packer').startup(function()
       'lewis6991/gitsigns.nvim',
       config = require('configs.gitsigns'),
       requires = 'nvim-lua/plenary.nvim' 
-    }, { 
-      'TimUntersberger/neogit', 
-      requires = 'nvim-lua/plenary.nvim' 
+    }, {
+      'sindrets/diffview.nvim',
+      requires = {
+	'nvim-lua/plenary.nvim',
+	'kyazdani42/nvim-web-devicons'
+      }
     }
   }
 
@@ -77,12 +80,8 @@ return require('packer').startup(function()
 
   -- LSP
   use {
-    {
-      'neovim/nvim-lspconfig',
-      config = require('configs.lsp'),
-    }, {
-      'glepnir/lspsaga.nvim'
-    }
+    'neovim/nvim-lspconfig',
+    config = require('configs.lsp'),
   }
 
   -- Movement
