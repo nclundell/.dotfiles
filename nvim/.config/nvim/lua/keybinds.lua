@@ -1,6 +1,5 @@
 local dv = require('diffview')
 local ft = require('FTerm')
-local ng = require('neogit')
 local nt = require('nvim-tree')
 local ts = require('telescope')
 local te = require('telescope').extensions
