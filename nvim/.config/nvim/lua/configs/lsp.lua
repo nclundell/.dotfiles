@@ -2,7 +2,7 @@ return function()
   local lsp = require('lspconfig')
 
   -- Python
-  -- lsp.pyls.setup{}
+  lsp.pyright.setup{}
 
   -- Ruby
   lsp.solargraph.setup{}
