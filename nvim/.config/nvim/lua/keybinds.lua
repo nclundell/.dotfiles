@@ -1,8 +1,8 @@
 local dv = require('diffview')
 local ft = require('FTerm')
 local nt = require('nvim-tree')
+local tr = require('trouble')
 local ts = require('telescope')
-local te = require('telescope').extensions
 local tb = require('telescope.builtin')
 local wk = require("which-key")
 
@@ -25,15 +25,10 @@ wk.register({
   ["<leader>"] = {
     a = { "<Plug>(EasyAlign)", "Align" },
     d = { "<CMD> DBUIToggle <CR>", "Database" },
-    e = {
-      name = "Explore",
-      b = { function() tb.file_browser() end, "Browser" },
-      t = {function() nt.toggle() end,  "Tree" }
-    },
     f = {
       name = "Find",
       f = { function() tb.find_files() end, "Files" }, 
-      p = { function() te.packer.plugins() end, "Plugins" }, 
+      p = { function() ts.extensions.packer.plugins() end, "Plugins" }, 
       v = { function() tb.treesitter() end, "Variables" }, 
       w = { function() tb.grep_string() end, "Word" } 
     },
@@ -47,24 +42,26 @@ wk.register({
 	o = { function() dv.open() end, "Open" }
       },
       f = { function() tb.git_files() end, "Files" },
+      t = { function() ft.scratch({cmd = 'lazygit'}) end, "Terminal" },
     },
     p = { function() tb.builtin() end, "Telescope" },
     q = { "<CMD> bd <CR>", "Close Buffer" },
     s = {
       name = "Select",
-      b = { function() te.tele_tabby.list(dropdown_layout) end, "Buffers" }, 
+      b = { function() ts.extensions.tele_tabby.list(dropdown_layout) end, "Buffers" }, 
       c = { function() tb.colorscheme(dropdown_layout) end, "ColorSchemes" },
       t = {
 	name = "Tmux",
-	s = { function() te.tmux.sessions(dropdown_layout) end, "Sessions" },
-	w = { function() te.tmux.windows(dropdown_layout) end, "Windows" }
+	s = { function() ts.extensions.tmux.sessions(dropdown_layout) end, "Sessions" },
+	w = { function() ts.extensions.tmux.windows(dropdown_layout) end, "Windows" }
       }
     },
     t = {
-      name = "Terminal",
-      g = { function() ft.scratch({cmd = 'lazygit'}) end, "Git" },
-      h = { function() ft.scratch({cmd = 'htop'}) end, "System Processes" },
-      t = { function() ft.toggle() end, "Toggle" },
+      name = "Toggle",
+      d = { function() tr.toggle() end, "Diagnostics" },
+      e = { function() nt.toggle() end, "Tree Explorer" },
+      p = { function() ft.scratch({cmd = 'htop'}) end, "System Processes" },
+      t = { function() ft.toggle() end, "Terminal" },
     },
     w = { "<CMD> w <CR>", "Write Buffer" },
     x = { "<CMD> x <CR>", "Write and Quit" },
@@ -76,9 +73,8 @@ wk.register({
 wk.register({
   ["<leader>"] = {
     t = {
-      name = "Terminal",
-      q = { function() ft.exit() end, "Quit" },
-      t = { function() ft.toggle() end, "Toggle" },
+      name = "Toggle",
+      t = { function() ft.toggle() end, "Terminal" },
     }
   }
 }, {
