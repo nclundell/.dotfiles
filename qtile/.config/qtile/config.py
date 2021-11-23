@@ -3,7 +3,6 @@ import os
 import subprocess
 
 # Import Color Schemes
-# from colorschemes import DoomOne
 
 # Import Qtile Libraries
 from libqtile import hook
@@ -35,7 +34,7 @@ from libqtile.widget.windowname import WindowName
 @hook.subscribe.startup_once
 def autostart():
     autostart = os.path.expanduser("$HOME/.config/qtile/autostart.sh")
-    subprocess.call(autostart)
+    subprocess.call([autostart])
 
 # Set Mod
 mod = "mod4"
@@ -56,6 +55,14 @@ colors = [
     ["#ecbbfb", "#ecbbfb"]  # background for inactive screens
 ]
 
+# Default Dropdown Settings
+dropdown_style = dict(
+    height=0.95,
+    width=0.95,
+    x = 0.025,
+    y = 0.025
+)
+
 # Default Layout Settings
 layout_style = dict(
     # border_focus = colors[3][0],
@@ -74,6 +81,14 @@ widget_style = dict(
     background = colors[0],
 )
 
+# Define Available Layouts
+layouts = [
+    MonadTall(**layout_style),
+    Max(**layout_style),
+    TreeTab(**layout_style),
+    Floating(**layout_style)
+]
+
 # Define Workspaces
 groups = [
     Group("1", label="First",   layout="MonadTall", position=1),
@@ -86,43 +101,14 @@ groups = [
     Group("8", label="Eighth",  layout="MonadTall", position=8),
     Group("9", label="Nineth",  layout="MonadTall", position=9),
     ScratchPad("scratchpad", [
-        DropDown(
-            "htop",
-            "alacritty -e htop",
-            height=0.95,
-            width=0.95,
-            x = 0.025,
-            y = 0.025
-        ),
-        DropDown(
-            "pavucontrol",
-            "pavucontrol",
-            height=0.95,
-            width=0.95,
-            x = 0.025,
-            y = 0.025
-        ),
-        DropDown(
-            "term",
-            "alacritty",
-            height=0.95,
-            width=0.95,
-            x = 0.025,
-            y = 0.025
-        )
+        DropDown("htop", "alacritty -e htop", **dropdown_style),
+        DropDown("pavucontrol", "pavucontrol", **dropdown_style),
+        DropDown("term", "alacritty", **dropdown_style)
     ])
 ]
 
 # Bind Workspaces
 dgroups_key_binder = simple_key_binder(mod)
-
-# Define Available Layouts
-layouts = [
-    MonadTall(**layout_style),
-    Max(**layout_style),
-    TreeTab(**layout_style),
-    Floating(**layout_style)
-]
 
 # Define Keybinds
 keys = [
@@ -179,7 +165,7 @@ keys = [
     Key([mod], "space", lazy.spawn("rofi -show drun") )
 ]
 
-
+# Bar Settings
 screens = [
     Screen(
         top=Bar(
