@@ -1,0 +1,28 @@
+# Important Directories
+lyrics_directory = "~/.local/share/lyrics"
+mpd_music_dir = "~/Music"
+ncmpcpp_directory = "~/.config/ncmpcpp"
+
+# General Settings
+autocenter_mode = "yes"
+centered_cursor = "yes"
+connected_message_on_startup = "no"
+message_delay_time = 1
+mouse_support = "yes"
+user_interface = "alternative"
+startup_screen = "media_library"
+
+# Appearance Settings
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+# display_volume_level = "no"
+header_visibility = "no"
+progressbar_look = "—▬—"
+statusbar_visibility = "no"
+
+# Visualizer Settings
+visualizer_look = "▋▋"
+visualizer_autoscale = "yes"
+visualizer_in_stereo = "no"
+visualizer_spectrum_dft_size = "5"
+visualizer_color = "white"
