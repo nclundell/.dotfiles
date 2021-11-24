@@ -7,10 +7,10 @@ for config in "$@"
 do
   case "${config}" in
     "all")
-      configs+=("abcde" "alacritty" "nvim")
+      configs+=("abcde" "alacritty" "mpd" "ncmpcpp" "nvim")
       ;;
     "personal")
-      configs+=("abcde" "alacritty" "nvim")
+      configs+=("abcde" "alacritty" "mpd" "ncmpcpp" "nvim")
       ;;
     "work")
       configs+=("alacritty" "nvim")
