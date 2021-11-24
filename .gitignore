@@ -1,10 +1,7 @@
+# Ignore nvim generated files
 packer_compiled.lua
 
-**/mpd/database
-**/mpd/log
-**/mpd/pid
-**/mpd/playlists/**
-**/mpd/state
-**/mpd/sticker.sql
-
+# Ignore MPD files except mpd.conf
+**/mpd
+!mpd.conf
 
