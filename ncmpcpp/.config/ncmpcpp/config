@@ -10,7 +10,7 @@ connected_message_on_startup = "no"
 message_delay_time = 1
 mouse_support = "yes"
 user_interface = "alternative"
-startup_screen = "media_library"
+# startup_screen = "media_library"
 
 # Appearance Settings
 browser_display_mode = "columns"
