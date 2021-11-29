@@ -18,7 +18,15 @@ from libqtile.widget.windowname import WindowName
 
 # Import Settings
 from colorschemes import DoomOne as colorscheme
-from styles import widget_style
+
+# Default Widget Settings
+widget_style = dict(
+    font='sans',
+    fontsize=16,
+    padding=4,
+    foreground = colorscheme.fg,
+    background = colorscheme.bg,
+)
 
 screens = [
     Screen(
@@ -43,7 +51,7 @@ screens = [
                 ),
                 GroupBox(
                     **widget_style | dict(
-                        active = colorscheme.green,
+                        active = colorscheme.fg,
                         highlight_method = "block",
                     )
                 ),
@@ -64,7 +72,11 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                Systray(**widget_style),
+                Systray(
+                    **widget_style | dict(
+                        padding = 10
+                    )
+                ),
                 Clock(
                     **widget_style | dict(
                         format='%Y-%m-%d %a %I:%M %p'

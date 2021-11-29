@@ -8,10 +8,10 @@ terminal = "alacritty"
 
 # Keybindings
 keys = [
-    # Scratchpad Keybinds
-    Key([], 'F10', lazy.group['scratchpad'].dropdown_toggle('pavucontrol')),
-    Key([], 'F11', lazy.group['scratchpad'].dropdown_toggle('htop')),
-    Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle('term')),
+    # Terminal Scratchpads
+    Key([mod], "b", lazy.group["scratchpad"].dropdown_toggle("btop")),
+    Key([mod], "m", lazy.group["scratchpad"].dropdown_toggle("mpd")),
+    Key([mod], "t", lazy.group["scratchpad"].dropdown_toggle("term")),
 
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -59,4 +59,12 @@ keys = [
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
     Key([mod], "space", lazy.spawn("rofi -show drun") )
+]
+
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front())
 ]

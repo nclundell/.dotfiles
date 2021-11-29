@@ -5,52 +5,27 @@ import subprocess
 # Import Qtile Libraries
 from libqtile import hook
 from libqtile.dgroups import simple_key_binder
-from libqtile.lazy import lazy
 
-# Import Config Objects
-from libqtile.config import Click, Drag, Match
-
-# Import Layouts
-from libqtile.layout.floating import Floating
-
+# Import Local Config Sections
+from bindings import keys, mouse
 from groups import groups
-from layouts import layouts
-from keys import keys, mod
+from layouts import layouts, floating_layout
 from screens import screens
 
-# Bind Workspaces
-dgroups_key_binder = simple_key_binder(mod)
-
-# Drag floating layouts.
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
-]
-
+# Application Rules
 dgroups_app_rules = []
-follow_mouse_focus = True
+
+# Bind Workspaces
+dgroups_key_binder = simple_key_binder("mod4")
+
+# General Settings
+auto_fullscreen = True
+auto_minimize = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    *Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
-])
-auto_fullscreen = True
+follow_mouse_focus = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
-auto_minimize = True
 
 # Autostart
 @hook.subscribe.startup_once

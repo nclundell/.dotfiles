@@ -1,11 +1,14 @@
 # Import Qtile Libs
 from libqtile.config import DropDown, Group, ScratchPad
 
-# Import Style
-from styles import dropdown_style
-
-# Defaults
-mod = "mod4"
+# Default Dropdown Settings
+dropdown_style = dict(
+    opacity = 1,
+    height=0.95,
+    width=0.95,
+    x = 0.025,
+    y = 0.025
+)
 
 groups = [
     Group("1", layout="MonadTall", position=1),
@@ -18,8 +21,8 @@ groups = [
     Group("8", layout="MonadTall", position=8),
     Group("9", layout="MonadTall", position=9),
     ScratchPad("scratchpad", [
-        DropDown("htop", "alacritty -e htop", **dropdown_style),
-        DropDown("pavucontrol", "pavucontrol", **dropdown_style),
+        DropDown("btop", "alacritty -e btop", **dropdown_style),
+        DropDown("mpd", "alacritty -e ncmpcpp", **dropdown_style),
         DropDown("term", "alacritty", **dropdown_style)
     ])
 ]
