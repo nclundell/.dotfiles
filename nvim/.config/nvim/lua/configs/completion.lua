@@ -37,8 +37,8 @@ return function()
 
   cmp.setup({
     formatting = {
-      format = function(entry, item)
-	item.kind = string.format('%s  %s', kind_icons[item.kind], item.kind)
+      format = function(_, item)
+	item.kind = ((kind_icons[item.kind] .. ' ') or '') .. item.kind
 	return item
       end
     },
