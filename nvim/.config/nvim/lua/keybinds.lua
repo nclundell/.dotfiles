@@ -1,5 +1,6 @@
 local dv = require('diffview')
 local ft = require('FTerm')
+local lg = require('lazygit')
 local nt = require('nvim-tree')
 local tr = require('trouble')
 local ts = require('telescope')
@@ -24,6 +25,12 @@ wk.register({
   ["<Space>"] = { "@=(foldlevel('.')?'za': '<Space>')<CR>", "(Un)Fold" },
   ["<leader>"] = {
     a = { "<Plug>(EasyAlign)", "Align" },
+    b = {
+      name = "Browse",
+      f = { function() tb.file_browser(dropdown_layout) end, "Files" },
+      t = { function() nt.toggle() end, "Project Tree" },
+
+    },
     d = { "<CMD> DBUIToggle <CR>", "Database" },
     f = {
       name = "Find",
@@ -42,13 +49,17 @@ wk.register({
 	o = { function() dv.open() end, "Open" }
       },
       f = { function() tb.git_files() end, "Files" },
-      t = { function() ft.scratch({cmd = 'lazygit'}) end, "Terminal" },
+      g = { function() lg.lazygit() end, "Lazygit" },
+    },
+    o = {
+      name = "Open",
+      b = { function() tb.buffers() end, "Buffers" }, 
+      t = { function() ts.extensions.tele_tabby.list(dropdown_layout) end, "Tabs" }, 
     },
     p = { function() tb.builtin() end, "Telescope" },
     q = { "<CMD> bd <CR>", "Close Buffer" },
     s = {
       name = "Select",
-      b = { function() ts.extensions.tele_tabby.list(dropdown_layout) end, "Buffers" }, 
       c = { function() tb.colorscheme(dropdown_layout) end, "ColorSchemes" },
       t = {
 	name = "Tmux",
@@ -59,7 +70,6 @@ wk.register({
     t = {
       name = "Toggle",
       d = { function() tr.toggle() end, "Diagnostics" },
-      e = { function() nt.toggle() end, "Tree Explorer" },
       p = { function() ft.scratch({cmd = 'htop'}) end, "System Processes" },
       t = { function() ft.toggle() end, "Terminal" },
     },
