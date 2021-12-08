@@ -58,6 +58,8 @@ return require('packer').startup(function()
 	'nvim-lua/plenary.nvim',
 	'kyazdani42/nvim-web-devicons'
       }
+    }, {
+      'kdheepak/lazygit.nvim'
     }
   }
 
@@ -86,13 +88,18 @@ return require('packer').startup(function()
 
   -- Movement
   use {
-    'ggandor/lightspeed.nvim'
+    -- 'ggandor/lightspeed.nvim'
   }
 
   -- Pairs
   use {
-    "steelsojka/pears.nvim",
-    config = require('configs.pairs')
+    -- "steelsojka/pears.nvim",
+    -- config = require('configs.pairs')
+    'windwp/nvim-autopairs',
+    config = require('configs.pairs'),
+    requires = {
+      'windwp/nvim-ts-autotag'
+    }
   }
   
   -- Project Tree
