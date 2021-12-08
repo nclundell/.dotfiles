@@ -1,7 +1,9 @@
 return function ()
+  local npairs = require('nvim-autopairs')
 
-  require('pears').setup(function(conf)
-    conf.preset "tag_matching"
-  end)
+  npairs.setup{}
 
+  -- Add Endwise Rules 
+  npairs.add_rules(require('nvim-autopairs.rules.endwise-lua'))
+  npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
 end
