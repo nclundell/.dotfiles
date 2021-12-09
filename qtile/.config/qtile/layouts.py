@@ -18,9 +18,25 @@ layout_style = dict(
 )
 
 layouts = [
-    MonadTall(**layout_style),
+    MonadTall(**layout_style | dict(
+        single_border_width = 0
+    )),
     Max(**layout_style),
-    TreeTab(**layout_style),
+    TreeTab(**layout_style | dict(
+        active_bg = colorscheme.yellow[0],
+        active_fg = colorscheme.bg[0],
+        inactive_bg = colorscheme.bg[0],
+        inactive_fg = colorscheme.fg[0],
+        
+        bg_color = colorscheme.bg[0],
+        border_width = 0,
+        font = "Hack Nerd Font Bold",
+        fontsize = 16,
+        panel_width = 400,
+
+        section_fg = colorscheme.fg[0],
+        section_fontsize = 16,
+    )),
 ]
 
 floating_layout = Floating(
