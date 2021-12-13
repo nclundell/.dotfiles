@@ -142,8 +142,8 @@ return require('packer').startup(function()
 
   -- Terminal
   use {
-    'numtostr/FTerm.nvim',
-    config = require('configs.fterm')
+    'akinsho/toggleterm.nvim',
+    config = require('configs.terminal')
   }
 
   -- Treesitter

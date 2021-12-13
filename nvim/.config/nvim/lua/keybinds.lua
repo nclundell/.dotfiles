@@ -1,5 +1,4 @@
 local dv = require('diffview')
-local ft = require('FTerm')
 local lg = require('lazygit')
 local nt = require('nvim-tree')
 local tr = require('trouble')
@@ -70,8 +69,6 @@ wk.register({
     t = {
       name = "Toggle",
       d = { function() tr.toggle() end, "Diagnostics" },
-      p = { function() ft.scratch({cmd = 'htop'}) end, "System Processes" },
-      t = { function() ft.toggle() end, "Terminal" },
     },
     w = { "<CMD> w <CR>", "Write Buffer" },
     x = { "<CMD> x <CR>", "Write and Quit" },
