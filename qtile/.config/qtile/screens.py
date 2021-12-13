@@ -6,9 +6,7 @@ from libqtile.bar import Bar
 from libqtile.config import Screen
 
 # Import Widgets
-from libqtile.widget.check_updates import CheckUpdates
 from libqtile.widget.clock import Clock
-from libqtile.widget.currentlayout import CurrentLayout
 from libqtile.widget.currentlayout import CurrentLayoutIcon
 from libqtile.widget.groupbox import GroupBox
 from libqtile.widget.sep import Sep
@@ -48,8 +46,15 @@ screens = [
                 ),
                 GroupBox(
                     **widget_style | dict(
-                        active = colorscheme.fg,
+                        disable_drag = True,
+                        hide_unused = True,
                         highlight_method = "block",
+                        block_highlight_text_color = colorscheme.bg[0],
+                        this_current_screen_border = colorscheme.magenta[0],
+                        this_screen_border = colorscheme.bg[0],
+                        urgent_alert_method = "block",
+                        urgent_border = colorscheme.red[0],
+                        urgent_text = colorscheme.bg[0],
                     )
                 ),
                 WindowName(
