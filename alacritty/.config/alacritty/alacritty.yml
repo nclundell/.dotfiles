@@ -15,26 +15,29 @@ window:
   # Window class (Linux/BSD only):
   class:
     # Application instance name
-    instance: Alacritty
+    instance: alacritty
     # General application class
-    general: Alacritty
+    general: alacritty
+
+shell:
+  program: /usr/bin/fish
 
 # Font configuration
 font:
   normal:
-    family: Hack Nerd Font
+    family: Hack Nerd Font Mono
     style: Regular
 
   bold:
-    family: Hack Nerd Font
+    family: Hack Nerd Font Mono
     style: Bold
 
   italic:
-    family: Hack Nerd Font
+    family: Hack Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: Hack Nerd Font
+    family: Hack Nerd Font Mono
     style: Bold Italic
 
   size: 14.0
