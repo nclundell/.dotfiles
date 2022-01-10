@@ -10,21 +10,12 @@ function Utils.map(mode, binding, command, opts)
   vim.api.nvim_set_keymap(mode, binding, command, opts)
 end
 
-function Utils.packer_bootstrap()
-  local initial_install = false
-  local github_path  = 'https://github.com/wbthomason/packer.nvim'
-  local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-
-  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    initial_install = true
-    vim.fn.system({'git', 'clone', github_path, install_path})
+function Utils.load_config(config)
+  return function() 
+    if pcall(require, config) then 
+      require("configs."..config)() 
+    end 
   end
-
-  vim.cmd [[ packadd packer.nvim ]]
-  vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
-  require('plugins')
-
-  return initial_install
 end
 
 return Utils

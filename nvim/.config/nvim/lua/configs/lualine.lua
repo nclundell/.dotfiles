@@ -1,7 +1,5 @@
-return function()
-  require('lualine').setup{
-    options = {
-      theme = 'nord'
-    }
+require('lualine').setup{
+  sections = {
+    lualine_b = { {'b:gitsigns_head', icon = ''}, },
   }
-end
+}

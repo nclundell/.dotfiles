@@ -1,0 +1,299 @@
+return function()
+  local paq = require('paq')
+
+--[[
+  -- Paq Self Management
+  paq {
+    'savq/paq-nvim';
+  }
+
+  -- Common Deps
+  paq {
+    'kyazdani42/nvim-web-devicons';
+    'nvim-lua/plenary.nvim'; 
+    'nvim-lua/popup.nvim'; 
+  }
+  -- Color Schemes
+  paq {
+    'shaunsingh/nord.nvim';
+    'navarasu/onedark.nvim';
+    'NTBBloodbath/doom-one.nvim';
+  }
+
+  -- Commenting
+  paq {
+    'numToStr/Comment.nvim';
+  }
+
+  -- Completion
+  paq {
+    'hrsh7th/nvim-cmp';
+    'hrsh7th/cmp-buffer';
+    'hrsh7th/cmp-cmdline';
+    'hrsh7th/cmp-nvim-lsp';
+    'hrsh7th/cmp-path';
+    'saadparwaiz1/cmp_luasnip';
+  }
+
+  -- Database
+  paq {
+    'tpope/vim-dadbod';
+    'kristijanhusak/vim-dadbod-ui';
+    'kristijanhusak/vim-dadbod-completion';
+  }
+
+  -- Git
+  paq {
+    'lewis6991/gitsigns.nvim';
+    'kdheepak/lazygit.nvim';
+  }
+
+  -- Indentation
+  paq {
+    'tpope/vim-sleuth';
+    'lukas-reineke/indent-blankline.nvim';
+  }
+
+  -- LSP
+  paq {
+    'neovim/nvim-lspconfig';
+  }
+
+  -- Pairs
+  paq {
+    'windwp/nvim-autopairs';
+    'windwp/nvim-ts-autotag';
+  }
+
+  -- Project Tree
+  paq {
+    'kyazdani42/nvim-tree.lua';
+  }
+
+  -- Snippets
+  paq {
+    'L3MON4D3/LuaSnip';
+    'rafamadriz/friendly-snippets';
+  }
+
+  -- Status Line
+  paq {
+    'nvim-lualine/lualine.nvim';
+  }
+
+  -- Telescope Search
+  paq {
+    'nvim-telescope/telescope.nvim';
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'};
+      'nvim-telescope/telescope-packer.nvim';
+      'TC72/telescope-tele-tabby.nvim';
+      'camgraff/telescope-tmux.nvim';
+  }
+
+  -- Terminal
+  paq {
+    'akinsho/toggleterm.nvim';
+  }
+
+  -- Treesitter
+  paq {
+    {
+      'nvim-treesitter/nvim-treesitter',
+      run = function() vim.cmd [[ TSUpdate ]] end
+    };
+  }
+
+  -- Text Objects
+  paq {
+    'tpope/vim-surround';
+    'wellle/targets.vim';
+  }
+
+  -- Which-Key
+  paq {
+    "folke/which-key.nvim";
+  }
+
+  -- Lua
+  paq {
+    "folke/trouble.nvim";
+  }
+--]]
+end
+-- return require('packer').startup(function()
+--   -- Have Packer Manage Itself
+--   use {
+--     'wbthomason/packer.nvim', 
+--     opt = true
+--   }
+--
+--   -- Alignment
+--   use  {
+--     'junegunn/vim-easy-align',
+--     config = require('configs.easyalign')
+--   }
+--
+--   -- Colorschemes
+--   use {
+--     'shaunsingh/nord.nvim',
+--     'navarasu/onedark.nvim',
+--     'NTBBloodbath/doom-one.nvim'
+--   }
+--
+--   -- Commenting
+--   use {
+--     'numToStr/Comment.nvim',
+--     config = require('configs.comment')
+--   }
+--
+--   -- Completion
+--   use {
+--     'hrsh7th/nvim-cmp',
+--     config = require('configs.completion'),
+--     requires = { 
+--       'hrsh7th/cmp-buffer',
+--       'hrsh7th/cmp-cmdline',
+--       'hrsh7th/cmp-nvim-lsp',
+--       'hrsh7th/cmp-path',
+--       'saadparwaiz1/cmp_luasnip'
+--     }
+--   }
+  --
+  -- -- Database
+  -- use {
+  --   'tpope/vim-dadbod',
+  --   requires = {
+  --     'kristijanhusak/vim-dadbod-ui',
+  --     'kristijanhusak/vim-dadbod-completion'
+  --   }
+  -- }
+  --
+ --  -- Git
+ --  use {
+ --    {
+ --      'lewis6991/gitsigns.nvim',
+ --      config = require('configs.gitsigns'),
+ --      requires = 'nvim-lua/plenary.nvim' 
+ --    }, {
+ --      'sindrets/diffview.nvim',
+ --      requires = {
+	-- 'nvim-lua/plenary.nvim',
+	-- 'kyazdani42/nvim-web-devicons'
+ --      }
+ --    }, {
+ --      'kdheepak/lazygit.nvim'
+ --    }
+ --  }
+
+  -- -- Indentation
+  -- use {
+  --   'tpope/vim-sleuth'
+  -- }
+  --
+  -- use {
+  --   'lukas-reineke/indent-blankline.nvim', 
+  --   config = require('configs.indentline'),
+  -- }
+
+  -- -- Languages
+  -- use {
+  --   'tpope/vim-rails',
+  --   'tpope/vim-bundler',
+  --   'tpope/vim-rake'
+  -- }
+
+  -- -- LSP
+  -- use {
+  --   'neovim/nvim-lspconfig',
+  --   config = require('configs.lsp'),
+  -- }
+  --
+  -- -- Movement
+  -- use {
+  --   -- 'ggandor/lightspeed.nvim'
+  -- }
+
+  -- -- Pairs
+  -- use {
+  --   -- "steelsojka/pears.nvim",
+  --   -- config = require('configs.pairs')
+  --   'windwp/nvim-autopairs',
+  --   config = require('configs.pairs'),
+  --   requires = {
+  --     'windwp/nvim-ts-autotag'
+  --   }
+  -- }
+  
+  -- Project Tree
+--   use {
+--     'kyazdani42/nvim-tree.lua',
+--     config = require('configs.treenav'),
+--     requires = {
+--       'kyazdani42/nvim-web-devicons'
+--     }
+--   }
+--
+--   -- Snippets
+--   use {
+--     'L3MON4D3/LuaSnip',
+--     config = require('configs.snippets'),
+--     requires = {
+--       'rafamadriz/friendly-snippets'
+--     }
+--   }
+--
+--   -- Status Line
+--   use {
+--     'nvim-lualine/lualine.nvim',
+--     config = require('configs.lualine')
+--   }
+--
+--   -- Telescope Search
+--   use {
+--     'nvim-telescope/telescope.nvim',
+--     config = require('configs.telescope'),
+--     requires = {
+--       'nvim-lua/popup.nvim', 
+--       'nvim-lua/plenary.nvim',
+--       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+--       'nvim-telescope/telescope-packer.nvim',
+--       'TC72/telescope-tele-tabby.nvim',
+--       'camgraff/telescope-tmux.nvim'
+--     }
+--   }
+--
+--   -- Terminal
+--   use {
+--     'akinsho/toggleterm.nvim',
+--     config = require('configs.terminal')
+--   }
+--
+--   -- Treesitter
+--   use {
+--     'nvim-treesitter/nvim-treesitter',
+--     config = require('configs.treesitter'),
+--     run = function() vim.cmd [[ TSUpdate ]] end
+--   }
+--
+--   -- Text Objects
+--   use {
+--     'tpope/vim-surround',
+--     'wellle/targets.vim'
+--   }
+--
+--   -- Which-Key
+--   use {
+--     "folke/which-key.nvim",
+--     config = require('configs.whichkey'),
+--   }
+--
+--   -- Lua
+-- use {
+--   "folke/trouble.nvim",
+--   requires = "kyazdani42/nvim-web-devicons",
+--   config = function()
+--     require("trouble").setup {
+--     }
+--   end
+-- }
+-- end)

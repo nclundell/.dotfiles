@@ -7,26 +7,31 @@
 --                                              --  
 --------------------------------------------------
 
--- Plugin Install/Load --
-local initial_install = false
-local github_path  = 'https://github.com/wbthomason/packer.nvim'
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+-- Bootstrap Paq
+local install = false
+local github_path  = 'https://github.com/savq/paq-nvim.git'
+local install_path = vim.fn.stdpath('data')..'/site/pack/paqs/start/paq-nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  initial_install = true
-  vim.fn.system({'git', 'clone', github_path, install_path})
+  install = true
+  vim.fn.system({
+    'git',
+    'clone',
+    '--depth=1',
+    github_path,
+    install_path
+  })
 end
 
-vim.cmd [[ packadd packer.nvim ]]
-vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
+-- Load Plugin List
+vim.cmd [[ packadd paq-nvim ]]
 require('plugins')
 
-if initial_install then
-  require('packer').sync()
+-- Install Plugins or Load Config
+if install then
+  require('paq').install()
+else
+  require('configs')
+  require('keybinds')
+  require('settings')
 end
-
--- Keybinds --
-require('keybinds')
-
--- Settings --
-require('settings')

@@ -1,4 +1,3 @@
-local dv = require('diffview')
 local lg = require('lazygit')
 local nt = require('nvim-tree')
 local tr = require('trouble')
@@ -11,7 +10,6 @@ local dropdown_layout = require('telescope.themes').get_dropdown({ previewer = f
 -- Define Leader
 vim.g.mapleader = ','
 
--- Test
 -- Normal Mode Mappings
 wk.register({
   ['<ESC>'] = { "<CMD> nohl <CR>", "Disable Highlight"},
@@ -21,9 +19,11 @@ wk.register({
   ["<C-j>"] = { "<C-w>j", "Move Down One Pane" },
   ["<C-k>"] = { "<C-w>k", "Move Down Up Pane" },
   ["<C-l>"] = { "<C-w>l", "Move Right One Pane" },
-  ["<Space>"] = { "@=(foldlevel('.')?'za': '<Space>')<CR>", "(Un)Fold" },
+  ["<Space>"] = { 
+    "@=(foldlevel('.')?'za': '<Space>')<CR>",
+    "(Un)Fold"
+  },
   ["<leader>"] = {
-    a = { "<Plug>(EasyAlign)", "Align" },
     b = {
       name = "Browse",
       f = { function() tb.file_browser(dropdown_layout) end, "Files" },
@@ -43,9 +43,6 @@ wk.register({
       b = { function() tb.git_branches() end, "Branches" },
       c = { function() tb.git_commits() end, "Commits" },
       d = {
-	name = "Diff",
-	c = { function() dv.close() end, "Close" },
-	o = { function() dv.open() end, "Open" }
       },
       f = { function() tb.git_files() end, "Files" },
       g = { function() lg.lazygit() end, "Lazygit" },
@@ -55,7 +52,6 @@ wk.register({
       b = { function() tb.buffers() end, "Buffers" }, 
       t = { function() ts.extensions.tele_tabby.list(dropdown_layout) end, "Tabs" }, 
     },
-    p = { function() tb.builtin() end, "Telescope" },
     q = { "<CMD> bd <CR>", "Close Buffer" },
     s = {
       name = "Select",

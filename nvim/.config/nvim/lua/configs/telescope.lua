@@ -1,25 +1,23 @@
-return function ()
-  require('telescope').setup{
-    defaults = {
-      file_ignore_patterns = { "node_modules" },
-      layout_config = {
-        prompt_position = 'top'
-      },
-      sorting_strategy = 'ascending'
-    },
-    extensions = {
-      packer = {},
-      tele_tabby = {}
-    }
-  }
+local map = require('utils').map  
+local ts = require('telescope')
+local tb = require('telescope.builtin')
 
-  -- Load Extensions
-  require('telescope').load_extension('fzy_native')
-end
--- border          = true,
--- height          = 20,
--- previewer       = false,
--- shorten_path    = false,
--- use_highlighter = true,
--- width           = 60,
--- winblend        = 10,
+require('telescope').setup{
+  defaults = {
+    file_ignore_patterns = { "node_modules" },
+    layout_config = {
+      prompt_position = 'top'
+    },
+    sorting_strategy = 'ascending'
+  },
+  extensions = {
+    tele_tabby = {}
+  }
+}
+
+local dropdown_layout = require('telescope.themes').get_dropdown({ previewer = false })
+
+-- Load Extensions
+require('telescope').load_extension('fzf')
+
+-- Bindings

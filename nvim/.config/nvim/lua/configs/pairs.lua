@@ -1,9 +1,7 @@
-return function ()
-  local npairs = require('nvim-autopairs')
+local npairs = require('nvim-autopairs')
 
-  npairs.setup{}
+npairs.setup{}
 
-  -- Add Endwise Rules 
-  npairs.add_rules(require('nvim-autopairs.rules.endwise-lua'))
-  npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
-end
+-- Add Endwise Rules 
+npairs.add_rules(require('nvim-autopairs.rules.endwise-lua'))
+npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
