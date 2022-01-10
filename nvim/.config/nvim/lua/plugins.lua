@@ -1,5 +1,3 @@
-local config = require('utils').load_config
-
 require('paq') {
   -- Paq Self Management
   'savq/paq-nvim';

@@ -1,4 +1,3 @@
-local map = require('utils').map  
 local ts = require('telescope')
 local tb = require('telescope.builtin')
 
@@ -19,5 +18,3 @@ local dropdown_layout = require('telescope.themes').get_dropdown({ previewer = f
 
 -- Load Extensions
 require('telescope').load_extension('fzf')
-
--- Bindings
