@@ -5,7 +5,7 @@ local ts = require('telescope')
 local tb = require('telescope.builtin')
 local wk = require("which-key")
 
-local dropdown_layout = require('telescope.themes').get_dropdown({ previewer = false })
+local selection_layout = require('telescope.themes').get_dropdown({ previewer = false })
 
 -- Define Leader
 vim.g.mapleader = ','
@@ -14,7 +14,7 @@ vim.g.mapleader = ','
 wk.register({
   ['<ESC>'] = { "<CMD> nohl <CR>", "Disable Highlight"},
   ['<C-A-j>'] = { "<CMD> tabnext <CR>", "Next Tab" },
-  ['<C-A-k>'] = { "<CMD> tabprev <CR>", "Prev Tab" },
+  ['<C-A-k>'] = { "<CMD> tabprev <CR>", "Previous Tab" },
   ["<C-h>"] = { "<C-w>h", "Move Left One Pane" },
   ["<C-j>"] = { "<C-w>j", "Move Down One Pane" },
   ["<C-k>"] = { "<C-w>k", "Move Down Up Pane" },
@@ -49,17 +49,17 @@ wk.register({
     },
     o = {
       name = "Open",
-      b = { function() tb.buffers() end, "Buffers" }, 
-      t = { function() ts.extensions.tele_tabby.list(dropdown_layout) end, "Tabs" }, 
+      b = { function() tb.buffers(selection_layout) end, "Buffers" },
+      t = { function() ts.extensions.tele_tabby.list(selection_layout) end, "Tabs" },
     },
     q = { "<CMD> bd <CR>", "Close Buffer" },
     s = {
       name = "Select",
-      c = { function() tb.colorscheme(dropdown_layout) end, "ColorSchemes" },
+      c = { function() tb.colorscheme(selection_layout) end, "ColorSchemes" },
       t = {
 	name = "Tmux",
-	s = { function() ts.extensions.tmux.sessions(dropdown_layout) end, "Sessions" },
-	w = { function() ts.extensions.tmux.windows(dropdown_layout) end, "Windows" }
+	s = { function() ts.extensions.tmux.sessions(selection_layout) end, "Sessions" },
+        w = { function() ts.extensions.tmux.windows(selection_layout) end, "Windows" }
       }
     },
     t = {
@@ -68,7 +68,7 @@ wk.register({
     },
     w = { "<CMD> w <CR>", "Write Buffer" },
     x = { "<CMD> x <CR>", "Write and Quit" },
-    ["/"] = { function() tb.grep_string() end, "Search" },
+    ["/"] = { function() tb.current_buffer_fuzzy_find() end, "Search Buffer" },
   },
 })
 
@@ -88,7 +88,6 @@ wk.register({
 wk.register({
   [">"] = { ">gv", "Indent Right" },
   ["<"] = { "<gv", "Indent Left" },
-  a = { "<Plug>(EasyAlign)", "Align" },
 }, {
   mode = "x"
 })
