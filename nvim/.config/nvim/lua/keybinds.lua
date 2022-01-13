@@ -1,8 +1,10 @@
+local ft = require('FTerm')
 local lg = require('lazygit')
 local nt = require('nvim-tree')
 local tr = require('trouble')
 local ts = require('telescope')
 local tb = require('telescope.builtin')
+local te = require('telescope').extensions
 local wk = require("which-key")
 
 local selection_layout = require('telescope.themes').get_dropdown({ previewer = false })
@@ -24,17 +26,10 @@ wk.register({
     "(Un)Fold"
   },
   ["<leader>"] = {
-    b = {
-      name = "Browse",
-      f = { function() tb.file_browser(dropdown_layout) end, "Files" },
-      t = { function() nt.toggle() end, "Project Tree" },
-
-    },
     d = { "<CMD> DBUIToggle <CR>", "Database" },
     f = {
       name = "Find",
       f = { function() tb.find_files() end, "Files" }, 
-      p = { function() ts.extensions.packer.plugins() end, "Plugins" }, 
       v = { function() tb.treesitter() end, "Variables" }, 
       w = { function() tb.grep_string() end, "Word" } 
     },
@@ -42,29 +37,24 @@ wk.register({
       name = "Git",
       b = { function() tb.git_branches() end, "Branches" },
       c = { function() tb.git_commits() end, "Commits" },
-      d = {
-      },
       f = { function() tb.git_files() end, "Files" },
       g = { function() lg.lazygit() end, "Lazygit" },
     },
     o = {
       name = "Open",
       b = { function() tb.buffers(selection_layout) end, "Buffers" },
-      t = { function() ts.extensions.tele_tabby.list(selection_layout) end, "Tabs" },
+      f = { function() te.file_browser.file_browser(selection_layout) end, "Files" },
     },
     q = { "<CMD> bd <CR>", "Close Buffer" },
     s = {
       name = "Select",
       c = { function() tb.colorscheme(selection_layout) end, "ColorSchemes" },
-      t = {
-	name = "Tmux",
-	s = { function() ts.extensions.tmux.sessions(selection_layout) end, "Sessions" },
-        w = { function() ts.extensions.tmux.windows(selection_layout) end, "Windows" }
-      }
     },
     t = {
       name = "Toggle",
       d = { function() tr.toggle() end, "Diagnostics" },
+      f = { function() nt.toggle() end, "File Tree" },
+      t = { function() ft.toggle() end, "Scratch Terminal" }
     },
     w = { "<CMD> w <CR>", "Write Buffer" },
     x = { "<CMD> x <CR>", "Write and Quit" },
@@ -75,9 +65,11 @@ wk.register({
 -- Terminal Mode Mappings
 wk.register({
   ["<leader>"] = {
+  ['<C-A-j>'] = { "<CMD> tabnext <CR>", "Next Tab" },
+  ['<C-A-k>'] = { "<CMD> tabprev <CR>", "Previous Tab" },
     t = {
       name = "Toggle",
-      t = { function() ft.toggle() end, "Terminal" },
+      t = { function() ft.toggle() end, "Scratch Terminal" }
     }
   }
 }, {

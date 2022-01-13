@@ -55,15 +55,14 @@ require('paq') {
 
   -- Telescope Search
   'nvim-telescope/telescope.nvim',
-  'TC72/telescope-tele-tabby.nvim';
-  'camgraff/telescope-tmux.nvim';
+  'nvim-telescope/telescope-file-browser.nvim';
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make'
   };
 
   -- Terminal
-  'akinsho/toggleterm.nvim',
+  'numToStr/FTerm.nvim';
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter';

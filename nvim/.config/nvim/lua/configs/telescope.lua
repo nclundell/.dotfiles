@@ -10,11 +10,10 @@ require('telescope').setup{
     sorting_strategy = 'ascending'
   },
   extensions = {
-    tele_tabby = {}
+    file_browser = {}
   }
 }
 
-local dropdown_layout = require('telescope.themes').get_dropdown({ previewer = false })
-
 -- Load Extensions
 require('telescope').load_extension('fzf')
+require("telescope").load_extension "file_browser"

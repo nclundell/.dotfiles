@@ -1,9 +1,13 @@
 require('Comment').setup()
+require('FTerm').setup({
+  dimensions = {
+    height = 0.9,
+    width = 0.9,
+    x = 0.5,
+    y = 0.5
+  }
+})
 require('gitsigns').setup()
-require('toggleterm').setup {
-  direction = 'tab',
-  shade_terminals = false
-}
 require('nvim-treesitter.configs').setup {
   autotag = {
     enable = true,
