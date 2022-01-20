@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Install or Update Starship Prompt
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
+# NOTE: Make sure a NERD Font is installed!
