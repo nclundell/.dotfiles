@@ -28,10 +28,10 @@ focus_on_window_activation = "smart"
 reconfigure_screens = True
 
 # Autostart
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.call([home])
+# @hook.subscribe.startup_once
+# def autostart():
+#     home = os.path.expanduser('~/.config/qtile/autostart.sh')
+#     subprocess.call([home])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

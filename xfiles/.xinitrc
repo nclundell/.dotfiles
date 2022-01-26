@@ -25,13 +25,14 @@ fi
 
 xsetroot -cursor_name left_ptr
 
+volumeicon &
+nm-applet &
+nitrogen --restore &
+picom &
+mpd &
+
 # Start Polkit Agent
+# lxsession
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# Start Essential Apps
-nitrogen --restore &
-nm-applet &
-picom &
-volumeicon &
-
-exec bspwm
+exec qtile start
