@@ -29,6 +29,7 @@ require('nvim-treesitter.configs').setup {
     enable = true
   },
 }
+require('sidebar-nvim').setup()
 require('which-key').setup {}
 
 -- Pull In Larger Configs

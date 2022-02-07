@@ -46,6 +46,9 @@ require('paq') {
   -- Project Tree
   'kyazdani42/nvim-tree.lua';
 
+  -- Sidebar
+  'sidebar-nvim/sidebar.nvim';
+
   -- Snippets
   'L3MON4D3/LuaSnip';
   'rafamadriz/friendly-snippets';
