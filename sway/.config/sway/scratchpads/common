@@ -1,0 +1,5 @@
+# Cycle Through Scratchpads
+bindsym $mod+Tab scratchpad show
+
+# Make Current Window a Scratchpad
+# bindsym $mod+Shift+Tab move scratchpad

@@ -1,0 +1,39 @@
+### Defaults
+set $alt Mod1
+set $mod Mod4
+set $term alacritty
+
+### Floating (For Mouse)
+floating_modifier $mod normal
+
+# include /etc/sway/config.d/*
+
+### Imports
+include bar
+include ui
+
+include bindings/launchers
+include bindings/movement
+include bindings/resize
+include bindings/sway
+include bindings/windows
+include bindings/workspaces
+
+include scratchpads/common
+include scratchpads/htop
+include scratchpads/music
+
+### Wallpaper
+output * bg $HOME/Pictures/Wallpapers/Ultrawide/Halo/halo_ring_day_mountain.png fill
+
+### Autostart
+exec {
+  mpd
+  nm-applet --indicator
+  telegram-desktop
+  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+}
+
+# Scratchpads
+exec $term -t "HTOP" -e htop
+exec $term -t "NCMPCPP" -e ncmpcpp

@@ -1,0 +1,6 @@
+# Start Launcher
+bindsym $mod+d exec wofi -S drun
+
+# Terminal
+bindsym $mod+Return exec $term
+

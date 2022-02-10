@@ -1,0 +1,19 @@
+# Kill Focused window
+bindsym $mod+w kill
+
+# Fullscreen Focused Window
+bindsym $mod+f fullscreen
+
+# Set Split Method
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Toggle Split
+bindsym $mod+e layout toggle split
+
+# Toggle Floating For Focused Window
+bindsym $mod+Shift+space floating toggle
+
+# Toggle Focus Between Window Layers (Floating/Tiling)
+bindsym $mod+space focus mode_toggle
+
