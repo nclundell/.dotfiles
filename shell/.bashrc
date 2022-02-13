@@ -17,12 +17,12 @@ set -o vi
 cdrip () {
   case $1 in
     ogg | mp3 | flac | opus)
-      abcde -o $1
+      abcde -c $HOME/.config/abcde/config -o $1
       ;;
     *)
       echo "File format \"$1\" not recognized."
       echo "Defaulting to OGG format..."
-      abcde -o ogg
+      abcde -c $HOME/.config/abcde/config -o ogg
       ;;
   esac
 }
@@ -58,9 +58,15 @@ export VISUAL=/usr/bin/nvim
 export EDITOR=/usr/bin/nvim
 
 # Setup ASDF
-#source $HOME/.local/share/asdf/asdf.sh
-#source $HOME/.local/share/asdf/completions/asdf.bash
+source $HOME/.local/share/asdf/asdf.sh
+source $HOME/.local/share/asdf/completions/asdf.bash
 
 # Setup Starship Prompt
-#eval "$(starship init bash)"
+eval "$(starship init bash)"
 
+# Aliases
+alias z="sudo zypper"
+alias cdm="sudo update-alternatives --config default-displaymanager"
+
+# Start Sway
+[ "$(tty)" = "/dev/tty1" ] && exec sway
