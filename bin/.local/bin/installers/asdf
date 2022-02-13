@@ -3,7 +3,8 @@
 ASDF = $HOME/.local/share/asdf
 
 # Install or Update ASDF
-if [[ -d "$ASDF" ]]; then
+if [[ -d "$HOME/.local/share/asdf" ]]; then
+  cd $HOME/.local/share/asdf
   git pull
 else
   git clone https://github.com/asdf-vm/asdf.git ~/.local/share/asdf
