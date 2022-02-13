@@ -19,6 +19,9 @@ window:
     # General application class
     general: alacritty
 
+shell:
+  # program: /usr/bin/fish
+
 # Font configuration
 font:
   normal:
@@ -71,11 +74,9 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-#######################################
-##      START OF COLOR SCHEMES       ##
-#######################################
+## Colorschemes
 schemes:
-  ### Doom One ###
+  # Doom One
   doom-one: &doom-one
     primary:
       background: '#282c34'
@@ -105,7 +106,7 @@ schemes:
       cyan:    '#46d9ff'
       white:   '#dfdfdf'
 
-  ### Dracula ###
+  # Dracula
   dracula: &dracula
     primary:
       background: '#282a36'
@@ -160,7 +161,7 @@ schemes:
       cyan:    '#59dffc'
       white:   '#e6e6d1'
 
-  ### Nord ###
+  # Nord
   nord: &nord
     # Default colors
     primary:
@@ -198,17 +199,10 @@ schemes:
 # *nord
 # *oceanic-next
 
-colors: *doom-one
+colors: *dracula
 
-#######################################
-##       END OF COLOR SCHEMES        ##
-#######################################
-
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
+window:
+  opacity: 1.0
 
 # Bindings are always filled by default, but will be replaced when a new
 # binding with the same triggers is defined. To unset a default binding, it can
