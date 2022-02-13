@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Install or Update lazygit
+if [[ -d "$HOME/.local/share/lazygit" ]]; then
+  cd $HOME/.local/share/lazygit
+  git pull
+  go build -o $HOME/.local/bin
+else
+  git clone https://github.com/jesseduffield/lazygit.git $HOME/.local/share/lazygit
+  cd $HOME/.local/share/lazygit
+  go build -o $HOME/.local/bin
+fi
