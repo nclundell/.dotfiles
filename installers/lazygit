@@ -1,6 +1,9 @@
 #!/bin/sh
 
 # Install or Update lazygit
+
+mkdir -p $HOME/.local/bin
+
 if [[ -d "$HOME/.local/share/lazygit" ]]; then
   cd $HOME/.local/share/lazygit
   git pull
