@@ -16,8 +16,8 @@ set -o vi
 
 # Add Local Build Paths to $PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/bin/scripts:$PATH
 export PATH=$HOME/.local/man:$PATH
+export PATH=$HOME/.local/scripts:$PATH
 
 # Set Neovim as Editor
 export VISUAL=/usr/bin/nvim
