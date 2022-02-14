@@ -8,6 +8,7 @@ require('paq') {
   'nvim-lua/popup.nvim'; 
 
   -- Color Schemes
+  'Mofiqul/dracula.nvim';
   'shaunsingh/nord.nvim';
   'navarasu/onedark.nvim';
   'NTBBloodbath/doom-one.nvim';
