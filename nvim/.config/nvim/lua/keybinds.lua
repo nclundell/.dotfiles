@@ -45,6 +45,7 @@ wk.register({
       b = { function() tb.buffers(selection_layout) end, "Buffers" },
       f = { function() te.file_browser.file_browser(selection_layout) end, "Files" },
     },
+    p = { function() tb.commands() end, "Command Pallate" },
     q = { "<CMD> bd <CR>", "Close Buffer" },
     s = {
       name = "Select",
