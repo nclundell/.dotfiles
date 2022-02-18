@@ -24,10 +24,12 @@ include scratchpads/htop
 include scratchpads/music
 
 ### Wallpaper
-output * bg $HOME/Pictures/Wallpapers/Ultrawide/Halo/halo_ring_day_mountain.png fill
+output * adaptive_sync on
+output * bg $HOME/Pictures/Wallpapers/Ultrawide/Star Wars/boba_fett.png fill
 
 ### Autostart
 exec {
+  dunst
   mpd
   nm-applet --indicator
   telegram-desktop
