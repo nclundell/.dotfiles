@@ -4,3 +4,5 @@ bindsym $mod+d exec wofi -S drun
 # Terminal
 bindsym $mod+Return exec $term
 
+# Online Radio
+bindsym $mod+mod1+r exec radio
