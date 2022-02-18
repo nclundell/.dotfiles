@@ -17,6 +17,7 @@ if [[ stations[station] ]]; then
     dunstify "Online Radio" "Radio has stopped. 🎶"
     exit 1
   else
+    echo "Radio Starting..."
     dunstify "Online Radio" "Playing station: ${station}. 🎶"
     mpv ${stations[$station]}
     return
