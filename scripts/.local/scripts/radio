@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+declare -A stations
+
+stations[Quit]="exit"
+stations[Classic_Rock]="https://zeno.fm/radio/117-fm-classic-rock-radio/"
+
+start_radio() {
+  dunstify "Starting Online Radio" "Playing station: $1. 🎶"
+}
+
+end_radio() {
+  dunstify "Stopping Online Radio" "Radio has stopped. 🎶"
+}
+
+station=$(for station in ${!stations[@]}; do echo $station; done | wofi -d -i -p "Choose Station:") || exit
+
+if [[ stations[station] ]]; then
+  pkill -f http || echo "mpv not running"
+
+  if [[ $station == "Quit" ]]; then
+    echo "Radio Stopped."
+    end_radio
+    exit 1
+  else
+    start_radio $station
+    mpv ${stations[$station]}
+    return
+  fi
+else
+  echo "Radio Stopped."
+  exit 0
+fi
