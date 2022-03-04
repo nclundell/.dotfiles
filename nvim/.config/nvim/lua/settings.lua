@@ -8,7 +8,7 @@ local wo = vim.wo
 -- Global Options --
   -- Colors
   vim.o.termguicolors = true
-  vim.cmd [[ colorscheme dracula ]]
+  vim.cmd [[ colorscheme nord ]]
   vim.cmd [[ syntax on ]]
 
   -- Re-read File When Changed Optside of Vim
