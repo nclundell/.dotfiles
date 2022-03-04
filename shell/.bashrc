@@ -5,6 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
@@ -31,8 +36,9 @@ source $HOME/.local/share/asdf/completions/asdf.bash
 eval "$(starship init bash)"
 
 # Aliases
-alias z="sudo zypper"
-alias cdm="sudo update-alternatives --config default-displaymanager"
+# alias z="sudo zypper"
+# alias cdm="sudo update-alternatives --config default-displaymanager"
+alias d="sudo dnf"
 
 # Start Sway
-[ "$(tty)" = "/dev/tty1" ] && exec sway
+# [ "$(tty)" = "/dev/tty1" ] && exec sway
