@@ -34,7 +34,8 @@ require('paq') {
   'kdheepak/lazygit.nvim';
 
   -- Indentation
-  'tpope/vim-sleuth';
+  -- 'tpope/vim-sleuth';
+  'nmac427/guess-indent.nvim';
   'lukas-reineke/indent-blankline.nvim';
 
   -- LSP
@@ -58,7 +59,7 @@ require('paq') {
   'nvim-lualine/lualine.nvim';
 
   -- Telescope Search
-  'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope.nvim';
   'nvim-telescope/telescope-file-browser.nvim';
   {
     'nvim-telescope/telescope-fzf-native.nvim',
