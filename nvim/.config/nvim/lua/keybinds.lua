@@ -1,4 +1,5 @@
 local ft = require('FTerm')
+local hop = require('hop')
 local lg = require('lazygit')
 local nt = require('nvim-tree')
 local tr = require('trouble')
@@ -24,6 +25,14 @@ wk.register({
   ["<Space>"] = { 
     "@=(foldlevel('.')?'za': '<Space>')<CR>",
     "(Un)Fold"
+  },
+  g = {
+    l = { function() hop.hint_lines() end, "Hop To Line"},
+    w = {
+      name = "Hop to Word",
+      a = { function() hop.hint_words() end, "Append"},
+      i = { function() hop.hint_words() end, "Insert"}
+    }
   },
   ["<leader>"] = {
     d = { "<CMD> DBUIToggle <CR>", "Database" },

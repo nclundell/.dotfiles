@@ -41,6 +41,9 @@ require('paq') {
   -- LSP
   'neovim/nvim-lspconfig';
 
+  -- Movement
+  'phaazon/hop.nvim';
+
   -- Pairs
   'windwp/nvim-autopairs';
   'windwp/nvim-ts-autotag';

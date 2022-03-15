@@ -2,6 +2,7 @@
 require('Comment').setup {}
 require('gitsigns').setup {}
 require('guess-indent').setup {}
+require('hop').setup {}
 require('sidebar-nvim').setup {}
 require('which-key').setup {}
 
