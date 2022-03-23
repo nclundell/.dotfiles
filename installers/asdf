@@ -9,3 +9,8 @@ if [[ -d "$HOME/.local/share/asdf" ]]; then
 else
   git clone https://github.com/asdf-vm/asdf.git ~/.local/share/asdf
 fi
+
+if [[ ! -d "$HOME/.config/asdf" ]]; then
+  cd $HOME/.dotfiles
+  stow asdf
+fi
