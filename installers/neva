@@ -1,0 +1,11 @@
+#!/bin/sh
+
+mkdir -p $HOME/.local/share/neva/bin
+
+curl -L -o $HOME/.local/share/neva/bin/neva https://github.com/shohi/neva/raw/main/neva
+
+chmod a+x $HOME/.local/share/neva/bin/neva
+
+ln -s $HOME/.local/share/neva/bin/neva $HOME/.local/bin/neva
+
+sed -i 's/$HOME\/.neva/$HOME\/.local\/share\/neva/g' $HOME/.local/share/neva/bin/neva
