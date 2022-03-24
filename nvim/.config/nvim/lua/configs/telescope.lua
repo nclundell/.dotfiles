@@ -10,10 +10,16 @@ require('telescope').setup{
     sorting_strategy = 'ascending'
   },
   extensions = {
-    file_browser = {}
+    file_browser = {},
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+	previewer = false
+      }
+    }
   }
 }
 
 -- Load Extensions
 require('telescope').load_extension "fzf"
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension("ui-select")

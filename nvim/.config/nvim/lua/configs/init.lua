@@ -1,18 +1,35 @@
--- Basic Configs
-require('Comment').setup {}
-require('gitsigns').setup {}
-require('guess-indent').setup {}
-require('hop').setup {}
-require('sidebar-nvim').setup {}
-require('which-key').setup {}
+local configs = {
+  "cmp",
+  "fterm",
+  "indentline",
+  "lsp",
+  "lualine",
+  "pairs",
+  "prettyfold",
+  "telescope",
+  "treenav",
+  "treesitter"
+}
 
--- Pull In Larger Configs
-require('configs.cmp')
-require('configs.fterm')
-require('configs.indentline')
-require('configs.lsp')
-require('configs.lualine')
-require('configs.pairs')
-require('configs.telescope')
-require('configs.treenav')
-require('configs.treesitter')
+local plugins = {
+  "Comment",
+  "gitsigns",
+  "guess-indent",
+  "hop",
+  "legendary",
+  "sidebar-nvim",
+  "which-key"
+}
+
+for _, plugin in ipairs(plugins) do
+  if pcall(require, plugin) then
+    require(plugin).setup {}
+  end
+end
+
+for _, config in ipairs(configs) do
+  config = "configs." .. config
+  if pcall(require, config) then
+    require(config)
+  end
+end

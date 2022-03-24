@@ -13,6 +13,9 @@ require('paq') {
   'navarasu/onedark.nvim';
   'NTBBloodbath/doom-one.nvim';
 
+  -- Command Prompt
+  'mrjones2014/legendary.nvim';
+
   -- Commenting
   'numToStr/Comment.nvim';
 
@@ -29,13 +32,16 @@ require('paq') {
   'kristijanhusak/vim-dadbod-ui';
   'kristijanhusak/vim-dadbod-completion';
 
+  -- Folding
+  'anuvyklack/pretty-fold.nvim';
+
   -- Git
   'lewis6991/gitsigns.nvim';
   'kdheepak/lazygit.nvim';
 
   -- Indentation
-  -- 'tpope/vim-sleuth';
-  'nmac427/guess-indent.nvim';
+  'tpope/vim-sleuth';
+  -- 'nmac427/guess-indent.nvim';
   'lukas-reineke/indent-blankline.nvim';
 
   -- LSP
@@ -55,15 +61,16 @@ require('paq') {
   'sidebar-nvim/sidebar.nvim';
 
   -- Snippets
-  'L3MON4D3/LuaSnip';
-  'rafamadriz/friendly-snippets';
+  -- 'L3MON4D3/LuaSnip';
+  -- 'rafamadriz/friendly-snippets';
 
   -- Status Line
   'nvim-lualine/lualine.nvim';
 
-  -- Telescope Search
+  -- Telescope
   'nvim-telescope/telescope.nvim';
   'nvim-telescope/telescope-file-browser.nvim';
+  'nvim-telescope/telescope-ui-select.nvim';
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make'
