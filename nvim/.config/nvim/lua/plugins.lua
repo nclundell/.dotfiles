@@ -1,94 +1,108 @@
-require('paq') {
-  -- Paq Self Management
-  'savq/paq-nvim';
+return function() 
+  use 'wbthomason/packer.nvim'
 
-  -- Common Deps
-  'kyazdani42/nvim-web-devicons';
-  'nvim-lua/plenary.nvim'; 
-  'nvim-lua/popup.nvim'; 
-
-  -- Color Schemes
-  'Mofiqul/dracula.nvim';
-  'shaunsingh/nord.nvim';
-  'navarasu/onedark.nvim';
-  'NTBBloodbath/doom-one.nvim';
-
-  -- Command Prompt
-  'mrjones2014/legendary.nvim';
+  -- Colorschemes
+  use {
+    'Mofiqul/dracula.nvim',
+    'navarasu/onedark.nvim',
+    'NTBBloodbath/doom-one.nvim',
+    {
+      'shaunsingh/nord.nvim',
+      config = require('settings.colorscheme')
+    }
+  }
 
   -- Commenting
-  'numToStr/Comment.nvim';
+  use {
+    'numToStr/Comment.nvim',
+    config = require('configs.comment')
+  }
 
   -- Completion
-  'hrsh7th/nvim-cmp';
-  'hrsh7th/cmp-buffer';
-  'hrsh7th/cmp-cmdline';
-  'hrsh7th/cmp-nvim-lsp';
-  'hrsh7th/cmp-path';
-  'saadparwaiz1/cmp_luasnip';
+  use { 
+    'hrsh7th/nvim-cmp',
+    config = require('configs.cmp'),
+    requires = {
+      'hrsh7th/cmp-buffer';
+      'hrsh7th/cmp-cmdline';
+      'hrsh7th/cmp-nvim-lsp';
+      'hrsh7th/cmp-path';
+   }
+  }
 
-  -- Database
-  'tpope/vim-dadbod';
-  'kristijanhusak/vim-dadbod-ui';
-  'kristijanhusak/vim-dadbod-completion';
-
-  -- Folding
-  'anuvyklack/pretty-fold.nvim';
+   -- Folding
+   use {
+     'anuvyklack/pretty-fold.nvim',
+     config = require('configs.prettyfold')
+   }
 
   -- Git
-  'lewis6991/gitsigns.nvim';
-  'kdheepak/lazygit.nvim';
+  use {
+    {
+      'lewis6991/gitsigns.nvim',
+      config = require('configs.gitsigns')
+    },
+    {
+      'kdheepak/lazygit.nvim',
+      config = require('configs.lazygit')
+    }
+  }
 
   -- Indentation
-  'tpope/vim-sleuth';
-  -- 'nmac427/guess-indent.nvim';
-  'lukas-reineke/indent-blankline.nvim';
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    {
+      'nmac427/guess-indent.nvim',
+      config = require('configs.guess-indent')
+    }
+  }
 
   -- LSP
-  'neovim/nvim-lspconfig';
-
-  -- Movement
-  'phaazon/hop.nvim';
+  use {
+    'neovim/nvim-lspconfig',
+    config = require('configs.lsp')
+  }
 
   -- Pairs
-  'windwp/nvim-autopairs';
-  'windwp/nvim-ts-autotag';
-
-  -- Project Tree
-  'kyazdani42/nvim-tree.lua';
-
-  -- Sidebar
-  'sidebar-nvim/sidebar.nvim';
-
-  -- Snippets
-  -- 'L3MON4D3/LuaSnip';
-  -- 'rafamadriz/friendly-snippets';
+  use {
+    {
+      'windwp/nvim-autopairs',
+      config = require('configs.autopairs')
+    },
+    'windwp/nvim-ts-autotag',
+    'RRethy/nvim-treesitter-endwise'
+  }
 
   -- Status Line
-  'nvim-lualine/lualine.nvim';
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = require('configs.lualine')
+  }
 
-  -- Telescope
-  'nvim-telescope/telescope.nvim';
-  'nvim-telescope/telescope-file-browser.nvim';
-  'nvim-telescope/telescope-ui-select.nvim';
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make'
-  };
-
-  -- Terminal
-  'numToStr/FTerm.nvim';
+   -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = require('configs.telescope'),
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-packer.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make'
+      }
+    }
+  }
 
   -- Treesitter
-  'nvim-treesitter/nvim-treesitter';
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = require('configs.treesitter')
+  }
 
-  -- Text Objects
-  'tpope/vim-surround';
-  'wellle/targets.vim';
+end
 
-  -- Which-Key
-  "folke/which-key.nvim";
-
-  -- Lua
-  "folke/trouble.nvim";
-}
+--   -- Text Objects
+--   'tpope/vim-surround';
+--   'wellle/targets.vim';
+-- }

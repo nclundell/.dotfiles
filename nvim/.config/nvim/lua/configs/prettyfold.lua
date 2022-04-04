@@ -1,4 +1,3 @@
-require('pretty-fold').setup {}
-require('pretty-fold.preview').setup {
-  key = 'l'
-}
+return function()
+  require('pretty-fold').setup {}
+end

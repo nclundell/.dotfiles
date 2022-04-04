@@ -1,3 +1,4 @@
+return function()
 local cmp = require('cmp')
 
 local has_words_before = function()
@@ -78,3 +79,4 @@ cmp.setup({
     { name = 'cmdline' }
   } 
 })
+end
