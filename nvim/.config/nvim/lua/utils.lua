@@ -34,6 +34,16 @@ function Utils.bootstrap_plugins()
   if bootstrapped then packer.sync() end
 end
 
+function Utils.luamap(mode, binding, command, opts)
+  opts = vim.tbl_extend('keep', opts or {}, {
+    noremap = true,
+    silent = true,
+    expr = false
+  })
+
+  vim.keymap.set(mode, binding, command, opts)
+end
+
 function Utils.map(mode, binding, command, opts)
   opts = vim.tbl_extend('keep', opts or {}, {
     noremap = true,
@@ -43,5 +53,4 @@ function Utils.map(mode, binding, command, opts)
 
   vim.api.nvim_set_keymap(mode, binding, command, opts)
 end
-
 return Utils

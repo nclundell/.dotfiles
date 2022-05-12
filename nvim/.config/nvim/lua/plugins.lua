@@ -38,14 +38,8 @@ return function()
 
   -- Git
   use {
-    {
-      'lewis6991/gitsigns.nvim',
-      config = require('configs.gitsigns')
-    },
-    {
-      'kdheepak/lazygit.nvim',
-      config = require('configs.lazygit')
-    }
+    'lewis6991/gitsigns.nvim',
+    config = require('configs.gitsigns')
   }
 
   -- Indentation
@@ -73,6 +67,12 @@ return function()
     'RRethy/nvim-treesitter-endwise'
   }
 
+  -- Sidebar
+  use {
+    'sidebar-nvim/sidebar.nvim',
+    config = require('configs.sidebar')
+  }
+
   -- Status Line
   use {
     'nvim-lualine/lualine.nvim',
@@ -94,6 +94,12 @@ return function()
     }
   }
 
+  -- Terminal
+  use {
+    'akinsho/toggleterm.nvim',
+    config = require('configs.toggleterm')
+  }
+
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -101,8 +107,3 @@ return function()
   }
 
 end
-
---   -- Text Objects
---   'tpope/vim-surround';
---   'wellle/targets.vim';
--- }
