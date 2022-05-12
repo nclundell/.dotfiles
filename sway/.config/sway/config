@@ -25,7 +25,7 @@ include scratchpads/music
 
 ### Wallpaper
 output * adaptive_sync on
-output * bg $HOME/Pictures/Wallpapers/Ultrawide/Star Wars/boba_fett.png fill
+output * bg $HOME/Pictures/Wallpapers/Ultrawide/Abstract/abstract_3.png fill
 
 ### Autostart
 exec {
