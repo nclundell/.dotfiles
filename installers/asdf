@@ -12,5 +12,3 @@ if [[ ! -d "$HOME/.config/asdf" ]]; then
   cd $HOME/.dotfiles
   stow asdf
 fi
-
-
