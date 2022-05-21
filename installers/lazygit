@@ -20,10 +20,6 @@ GITHUB_LATEST_VERSION=$(curl -L -s -H 'Accept: application/json' https://github.
 GITHUB_FILE="lazygit_${GITHUB_LATEST_VERSION//v/}_${OS}_${ARCH}.tar.gz"
 GITHUB_URL="https://github.com/jesseduffield/lazygit/releases/download/${GITHUB_LATEST_VERSION}/${GITHUB_FILE}"
 
-echo $GITHUB_LATEST_VERSION
-echo $GITHUB_FILE
-echo $GITHUB_URL
-
 # install/update the local binary
 mkdir tmp
 curl -L -o tmp/lazygit.tar.gz $GITHUB_URL

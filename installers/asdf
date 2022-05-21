@@ -1,7 +1,5 @@
 #!/bin/sh
 
-ASDF = $HOME/.local/share/asdf
-
 # Install or Update ASDF
 if [[ -d "$HOME/.local/share/asdf" ]]; then
   cd $HOME/.local/share/asdf
@@ -14,3 +12,5 @@ if [[ ! -d "$HOME/.config/asdf" ]]; then
   cd $HOME/.dotfiles
   stow asdf
 fi
+
+
