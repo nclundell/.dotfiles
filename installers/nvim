@@ -15,3 +15,9 @@ asdf install neovim stable
 
 printf "\nGlobal version set to 'nightly'"
 asdf global neovim nightly
+
+if [[ ! -d "$HOME/.config/nvim" ]]; then
+  printf "\n\nLink to Neovim config..."
+  cd $HOME/.dotfiles
+  stow nvim
+fi
