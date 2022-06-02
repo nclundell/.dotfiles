@@ -20,6 +20,3 @@ map("n", "<Space>", "@=(foldlevel('.')?'za': '<Space>') <CR>")
 -- Visual Mode Indenting
 map("x", ">", ">gv")
 map("x", "<", "<gv")
-
--- Terminal Mode Bindings
-map("t", "<ESC>", "<C-\\><C-n>")
