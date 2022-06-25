@@ -1,0 +1,7 @@
+[user]
+	email = nclundell@pm.me
+	name = Nathan Lundell
+[pull]
+	rebase = true
+[alias]
+	root = rev-parse --show-toplevel
