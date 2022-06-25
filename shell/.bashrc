@@ -25,8 +25,8 @@ export PATH=$HOME/.local/man:$PATH
 export PATH=$HOME/.local/scripts:$PATH
 
 # Set Neovim as Editor
-export VISUAL=/usr/bin/nvim
-export EDITOR=/usr/bin/nvim
+export VISUAL=nvim
+export EDITOR=nvim
 
 # Setup ASDF
 export ASDF_DIR="$HOME/.local/share/asdf"
@@ -34,15 +34,16 @@ export ASDF_DATA_DIR="$HOME/.local/share/asdf/data"
 export ASDF_CONFIG_FILE="$HOME/.config/asdf/config"
 export ASDF_GEM_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default_gems"
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default-python-packages"
-source $HOME/.local/share/asdf/asdf.sh
-source $HOME/.local/share/asdf/completions/asdf.bash
+
+if [[ -d $HOME/.local/share/asdf ]]; then
+  source $HOME/.local/share/asdf/asdf.sh
+  source $HOME/.local/share/asdf/completions/asdf.bash
+fi
 
 # Setup Starship Prompt
 eval "$(starship init bash)"
 
 # Aliases
-# alias z="sudo zypper"
-# alias cdm="sudo update-alternatives --config default-displaymanager"
 alias d="sudo dnf"
 
 # Start Sway
