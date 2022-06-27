@@ -26,21 +26,22 @@ return function()
   local map = require('utils').luamap
   local selection_layout = require('telescope.themes').get_dropdown({ previewer = false })
 
-  -- Picker of Pickers
-  map('n', '<leader>p',  function() require('telescope') end)
-
   -- Buffer/File Pickers
   map('n', '<leader>bb', function() require('telescope.builtin').buffers(selection_layout) end)
   map('n', '<leader>ff', function() require('telescope.builtin').find_files() end)
   map('n', '<leader>gf', function() require('telescope.builtin').git_files() end)
-  map('n', '<leader>gs', function() require('telescope.builtin').grep_string() end)
-  map('n', '<leader>ts', function() require('telescope.builtin').treesitter() end)
 
   -- LSP Pickers
   map('n', '<leader>gd', function() require('telescope.builtin').lsp_definitions() end)
   map('n', '<leader>ld', function() require('telescope.builtin').diagnostics() end)
   map('n', '<leader>lr', function() require('telescope.builtin').lsp_references() end)
   map('n', '<leader>ls', function() require('telescope.builtin').lsp_document_symbols() end)
+
+  -- Search
+  map('n', '<leader>/',  function() require('telescope.builtin').current_buffer_fuzzy_find() end)
+  map('n', '<leader>gl', function() require('telescope.builtin').live_grep() end)
+  map('n', '<leader>gs', function() require('telescope.builtin').grep_string() end)
+  map('n', '<leader>ts', function() require('telescope.builtin').treesitter() end)
 
   -- Selectors
   map('n', '<leader>sc', function() require('telescope.builtin').colorscheme(selection_layout) end)
