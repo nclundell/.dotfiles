@@ -1,38 +1,22 @@
 #!/bin/sh
 
-# Add Update DNF
-sudo echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf
-sudo echo "fastestmirrors=True" >> /etc/dnf/dnf.conf
-sudo echo "defaultyes=True" >> /etc/dnf/dnf.conf
-
-# Add RPMFusion Repos
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-#
-# Add Brave Browser Repo
-sudo dnf install dnf-plugins-core
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-#
-# Add ProtonVPN Repo
-sudo dnf install https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
-#
-# Install Basics
-sudo dnf install brave-browser protonvpn gnome-shell-extension-appindicator celluloid lollypop telegram-desktop steam lutris discord gnome-tweaks stow
-
-# Add Flatpak Stuff
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.mattjakeman.ExtensionManager
+# Install Essentials
+sudo dnf -y install git stow starship
 
 # Setup Configs
+cd $HOME/.dotfiles
 stow abcde
 stow alacritty
 stow asdf
+stow dnf
+stow git
 stow mpd
 stow ncmpcpp
 stow nvim
 stow rubocop
 stow scripts
 
+# Setup Shell
 if   [[ -f $HOME/.bashrc ]]
 then
 mv $HOME/.bashrc $HOME/.bashrc.bak
@@ -41,3 +25,25 @@ fi
 stow shell
 
 source $HOME/.bashrc
+
+# Add RPMFusion Repos
+sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# Add Brave Browser Repo
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+# Add ProtonVPN Repo
+sudo dnf -y install https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
+
+# Install Basics
+sudo dnf -y install abcde brave-browser protonvpn telegram-desktop steam lutris discord
+
+# Install Gnome Stuff
+sudo dnf -y install celluloid chrome-gnome-shell gnome-extensions-app gnome-shell-extension-appindicator gnome-tweaks lollypop
+
+# Add Flathub
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+clear
