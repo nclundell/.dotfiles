@@ -3,6 +3,12 @@
 # Install Essentials
 sudo dnf -y install git stow starship
 
+# Clone Dotfiles
+if   [[ -d $HOME/.dotfiles ]]
+then
+  git clone git@gitlab.com:nclundell/dotfiles $HOME/.dotfiles
+fi
+
 # Setup Configs
 cd $HOME/.dotfiles
 stow abcde
