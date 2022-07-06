@@ -51,5 +51,3 @@ sudo dnf -y install celluloid chrome-gnome-shell gnome-extensions-app gnome-shel
 
 # Add Flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-clear
