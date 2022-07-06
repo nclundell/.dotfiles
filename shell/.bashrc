@@ -44,7 +44,11 @@ fi
 eval "$(starship init bash)"
 
 # Aliases
-alias d="sudo dnf"
+if [[ -f $HOME/.config/dnf/config ]]; then
+  alias d="sudo dnf -c $HOME/.config/dnf/config"
+else
+  alias d="sudo dnf"
+fi
 
 # Start Sway
 # [ "$(tty)" = "/dev/tty1" ] && exec sway
