@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Install Essentials
-sudo dnf -y install git stow starship
+sudo dnf -y install g++ git stow starship
 
 # Clone Dotfiles
-if   [[ -d $HOME/.dotfiles ]]
+if [[ ! -d $HOME/.dotfiles ]]
 then
   git clone git@gitlab.com:nclundell/dotfiles $HOME/.dotfiles
 fi
@@ -23,7 +23,7 @@ stow rubocop
 stow scripts
 
 # Setup Shell
-if   [[ -f $HOME/.bashrc ]]
+if [[ -f $HOME/.bashrc ]]
 then
 mv $HOME/.bashrc $HOME/.bashrc.bak
 fi
