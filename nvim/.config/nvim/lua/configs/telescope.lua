@@ -9,6 +9,14 @@ return function()
       sorting_strategy = 'ascending'
     },
     extensions = {
+      project = {
+        base_dirs = {
+          {
+            path = '~/Projects',
+            max_depth = 2
+          },
+        },
+      },
       ["ui-select"] = {
         require("telescope.themes").get_dropdown {
           previewer = false
@@ -20,6 +28,7 @@ return function()
   -- Load Extensions
   require('telescope').load_extension('fzf')
   require('telescope').load_extension('packer')
+  require'telescope'.load_extension('project')
   require('telescope').load_extension('ui-select')
 
   -- Mappings
@@ -45,6 +54,7 @@ return function()
 
   -- Selectors
   map('n', '<leader>sc', function() require('telescope.builtin').colorscheme(selection_layout) end)
-  map('n', '<leader>sp', function() require('telescope').extensions.packer.packer() end)
+  map('n', '<leader>sp', function() require('telescope').extensions.project.project(selection_layout) end)
+  -- map('n', '<leader>sp', function() require('telescope').extensions.packer.packer() end)
 
 end

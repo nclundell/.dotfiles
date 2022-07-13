@@ -87,6 +87,7 @@ return function()
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
       'nvim-telescope/telescope-packer.nvim',
+      'nvim-telescope/telescope-project.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
