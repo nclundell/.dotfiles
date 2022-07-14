@@ -79,6 +79,12 @@ return function()
     config = require('configs.lualine')
   }
 
+  -- Surround
+  use {
+    "kylechui/nvim-surround",
+    config = require('configs.surround')
+  }
+
    -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
