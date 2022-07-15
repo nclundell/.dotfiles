@@ -17,7 +17,7 @@ function Utils.bootstrap_plugins()
     vim.cmd [[ packadd packer.nvim ]]
   end
 
-    -- Check For Packer
+  -- Check For Packer
   local loaded, packer = pcall(require, "packer")
   if not loaded then return end
 

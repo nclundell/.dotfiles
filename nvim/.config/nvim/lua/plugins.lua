@@ -94,6 +94,7 @@ return function()
       'nvim-telescope/telescope-ui-select.nvim',
       'nvim-telescope/telescope-packer.nvim',
       'nvim-telescope/telescope-project.nvim',
+      'LinArcX/telescope-env.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
