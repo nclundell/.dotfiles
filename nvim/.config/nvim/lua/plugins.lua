@@ -113,4 +113,10 @@ return function()
     config = require('configs.treesitter')
   }
 
+  -- WhichKey
+  use {
+    "folke/which-key.nvim",
+    config = require('configs.whichkey')
+  }
+
 end
