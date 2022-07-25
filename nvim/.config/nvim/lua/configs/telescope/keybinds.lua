@@ -1,15 +1,18 @@
 local selection_layout = require('telescope.themes').get_dropdown({ previewer = false })
 
 require('which-key').register({
-  g = {
-    name = "Grep",
-    p = { function() require('telescope.builtin').live_grep() end, "Project" },
+  f = {
+    name = "Find/Grep",
+    l = { function() require('telescope.builtin').live_grep() end, "Live" },
     s = { function() require('telescope.builtin').grep_string() end, "String Under Cursor" },
   },
   l = {
     name = "List",
+    b = { function() require('telescope.builtin').git_bcommits() end, "Buffer Commits" },
+    c = { function() require('telescope.builtin').git_commits() end, "Commits" },
     d = { function() require('telescope.builtin').lsp_definitions() end, "LSP Definitions" },
     e = { function() require('telescope').extensions.env.env() end, "Environment Variables" },
+    p = { function() require('telescope').extensions.packer.packer(selection_layout) end, "Plugins" },
     r = { function() require('telescope.builtin').lsp_references() end, "LSP References" },
     s = { function() require('telescope.builtin').lsp_document_symbols() end, "LSP Symbols" },
     t = { function() require('telescope.builtin').treesitter() end, "Treesitter Objects" }
@@ -17,13 +20,18 @@ require('which-key').register({
   o = {
     name = 'Open',
     f = { function() require('telescope.builtin').find_files() end, "File" },
-    g = { function() require('telescope.builtin').git_files() end, "Versioned (Git) File" }
+    g = { function() require('telescope.builtin').git_files() end, "Versioned (Git) File" },
+    h = { function() require('telescope.builtin').help_tags() end, "Help"},
+    m = { function() require('telescope.builtin').man_pages() end, "Man Pages"}
   },
   s = {
     name = 'Select',
     b = { function() require('telescope.builtin').buffers(selection_layout) end, "Buffer" },
     c = { function() require('telescope.builtin').colorscheme(selection_layout) end, "Colorscheme" },
+    m = { function() require('telescope.builtin').marks() end, "Mark"},
     p = { function() require('telescope').extensions.project.project(selection_layout) end, "Project" },
+    q = { function() require('telescope.builtin').quickfix() end, "Quickfix Item" },
+    r = { function() require('telescope.builtin').registers() end, "Register"},
   },
   ["/"] = { function() require('telescope.builtin').current_buffer_fuzzy_find() end, "Enhanced Search" },
 },
