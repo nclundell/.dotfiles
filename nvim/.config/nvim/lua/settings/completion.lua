@@ -1,2 +1,4 @@
+local opt = vim.opt
+
 -- Completion and Suggestions
-vim.o.completeopt = 'menuone,noinsert,noselect,preview'
+opt.completeopt = 'menuone,noinsert,noselect,preview'

@@ -1,2 +1,4 @@
+local opt = vim.opt
+
 -- Better Backspace Behavior
-vim.o.backspace = 'indent,eol,start'
+opt.backspace = 'indent,eol,start'

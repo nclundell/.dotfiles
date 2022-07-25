@@ -1,15 +1,17 @@
+local opt = vim.opt
+
 -- Re-read File When Changed Optside of Vim
-vim.o.autoread = true
+opt.autoread = true
 
 -- Hide Buffers Instead of Closing
-vim.o.hidden = true
+opt.hidden = true
 
 -- Split Below
-vim.o.splitbelow = true
+opt.splitbelow = true
 
 -- Vsplit To The Right
-vim.o.splitright = true
+opt.splitright = true
 
 -- Disable Swap Files
-vim.o.swapfile = false
+opt.swapfile = false
 

@@ -1,3 +1,5 @@
+local opt = vim.opt
+
 -- Wildmenu Settings
-vim.o.wildmenu = true
-vim.o.wildmode = 'list:longest'
+opt.wildmenu = true
+opt.wildmode = 'list:longest'

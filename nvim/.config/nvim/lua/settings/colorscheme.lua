@@ -1,5 +1,6 @@
 return function()  
-  vim.o.termguicolors = true
-  vim.cmd [[ colorscheme nord ]]
-  vim.cmd [[ syntax on ]]
+  vim.opt.termguicolors = true
+  vim.opt.colorscheme = "nord"
+  -- vim.cmd [[ colorscheme nord ]]
+  -- vim.cmd [[ syntax on ]]
 end

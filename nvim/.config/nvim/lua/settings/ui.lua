@@ -1,22 +1,24 @@
+local opt = vim.opt
+
 -- Show Column/Row Number
-vim.o.ruler = false
+opt.ruler = false
 
 -- Scoll Lines From Top
-vim.o.scrolloff = 10
+opt.scrolloff = 10
 
 -- Enable Line Numbering 
-vim.wo.number = true
-vim.wo.relativenumber = true
+opt.number = true
+opt.relativenumber = true
 
 -- Enable Sign Column
-vim.wo.signcolumn = 'yes'
+opt.signcolumn = 'yes'
 
 -- Shortmess Settings
-vim.o.shortmess = 'filnxtToOFc'
+opt.shortmess = 'filnxtToOFc'
 
 -- Show Mode in Command Area
-vim.o.showmode = false
+opt.showmode = false
 
 -- Improve Colors
-vim.o.termguicolors = true
+opt.termguicolors = true
 
