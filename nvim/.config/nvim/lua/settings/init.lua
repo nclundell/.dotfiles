@@ -8,6 +8,7 @@ local settings = {
   "buffers",
   "completion",
   "folds",
+  "indent",
   "ui",
   "wildmenu"
 }
