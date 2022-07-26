@@ -30,7 +30,16 @@ return function()
    }
   }
 
-   -- Folding
+  -- File Tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = require('configs.nvimtree'),
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    }
+  }
+
+  -- Folding
    use {
      'anuvyklack/pretty-fold.nvim',
      config = require('configs.prettyfold')

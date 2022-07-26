@@ -6,7 +6,7 @@ local scratchpad = Terminal:new({ direction = 'float', hidden = true })
 
 wk.register({
   t = {
-    name = "Terminal",
+    name = "Toggle",
     d = { function() gobang:toggle() end, "Database" },
     g = { function() lazygit:toggle() end, "Git" },
     t = { function() scratchpad:toggle() end, "Scratchpad" }
@@ -18,7 +18,7 @@ wk.register({
 
 wk.register({
   t = {
-    name = "Terminal",
+    name = "Toggle",
     d = { function() gobang:toggle() end, "Database" },
     g = { function() lazygit:toggle() end, "Git" },
     t = { function() scratchpad:toggle() end, "Scratchpad" }
