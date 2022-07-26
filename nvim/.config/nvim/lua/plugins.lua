@@ -82,6 +82,16 @@ return function()
     config = require('configs.sidebar')
   }
 
+  -- Startup Screen
+  use {
+    'startup-nvim/startup.nvim',
+    config = require('configs.startup'),
+    requires = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim'
+    }
+  }
+
   -- Status Line
   use {
     'nvim-lualine/lualine.nvim',
