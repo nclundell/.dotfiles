@@ -2,9 +2,17 @@ local selection_layout = require('telescope.themes').get_dropdown({ previewer = 
 
 require('which-key').register({
   f = {
-    name = "Find/Grep",
-    l = { function() require('telescope.builtin').live_grep() end, "Live" },
-    s = { function() require('telescope.builtin').grep_string() end, "String Under Cursor" },
+    name = "Find",
+    f = { function() require('telescope.builtin').find_files() end, "Files" },
+    g = { function() require('telescope.builtin').git_files() end, "Versioned File" },
+    l = { function() require('telescope.builtin').live_grep() end, "Live Grep" },
+    ["<space>"] = { function() require('telescope.builtin').grep_string() end, "Grep Current" }
+  },
+  g = {
+    name = "Git",
+    b = { function() require('telescope.builtin').git_bcommits() end, "Buffer Commits" },
+    c = { function() require('telescope.builtin').git_commits() end, "Commits" },
+    f = { function() require('telescope.builtin').git_files() end, "Files" }
   },
   l = {
     name = "List",
@@ -31,9 +39,9 @@ require('which-key').register({
     m = { function() require('telescope.builtin').marks() end, "Mark"},
     p = { function() require('telescope').extensions.project.project(selection_layout) end, "Project" },
     q = { function() require('telescope.builtin').quickfix() end, "Quickfix Item" },
-    r = { function() require('telescope.builtin').registers() end, "Register"},
+    r = { function() require('telescope.builtin').registers() end, "Register"}
   },
-  ["/"] = { function() require('telescope.builtin').current_buffer_fuzzy_find() end, "Enhanced Search" },
+  ["/"] = { function() require('telescope.builtin').current_buffer_fuzzy_find() end, "Enhanced Search" }
 },
 {
   prefix = '<leader>'
