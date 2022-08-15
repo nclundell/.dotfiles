@@ -6,6 +6,9 @@ if [[ -d "$HOME/.local/share/asdf" ]]; then
   git pull
 else
   git clone https://github.com/asdf-vm/asdf.git ~/.local/share/asdf
+  asdf plugin add neovim
+  asdf plugin add python
+  asdf plugin add ruby
 fi
 
 if [[ ! -d "$HOME/.config/asdf" ]]; then

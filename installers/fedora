@@ -46,6 +46,9 @@ sudo dnf -y install https://protonvpn.com/download/protonvpn-stable-release-1.0.
 # Install Basics
 sudo dnf -y install abcde bottles brave-browser discord gamemode lutris mscore-fonts-all protonvpn steam telegram-desktop youtube-dl
 
+# Install Development Packages
+sudo dnf -y install openssl-devel zlib-devel
+
 # Install Gnome Stuff
 sudo dnf -y install celluloid chrome-gnome-shell gnome-extensions-app gnome-shell-extension-appindicator gnome-tweaks lollypop
 sudo dnf -y remove gnome-shell-extension-gamemode
