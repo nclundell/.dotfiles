@@ -1,11 +1,23 @@
 return function()
   require('lualine').setup{
+    extensions = {
+      'nvim-tree',
+      'toggleterm'
+    },
     options = {
       globalstatus = true
     },
+    sections = {
+      lualine_a = {'mode'},
+      lualine_b = {'branch', 'diff', 'diagnostics'},
+      lualine_c = {{'filename', path = 1}},
+      lualine_x = {},
+      lualine_y = {'encoding', 'fileformat', 'filetype'},
+      lualine_z = {'location'}
+    },
     winbar = {
       lualine_a = {'filename'},
-      lualine_b = {},
+      lualine_b = {'diff'},
       lualine_c = {},
       lualine_x = {},
       lualine_y = {},
