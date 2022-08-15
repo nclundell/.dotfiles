@@ -30,6 +30,13 @@ return function()
    }
   }
 
+  -- Diagnostics
+  use {
+  "folke/trouble.nvim",
+  config = require('configs.trouble'),
+  requires = "kyazdani42/nvim-web-devicons"
+}
+
   -- File Tree
   use {
     'kyazdani42/nvim-tree.lua',
