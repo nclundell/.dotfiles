@@ -2,8 +2,9 @@ return {
   'savq/paq-nvim';
 
   -- Shared Plugins
-  'kyazdani42/nvim-web-devicons';
   'nvim-lua/plenary.nvim';
+  'kyazdani42/nvim-web-devicons';
+  'antoinemadec/FixCursorHold.nvim';
 
   -- Colorschemes
   'Mofiqul/dracula.nvim';
@@ -68,6 +69,12 @@ return {
 
   -- Terminal
   'akinsho/toggleterm.nvim';
+
+  -- Tests
+  'vim-test/vim-test';
+  'nvim-neotest/neotest';
+  'olimorris/neotest-rspec';
+  'nvim-neotest/neotest-vim-test';
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter';
