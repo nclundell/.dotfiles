@@ -25,6 +25,11 @@ return {
   'saadparwaiz1/cmp_luasnip';
   'rafamadriz/friendly-snippets';
 
+  -- Database
+  'tpope/vim-dadbod';
+  'kristijanhusak/vim-dadbod-ui';
+  'kristijanhusak/vim-dadbod-completion';
+
   -- Diagnostics
   'folke/trouble.nvim';
 
