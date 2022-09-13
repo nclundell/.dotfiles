@@ -1,8 +1,8 @@
 local wk = require('which-key')
 local Terminal  = require('toggleterm.terminal').Terminal
-local gobang = Terminal:new({ cmd = 'gobang', direction = 'float', hidden = true })
-local lazygit = Terminal:new({ cmd = 'lazygit', direction = 'float', hidden = true })
-local scratchpad = Terminal:new({ direction = 'float', hidden = true })
+local gobang = Terminal:new({ cmd = 'gobang', hidden = true })
+local lazygit = Terminal:new({ cmd = 'lazygit', hidden = true })
+local scratchpad = Terminal:new({ hidden = true })
 
 wk.register({
   t = {
