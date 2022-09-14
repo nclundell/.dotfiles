@@ -1,4 +1,4 @@
-require('plugins.configs.telescope.keybinds')
+-- require('plugins.configs.telescope.keybinds')
 
 require('telescope').setup{
 	defaults = {

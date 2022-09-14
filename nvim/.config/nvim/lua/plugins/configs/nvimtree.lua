@@ -1,4 +1,4 @@
-require('plugins.configs.nvimtree.keybinds')
+-- require('plugins.configs.nvimtree.keybinds')
 require('nvim-tree').setup {
   diagnostics = {
     enable = true,

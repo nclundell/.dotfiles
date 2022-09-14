@@ -1,4 +1,12 @@
-local map = require('utils').map
+local map = function(mode, binding, command, opts)
+  opts = vim.tbl_extend('keep', opts or {}, {
+    noremap = true,
+    silent = true,
+    expr = false
+  })
+
+  vim.keymap.set(mode, binding, command, opts)
+end
 
 -- Handle Buffers
 map('n', '<leader>q', '<CMD> bd <CR>')
@@ -20,3 +28,17 @@ map("n", "<Space>", "@=(foldlevel('.')?'za': '<Space>') <CR>")
 -- Visual Mode Indenting
 map("x", ">", ">gv")
 map("x", "<", "<gv")
+
+local keybind_groups = {
+  'find',
+  'git',
+  'list',
+  'misc',
+  'open',
+  'select',
+  'toggle'
+}
+
+for _, group in ipairs(keybind_groups) do
+  require("keybinds."..group)
+end
