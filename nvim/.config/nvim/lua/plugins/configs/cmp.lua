@@ -47,12 +47,10 @@ cmp.setup({
     end
   },
   sources = {
-    { name = 'nvim_lua' },
-    { name = 'nvim_lsp' },
     { name = 'vim-dadbod-completion' },
-    { name = 'omni' },
-    { name = 'buffer' },
+    { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
     { name = 'path' },
     { name = 'cmdline' }
   } 
