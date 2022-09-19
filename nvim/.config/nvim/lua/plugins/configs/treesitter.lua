@@ -22,3 +22,13 @@ require('nvim-treesitter.configs').setup {
     enable = true
   }
 }
+
+require'treesitter-context'.setup {
+   patterns = {
+      ruby = {
+        'assignment',
+        'block',
+        'do_block',
+      },
+    },
+}

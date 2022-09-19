@@ -52,8 +52,6 @@ return {
 
   -- Pairs
   'windwp/nvim-autopairs';
-  'windwp/nvim-ts-autotag';
-  'RRethy/nvim-treesitter-endwise';
 
   -- Status Line
   'nvim-lualine/lualine.nvim';
@@ -79,6 +77,10 @@ return {
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter';
+  'nvim-treesitter/nvim-treesitter-context';
+  'windwp/nvim-ts-autotag';
+  'RRethy/nvim-treesitter-endwise';
+  'nvim-treesitter/playground';
 
   -- WhichKey
   'folke/which-key.nvim';
