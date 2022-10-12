@@ -33,6 +33,6 @@ if bootstrapped then
   paq.install()
 else
   require('plugins.configs')
-  require('keybinds')
+  require('keymaps')
   require('settings')
 end

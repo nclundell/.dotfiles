@@ -15,7 +15,6 @@ local configs = {
   "toggleterm",
   "treesitter",
   "trouble",
-  "whichkey"
 }
 
 for _, config in ipairs(configs) do

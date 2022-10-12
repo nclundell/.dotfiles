@@ -1,12 +1,5 @@
-local map = function(mode, binding, command, opts)
-  opts = vim.tbl_extend('keep', opts or {}, {
-    noremap = true,
-    silent = true,
-    expr = false
-  })
-
-  vim.keymap.set(mode, binding, command, opts)
-end
+local tb= require('telescope.builtin')
+local map = require('utils.keymap')
 
 -- Handle Buffers
 map('n', '<leader>q', '<CMD> bd <CR>')
@@ -29,16 +22,21 @@ map("n", "<Space>", "@=(foldlevel('.')?'za': '<Space>') <CR>")
 map("x", ">", ">gv")
 map("x", "<", "<gv")
 
-local keybind_groups = {
-  'find',
-  'git',
-  'list',
-  'misc',
-  'open',
-  'select',
-  'toggle'
-}
+-- Telescope Misc Pickers
+map(
+	'n',
+	'<leader>p',
+	function() tb.commands() end,
+	{
+		desc = 'Available Commands'
+	}
+)
 
-for _, group in ipairs(keybind_groups) do
-  require("keybinds."..group)
-end
+map(
+	'n',
+	'<leader><leader>',
+	function() tb.keymaps() end,
+	{ 
+		desc = 'Defined Keymaps' 
+	}
+)

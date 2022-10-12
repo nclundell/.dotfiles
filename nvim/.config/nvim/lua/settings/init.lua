@@ -1,6 +1,4 @@
--- Base Settings
 vim.o.mouse = 'a'
-vim.g.mapleader = ','
 
 local settings = {
   "backspace",

@@ -21,10 +21,10 @@ return {
   'hrsh7th/cmp-cmdline';
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-path';
-  'onsails/lspkind.nvim',
-  'L3MON4D3/LuaSnip';
   'saadparwaiz1/cmp_luasnip';
+  'L3MON4D3/LuaSnip';
   'rafamadriz/friendly-snippets';
+  'onsails/lspkind.nvim';
 
   -- Database
   'tpope/vim-dadbod';
@@ -81,7 +81,4 @@ return {
   'windwp/nvim-ts-autotag';
   'RRethy/nvim-treesitter-endwise';
   'nvim-treesitter/playground';
-
-  -- WhichKey
-  'folke/which-key.nvim';
 }
