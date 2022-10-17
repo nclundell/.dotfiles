@@ -59,7 +59,10 @@ return {
   -- Surround
   'kylechui/nvim-surround';
 
-   -- Telescope
+  -- Tasks
+    'jedrzejboczar/toggletasks.nvim';
+
+  -- Telescope
   'nvim-telescope/telescope.nvim';
   'nvim-telescope/telescope-ui-select.nvim';
   'nvim-telescope/telescope-file-browser.nvim';
@@ -71,9 +74,6 @@ return {
 
   -- Tests
   'vim-test/vim-test';
-  'nvim-neotest/neotest';
-  'olimorris/neotest-rspec';
-  'nvim-neotest/neotest-vim-test';
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter';

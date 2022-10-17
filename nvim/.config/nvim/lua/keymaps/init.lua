@@ -5,6 +5,7 @@ local keymap_groups = {
   'list',
   'misc',
   'open',
+  'run',
   'search',
   'select',
   'toggle'

@@ -12,6 +12,7 @@ local configs = {
   "prettyfold",
   "surround",
   "telescope",
+  "toggletasks",
   "toggleterm",
   "treesitter",
   "trouble",

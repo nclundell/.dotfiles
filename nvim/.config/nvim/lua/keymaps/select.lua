@@ -19,3 +19,12 @@ map(
 		desc = 'Select Colorscheme'
 	}
 )
+
+map(
+	'n',
+	'<leader>st',
+	function() require('telescope').extensions.toggletasks.select() end,
+	{
+		desc = 'Select Running Tasks'
+	}
+)
