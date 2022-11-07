@@ -1,6 +1,11 @@
 require('toggletasks').setup {
   tasks = {
     {
+      name = 'Elastic Search',
+      cmd = 'elasticsearch',
+      tags = { 'dev' }
+    },
+    {
       name = 'Rails Server (Dev)',
       cmd = 'bundle exec rails s',
       tags = { 'dev' }

@@ -7,7 +7,6 @@ local configs = {
   "guess-indent",
   "lualine",
   "lsp",
-  "neotest",
   "nvimtree",
   "prettyfold",
   "surround",
