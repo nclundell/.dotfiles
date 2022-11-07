@@ -9,6 +9,9 @@ local has_words_before = function()
 end
 
 cmp.setup({
+  completion = {
+    autocomplete = false
+  },
   formatting = {
     format = require('lspkind').cmp_format(),
   },
