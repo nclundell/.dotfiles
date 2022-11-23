@@ -54,6 +54,12 @@ return {
   -- Pairs
   'windwp/nvim-autopairs';
 
+  -- Ruby/Rails
+  'vim-ruby/vim-ruby';
+  'tpope/vim-bundler';
+  'tpope/vim-rake';
+  'tpope/vim-rails';
+
   -- Status Line
   'nvim-lualine/lualine.nvim';
 
@@ -75,6 +81,9 @@ return {
 
   -- Tests
   'vim-test/vim-test';
+
+  -- TPope Stuff
+  'tpope/vim-eunuch';
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter';
