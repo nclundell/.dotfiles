@@ -30,7 +30,7 @@ map(
 map(
   'n',
   '<leader>rt',
-  function() require('telescope').extensions.toggletasks.spawn() end,
+  function() require('overseer').run_template() end,
   { 
     desc = 'Run Task' 
   }

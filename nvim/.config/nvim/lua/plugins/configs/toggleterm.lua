@@ -1,4 +1,5 @@
-require('toggleterm').setup {
-  direction = 'float'
-}
--- require('plugins.configs.toggleterm.keybinds')
+return function()
+  require('toggleterm').setup {
+    direction = 'float'
+  }
+end

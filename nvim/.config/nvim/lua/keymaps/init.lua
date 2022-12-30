@@ -1,4 +1,5 @@
 vim.g.mapleader = ','
+vim.g.maplocalleader = '<'
 
 local keymap_groups = {
   'git',

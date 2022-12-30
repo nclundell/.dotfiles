@@ -43,6 +43,15 @@ map(
 
 map(
   {'n', 't'},
+	'<leader>to',
+	function() require('overseer').toggle() end,
+	{
+		desc = 'Toggle Tasks'
+	}
+)
+
+map(
+  {'n', 't'},
 	'<leader>ts',
 	function() scratchpad:toggle() end,
 	{

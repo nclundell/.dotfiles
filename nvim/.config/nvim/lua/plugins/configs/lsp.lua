@@ -1,10 +1,15 @@
-local lsp = require('lspconfig')
+return function()
+  local lsp = require('lspconfig')
 
--- Python
-lsp.pyright.setup{}
+  -- Lua
+  lsp.sumneko_lua.setup {}
 
--- Ruby
-lsp.solargraph.setup{}
+  -- Python
+  lsp.pyright.setup {}
 
--- Typescript
--- lsp.tsserver.setup{}
+  -- Ruby
+  lsp.solargraph.setup {}
+
+  -- Typescript
+  lsp.tsserver.setup {}
+end

@@ -23,10 +23,21 @@ map("n", "<Space>", "@=(foldlevel('.')?'za': '<Space>') <CR>")
 map("x", ">", ">gv")
 map("x", "<", "<gv")
 
+-- Yank to System Clipboard
+map('n', '<leader>Y', '"+yg_')
+map('n', '<leader>y', '"+y')
+map('v', '<leader>y', '"+y')
+
+-- Paste from System Clipboard
+map('n', '<leader>p', '"+p')
+map('n', '<leader>P', '"+P')
+map('v', '<leader>p', '"+p')
+map('v', '<leader>P', '"+P')
+
 -- Telescope Misc Pickers
 map(
 	'n',
-	'<leader>p',
+	'<leader><localleader>',
 	function() tb.commands(selection_layout) end,
 	{
 		desc = 'Available Commands'
