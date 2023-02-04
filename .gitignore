@@ -5,3 +5,5 @@ packer_compiled.lua
 **/mpd
 !mpd.conf
 
+# Ignore Tmux Plugins
+tmux/.config/tmux/plugins
