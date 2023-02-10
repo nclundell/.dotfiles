@@ -3,19 +3,19 @@
     "spacing": 4,
     "modules-left": [
     	"sway/workspaces",
-	"sway/mode",
-	"custom/media"
+      "sway/mode",
+      "custom/media"
     ],
     "modules-center": [
     	"mpd"
     ],
     "modules-right": [
-	"tray",
-	"pulseaudio",
-	"network",
-	"cpu",
-	"memory",
-	"clock",
+      "tray",
+      "pulseaudio",
+      "network",
+      "cpu",
+      "memory",
+      "clock",
     ],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
