@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Install Essentials
-sudo dnf -y install g++ git perl stow ripgrep neovim
+sudo dnf -y install git stow
 
 # Clone Dotfiles
 if [[ ! -d $HOME/.dotfiles ]]
@@ -56,10 +56,13 @@ sudo dnf -y install https://protonvpn.com/download/protonvpn-stable-release-1.0.
 sudo dnf -y install abcde bottles brave-browser discord gamemode lutris mscore-fonts-all protonvpn steam telegram-desktop youtube-dl
 
 # Install Development Packages
-sudo dnf -y install openssl-devel zlib-devel
+sudo dnf -y install openssl-devel zlib-devel perl g++ ripgrep neovim
 
 # Install Gnome Stuff
 sudo dnf -y install celluloid gnome-extensions-app gnome-shell-extension-appindicator gnome-tweaks lollypop
+
+# Swap Graphics Drivers For Freeworld
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 
 # Add Flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
