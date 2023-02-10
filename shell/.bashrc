@@ -39,6 +39,7 @@ export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default-python-pack
 if [[ -d $HOME/.local/share/asdf ]]; then
   source $HOME/.local/share/asdf/asdf.sh
   source $HOME/.local/share/asdf/completions/asdf.bash
+  source $HOME/.local/share/asdf/plugins/dotnet-core/set-dotnet-home.bash
 fi
 
 # Setup Starship Prompt
