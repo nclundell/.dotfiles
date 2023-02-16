@@ -1,8 +1,11 @@
 return function()
   local lsp = require('lspconfig')
 
+  -- Golang
+  lsp.gopls.setup {}
+
   -- Lua
-  lsp.sumneko_lua.setup {}
+  lsp.lua_ls.setup {}
 
   -- Python
   lsp.pyright.setup {}
