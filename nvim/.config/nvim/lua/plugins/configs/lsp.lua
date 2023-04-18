@@ -10,6 +10,9 @@ return function()
   -- Python
   lsp.pyright.setup {}
 
+  -- Rust
+  lsp.rust_analyzer.setup {}
+
   -- Ruby
   lsp.solargraph.setup {}
 

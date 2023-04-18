@@ -7,34 +7,38 @@ return {
 
   -- Code Intelligence
   {
-    -- LSP Support
-    {
-      'neovim/nvim-lspconfig',
-      config = require('plugins.configs.lsp')
-    },
-    {
-      'williamboman/mason.nvim',
-      config = require('plugins.configs.mason')
-    },
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    dependencies = {
+      -- LSP Support
+      {
+        'neovim/nvim-lspconfig',
+        config = require('plugins.configs.lsp')
+      },
+      {
+        'williamboman/mason.nvim',
+        build = ':MasonUpdate',
+        config = require('plugins.configs.mason')
+      },
 
-    -- Autocompletion
-    { 'hrsh7th/nvim-cmp',
-      config = require('plugins.configs.cmp'),
-      dependencies = {
-        -- Completion Methods
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-nvim-lua',
-        'hrsh7th/cmp-path',
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp',
+        config = require('plugins.configs.cmp'),
+        dependencies = {
+          -- Completion Methods
+          'hrsh7th/cmp-buffer',
+          'hrsh7th/cmp-nvim-lsp',
+          'hrsh7th/cmp-nvim-lua',
+          'hrsh7th/cmp-path',
 
-        -- UI Improvements
-        'onsails/lspkind.nvim',
-        'j-hui/fidget.nvim',
+          -- UI Improvements
+          'onsails/lspkind.nvim',
 
-        -- Snippets
-        'saadparwaiz1/cmp_luasnip',
-        'L3MON4D3/LuaSnip',
-        'rafamadriz/friendly-snippets'
+          -- Snippets
+          'L3MON4D3/LuaSnip',
+          'saadparwaiz1/cmp_luasnip',
+          'rafamadriz/friendly-snippets'
+        }
       }
     }
   },
