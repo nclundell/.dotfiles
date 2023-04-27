@@ -2,5 +2,6 @@ bundler
 bundler 1.17.3
 pry-byebug
 rubocop
+ruby-lsp
 solargraph
 solargraph-rails
