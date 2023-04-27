@@ -62,5 +62,7 @@ else
   alias d="sudo dnf"
 fi
 
+alias z="sudo zypper"
+
 # Start Sway
 # [ "$(tty)" = "/dev/tty1" ] && exec sway
