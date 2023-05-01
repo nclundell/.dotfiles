@@ -51,6 +51,10 @@ sudo zypper -n install brave-browser
 # Install Basics
 sudo zypper -n install abcde alacritty discord fetchmsttfonts firefox gamemoded lutris makemkv mangohud mkvtoolnix-gui mpd ncmpcpp neovim opus-tools protonvpn-cli protonvpn-gui ripgrep starship steam telegram-desktop vorbis-tools youtube-dl
 
+# ZRAM
+sudo zypper -n install systemd-zram-service
+sudo zramswapon
+
 # Install Qtile
 if [[ -d $HOME/.config/qtile ]]
 then
