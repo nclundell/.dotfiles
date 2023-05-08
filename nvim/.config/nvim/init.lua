@@ -1,11 +1,13 @@
+vim.g.mapleader = ','
+vim.g.maplocalleader = '<'
+
 require('utils.bootstrap')
 
 require('lazy').setup(
-  require('plugins'),
-  {
+  require('plugins'), {
     install = {
       colorscheme = {
-        'nord'
+        'onedark_vivid'
       }
     },
     ui = {
@@ -13,6 +15,3 @@ require('lazy').setup(
     }
   }
 )
-
-require('keymaps')
-require('settings')

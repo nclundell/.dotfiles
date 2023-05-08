@@ -1,6 +1,4 @@
-local tb= require('telescope.builtin')
 local map = require('utils.keymap')
-local selection_layout = require('telescope.themes').get_dropdown({ previewer = false })
 
 -- Handle Buffers
 map('n', '<leader>q', '<CMD> bd <CR>')
@@ -33,22 +31,3 @@ map('n', '<leader>p', '"+p')
 map('n', '<leader>P', '"+P')
 map('v', '<leader>p', '"+p')
 map('v', '<leader>P', '"+P')
-
--- Telescope Misc Pickers
-map(
-	'n',
-	'<leader><localleader>',
-	function() tb.commands(selection_layout) end,
-	{
-		desc = 'Available Commands'
-	}
-)
-
-map(
-	'n',
-	'<leader><leader>',
-	function() tb.keymaps(selection_layout) end,
-	{ 
-		desc = 'Defined Keymaps' 
-	}
-)

@@ -1,9 +1,11 @@
 return {
   -- Colorschemes
-  'Mofiqul/dracula.nvim',
-  'navarasu/onedark.nvim',
-  'NTBBloodbath/doom-one.nvim',
-  'shaunsingh/nord.nvim',
+  {
+    'Mofiqul/dracula.nvim',
+    'NTBBloodbath/doom-one.nvim',
+    'shaunsingh/nord.nvim',
+    'olimorris/onedarkpro.nvim'
+  },
 
   -- Code Intelligence
   {
@@ -56,6 +58,16 @@ return {
     'kristijanhusak/vim-dadbod-completion',
   },
 
+  -- Debugging (DAP)
+  {
+    'mfussenegger/nvim-dap',
+    config = require('plugins.configs.dap'),
+    dependencies = {
+      'theHamsta/nvim-dap-virtual-text',
+      'rcarriga/nvim-dap-ui',
+      'suketa/nvim-dap-ruby'
+    }
+},
   -- File Tree
   {
     'nvim-tree/nvim-tree.lua',
@@ -103,23 +115,10 @@ return {
     config = require('plugins.configs.surround')
   },
 
-  -- Tasks
+  -- Tab Line
   {
-    {
-      'stevearc/overseer.nvim',
-      config = require('plugins.configs.overseer')
-    },
-    {
-      'nvim-neotest/neotest',
-      config = require('plugins.configs.neotest'),
-      dependencies = {
-        'vim-test/vim-test',
-        'nvim-neotest/neotest-vim-test',
-        'nvim-lua/plenary.nvim',
-        'nvim-treesitter/nvim-treesitter',
-        'antoinemadec/FixCursorHold.nvim',
-      }
-    },
+    'nanozuki/tabby.nvim',
+    config = require('plugins.configs.tabby')
   },
 
   -- Telescope
@@ -135,6 +134,15 @@ return {
 	      'nvim-telescope/telescope-fzf-native.nvim',
 	      build = 'make'
       }
+    }
+  },
+
+  -- Tests
+  {
+    'nvim-neotest/neotest',
+    config = require('plugins.configs.neotest'),
+    dependencies = {
+      'olimorris/neotest-rspec'
     }
   },
 

@@ -13,4 +13,7 @@ return function()
       adaptive_size = true
     }
   }
+  local map = require('utils.keymap')
+
+  map('n', '<leader>D', function() require('nvim-tree.api').tree.toggle() end, { desc = 'Toggle File Tree' })
 end

@@ -1,10 +1,7 @@
 return function()
   require("neotest").setup({
     adapters = {
-      require("neotest-vim-test")
+      require("neotest-rspec")
     },
-    consumers = {
-      overseer = require('neotest.consumers.overseer')
-    }
   })
 end
