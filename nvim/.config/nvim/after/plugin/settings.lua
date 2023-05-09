@@ -9,7 +9,7 @@ opt.backspace = 'indent,eol,start'
 
 -- Colorscheme
 opt.termguicolors = true
-cmd [[ colorscheme onedark_vivid ]]
+cmd [[ colorscheme doom-one ]]
 cmd [[ syntax on ]]
 
 -- Completion and Suggestions

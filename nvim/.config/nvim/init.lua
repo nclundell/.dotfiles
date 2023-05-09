@@ -7,7 +7,7 @@ require('lazy').setup(
   require('plugins'), {
     install = {
       colorscheme = {
-        'onedark_vivid'
+        'doom-one'
       }
     },
     ui = {
