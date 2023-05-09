@@ -49,5 +49,5 @@ key_bindings:
 
 import:
   # Colorscheme
-  - "~/.config/alacritty/colorschemes/nord.yml"
+  - "~/.config/alacritty/colorschemes/doom_one.yml"
 
