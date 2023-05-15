@@ -16,6 +16,9 @@ return function()
   -- Ruby
   lsp.solargraph.setup {}
 
+  -- SQL
+  lsp.sqlls.setup {}
+
   -- Typescript
   lsp.tsserver.setup {}
 end
