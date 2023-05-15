@@ -10,8 +10,8 @@ require('lazy').setup(
         'doom-one'
       }
     },
-    ui = {
-      border = 'rounded'
-    }
+    -- ui = {
+    --   border = 'rounded'
+    -- }
   }
 )

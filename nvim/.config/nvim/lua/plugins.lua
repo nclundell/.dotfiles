@@ -15,17 +15,14 @@ return {
       -- LSP Support
       {
         'neovim/nvim-lspconfig',
-        config = require('plugins.configs.lsp')
       },
       {
         'williamboman/mason.nvim',
         build = ':MasonUpdate',
-        config = require('plugins.configs.mason')
       },
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp',
-        config = require('plugins.configs.cmp'),
         dependencies = {
           -- Completion Methods
           'hrsh7th/cmp-buffer',
@@ -48,7 +45,6 @@ return {
   -- Commenting
   {
     'numToStr/Comment.nvim',
-    config = require('plugins.configs.comment')
   },
 
   -- Database
@@ -56,22 +52,36 @@ return {
     'tpope/vim-dadbod',
     'kristijanhusak/vim-dadbod-ui',
     'kristijanhusak/vim-dadbod-completion',
+    {
+      "kndndrj/nvim-dbee",
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+      },
+      build = function()
+        -- Install tries to automatically detect the install method.
+        -- if it fails, try calling it with one of these parameters:
+        --    "curl", "wget", "bitsadmin", "go"
+        require("dbee").install()
+      end,
+      config = function()
+        require("dbee").setup(--[[optional config]])
+      end,
+    },
   },
 
   -- Debugging (DAP)
   {
     'mfussenegger/nvim-dap',
-    config = require('plugins.configs.dap'),
     dependencies = {
       'theHamsta/nvim-dap-virtual-text',
       'rcarriga/nvim-dap-ui',
       'suketa/nvim-dap-ruby'
     }
-},
+  },
+
   -- File Tree
   {
     'nvim-tree/nvim-tree.lua',
-    config = require('plugins.configs.nvimtree'),
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     }
@@ -80,7 +90,6 @@ return {
   -- Git
   {
     'lewis6991/gitsigns.nvim',
-    config = require('plugins.configs.gitsigns')
   },
 
   -- Indentation
@@ -92,7 +101,6 @@ return {
   -- Pairs
   {
     'windwp/nvim-autopairs',
-    config = require('plugins.configs.autopairs')
   },
 
   -- Ruby/Rails
@@ -103,28 +111,20 @@ return {
     'tpope/vim-rails',
   },
 
-  -- Status Line
+  -- Status Lines
   {
     'nvim-lualine/lualine.nvim',
-    config = require('plugins.configs.lualine')
+    'nanozuki/tabby.nvim',
   },
 
   -- Surround
   {
     'kylechui/nvim-surround',
-    config = require('plugins.configs.surround')
-  },
-
-  -- Tab Line
-  {
-    'nanozuki/tabby.nvim',
-    config = require('plugins.configs.tabby')
   },
 
   -- Telescope
   {
     'nvim-telescope/telescope.nvim',
-    config = require('plugins.configs.telescope'),
     dependencies = {
       'nvim-lua/plenary.nvim';
       'nvim-telescope/telescope-ui-select.nvim',
@@ -137,25 +137,22 @@ return {
     }
   },
 
-  -- Tests
+  -- Terminal
+  {
+    'akinsho/toggleterm.nvim',
+  },
+
+  -- Testing
   {
     'nvim-neotest/neotest',
-    config = require('plugins.configs.neotest'),
     dependencies = {
       'olimorris/neotest-rspec'
     }
   },
 
-  -- Terminal
-  {
-    'akinsho/toggleterm.nvim',
-    config = require('plugins.configs.toggleterm')
-  },
-
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    config = require('plugins.configs.treesitter'),
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'nvim-treesitter/nvim-treesitter-context',
