@@ -1,3 +1,4 @@
 @tailwindcss/language-server
+sql-language-server
 typescript-language-server
 yarn
