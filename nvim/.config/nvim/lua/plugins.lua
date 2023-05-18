@@ -43,9 +43,7 @@ return {
   },
 
   -- Commenting
-  {
-    'numToStr/Comment.nvim',
-  },
+  'numToStr/Comment.nvim',
 
   -- Database
   {
@@ -88,9 +86,7 @@ return {
   },
 
   -- Git
-  {
-    'lewis6991/gitsigns.nvim',
-  },
+  'lewis6991/gitsigns.nvim',
 
   -- Indentation
   {
@@ -99,9 +95,7 @@ return {
   },
 
   -- Pairs
-  {
-    'windwp/nvim-autopairs',
-  },
+  'windwp/nvim-autopairs',
 
   -- Ruby/Rails
   {
@@ -118,9 +112,7 @@ return {
   },
 
   -- Surround
-  {
-    'kylechui/nvim-surround',
-  },
+  'kylechui/nvim-surround',
 
   -- Telescope
   {
@@ -138,9 +130,7 @@ return {
   },
 
   -- Terminal
-  {
-    'akinsho/toggleterm.nvim',
-  },
+  'akinsho/toggleterm.nvim',
 
   -- Testing
   {
