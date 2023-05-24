@@ -1,4 +1,6 @@
+heroku
 @tailwindcss/language-server
 sql-language-server
+typescript
 typescript-language-server
 yarn
