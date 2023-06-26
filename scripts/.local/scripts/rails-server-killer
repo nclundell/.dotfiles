@@ -1,0 +1,3 @@
+#! /bin/sh
+
+ruby $HOME/.local/share/rails_server_killer.rb
