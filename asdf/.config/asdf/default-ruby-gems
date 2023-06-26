@@ -1,6 +1,7 @@
 bundler
 debug
 ruby-lsp
+ruby-lsp-rails
 solargraph
 solargraph-rails
-sorbet
+tmuxinator
