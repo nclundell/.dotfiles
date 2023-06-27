@@ -127,5 +127,14 @@ return {
     'windwp/nvim-ts-autotag',
     'RRethy/nvim-treesitter-endwise',
     'nvim-treesitter/playground'
+  },
+
+  -- UI
+  {
+    'anuvyklack/windows.nvim',
+    dependencies = {
+      'anuvyklack/middleclass',
+      -- 'anuvyklack/animation.nvim'
+    }
   }
 }
