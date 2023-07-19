@@ -54,7 +54,7 @@ sudo zypper addrepo https://brave-browser-rpm-release.s3.brave.com/brave-browser
 sudo zypper -n install brave-browser
 
 # Install Basics
-sudo zypper -n install abcde alacritty discord fetchmsttfonts firefox gamemoded lutris makemkv mangohud mkvtoolnix-gui mpd mpv ncmpcpp neovim opus-tools protonvpn-cli protonvpn-gui ripgrep steam telegram-desktop vorbis-tools youtube-dl
+sudo zypper -n install abcde alacritty celluloid fetchmsttfonts firefox gamemoded loupe lutris makemkv mangohud mkvtoolnix-gui mpd mpv ncmpcpp neovim opus-tools protonvpn-cli protonvpn-gui ripgrep steam vorbis-tools youtube-dl
 
 # ZRAM
 sudo zypper -n install systemd-zram-service
@@ -62,6 +62,14 @@ sudo zramswapon
 
 # Add Flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub io.github.Foldex.AdwSteamGtk
+flatpak install flathub com.usebottles.bottles
+flatpak install flathub com.discordapp.Discord
+flatpak install flathub com.mattjakeman.ExtensionManager
+flatpak install flathub com.github.tchx84.Flatseal
+flatpak install flathub com.github.GradienceTeam.Gradience
+flatpak install flathub org.nickvision.tubeconverter
+flatpak install flathub org.telegram.desktop
 
 # Install NerdFonts
 source $HOME/.dotfiles/installers/nerd-fonts Hack
