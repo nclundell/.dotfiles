@@ -53,6 +53,7 @@ if [[ -x "$(command -v go)" ]]; then
 fi
 
 # Setup Starship Prompt
+export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
 eval "$(starship init bash)"
 
 # Aliases
