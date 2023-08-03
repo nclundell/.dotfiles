@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Check for Flatpak
+if [[ ! -x "$(command -v flatpak)" ]]
+then
+  echo 'Error: flatpak is not installed.' >&2
+  exit 1
+fi
+
+# Add Flathub
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Install Flatpaks
+flatpak install flathub io.github.Foldex.AdwSteamGtk         # AdwSteamGtk
+flatpak install flathub com.bitwarden.desktop                # Bitwarden
+flatpak install flathub com.usebottles.bottles               # Bottles
+flatpak install flathub com.brave.Browser                    # Brave Browser
+flatpak install flathub org.gnome.Calendar                   # Calendar (Gnome)
+flatpak install flathub io.github.celluloid_player.Celluloid # Celluloid
+flatpak install flathub com.gitlab.davem.ClamTk              # ClamTk
+flatpak install flathub org.gnome.clocks                     # Clocks (Gnome)
+flatpak install flathub com.discordapp.Discord               # Discord
+flatpak install flathub org.gnome.baobab                     # Disk Usage
+flatpak install flathub org.gnome.SimpleScan                 # Document Scanner (Gnome)
+flatpak install flathub org.gnome.Evince                     # Document Viewer (Gnome)
+flatpak install flathub com.mattjakeman.ExtensionManager     # Extension Manager
+flatpak install flathub org.mozilla.firefox                  # Firefox Browser
+flatpak install flathub com.github.tchx84.Flatseal           # Flatseal
+flatpak install flathub io.github.giantpinkrobots.flatsweep  # Flatsweep
+flatpak install flathub de.haeckerfelix.Fragments            # Fragments
+flatpak install flathub com.github.GradienceTeam.Gradience   # Gradience
+flatpak install flathub org.gnome.eog                        # Image Viewer (Gnome)
+flatpak install flathub io.gitlab.librewolf-community        # Librewolf
+flatpak install flathub org.gnome.Lollypop                   # Lollypop
+flatpak install flathub org.gnome.Loupe                      # Loupe
+flatpak install flathub org.bunkus.mkvtoolnix-gui            # MKVToolNix Gui
+flatpak install flathub org.nickvision.tubeconverter         # Parabolic
+flatpak install flathub de.haeckerfelix.Shortwave            # Shortwave
+flatpak install flathub org.telegram.desktop                 # Telegram
+flatpak install flathub org.gnome.Weather                    # Weather (Gnome)
