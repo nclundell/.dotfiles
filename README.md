@@ -1,3 +1,3 @@
 To perform initial dotfile install:
 
-`curl -sS https://gitlab.com/nclundell/dotfiles/-/raw/master/install.sh | sh`
+`sh -c "$(curl -fsSL https://gitlab.com/nclundell/dotfiles/-/raw/master/install.sh)"`

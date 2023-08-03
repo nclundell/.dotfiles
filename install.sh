@@ -31,8 +31,7 @@ stow ncmpcpp
 stow nvim
 stow rubocop
 stow scripts
-stow sway
-stow waybar
+stow tmux
 
 # Setup Shell
 if [[ -f $HOME/.bashrc ]]
