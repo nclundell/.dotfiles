@@ -1,16 +1,16 @@
 #!/bin/sh
 
 # Check for Git
-if ! command -v git &> /dev/null
+if [[ ! -x "$(command -v git)" ]]
 then
-  echo 'Error: git is not installed.'
+  echo 'Error: git is not installed.' >&2
   exit 1
 fi
 
 # Check for Stow
-if ! command -v stow &> /dev/null
+if [[ ! -x "$(command -v stow)" ]]
 then
-  echo 'Error: stow is not installed.'
+  echo 'Error: stow is not installed.' >&2
   exit 1
 fi
 
@@ -31,6 +31,7 @@ stow ncmpcpp
 stow nvim
 stow rubocop
 stow scripts
+stow starship
 stow tmux
 
 # Setup Shell
@@ -40,5 +41,11 @@ mv $HOME/.bashrc $HOME/.bashrc.bak
 fi
 
 stow shell
+
+# Install ASDF
+source $HOME/.dotfiles/installers/asdf
+
+# Install Lazygit
+source $HOME/.dotfiles/installers/lazygit
 
 source $HOME/.bashrc

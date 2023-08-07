@@ -1,0 +1,5 @@
+# Install Basic Packages
+sudo zypper -n in gcc gcc-c++ git make neovim ripgrep stow
+
+# Install NerdFonts
+source $HOME/.dotfiles/installers/nerd-fonts Hack
