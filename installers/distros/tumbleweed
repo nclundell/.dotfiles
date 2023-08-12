@@ -1,5 +1,8 @@
 # Install Basic Packages
 sudo zypper -n in gcc gcc-c++ git make neovim ripgrep starship stow
 
+# Setup ASDF
+sudo zypper -n in gcc make rust patch automake bzip2 libopenssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
+
 # Install NerdFonts
 source $HOME/.dotfiles/installers/nerd-fonts Hack
