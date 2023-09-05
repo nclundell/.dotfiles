@@ -5,7 +5,7 @@ require('lualine').setup{
     'toggleterm'
   },
   options = {
-    section_separators = { left = '', right = '' },
+    -- section_separators = { left = '', right = '' },
     globalstatus = true,
     path = 1,
     refresh = {

@@ -7,11 +7,11 @@ require('lazy').setup(
   require('plugins'), {
     install = {
       colorscheme = {
-        'doom-one'
+        'onedark_vivid'
       }
     },
-    -- ui = {
-    --   border = 'rounded'
-    -- }
+    ui = {
+      border = 'single'
+    }
   }
 )
