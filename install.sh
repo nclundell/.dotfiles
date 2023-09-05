@@ -42,10 +42,4 @@ fi
 
 stow shell
 
-# Install ASDF
-source $HOME/.dotfiles/installers/asdf
-
-# Install Lazygit
-source $HOME/.dotfiles/installers/lazygit
-
 source $HOME/.bashrc
