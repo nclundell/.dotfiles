@@ -1,10 +1,11 @@
 return {
   -- Colorschemes
   {
+    'catppuccin/nvim',
     'Mofiqul/dracula.nvim',
     'NTBBloodbath/doom-one.nvim',
-    'shaunsingh/nord.nvim',
-    'olimorris/onedarkpro.nvim'
+    'olimorris/onedarkpro.nvim',
+    'shaunsingh/nord.nvim'
   },
 
   -- Code Intelligence
@@ -37,6 +38,14 @@ return {
 
   -- Commenting
   'numToStr/Comment.nvim',
+
+  -- Dashbard
+  {
+    'goolord/alpha-nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    }
+  },
 
   -- Database
   {
