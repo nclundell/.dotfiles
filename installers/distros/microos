@@ -1,0 +1,7 @@
+#! /bin/sh
+
+sudo transactional-update pkg install postgresql postgresql-contrib postgresql-server systemd-zram-service
+
+source $HOME/.dotfiles/installers/flatpak
+
+distrobox enter -- $HOME/.dotfiles/installers/distros/tumbleweed

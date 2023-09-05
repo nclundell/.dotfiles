@@ -1,8 +1,23 @@
-# Install Basic Packages
-sudo zypper -n in gcc gcc-c++ git make neovim ripgrep starship stow
+#! /bin/sh
 
-# Setup ASDF
-sudo zypper -n in gcc make rust patch automake bzip2 libopenssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
+# Install Essential Packages
+sudo zypper -n in gcc gcc-c++ git make neovim ripgrep starship stow tmux
+
+# Install Common Dependancies
+sudo zypper -n in 7zip automake bzip2 gcc gcc-c++ git htop make neovim patch ripgrep starship stow tmux unrar unzip
+
+# Install Common Devel Dependancies
+sudo zypper -n in gdbm-devel libopenssl-devel libyaml-devel libffi-devel ncurses-devel postgresql-devel readline-devel zlib-devel
+
+# Install Personal Dependancies
+sudo zypper -n in abcde flac opus-tools vorbis-tools
+# Install ASDF
+source $HOME/.dotfiles/installers/asdf
+
+# Install Lazygit
+source $HOME/.dotfiles/installers/lazygit
 
 # Install NerdFonts
 source $HOME/.dotfiles/installers/nerd-fonts Hack
+
+source $HOME/.bashrc
