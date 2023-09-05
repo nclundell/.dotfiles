@@ -16,4 +16,4 @@ require('nvim-tree').setup {
 -- Keymaps
 local map = require('utils.keymap')
 
-map('n', 'FF', function() require('nvim-tree.api').tree.toggle() end, { desc = 'Toggle File Tree' })
+map('n', '<leader>ft', function() require('nvim-tree.api').tree.toggle() end, { desc = 'Toggle File Tree' })
