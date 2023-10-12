@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Install or Update lazygit
+# Install or Update Lazygit https://github.com/jesseduffield/lazygit
 
 mkdir -p $HOME/.local/bin
 

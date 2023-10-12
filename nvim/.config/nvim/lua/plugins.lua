@@ -23,7 +23,6 @@ return {
 
     -- LSP
     {
-      'folke/neodev.nvim',
       'neovim/nvim-lspconfig',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
@@ -39,14 +38,6 @@ return {
   -- Commenting
   'numToStr/Comment.nvim',
 
-  -- Dashbard
-  {
-    'goolord/alpha-nvim',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons'
-    }
-  },
-
   -- Database
   {
     'tpope/vim-dadbod',
@@ -60,6 +51,17 @@ return {
     'theHamsta/nvim-dap-virtual-text',
     'rcarriga/nvim-dap-ui',
     'suketa/nvim-dap-ruby'
+  },
+
+  -- Documentation
+  {
+    "luckasRanarison/nvim-devdocs",
+    build = ':DevdocsFetch',
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    }
   },
 
   -- File Tree
@@ -127,6 +129,9 @@ return {
       'olimorris/neotest-rspec'
     }
   },
+
+  -- Tmux Integration
+  'aserowy/tmux.nvim',
 
   -- Treesitter
   {

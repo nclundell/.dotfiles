@@ -63,14 +63,7 @@ cmp.setup({
 
 -- Mason
 require('mason').setup {}
-require("mason-lspconfig").setup {
-  ensure_installed = {
-    'lua_ls'
-  }
-}
-
--- Neodev
-require('neodev').setup {}
+require("mason-lspconfig").setup {}
 
 -- LSP Setup
 local lsp = require('lspconfig')
