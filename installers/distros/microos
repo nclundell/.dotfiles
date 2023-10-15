@@ -1,7 +1,11 @@
 #! /bin/sh
 
-sudo transactional-update pkg install postgresql postgresql-contrib postgresql-server systemd-zram-service
+sudo transactional-update pkg install alacritty kitty postgresql postgresql-contrib postgresql-server sway systemd-zram-service wofi
 
 source $HOME/.dotfiles/installers/flatpak
+
+distrobox create --name arch -i archlinux
+
+distrobox create --name fedora -i fedora
 
 distrobox enter -- $HOME/.dotfiles/installers/distros/tumbleweed

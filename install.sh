@@ -26,6 +26,7 @@ stow abcde
 stow alacritty
 stow asdf
 stow git
+stow kitty
 stow mpd
 stow ncmpcpp
 stow nvim

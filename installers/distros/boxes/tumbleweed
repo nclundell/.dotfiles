@@ -10,7 +10,7 @@ sudo zypper -n in 7zip autoconf automake bzip2 gcc gcc-c++ git htop intltool mak
 sudo zypper -n in gdbm-devel libopenssl-devel libyaml-devel libffi-devel ncurses-devel postgresql-devel readline-devel zlib-devel
 
 # Install Personal Dependancies
-sudo zypper -n in abcde alacritty flac gamemode gamescope intel-media-driver kitty libmfx mangohud opus-tools steam steam-devices vorbis-tools 
+sudo zypper -n in abcde flac opus-tools vorbis-tools 
 
 # Install Codecs
 opi -n codecs

@@ -34,7 +34,7 @@ flatpak install -y flathub org.gnome.Loupe                                      
 flatpak install -y flathub com.makemkv.MakeMKV                                  # MakeMKV
 flatpak install -y flathub org.bunkus.mkvtoolnix-gui                            # MKVToolNix Gui
 flatpak install -y flathub org.nickvision.tubeconverter                         # Parabolic
+flatpak install -y flathub com.protonvpn.www                                    # Proton VPN GUI
 flatpak install -y flathub de.haeckerfelix.Shortwave                            # Shortwave
 flatpak install -y flathub org.telegram.desktop                                 # Telegram
-flatpak install -y flathub com.valvesoftware.Steam                              # Steam
 flatpak install -y flathub org.gnome.Weather                                    # Weather (Gnome)
