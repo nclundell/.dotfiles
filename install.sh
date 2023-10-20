@@ -24,12 +24,12 @@ fi
 cd $HOME/.dotfiles
 stow abcde
 stow alacritty
-stow asdf
 stow git
 stow kitty
 stow mpd
 stow ncmpcpp
 stow nvim
+stow rtx
 stow rubocop
 stow scripts
 stow starship
