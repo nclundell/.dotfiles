@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Check for tmux on the system
+if [[ ! -x "$(command -v tmux)" ]]
+then
+  echo 'Error: tmux is not installed.' >&2
+  exit 1
+fi
+
+# Installs tmux plugins so I don't have to
+if [[ -f "$HOME/.config/tmux/tmux.conf" ]]; then
+  if [[ -d "$HOME/.config/tmux/plugins/tpm" ]]; then
+    cd $HOME/.config/tmux/plugins/tpm
+    git pull
+  else
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+    source $HOME/.config/tmux/plugins/tpm/scripts/install_plugins.sh
+  fi
+fi

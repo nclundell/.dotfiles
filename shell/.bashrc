@@ -24,23 +24,9 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/man:$PATH
 export PATH=$HOME/.local/scripts:$PATH
 
-# Set Neovim as Editor
+# Export ENV Vars
 export VISUAL=nvim
 export EDITOR=nvim
-
-# Setup ASDF
-# export ASDF_DIR="$HOME/.local/share/asdf"
-# export ASDF_DATA_DIR="$HOME/.local/share/asdf/data"
-# export ASDF_CONFIG_FILE="$HOME/.config/asdf/config"
-# export ASDF_GEM_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default-ruby-gems"
-# export ASDF_GOLANG_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default-go-packages"
-# export ASDF_NPM_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default-npm-packages"
-# export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default-pip-packages"
-#
-# if [[ -d $HOME/.local/share/asdf ]]; then
-#   source $HOME/.local/share/asdf/asdf.sh
-#   source $HOME/.local/share/asdf/completions/asdf.bash
-# fi
 
 #Setup RTX
 if [[ -d $HOME/.config/rtx ]]; then
@@ -50,19 +36,16 @@ if [[ -d $HOME/.config/rtx ]]; then
   eval "$(rtx activate bash)"
 fi
 
-# Setup Go
-if [[ -x "$(command -v go)" ]]; then
-  export GOPATH=$(go env GOPATH)
-  export GOROOT=$(go env GOROOT)
-  export GOBIN=$(go env GOBIN)
-  export PATH=$PATH:$GOPATH/bin
-  export PATH=$PATH:$GOROOT/bin
-  export PATH=$PATH:$GOBIN
-fi
-
 # Setup Starship Prompt
 export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
 eval "$(starship init bash)"
+
+# Setup Tmuxifier
+if [[ -d $HOME/.config/tmux/plugins/tmuxifier ]]; then
+  export PATH=$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH
+  export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmuxifier/"
+  eval "$(tmuxifier init -)"
+fi
 
 # Aliases
 alias a="sudo apt"
@@ -76,6 +59,3 @@ fi
 alias p="sudo pacman"
 
 alias z="sudo zypper"
-
-# Start Sway
-# [ "$(tty)" = "/dev/tty1" ] && exec sway
