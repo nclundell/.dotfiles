@@ -1,10 +1,16 @@
 #!/bin/sh
 
-# Install Essential Packages
-sudo dnf -y install g++ gcc git make neovim ripgrep tmux
+# Add RPMFusion Repos
+sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-# Install ASDF
-sudo dnf -y install gcc rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
+# Install Devel Packages
+sudo dnf install -y bzip2 g++ gcc git make neovim patch ripgrep rust tmux
+sudo dnf install -y gdbm-devel libffi-devel libyaml-devel ncurses-devel openssl-devel readline-devel zlib-devel
+
+# Install Media Packages
+sudo dnf -y install abcde flac handbrake-gui intel-media-driver intel-mediasdk lame opus-tools vorbis-tools
+
+# Install RTX
 source $HOME/.dotfiles/installers/rtx
 
 # Install Lazygit
@@ -12,12 +18,6 @@ source $HOME/.dotfiles/installers/lazygit
 
 # Install Starship
 source $HOME/.dotfiles/installers/starship
-
-# Add RPMFusion Repos
-sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-# Install Basics
-sudo dnf -y install abcde mscore-fonts-all youtube-dl
 
 # Install NerdFonts
 source $HOME/.dotfiles/installers/nerd-fonts Hack
