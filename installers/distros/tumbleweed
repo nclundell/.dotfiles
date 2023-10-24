@@ -1,22 +1,19 @@
 #! /bin/sh
 
-# Install Essential Packages
-sudo zypper -n in gcc gcc-c++ git make neovim opi ripgrep starship stow tmux
-
 # Install Common Dependancies
-sudo zypper -n in 7zip autoconf automake bzip2 gcc gcc-c++ git htop intltool make neovim patch ripgrep starship stow tmux unrar unzip
+sudo zypper -n in 7zip autoconf automake bzip2 gcc gcc-c++ git htop intltool make neovim opi patch ripgrep stow tmux unrar unzip
 
 # Install Common Devel Dependancies
 sudo zypper -n in gdbm-devel libopenssl-devel libyaml-devel libffi-devel ncurses-devel postgresql-devel readline-devel zlib-devel
 
 # Install Personal Dependancies
-sudo zypper -n in abcde alacritty flac gamemode gamescope intel-media-driver kitty libmfx mangohud opus-tools steam steam-devices vorbis-tools 
+sudo zypper -n in abcde flac intel-media-driver libmfx opus-tools vorbis-tools 
 
 # Install Codecs
 opi -n codecs
 
-# Install ASDF
-source $HOME/.dotfiles/installers/asdf
+# Install RTX
+source $HOME/.dotfiles/installers/rtx
 
 # Install Lazygit
 source $HOME/.dotfiles/installers/lazygit
