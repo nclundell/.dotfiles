@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Install Essential Packages
-sudo dnf -y install g++ gcc git make neovim ripgrep starship tmux
+sudo dnf -y install g++ gcc git make neovim ripgrep tmux
 
 # Install ASDF
 sudo dnf -y install gcc rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
-source $HOME/.dotfiles/installers/asdf
+source $HOME/.dotfiles/installers/rtx
 
 # Install Lazygit
 source $HOME/.dotfiles/installers/lazygit
@@ -17,7 +17,7 @@ source $HOME/.dotfiles/installers/starship
 sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Install Basics
-sudo dnf -y install abcde bottles brave-browser discord gamemode lutris mscore-fonts-all protonvpn steam telegram-desktop youtube-dl
+sudo dnf -y install abcde mscore-fonts-all youtube-dl
 
 # Install NerdFonts
 source $HOME/.dotfiles/installers/nerd-fonts Hack
