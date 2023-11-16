@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -9,9 +5,6 @@
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
-
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
 
 shopt -s checkwinsize
 shopt -s expand_aliases
@@ -37,25 +30,32 @@ if [[ -d $HOME/.config/rtx ]]; then
 fi
 
 # Setup Starship Prompt
-export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
-eval "$(starship init bash)"
+if [[ -x "$(command -v starship)" ]]; then
+  export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
+  eval "$(starship init bash)"
+fi
 
 # Setup Tmuxifier
-if [[ -d $HOME/.config/tmux/plugins/tmuxifier ]]; then
-  export PATH=$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH
-  export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmuxifier/"
-  eval "$(tmuxifier init -)"
+if [[ -x "$(command -v tmux)" ]]; then
+  if [[ -d $HOME/.config/tmux/plugins/tmuxifier ]]; then
+    export PATH=$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH
+    export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmuxifier/"
+    eval "$(tmuxifier init -)"
+  fi
 fi
 
 # Aliases
 alias a="sudo apt"
-
 if [[ -f $HOME/.config/dnf/config ]]; then
   alias d="sudo dnf -c $HOME/.config/dnf/config"
 else
   alias d="sudo dnf"
 fi
 
+if [[ -x "$(command -v eza)" ]]; then
+  alias ls="eza"
+else
+  alias ls="ls --color=auto"
+fi
 alias p="sudo pacman"
-
 alias z="sudo zypper"
