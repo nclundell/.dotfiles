@@ -24,6 +24,7 @@ fi
 cd $HOME/.dotfiles
 stow abcde
 stow alacritty
+stow dnf
 stow git
 stow kitty
 stow mpd
