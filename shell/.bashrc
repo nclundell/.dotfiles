@@ -46,6 +46,8 @@ fi
 
 # Aliases
 alias a="sudo apt"
+alias br="source $HOME/.bashrc"
+
 if [[ -f $HOME/.config/dnf/config ]]; then
   alias d="sudo dnf -c $HOME/.config/dnf/config"
 else
