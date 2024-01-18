@@ -72,7 +72,8 @@ lsp.gopls.setup {}
 lsp.lua_ls.setup {}
 lsp.pyright.setup {}
 lsp.rust_analyzer.setup {}
-lsp.solargraph.setup {}
+-- lsp.solargraph.setup {}
+lsp.ruby_ls.setup {}
 lsp.sqlls.setup {}
 lsp.tsserver.setup {}
 

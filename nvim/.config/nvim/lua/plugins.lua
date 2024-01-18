@@ -140,7 +140,10 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     'windwp/nvim-ts-autotag',
     'RRethy/nvim-treesitter-endwise',
-    'nvim-treesitter/playground'
+    {
+      'kevinhwang91/nvim-ufo',
+      dependencies = 'kevinhwang91/promise-async'
+    }
   },
 
   -- UI

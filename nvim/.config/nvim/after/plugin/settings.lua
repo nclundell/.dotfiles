@@ -7,10 +7,13 @@ opt.autoread = true
 -- Backspace Behavior
 opt.backspace = 'indent,eol,start'
 
+-- Clipboard
+opt.clipboard = 'unnamedplus'
+
 -- Colorscheme
 opt.termguicolors = true
-cmd [[ colorscheme onedark_vivid ]]
-cmd [[ syntax on ]]
+cmd.colorscheme('doom-one')
+cmd.syntax('on')
 
 -- Completion and Suggestions
 opt.completeopt = 'menuone,noinsert,noselect,preview'
@@ -19,8 +22,12 @@ opt.completeopt = 'menuone,noinsert,noselect,preview'
 opt.mouse = 'a'
 
 -- Folding
-opt.foldmethod = 'expr'
-opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- opt.foldmethod = 'expr'
+-- opt.foldexpr = 'nvim_treesitter#foldexpr()'
+opt.foldcolumn = '0'
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 
 -- Hide Buffers
 opt.hidden = true
@@ -41,7 +48,7 @@ opt.number = true
 opt.relativenumber = true
 
 -- Scoll Lines From Top
-opt.scrolloff = 10
+opt.scrolloff = 9999
 
 -- Shortmess
 opt.shortmess = 'filnxtToOFc'
@@ -64,6 +71,9 @@ opt.swapfile = false
 
 -- Tabline
 -- opt.showtabline = 2
+
+-- VirtualEdit
+opt.virtualedit = 'block'
 
 -- Wildmenu Settings
 opt.wildmenu = true
