@@ -30,22 +30,7 @@ require('nvim-treesitter.configs').setup {
         ["<leader>df"] = "@function.outer",
         ["<leader>dF"] = "@class.outer",
       }
-    }
-  }
-}
-
-require('treesitter-context').setup {
-  patterns = {
-    ruby = {
-      'assignment',
-      'block',
-      'do_block',
-    }
-  }
-}
-
-require'nvim-treesitter.configs'.setup {
-  textobjects = {
+    },
     select = {
       enable = true,
       lookahead = true,
@@ -63,10 +48,4 @@ require'nvim-treesitter.configs'.setup {
       include_surrounding_whitespace = true
     }
   }
-}
-
-require('ufo').setup {
-    provider_selector = function(bufnr, filetype, buftype)
-        return {'treesitter', 'indent'}
-    end
 }

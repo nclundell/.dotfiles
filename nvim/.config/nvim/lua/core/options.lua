@@ -4,8 +4,15 @@ local opt = vim.opt
 -- Autoread
 opt.autoread = true
 
--- Backspace Behavior
+-- Backspace
 opt.backspace = 'indent,eol,start'
+
+-- Backup
+opt.backup = false
+opt.writebackup = false
+
+-- Buffers
+opt.hidden = true
 
 -- Clipboard
 opt.clipboard = 'unnamedplus'
@@ -18,8 +25,14 @@ cmd.syntax('on')
 -- Completion and Suggestions
 opt.completeopt = 'menuone,noinsert,noselect,preview'
 
--- Enable Mouse
-opt.mouse = 'a'
+-- Editing
+opt.ignorecase = true
+opt.incsearch = true
+opt.infercase = true
+opt.smartcase = true
+
+-- Filetype
+cmd('filetype plugin indent on')
 
 -- Folding
 -- opt.foldmethod = 'expr'
@@ -29,12 +42,6 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
 
--- Hide Buffers
-opt.hidden = true
-
--- Improve Colors
-opt.termguicolors = true
-
 -- Indentation
 opt.tabstop = 2
 opt.softtabstop = 2
@@ -42,16 +49,21 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
+opt.breakindent = true
 
 -- Line Numbering 
 opt.number = true
 opt.relativenumber = true
 
+-- Messages
+-- opt.shortmess = 'filnxtToOFc'
+opt.shortmess:append('WoC')
+
+-- Mouse
+opt.mouse = 'a'
+
 -- Scoll Lines From Top
 opt.scrolloff = 9999
-
--- Shortmess
-opt.shortmess = 'filnxtToOFc'
 
 -- Show Column/Row Number
 opt.ruler = false
@@ -66,15 +78,15 @@ opt.signcolumn = 'yes'
 opt.splitbelow = true
 opt.splitright = true
 
--- Swap Files
+-- Swap
 opt.swapfile = false
 
--- Tabline
--- opt.showtabline = 2
+-- Undo (Persistent)
+opt.undofile = true
 
 -- VirtualEdit
 opt.virtualedit = 'block'
 
--- Wildmenu Settings
+-- Wildmenu
 opt.wildmenu = true
 opt.wildmode = 'list:longest'

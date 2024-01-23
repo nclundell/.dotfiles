@@ -1,0 +1,33 @@
+local telescope = require('telescope')
+local tb = require('telescope.builtin')
+
+-- Load Extensions
+telescope.load_extension('env')
+telescope.load_extension('fzf')
+telescope.load_extension('undo')
+telescope.load_extension('file_browser')
+telescope.load_extension('ui-select')
+
+-- Keymaps
+local selection_layout = require('telescope.themes').get_dropdown({ previewer = false })
+
+vim.keymap.set('n', '<leader>/',  function() tb.current_buffer_fuzzy_find() end, { desc = 'Enhanced Search' })
+vim.keymap.set('n', '<leader>fb', function() telescope.extensions.file_browser.file_browser() end, { desc = 'File Browser' })
+vim.keymap.set('n', '<leader>lc', function() tb.git_commits() end, { desc = 'List Commits' })
+vim.keymap.set('n', '<leader>ld', function() tb.lsp_definitions() end, { desc = 'List LSP Definitions' })
+vim.keymap.set('n', '<leader>le', function() telescope.extensions.env.env() end, { desc = 'List Environmental Variables' })
+vim.keymap.set('n', '<leader>lr', function() tb.lsp_references() end, { desc = 'List LSP References' })
+vim.keymap.set('n', '<leader>ls', function() tb.lsp_document_symbols() end, { desc = 'List LSP Symbols' })
+vim.keymap.set('n', '<leader>lt', function() tb.treesitter() end, { desc = 'List Treesitter Objects' })
+vim.keymap.set('n', '<leader>of', function() tb.find_files({ prompt_title = 'Files' }) end, { desc = 'Open Files' })
+vim.keymap.set('n', '<leader>og', function() tb.git_files() end, { desc = 'Open Git Files' })
+vim.keymap.set('n', '<leader>oh', function() tb.help_tags() end, { desc = 'Open Help Pages' })
+vim.keymap.set('n', '<leader>or', function() tb.oldfiles({ prompt_title = "Recent Files" }) end, { desc = 'Open Recent Files' })
+vim.keymap.set('n', '<leader>sb', function() tb.buffers(selection_layout) end, { desc = 'Select Buffers' })
+vim.keymap.set('n', '<leader>sc', function() tb.colorscheme(selection_layout) end, { desc = 'Select Colorscheme' })
+vim.keymap.set('n', '<leader>sf', function() tb.live_grep() end, { desc = 'Search All Files' })
+vim.keymap.set('n', '<leader>so', function() tb.live_grep({ grep_open_files = true }) end, { desc = 'Search Open Files (Buffers)' })
+vim.keymap.set('n', '<leader>st', function() tb.live_grep({ search_dirs = { 'spec' } }) end, { desc = 'Search Tests' })
+vim.keymap.set('n', '<leader>u', function() telescope.extensions.undo.undo() end, { desc = 'Undo' })
+vim.keymap.set('n', '<leader><leader>', function() tb.keyvim.keymap.sets(selection_layout) end, { desc = 'Defined Keyvim.keymap.sets' })
+vim.keymap.set('n', '<leader><localleader>', function() tb.commands(selection_layout) end, { desc = 'Available Commands' })
