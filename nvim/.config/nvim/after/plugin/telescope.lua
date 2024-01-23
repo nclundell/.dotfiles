@@ -29,5 +29,5 @@ vim.keymap.set('n', '<leader>sf', function() tb.live_grep() end, { desc = 'Searc
 vim.keymap.set('n', '<leader>so', function() tb.live_grep({ grep_open_files = true }) end, { desc = 'Search Open Files (Buffers)' })
 vim.keymap.set('n', '<leader>st', function() tb.live_grep({ search_dirs = { 'spec' } }) end, { desc = 'Search Tests' })
 vim.keymap.set('n', '<leader>u', function() telescope.extensions.undo.undo() end, { desc = 'Undo' })
-vim.keymap.set('n', '<leader><leader>', function() tb.keyvim.keymap.sets(selection_layout) end, { desc = 'Defined Keyvim.keymap.sets' })
+vim.keymap.set('n', '<leader><leader>', function() tb.keymaps(selection_layout) end, { desc = 'Defined Keyvim.keymap.sets' })
 vim.keymap.set('n', '<leader><localleader>', function() tb.commands(selection_layout) end, { desc = 'Available Commands' })
