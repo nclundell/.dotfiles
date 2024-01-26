@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local opt = vim.opt
 
 -- Autoread
-opt.autoread = true
+vim.g.autoread = true
 
 -- Backspace
 opt.backspace = 'indent,eol,start'
@@ -52,8 +52,8 @@ opt.smartindent = true
 opt.breakindent = true
 
 -- Line Numbering 
-opt.number = true
-opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Messages
 -- opt.shortmess = 'filnxtToOFc'

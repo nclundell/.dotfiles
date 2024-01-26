@@ -3,7 +3,6 @@ return {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-ui-select.nvim'
     },
     opts = {
       defaults = {
@@ -12,21 +11,62 @@ return {
           prompt_position = 'top'
         },
         sorting_strategy = 'ascending'
-      },
-      extensions = {
-        undo = {}
       }
     }
   },
 
   -- Extensions
   {
-    'nvim-telescope/telescope-file-browser.nvim',
-    'debugloop/telescope-undo.nvim',
     'LinArcX/telescope-env.nvim',
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'make'
-    }
+    config = function()
+      require('telescope').load_extension('env')
+
+      vim.keymap.set(
+        'n',
+        '<leader>le',
+        function() require('telescope').extensions.env.env() end,
+        { desc = 'List Environmental Variables' }
+      )
+    end
+  },
+  {
+    'nvim-telescope/telescope-file-browser.nvim',
+    config = function()
+      require('telescope').load_extension('file_browser')
+
+      vim.keymap.set(
+        'n',
+        '<leader>fb',
+        function() require('telescope').extensions.file_browser.file_browser() end,
+        { desc = 'File Browser' }
+      )
+    end
+  },
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make',
+    config = function()
+      require('telescope').load_extension('fzf')
+    end
+  },
+  {
+    'debugloop/telescope-undo.nvim',
+    main = 'telescope',
+    config = function()
+      require('telescope').load_extension('undo')
+
+      vim.keymap.set(
+        'n',
+        '<leader>u',
+        function() require('telescope').extensions.undo.undo() end,
+        { desc = 'Undo' }
+      )
+    end
+  },
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
+    config = function()
+      require('telescope').load_extension('ui-select')
+    end
   }
 }
