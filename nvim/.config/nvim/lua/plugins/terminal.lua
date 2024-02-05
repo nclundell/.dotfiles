@@ -11,6 +11,11 @@ return {
       hidden = true
     })
 
+    local github = Terminal:new({
+      cmd = "gh dash",
+      hidden = true
+    })
+
     local lazygit = Terminal:new({
       cmd = "lazygit",
       hidden = true
@@ -27,6 +32,13 @@ return {
       '<c-d>',
       function() database:toggle() end,
       { desc = 'Toggle Dadbod'}
+    )
+
+    vim.keymap.set(
+      {'n', 't'},
+      '<c-m-g>',
+      function() github:toggle() end,
+      { desc = 'Github Dash'}
     )
 
     vim.keymap.set(
