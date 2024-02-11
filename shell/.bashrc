@@ -21,12 +21,13 @@ export PATH=$HOME/.local/scripts:$PATH
 export VISUAL=nvim
 export EDITOR=nvim
 
-#Setup RTX
-if [[ -d $HOME/.config/rtx ]]; then
-  export RTX_RUBY_DEFAULT_PACKAGES_FILE="$HOME/.config/rtx/defaults/ruby-gems"
-  export RTX_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/rtx/defaults/python-packages"
-  export RTX_NODE_DEFAULT_PACKAGES_FILE="$HOME/.config/rtx/defaults/node-packages"
-  eval "$(rtx activate bash)"
+# Setup Mise
+if [[ -x "$(command -v mise)" ]]; then
+  export MISE_GO_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/go-packages"
+  export MISE_NODE_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/node-packages"
+  export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/python-packages"
+  export MISE_RUBY_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/ruby-gems"
+  eval "$(mise activate bash)"
 fi
 
 # Setup Starship Prompt
