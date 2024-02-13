@@ -40,8 +40,7 @@ return {
       suggestion = {
         enabled = true,
         keymap = {
-          accept_line = '<c-l>',
-          accept = '<c-L>',
+          accept = '<c-l>',
           next = '<c-j>',
           prev = '<c-k>',
           dismiss = '<c-h>'
