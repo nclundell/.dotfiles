@@ -39,6 +39,7 @@ return {
       panel = { enabled = false },
       suggestion = {
         enabled = true,
+        auto_trigger = true,
         keymap = {
           accept = '<c-l>',
           next = '<c-j>',
