@@ -5,7 +5,10 @@ return {
   },
   opts = {
     extensions = {
+      'lazy',
+      'mason',
       'nvim-tree',
+      'overseer',
       'toggleterm'
     },
     options = {
