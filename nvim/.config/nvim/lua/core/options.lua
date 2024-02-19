@@ -20,6 +20,7 @@ opt.clipboard = 'unnamedplus'
 -- Colorscheme
 opt.termguicolors = true
 cmd.colorscheme('doom-one')
+cmd.colorscheme('tokyonight')
 cmd.syntax('on')
 
 -- Completion and Suggestions
