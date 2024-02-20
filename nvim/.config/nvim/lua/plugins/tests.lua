@@ -21,11 +21,15 @@ return {
     }
 
     require('which-key').register({
+      r = {
+        name = 'Run',
+        s = { function() require('neotest').run.run(true) end, 'Run Test Suite' },
+        t = { function() require('neotest').run.run() end, 'Run Test' },
+        T = { function() require('neotest').run.run(vim.fn.expand('%')) end, 'Run File' }
+      },
       t = {
-        name = 'Test',
-        f = { function() require('neotest').run.run(vim.fn.expand('%')) end, 'Test Current File' },
-        s = { function() require('neotest').summary.toggle() end, 'Test Summary' },
-        t = { function() require('neotest').run.run() end, 'Test Nearest Test' },
+        name = 'Toggle',
+        s = { function() require('neotest').summary.toggle() end, 'Toggle Test Summary' }
       }
     }, { prefix = '<leader>' })
   end
