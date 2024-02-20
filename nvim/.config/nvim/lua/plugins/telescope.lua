@@ -4,15 +4,54 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
-    opts = {
-      defaults = {
-        file_ignore_patterns = { 'node_modules' },
-        layout_config = {
-          prompt_position = 'top'
-        },
-        sorting_strategy = 'ascending'
+    config = function()
+      local t = require('telescope').setup {
+        defaults = {
+          file_ignore_patterns = { 'node_modules' },
+          layout_config = {
+            prompt_position = 'top'
+          },
+          sorting_strategy = 'ascending'
+        }
       }
-    }
+
+      local tb = require('telescope.builtin')
+      local picker_layout = require('telescope.themes').get_dropdown({ previewer = false })
+
+      require('which-key').register({
+        ['/'] = { function() tb.current_buffer_fuzzy_find() end, 'Enhanced Search' },
+        l = {
+          name = 'List',
+          c = { function() tb.git_commits() end, 'List Commits' },
+          d = { function() tb.lsp_definitions() end, 'List LSP Definitions' },
+          r = { function() tb.lsp_references() end, 'List LSP References' },
+          s = { function() tb.lsp_document_symbols() end, 'List LSP Symbols' },
+          t = { function() tb.treesitter() end, 'List Treesitter Objects' }
+        },
+        o = {
+          name = 'Open',
+          f = { function() tb.find_files() end, 'Open Files' },
+          g = { function() tb.git_files() end, 'Open Git Files' },
+          h = { function() tb.help_tags() end, 'Open Help Pages' },
+          r = { function() tb.oldfiles() end, 'Open Recent Files' }
+        },
+        p = {
+          name = 'Pick',
+          b = { function() tb.buffers(picker_layout) end, 'Pick Buffers' },
+          c = { function() tb.colorscheme(picker_layout) end, 'Pick Colorscheme' },
+        },
+        s = {
+          name = 'Search',
+          a = { function() tb.live_grep() end, 'Search All Files' },
+          o = { function() tb.live_grep({ grep_open_files = true }) end, 'Search Open Files (Buffers)' },
+          t = { function() tb.live_grep({ search_dirs = { 'spec' } }) end, 'Search Test Files' }
+
+        },
+      },
+      {
+        prefix = '<leader>'
+      })
+    end
   },
 
   -- Extensions
@@ -21,12 +60,12 @@ return {
     config = function()
       require('telescope').load_extension('env')
 
-      vim.keymap.set(
-        'n',
-        '<leader>le',
-        function() require('telescope').extensions.env.env() end,
-        { desc = 'List Environmental Variables' }
-      )
+      require('which-key').register({
+        le = { function() require('telescope').extensions.env.env() end, 'List Environmental Variables' }
+      },
+      {
+        prefix = '<leader>'
+      })
     end
   },
   {
@@ -34,12 +73,17 @@ return {
     config = function()
       require('telescope').load_extension('file_browser')
 
-      vim.keymap.set(
-        'n',
-        '<leader>fb',
-        function() require('telescope').extensions.file_browser.file_browser() end,
-        { desc = 'File Browser' }
-      )
+      local picker_layout = require('telescope.themes').get_dropdown({ previewer = false })
+
+      require('which-key').register({
+        b = {
+          name = 'Browse',
+          f = { function() require('telescope').extensions.file_browser.file_browser(picker_layout) end, 'File Browser' }
+        }
+      },
+      {
+        prefix = '<leader>'
+      })
     end
   },
   {
@@ -55,12 +99,12 @@ return {
     config = function()
       require('telescope').load_extension('undo')
 
-      vim.keymap.set(
-        'n',
-        '<leader>u',
-        function() require('telescope').extensions.undo.undo() end,
-        { desc = 'Undo' }
-      )
+      require('which-key').register({
+        u = { function() require('telescope').extensions.undo.undo() end, 'Undo' }
+      },
+      {
+        prefix = '<leader>'
+      })
     end
   }
 }

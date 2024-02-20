@@ -5,16 +5,9 @@ return {
       'toggleterm'
     }
   },
-  init = function()
-    vim.keymap.set(
-      'n',
-      '<c-o>',
-      function()
-        require('overseer').toggle()
-      end,
-      {
-        desc = 'Toggle Task Manager'
-      }
-    )
+  config = function()
+    require('which-key').register({
+      ['<c-o>'] = { function() require("overseer").toggle() end, 'Toggle Task Manager' }
+    })
   end
 }

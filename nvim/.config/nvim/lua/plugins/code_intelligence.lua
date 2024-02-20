@@ -117,7 +117,6 @@ return {
       lsp.rust_analyzer.setup {}
       lsp.solargraph.setup {}
       -- lsp.ruby_ls.setup {}
-      lsp.sqls.setup {}
       lsp.stimulus_ls.setup {}
       lsp.tailwindcss.setup {}
       lsp.tsserver.setup {}
@@ -137,7 +136,6 @@ return {
         'pyright',
         'ruby_ls',
         'solargraph',
-        'sqls',
         'stimulus_ls',
         'tailwindcss',
         'tsserver'

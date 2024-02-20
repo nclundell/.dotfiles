@@ -1,5 +1,8 @@
 local cmd = vim.cmd
 local opt = vim.opt
+local g = vim.g
+local go = vim.go
+local o = vim.o
 
 -- Autoread
 vim.g.autoread = true
@@ -19,7 +22,6 @@ opt.clipboard = 'unnamedplus'
 
 -- Colorscheme
 opt.termguicolors = true
-cmd.colorscheme('doom-one')
 cmd.colorscheme('tokyonight')
 cmd.syntax('on')
 
@@ -73,7 +75,7 @@ opt.ruler = false
 opt.showmode = false
 
 -- Sign Column
-opt.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Splits
 opt.splitbelow = true

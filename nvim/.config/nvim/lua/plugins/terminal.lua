@@ -26,33 +26,13 @@ return {
     })
 
     -- Keymaps
-
-    vim.keymap.set(
-      {'n', 't'},
-      '<c-d>',
-      function() database:toggle() end,
-      { desc = 'Toggle Dadbod'}
-    )
-
-    vim.keymap.set(
-      {'n', 't'},
-      '<c-m-g>',
-      function() github:toggle() end,
-      { desc = 'Github Dash'}
-    )
-
-    vim.keymap.set(
-      {'n', 't'},
-      '<c-g>',
-      function() lazygit:toggle() end,
-      { desc = 'Toggle Lazygit'}
-    )
-
-    vim.keymap.set(
-      {'n', 't'},
-      '<c-t>',
-      function() scratchpad:toggle() end,
-      { desc = 'Toggle Terminal'}
-    )
+    require('which-key').register({
+      ['<c-d>'] = { function() database:toggle() end, 'Toggle Dadbod' },
+      ['<c-g>'] = { function() lazygit:toggle() end, 'Toggle Lazygit' },
+      ['<c-h>'] = { function() github:toggle() end, 'Toggle Github Dash' },
+      ['<c-t>'] = { function() scratchpad:toggle() end, 'Toggle Terminal' }
+    }, {
+      mode = { 'n', 't' }
+    })
   end
 }

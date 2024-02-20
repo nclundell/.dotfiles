@@ -30,20 +30,18 @@ return {
         enable = false
       }
     },
-    init = function()
-      vim.keymap.set(
-        'n',
-        '<leader>we',
-        function() require('windows.commands').equalize() end,
-        { desc = 'Equalize Windows' }
-      )
-
-      vim.keymap.set(
-        'n',
-        '<leader>wm',
-        function() require('windows.commands').maximize() end,
-        { desc = 'Maximize Windows' }
-      )
+    config = function()
+      require('which-key').register({
+        ['w'] = {
+          name = 'Windows',
+          e = { function() require("windows.commands").equalize() end, 'Equalize Windows' },
+          m = { function() require("windows.commands").maximize() end, 'Maximize Windows' },
+          s = { function() require("windows.commands").split() end, 'Split Windows' },
+          v = { function() require("windows.commands").vsplit() end, 'VSplit Windows' },
+        }
+      }, {
+        prefix = '<leader>'
+      })
     end
   },
   {
