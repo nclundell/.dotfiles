@@ -1,7 +1,8 @@
 return {
   'lewis6991/gitsigns.nvim',
-  opts = {},
   config = function()
+    require('gitsigns').setup {}
+
     local gs = require('gitsigns')
 
     require('which-key').register({
