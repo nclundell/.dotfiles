@@ -1,95 +1,52 @@
+-- COMMANDS --
 local cmd = vim.cmd
-local opt = vim.opt
-local g = vim.g
-local go = vim.go
-local o = vim.o
 
--- Autoread
-vim.g.autoread = true
+cmd.colorscheme('onedark_vivid')   -- Set colorscheme
+cmd.syntax('on')                   -- Enable syntax highlighting
+cmd('filetype plugin indent on')   -- Enable filetype detection, plugins, and indentation
 
--- Backspace
-opt.backspace = 'indent,eol,start'
+-- OPTIONS --
+local o = vim.opt
 
--- Backup
-opt.backup = false
-opt.writebackup = false
+o.autoindent = true      -- Enable autoindent (copy indent from current line)
+o.breakindent = true     -- Enable breakindent (indent wrapped lines)
+o.expandtab = true       -- Expand tabs to spaces
+o.foldcolumn = '0'       -- Disable fold Column
+o.foldenable = true      -- Enable line folding
+o.foldlevel = 99         -- Set fold level to 99 (open all folds)
+o.foldlevelstart = 99    -- Set fold level start to 99 (open all folds)
+o.number = true          -- Show line numbers
+o.relativenumber = true  -- Show relative line numbers
+o.scrolloff = 9999       -- Set scrolloff to 9999 (scroll lines from top/bottom)
+o.signcolumn = 'yes'     -- Set sign coloumn to yes (always)
+o.shiftwidth = 2         -- Set shiftwidth to 2
+o.smartindent = true     -- Enable smartindent (autoindent new lines)
+o.softtabstop = 2        -- Set softtabstop to 2
+o.tabstop = 2            -- Set tabstop to 2
 
--- Buffers
-opt.hidden = true
+-- GLOBAL OPTIONS --
+local go = vim.opt_global
 
--- Clipboard
-opt.clipboard = 'unnamedplus'
-
--- Colorscheme
-opt.termguicolors = true
-cmd.colorscheme('tokyonight')
-cmd.syntax('on')
-
--- Completion and Suggestions
-opt.completeopt = 'menuone,noinsert,noselect,preview'
-
--- Editing
-opt.ignorecase = true
-opt.incsearch = true
-opt.infercase = true
-opt.smartcase = true
-
--- Filetype
-cmd('filetype plugin indent on')
-
--- Folding
--- opt.foldmethod = 'expr'
--- opt.foldexpr = 'nvim_treesitter#foldexpr()'
-opt.foldcolumn = '0'
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-opt.foldenable = true
-
--- Indentation
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.autoindent = true
-opt.smartindent = true
-opt.breakindent = true
-
--- Line Numbering 
-vim.o.number = true
-vim.o.relativenumber = true
-
--- Messages
--- opt.shortmess = 'filnxtToOFc'
-opt.shortmess:append('WoC')
-
--- Mouse
-opt.mouse = 'a'
-
--- Scoll Lines From Top
-opt.scrolloff = 9999
-
--- Show Column/Row Number
-opt.ruler = false
-
--- Show Mode in Command Area
-opt.showmode = false
-
--- Sign Column
-vim.o.signcolumn = 'yes'
-
--- Splits
-opt.splitbelow = true
-opt.splitright = true
-
--- Swap
-opt.swapfile = false
-
--- Undo (Persistent)
-opt.undofile = true
-
--- VirtualEdit
-opt.virtualedit = 'block'
-
--- Wildmenu
-opt.wildmenu = true
-opt.wildmode = 'list:longest'
+go.autoread = true                         -- Automatically read file if changed outside of vim
+go.backspace = {'indent', 'eol', 'start'}  -- Allow backspacing over everything in insert mode
+go.backup = false                          -- Disable backup files
+go.clipboard = {'unnamedplus'}             -- Use system clipboard
+go.completeopt = {'menuone', 'noinsert', 'noselect', 'preview'}  -- Set completion options
+go.hidden = true                           -- Allow hidden buffers
+go.ignorecase = true                       -- Ignore case when searching
+go.incsearch = true                        -- Incremental searching
+go.infercase = true                        -- Infer case when searching
+go.mouse = 'a'                             -- Enable mouse support
+go.ruler = false                           -- Show the line and column number of the cursor position
+go.shortmess:append('WoC')                 -- Set shortmess options (filnxtToOFcWoC)
+go.showmode = false                        -- Hide mode in command area
+go.smartcase = true                        -- Use smart case when searching
+go.splitbelow = true                       -- Split below current windows
+go.splitright = true                       -- Split right of current windows
+go.swapfile = false                        -- Disable swap files
+go.termguicolors = true                    -- Use true color in terminal
+go.undofile = true                         -- Enable persistent undofile
+go.virtualedit = 'block'                   -- Enable block virtual edit
+go.wildmenu = true                         -- Enable wildmenu
+go.wildmode = 'list:longest'               -- Set wildmode to list:longest
+go.writebackup = false                     -- Disable backup files
