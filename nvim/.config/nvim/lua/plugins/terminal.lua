@@ -27,12 +27,12 @@ return {
 
     -- Keymaps
     require('which-key').register({
-      t = {
-        name = 'Toggle',
-        g = { function() lazygit:toggle() end, 'Toggle Lazygit' },
-        o = { function() github:toggle() end, 'Toggle Github Dash' },
-        s = { function() database:toggle() end, 'Toggle SQL Database Browser' },
-        t = { function() scratchpad:toggle() end, 'Toggle Terminal' }
+      o = {
+        name = 'Open',
+        d = { function() database:toggle() end, 'Open Database Browser' },
+        g = { function() lazygit:toggle() end, 'Open Lazygit' },
+        o = { function() github:toggle() end, 'Open Github Dash' },
+        t = { function() scratchpad:toggle() end, 'Open Terminal' }
       }
     }, {
       mode = { 'n', 't' },

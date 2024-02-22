@@ -31,7 +31,6 @@ return {
         o = {
           name = 'Open',
           f = { function() tb.find_files() end, 'Open Files' },
-          g = { function() tb.git_files() end, 'Open Git Files' },
           h = { function() tb.help_tags() end, 'Open Help Pages' },
           r = { function() tb.oldfiles() end, 'Open Recent Files' }
         },
