@@ -21,7 +21,7 @@ require('lazy').setup(
   'plugins', {
     install = {
       colorscheme = {
-        'doom-one'
+        'tokyonight-night'
       }
     },
     ui = {

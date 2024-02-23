@@ -1,7 +1,7 @@
 -- COMMANDS --
 local cmd = vim.cmd
 
-cmd.colorscheme('onedark_vivid')   -- Set colorscheme
+cmd.colorscheme('tokyonight-night')   -- Set colorscheme
 cmd.syntax('on')                   -- Enable syntax highlighting
 cmd('filetype plugin indent on')   -- Enable filetype detection, plugins, and indentation
 
