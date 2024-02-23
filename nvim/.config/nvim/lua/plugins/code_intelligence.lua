@@ -11,7 +11,6 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-omni',
       'hrsh7th/cmp-path',
       'kristijanhusak/vim-dadbod-completion',
       'saadparwaiz1/cmp_luasnip',
@@ -56,11 +55,10 @@ return {
           end,
         },
         sources = {
-          { name = 'dadbod' },
+          { name = 'vim-dadbod-completion' },
           { name = 'nvim_lsp' },
           { name = 'nvim_lua' },
           { name = 'luasnip' },
-          { name = 'omni' },
           { name = 'path' },
           { name = 'buffer' }
         }
