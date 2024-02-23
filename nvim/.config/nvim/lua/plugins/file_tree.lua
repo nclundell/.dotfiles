@@ -19,7 +19,6 @@ return {
   -- },
   config = function()
     require('nvim-tree').setup {
-      auto_close = true,
       diagnostics = {
         enable = true,
         show_on_dirs = true
