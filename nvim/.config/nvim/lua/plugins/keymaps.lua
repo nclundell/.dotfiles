@@ -1,44 +1,15 @@
 return {
-  -- 'echasnovski/mini.clue',
-  -- version = '*',
-  -- opts = {
-  --   triggers = {
-  --     -- Leader triggers
-  --     { mode = 'n', keys = '<Leader>' },
-  --     { mode = 'x', keys = '<Leader>' },
-  --
-  --     -- Built-in completion
-  --     { mode = 'i', keys = '<C-x>' },
-  --
-  --     -- `g` key
-  --     { mode = 'n', keys = 'g' },
-  --     { mode = 'x', keys = 'g' },
-  --
-  --     -- Marks
-  --     { mode = 'n', keys = "'" },
-  --     { mode = 'n', keys = '`' },
-  --     { mode = 'x', keys = "'" },
-  --     { mode = 'x', keys = '`' },
-  --
-  --     -- Registers
-  --     { mode = 'n', keys = '"' },
-  --     { mode = 'x', keys = '"' },
-  --     { mode = 'i', keys = '<C-r>' },
-  --     { mode = 'c', keys = '<C-r>' },
-  --
-  --     -- Window commands
-  --     { mode = 'n', keys = '<C-w>' },
-  --
-  --     -- `z` key
-  --     { mode = 'n', keys = 'z' },
-  --     { mode = 'x', keys = 'z' },
-  --   }
-  -- },
-  'folke/which-key.nvim',
-  event = 'VeryLazy',
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
-  opts = {}
+  {
+    'aserowy/tmux.nvim',
+    opts = {};
+  },
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {}
+  }
 }
