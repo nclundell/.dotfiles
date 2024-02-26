@@ -4,12 +4,12 @@
   -- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to the window above" })
   -- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to the window on the right" })
 
-  -- Turn Off Search Highlight
-  vim.keymap.set("n", "<ESC>", "<CMD> nohl <CR>", { desc = "Disable search highlight" })
-
-  -- (Un)Fold With Spacebar
-  vim.keymap.set("n", "<Space>", "@=(foldlevel('.')?'za': '<Space>') <CR>", { desc = "Toggle fold" })
-
-  -- Visual Mode Indenting
-  vim.keymap.set("x", ">", ">gv", { desc = "Indent selected text" })
-  vim.keymap.set("x", "<", "<gv", { desc = "Unindent selected text" })
+  -- -- Turn Off Search Highlight
+  -- vim.keymap.set("n", "<ESC>", "<CMD> nohl <CR>", { desc = "Disable search highlight" })
+  --
+  -- -- (Un)Fold With Spacebar
+  -- vim.keymap.set("n", ";", "@=(foldlevel('.')?'za': '<Space>') <CR>", { desc = "Toggle fold" })
+  --
+  -- -- Visual Mode Indenting
+  -- vim.keymap.set("x", ">", ">gv", { desc = "Indent selected text" })
+  -- vim.keymap.set("x", "<", "<gv", { desc = "Unindent selected text" })

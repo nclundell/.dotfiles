@@ -5,7 +5,7 @@ return {
       'nvim-lua/plenary.nvim',
     },
     config = function()
-      local t = require('telescope').setup {
+      require('telescope').setup {
         defaults = {
           file_ignore_patterns = { 'node_modules' },
           layout_config = {
@@ -16,7 +16,7 @@ return {
       }
 
       local tb = require('telescope.builtin')
-      local picker_layout = require('telescope.themes').get_dropdown({ previewer = false })
+      local select_layout = require('telescope.themes').get_dropdown({ previewer = false })
 
       require('which-key').register({
         ['/'] = { function() tb.current_buffer_fuzzy_find() end, 'Enhanced Search' },
@@ -34,18 +34,15 @@ return {
           h = { function() tb.help_tags() end, 'Open Help Pages' },
           r = { function() tb.oldfiles() end, 'Open Recent Files' }
         },
-        p = {
-          name = 'Pick',
-          b = { function() tb.buffers(picker_layout) end, 'Pick Buffers' },
-          c = { function() tb.colorscheme(picker_layout) end, 'Pick Colorscheme' },
-        },
         s = {
-          name = 'Search',
+          name = 'Search/Select',
           a = { function() tb.live_grep() end, 'Search All Files' },
+          b = { function() tb.buffers(select_layout) end, 'Select Buffer' },
+          c = { function() tb.colorscheme(select_layout) end, 'Select Colorscheme' },
           o = { function() tb.live_grep({ grep_open_files = true }) end, 'Search Open Files (Buffers)' },
           t = { function() tb.live_grep({ search_dirs = { 'spec' } }) end, 'Search Test Files' }
 
-        },
+        }
       },
       {
         prefix = '<leader>'
