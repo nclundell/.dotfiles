@@ -1,4 +1,4 @@
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 vim.g.maplocalleader = '<'
 
 -- Bootstrap Lazy
@@ -21,7 +21,7 @@ require('lazy').setup(
   'plugins', {
     install = {
       colorscheme = {
-        'tokyonight-night'
+        'catppuccin-mocha'
       }
     },
     ui = {

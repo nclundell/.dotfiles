@@ -13,7 +13,7 @@ return {
     },
     options = {
       -- section_separators = { left = '', right = '' },
-      section_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
       globalstatus = true,
       path = 1,
@@ -23,11 +23,11 @@ return {
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = {},
-      lualine_c = { 'branch', 'diff', 'diagnostics', 'filename' },
-      lualine_x = { 'copilot', 'fileformat', 'filetype' },
-      lualine_y = {},
-      lualine_z = {}
+      lualine_b = { 'branch', 'diff', 'diagnostics' },
+      lualine_c = { 'filename' },
+      lualine_x = {},
+      lualine_y = { 'copilot', 'fileformat', 'filetype' },
+      lualine_z = {},
     }
   }
 }
