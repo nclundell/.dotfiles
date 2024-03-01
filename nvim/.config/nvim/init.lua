@@ -1,3 +1,4 @@
+-- Leader Keys --
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '<'
 
@@ -30,5 +31,4 @@ require('lazy').setup(
   }
 )
 
-require('core.keymaps')
-require('core.options')
+require('options')

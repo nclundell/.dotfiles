@@ -27,6 +27,16 @@ return {
       }, {
         mode = 'x'
       })
+
+      wk.register({
+        c = { '<CMD> bd <CR>', 'Close buffer' },
+        C = { '<CMD> bd! <CR>', 'Close buffer without saving' },
+        q = { '<CMD> q <CR>', 'Quit' },
+        Q = { '<CMD> q! <CR>', 'Quit without saving' },
+        w = { '<CMD> w <CR>', 'Save file' }
+      }, {
+        prefix = '<leader>',
+      })
     end,
   }
 }

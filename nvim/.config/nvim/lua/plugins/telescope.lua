@@ -69,13 +69,10 @@ return {
     config = function()
       require('telescope').load_extension('file_browser')
 
-      local picker_layout = require('telescope.themes').get_dropdown({ previewer = false })
+      local select_layout = require('telescope.themes').get_dropdown({ previewer = false })
 
       require('which-key').register({
-        b = {
-          name = 'Browse',
-          f = { function() require('telescope').extensions.file_browser.file_browser(picker_layout) end, 'File Browser' }
-        }
+        f = { function() require('telescope').extensions.file_browser.file_browser(select_layout) end, 'File Browser' }
       },
       {
         prefix = '<leader>'

@@ -9,6 +9,7 @@ return {
       g = {
         name = 'Git',
         b = { function() gs.blame_line({ full = true }) end, 'Blame' },
+        B = { function() gs.toggle_current_line_blame() end, 'Toggle Blame' },
         c = { function() gs.commit() end, 'Commit' },
         p = { function() gs.preview_hunk() end, 'Preview Hunk' },
         r = { function() gs.reset_hunk() end, 'Reset Hunk' },
@@ -16,10 +17,6 @@ return {
         s = { function() gs.stage_hunk() end, 'Stage Hunk' },
         u = { function() gs.undo_stage_hunk() end, 'Undo Stage Hunk' }
       },
-      t = {
-        name = 'Toggle',
-        b = { function() gs.toggle_current_line_blame() end, 'Toggle Blame' },
-      }
     }, { prefix = '<leader>' })
   end
 }

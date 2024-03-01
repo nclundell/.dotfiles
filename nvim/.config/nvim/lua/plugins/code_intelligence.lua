@@ -148,10 +148,7 @@ return {
     opts = {},
     config = function()
       require('which-key').register({
-        t = {
-          name = 'Toggle',
-          d = { function () require('trouble').toggle() end, 'Toggle Diagnostics' }
-        }
+        D = { function () require('trouble').toggle() end, 'Toggle Diagnostics' }
       },
       { prefix = '<leader>' })
     end

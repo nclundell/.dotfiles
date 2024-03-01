@@ -37,10 +37,7 @@ return {
     }
 
     require('which-key').register({
-      t = {
-        name = 'Toggle',
-        f = { function() require('nvim-tree.api').tree.toggle() end, 'Toggle File Tree' }
-      }
+      F = { function() require('nvim-tree.api').tree.toggle() end, 'Toggle File Tree' }
     }, {
       prefix = '<leader>'
     })
