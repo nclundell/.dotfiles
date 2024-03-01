@@ -45,6 +45,11 @@ if [[ -x "$(command -v tmux)" ]]; then
   fi
 fi
 
+# Setup Zoxide
+if [[ -x "$(command -v zoxide)" ]]; then
+  eval "$(zoxide init --cmd cd bash)"
+fi
+
 # Aliases
 alias a="sudo apt"
 alias br="source $HOME/.bashrc"
@@ -56,9 +61,17 @@ else
 fi
 
 if [[ -x "$(command -v eza)" ]]; then
-  alias ls="eza"
+  alias ls="eza --color=auto --icons=auto --group-directories-first"
 else
   alias ls="ls --color=auto"
 fi
-alias p="sudo pacman"
-alias z="sudo zypper"
+
+# Check for pacman
+if [[ -x "$(command -v pacman)" ]]; then
+  alias p="sudo pacman"
+fi
+
+# Check for zypper
+if [[ -x "$(command -v zypper)" ]]; then
+  alias z="sudo zypper"
+fi
