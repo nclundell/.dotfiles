@@ -145,13 +145,7 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     },
-    opts = {},
-    config = function()
-      require('which-key').register({
-        D = { function () require('trouble').toggle() end, 'Toggle Diagnostics' }
-      },
-      { prefix = '<leader>' })
-    end
+    opts = {}
   },
   {
     'folke/neodev.nvim',
