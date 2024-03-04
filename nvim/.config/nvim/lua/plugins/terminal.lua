@@ -1,17 +1,16 @@
 return {
   'akinsho/toggleterm.nvim',
-  opts = {
-    direction = 'float'
-  },
   config = function()
     local Terminal = require('toggleterm.terminal').Terminal
 
     local database = Terminal:new({
+      direction = 'float',
       cmd = "nvim -c 'DBUIToggle'",
       hidden = true
     })
 
     local scratchpad = Terminal:new({
+      direction = 'float',
       hidden = true
     })
 
