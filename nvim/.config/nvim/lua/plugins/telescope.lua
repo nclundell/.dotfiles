@@ -79,11 +79,17 @@ return {
       })
     end
   },
+  -- {
+  --   'nvim-telescope/telescope-fzf-native.nvim',
+  --   build = 'make',
+  --   config = function()
+  --     require('telescope').load_extension('fzf')
+  --   end
+  -- },
   {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
+    'natecraddock/telescope-zf-native.nvim',
     config = function()
-      require('telescope').load_extension('fzf')
+      require('telescope').load_extension('zf-native')
     end
   },
   {
