@@ -27,10 +27,10 @@ stow alacritty
 stow dnf
 stow git
 stow kitty
+stow mise
 stow mpd
 stow ncmpcpp
 stow nvim
-stow rtx
 stow rubocop
 stow scripts
 stow starship
@@ -45,3 +45,7 @@ fi
 stow shell
 
 source $HOME/.bashrc
+
+# Run Individual Installers
+source ./installers/tools/mise
+source ./installers/tools/tmux
