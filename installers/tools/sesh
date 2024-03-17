@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Install or Update Sesh: https://github.com/joshmedeski/sesh
+
+mkdir -p $HOME/.local/bin
+
+OS=$(uname -s)
+case $OS in
+  Linux) OS=Linux ;;
+  Darwin) OS=Darwin ;;
+esac
+
+ARCH=$(uname -m)
+case $ARCH in
+  x86_64) ARCH=x86_64 ;;
+  aarch64*) ARCH=arm64 ;;
+esac
+
+GITHUB_LATEST_VERSION=$(curl -L -s -H 'Accept: application/json' https://github.com/joshmedeski/sesh/releases/latest | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+GITHUB_FILE="sesh_${OS}_${ARCH}.tar.gz"
+GITHUB_URL="https://github.com/joshmedeski/sesh/releases/download/${GITHUB_LATEST_VERSION}/${GITHUB_FILE}"
+
+# install/update the local binary
+mkdir tmp
+curl -L -o tmp/sesh.tar.gz $GITHUB_URL
+cd tmp
+tar xzvf sesh.tar.gz
+mv -f sesh $HOME/.local/bin
+cd ..
+rm -r tmp
