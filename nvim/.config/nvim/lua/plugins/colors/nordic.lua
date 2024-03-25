@@ -1,0 +1,3 @@
+return {
+  'andersson/nordic.nvim'
+}

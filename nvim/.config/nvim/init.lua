@@ -18,17 +18,27 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup Lazy
-require('lazy').setup(
-  'plugins', {
-    install = {
-      colorscheme = {
-        'catppuccin-mocha'
-      }
-    },
-    ui = {
-      border = 'single'
+require('lazy').setup {
+  install = {
+    colorscheme = {
+      'onenord'
     }
+  },
+  spec = {
+    { import = 'plugins' },
+    { import = 'plugins.code_intelligence' },
+    { import = 'plugins.colors' },
+    { import = 'plugins.edit' },
+    { import = 'plugins.git' },
+    { import = 'plugins.search' },
+    { import = 'plugins.search.telescope_extensions' },
+    { import = 'plugins.treesitter' },
+    { import = 'plugins.ui' },
+  },
+  ui = {
+    border = 'single'
   }
-)
+}
 
+require('keymaps')
 require('options')
