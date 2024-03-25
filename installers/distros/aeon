@@ -1,0 +1,9 @@
+#! /bin/sh
+
+sudo transactional-update pkg install steam-devices systemd-zram-service
+
+sudo setsebool -P selinuxuser_execmod 1
+
+source $HOME/.dotfiles/installers/flatpaks/all
+
+flatpak permission-set background background com.valvesoftware.Steam yes
