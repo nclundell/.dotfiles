@@ -1,0 +1,7 @@
+#! /bin/sh
+
+source ./lazygit
+source ./mise
+source ./sesh
+source ./starship
+source ./zellij
