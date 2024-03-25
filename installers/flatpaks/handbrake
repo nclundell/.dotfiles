@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Check for Flatpak
+if [[ ! -x "$(command -v flatpak)" ]]
+then
+  echo 'Error: flatpak is not installed.' >&2
+  exit 1
+fi
+
+# Handbrake Flatpaks from Github
+ARCH=$(uname -m)
+case $ARCH in
+  x86_64) ARCH=x86_64 ;;
+  aarch64*) ARCH=arm64 ;;
+esac
+
+GITHUB_RELEASE_PATH="https://github.com/Handbrake/Handbrake/releases"
+GITHUB_LATEST_VERSION=$(curl -L -s -H 'Accept: application/json' ${GITHUB_RELEASE_PATH}/latest | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+HANDBRAKE_FLATPAK="Handbrake-${GITHUB_LATEST_VERSION}-${ARCH}.flatpak"
+HANDBRAKE_FLATPACK_PLUGIN="Plugin.Handbrake.IntelMediaSDK-${GITHUB_LATEST_VERSION}-${ARCH}.flatpak"
+
+mkdir -p tmp
+
+curl -L -o tmp/"${HANDBRAKE_FLATPAK}" "${GITHUB_RELEASE_PATH}/download/${GITHUB_LATEST_VERSION}/${HANDBRAKE_FLATPAK}"
+curl -L -o tmp/"${HANDBRAKE_FLATPACK_PLUGIN}" "${GITHUB_RELEASE_PATH}/download/${GITHUB_LATEST_VERSION}/${HANDBRAKE_FLATPACK_PLUGIN}"
+
+flatpak install tmp/"${HANDBRAKE_FLATPAK}"
+flatpak install tmp/"${HANDBRAKE_FLATPACK_PLUGIN}"
+
+rm -rf tmp
