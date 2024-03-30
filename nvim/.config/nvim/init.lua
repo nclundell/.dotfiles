@@ -21,17 +21,16 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   install = {
     colorscheme = {
-      'onenord'
+      'catppuccin'
     }
   },
   spec = {
-    { import = 'plugins' },
     { import = 'plugins.code_intelligence' },
     { import = 'plugins.colors' },
     { import = 'plugins.edit' },
     { import = 'plugins.git' },
+    { import = 'plugins.integrations' },
     { import = 'plugins.search' },
-    { import = 'plugins.search.telescope_extensions' },
     { import = 'plugins.treesitter' },
     { import = 'plugins.ui' },
   },

@@ -1,7 +1,7 @@
 -- COMMANDS --
 local cmd = vim.cmd
 
-cmd.colorscheme('onenord')   -- Set colorscheme
+cmd.colorscheme('catppuccin')   -- Set colorscheme
 cmd.syntax('on')                   -- Enable syntax highlighting
 cmd('filetype plugin indent on')   -- Enable filetype detection, plugins, and indentation
 
@@ -47,6 +47,6 @@ go.swapfile = false                        -- Disable swap files
 go.termguicolors = true                    -- Use true color in terminal
 go.undofile = true                         -- Enable persistent undofile
 go.virtualedit = 'block'                   -- Enable block virtual edit
-go.wildmenu = true                         -- Enable wildmenu
-go.wildmode = 'list:longest'               -- Set wildmode to list:longest
+-- go.wildmenu = true                         -- Enable wildmenu
+-- go.wildmode = 'list:longest'               -- Set wildmode to list:longest
 go.writebackup = false                     -- Disable backup files

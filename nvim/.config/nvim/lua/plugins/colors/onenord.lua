@@ -1,3 +1,5 @@
 return {
-  'rmehri01/onenord.nvim'
+  'rmehri01/onenord.nvim',
+  lazy = true
+
 }

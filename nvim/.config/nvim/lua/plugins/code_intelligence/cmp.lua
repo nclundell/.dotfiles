@@ -8,6 +8,7 @@ return {
 
     -- Sources
     'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-path',
@@ -22,6 +23,7 @@ return {
     local luasnip = require('luasnip')
     local cmp = require('cmp')
 
+    -- Setup
     cmp.setup({
       formatting = {
         format = lspkind.cmp_format()
@@ -53,7 +55,7 @@ return {
           require('luasnip').lsp_expand(args.body)
         end,
       },
-      sources = {
+      sources =  {
         { name = 'vim-dadbod-completion' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
@@ -61,6 +63,29 @@ return {
         { name = 'path' },
         { name = 'buffer' }
       }
+    })
+
+    -- Setup for Search
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+
+    -- Setup for Command
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' }
+          }
+        }
+      })
     })
   end
 }

@@ -1,21 +1,15 @@
 return {
   'lewis6991/gitsigns.nvim',
+  lazy = false,
   opts = {},
-  init = function()
-    local gs = require('gitsigns')
-    local map = vim.keymap.set
-
-    -- Blame
-    map('n', '<leader>gb', function() gs.blame_line({ full = true }) end, { noremap = true })
-    map('n', '<leader>gB', function() gs.toggle_current_line_blame() end, { noremap = true })
-
-    -- Hunks
-    map('n', ']h', function() gs.next_hunk() end, { noremap = true })
-    map('n', '[h', function() gs.prev_hunk() end, { noremap = true })
-    map('n', '<leader>gp', function() gs.preview_hunk() end, { noremap = true })
-    map('n', '<leader>gr', function() gs.reset_hunk() end, { noremap = true })
-    map('n', '<leader>gR', function() gs.reset_buffer() end, { noremap = true })
-    map('n', '<leader>gs', function() gs.stage_hunk() end, { noremap = true })
-    map('n', '<leader>gS', function() gs.undo_stage_hunk() end, { noremap = true })
-  end
+  keys = {
+    { '<leader>gb', function() require('gitsigns').blame_line({ full = true }) end, desc = 'Show Line Blame' },
+    { '<leader>gB', function() require('gitsigns').toggle_current_line_blame() end, desc = 'Toggle Line Blame' },
+    { '<leader>gd', function() require('gitsigns').diffthis() end, desc = 'Show Git Diff' },
+    { '<leader>gp', function() require('gitsigns').preview_hunk() end, desc = 'Preview Hunk' },
+    { '<leader>gr', function() require('gitsigns').reset_hunk() end, desc = 'Reset Hunk' },
+    { '<leader>gR', function() require('gitsigns').reset_buffer() end, desc = 'Reset Buffer' },
+    { '<leader>gs', function() require('gitsigns').stage_hunk() end, desc = 'Stage Hunk' },
+    { '<leader>gS', function() require('gitsigns').undo_stage_hunk() end, desc = 'Unstage Hunk' }
+  }
 }

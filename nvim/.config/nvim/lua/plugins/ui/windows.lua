@@ -4,15 +4,14 @@ return {
     'anuvyklack/middleclass',
     -- 'anuvyklack/animation.nvim'
   },
+  event = 'BufEnter',
   opts = {
     animation = {
       enable = false
     }
   },
-  init = function()
-    local map = vim.api.nvim_set_keymap
-
-    map('n', '<leader>eb', '<CMD>WindowsEqualize<CR>', { noremap = true, desc = 'Equalize Buffers' })
-    map('n', '<leader>mb', '<CMD>WindowsMaximize<CR>', { noremap = true, desc = 'Maximize Buffers' })
-  end
+  keys = {
+    { '<leader>eb', '<CMD>WindowsEqualize<CR>', desc = 'Equalize Buffers' },
+    { '<leader>mb', '<CMD>WindowsMaximize<CR>', desc = 'Maximize Buffers' }
+  }
 }
