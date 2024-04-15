@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sudo su
+
+echo sg > /etc/modules-load.d/sg.conf
+modprobe sg
+
+exit

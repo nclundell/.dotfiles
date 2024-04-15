@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sudo pacman -S --noconfirm --needed snapper
+sudo pacman -S --noconfirm --needed snap-pac
+sudo pacman -S --noconfirm --needed grub-btrfs
+
+sudo snapper -c root create-config /

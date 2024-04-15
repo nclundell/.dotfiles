@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Base Requirements
+sudo pacman -S --noconfirm --needed base
+sudo pacman -S --noconfirm --needed base-devel
+
+# AUR Helper
+source ./yay
+
+# Codecs
+sudo pacman -S --noconfirm --needed gst-libav gst-plugins-bad gst-plugins-good gst-plugins-ugly flac opus-tools vorbis-tools
+
+# Intel Drivers
+sudo pacman -S --noconfirm --needed intel-media-driver intel-media-sdk
+
+# Hyprland
+sudo pacman -S --noconfirm --needed hyprland hyprpaper hyprlock
+
+# Sway Packages
+sudo pacman -S --noconfirm --needed sway swaybg swayidle swaylock
+
+# General Desktop Packages
+sudo pacman -S --noconfirm --needed waybar wofi vifm
+
+# General Packages
+sudo pacman -S --noconfirm --needed abcde alacritty bat distrobox eza foot fzf github-cli glow just kitty lazygit mpc mpd mpv ncmpcpp neovim ripgrep starship tmux tree-sitter zellij zoxide
