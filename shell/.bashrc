@@ -3,7 +3,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
+  source /etc/bashrc
 fi
 
 shopt -s checkwinsize
@@ -11,6 +11,8 @@ shopt -s expand_aliases
 shopt -s histappend
 
 set -o vi
+
+bind 'set completion-ignore-case on'
 
 # Add Local Build Paths to $PATH
 export PATH=$HOME/.local/bin:$PATH
@@ -68,7 +70,7 @@ fi
 
 # Check for pacman
 if [[ -x "$(command -v pacman)" ]]; then
-  alias p="sudo pacman"
+  alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"
 fi
 
 # Check for zypper
