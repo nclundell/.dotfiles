@@ -10,6 +10,12 @@ source ./yay
 # Codecs
 sudo pacman -S --noconfirm --needed gst-libav gst-plugins-bad gst-plugins-good gst-plugins-ugly flac opus-tools vorbis-tools
 
+# File Extractors
+sudo pacman -S --noconfirm --needed unace cabextract p7zip uncompress unlzma unrar unxz unzip 
+
+# Flatpak
+sudo pacman -S --noconfirm --needed flatpak
+
 # Intel Drivers
 sudo pacman -S --noconfirm --needed intel-media-driver intel-media-sdk
 
@@ -20,7 +26,7 @@ sudo pacman -S --noconfirm --needed hyprland hyprpaper hyprlock
 sudo pacman -S --noconfirm --needed sway swaybg swayidle swaylock
 
 # General Desktop Packages
-sudo pacman -S --noconfirm --needed waybar wofi vifm
+sudo pacman -S --noconfirm --needed alacritty foot kitty mako waybar wezterm wofi
 
 # General Packages
-sudo pacman -S --noconfirm --needed abcde alacritty bat distrobox eza foot fzf github-cli glow just kitty lazygit mpc mpd mpv ncmpcpp neovim ripgrep starship tmux tree-sitter zellij zoxide
+sudo pacman -S --noconfirm --needed abcde atool bash-completion bash-langage-server bat bat-extras distrobox eza fd ffmpegthumbnailer fzf github-cli glow gvfs gvfs-afc gvfs-mtp gvfs-smb highlight htop hunspell hunspell-en_us imagemagick jq just lazygit mediainfo mpc mpd mpv ncmpcpp neofetch neovim poppler ripgrep starship tmux tree-sitter ueberzug unarchiver vifm xdg-user-dirs-gtk yt-dlp zellij zoxide

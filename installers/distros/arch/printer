@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sudo pacman -S --noconfirm --needed cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups system-config-printer
+
+sudo systemctl enable --now cups

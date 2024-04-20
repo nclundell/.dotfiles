@@ -17,6 +17,8 @@ flatpak install -y flathub io.github.celluloid_player.Celluloid     # Celluloid
 flatpak install -y flathub org.gnome.clocks                         # Clocks
 flatpak install -y flathub org.gnome.SimpleScan                     # Document Scanner
 flatpak install -y flathub org.gnome.Evince                         # Document Viewer
+flatpak install -y flathub com.mattjakeman.ExtensionManager         # Extension Manager
+flatpak install -y flathub com.github.GradienceTeam.Gradience       # Gradience
 flatpak install -y flathub org.gnome.Lollypop                       # Lollypop
 flatpak install -y flathub org.gnome.Loupe                          # Loupe
 flatpak install -y flathub org.gnome.Weather                        # Weather

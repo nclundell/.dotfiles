@@ -18,18 +18,23 @@ flatpak install -y flathub io.github.dvlv.boxbuddyrs                            
 flatpak install -y flathub com.brave.Browser                                    # Brave Browser
 flatpak install -y flathub com.gitlab.davem.ClamTk                              # ClamTk
 flatpak install -y flathub com.discordapp.Discord                               # Discord
-flatpak install -y flathub com.mattjakeman.ExtensionManager                     # Extension Manager
 flatpak install -y flathub org.mozilla.firefox                                  # Firefox Browser
 flatpak install -y flathub com.github.tchx84.Flatseal                           # Flatseal
 flatpak install -y flathub de.haeckerfelix.Fragments                            # Fragments
-flatpak install -y flathub com.github.GradienceTeam.Gradience                   # Gradience
 flatpak install -y flathub net.lutris.Lutris                                    # Lutris
 flatpak install -y flathub com.makemkv.MakeMKV                                  # MakeMKV
+flatpak install -y flathub io.missioncenter.MissionCenter                       # MissionCenter
 flatpak install -y flathub org.bunkus.mkvtoolnix-gui                            # MKVToolNix Gui
 flatpak install -y md.obsidian.Obsidian                                         # Obsidian
 flatpak install -y flathub org.nickvision.tubeconverter                         # Parabolic
 flatpak install -y flathub com.vysp3r.ProtonPlus                                # Proton Plus
 flatpak install -y flathub net.nokyan.Resources                                 # Resources
 flatpak install -y flathub com.valvesoftware.Steam                              # Steam
+flatpak install -y com.valvesoftware.Steam.Utility.steamtinkerlaunch            # SteamTinkerLaunch
 flatpak install -y flathub org.telegram.desktop                                 # Telegram
 flatpak install -y flathub io.github.flattool.Warehouse                         # Warehouse
+
+# Setup SteamTinkerLaunch
+# flatpak run --command=sh com.valvesoftware.Steam
+# steamtinkerlaunch compat add
+# exit

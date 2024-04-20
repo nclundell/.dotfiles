@@ -1,6 +1,5 @@
 [tools]
-# Languages
-node = 'lts'
-python = '3.12'
-ruby = '3.3'
-go = '1.22'
+node = 'latest'
+python = 'latest'
+ruby = 'latest'
+go = 'latest'
