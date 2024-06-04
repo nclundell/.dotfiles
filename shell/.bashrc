@@ -16,12 +16,15 @@ bind 'set completion-ignore-case on'
 
 # Add Local Build Paths to $PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin/scripts:$PATH
 export PATH=$HOME/.local/man:$PATH
-export PATH=$HOME/.local/scripts:$PATH
 
 # Export ENV Vars
 export VISUAL=nvim
 export EDITOR=nvim
+
+# Setup FZF
+eval "$(fzf --bash)"
 
 # Setup Mise
 if [[ -x "$(command -v mise)" ]]; then
