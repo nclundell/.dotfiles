@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Install Mise https://mise.jdx.dev/
-
-# Download and install Mise binary
-curl https://mise.run | sh

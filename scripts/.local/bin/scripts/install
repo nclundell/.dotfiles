@@ -1,0 +1,92 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+  echo "Usage: install [tool]"
+else
+  if [[ ! -x "$(command -v mise)" ]]; then
+    curl https://mise.run | sh
+  fi
+
+  if [[ ! -x "$(command -v ubi)" ]]; then
+    curl --silent --location https://raw.githubusercontent.com/houseabsolute/ubi/master/bootstrap/bootstrap-ubi.sh | TARGET=$HOME/.local/bin sh
+  fi
+
+  for n in "$@" ; do
+    case $n in
+      bat)
+        ubi -i $HOME/.local/bin -p sharkdp/bat
+        ;;
+      bob)
+        ubi -i $HOME/.local/bin -p MordechaiHadad/bob
+        mkdir -p $HOME/.local/share/bash-completion/completions
+        bob complete bash >> ~/.local/share/bash-completion/completions/bob
+        ;;
+      bottom)
+        ubi -i $HOME/.local/bin -p ClementTsang/bottom -e btm
+        ;;
+      delta)
+        ubi -i $HOME/.local/bin -p dandavison/delta
+        ;;
+      eza)
+        ubi -i $HOME/.local/bin -p eza-community/eza-community
+        ;;
+      fd)
+        ubi -i $HOME/.local/bin -p sharkdp/fd
+        ;;
+      gh)
+        ubi -i $HOME/.local/bin -p cli/cli
+        ;;
+      glow)
+        ubi -i $HOME/.local/bin -p charmbracelet/glow
+        ;;
+      lazydocker)
+        ubi -i $HOME/.local/bin -p jesseduffield/lazydocker
+        ;;
+      lazygit)
+        ubi -i $HOME/.local/bin -p jesseduffield/lazygit
+        ;;
+      lazysql)
+        ubi -i $HOME/.local/bin -p jorgerojas26/lazysql
+        ;;
+      mise)
+        curl https://mise.run | sh
+        ;;
+      ripgrep)
+        ubi -i $HOME/.local/bin -p BurntSushi/ripgrep
+        ;;
+      sesh)
+        ubi -i $HOME/.local/bin -p joshmedeski/sesh
+        ;;
+      starship)
+        ubi -i $HOME/.local/bin -p starship/starship
+        ;;
+      tpm)
+        if [[ -f "$HOME/.config/tmux/tmux.conf" ]]; then
+          if [[ -d "$HOME/.config/tmux/plugins/tpm" ]]; then
+            cd $HOME/.config/tmux/plugins/tpm
+            git pull
+          else
+            git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+            source $HOME/.config/tmux/plugins/tpm/scripts/install_plugins.sh
+          fi
+        fi
+        ;;
+      ubi)
+        curl --silent --location https://raw.githubusercontent.com/houseabsolute/ubi/master/bootstrap/bootstrap-ubi.sh | TARGET=$HOME/.local/bin sh
+        ;;
+      xsv)
+        ubi -i $HOME/.local/bin -p BurntSushi/xsv
+        ;;
+      yazi)
+        ubi -i $HOME/.local/bin -p sxyazi/yazi
+        ;;
+      zellij)
+        ubi -i $HOME/.local/bin -p zellij-org/zellij
+        ;;
+      *)
+        echo "installer for '$n' is unknown"
+        return 1
+        ;;
+    esac
+  done
+fi

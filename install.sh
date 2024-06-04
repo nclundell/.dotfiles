@@ -36,6 +36,10 @@ stow scripts
 stow starship
 stow tmux
 
+# Setup Mise and UBI
+source installers/tools/mise
+source installers/tools/ubi
+
 # Setup Shell
 if [[ -f $HOME/.bashrc ]]
 then
@@ -45,7 +49,3 @@ fi
 stow shell
 
 source $HOME/.bashrc
-
-# Run Individual Installers
-source ./installers/tools/mise
-source ./installers/tools/tmux

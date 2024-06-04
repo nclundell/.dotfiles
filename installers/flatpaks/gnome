@@ -8,7 +8,7 @@ then
 fi
 
 # Add Flathub
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Gnome Flatpaks
 flatpak install -y flathub org.gnome.Calendar                       # Calendar
