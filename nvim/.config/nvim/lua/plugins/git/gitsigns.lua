@@ -1,7 +1,7 @@
 return {
   'lewis6991/gitsigns.nvim',
   lazy = false,
-  opts = {},
+  config = true,
   keys = {
     { '<leader>gb', function() require('gitsigns').blame_line({ full = true }) end, desc = 'Show Line Blame' },
     { '<leader>gB', function() require('gitsigns').toggle_current_line_blame() end, desc = 'Toggle Line Blame' },

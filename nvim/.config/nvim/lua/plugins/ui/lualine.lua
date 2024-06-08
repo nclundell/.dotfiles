@@ -1,8 +1,5 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = {
-    'AndreM222/copilot-lualine',
-  },
   opts = {
     extensions = {
       'lazy',
@@ -21,7 +18,7 @@ return {
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics', 'copilot' },
+      lualine_b = { 'branch', 'diff', 'diagnostics' },
       lualine_c = { 'fileformat', 'filetype', 'filename' },
       lualine_x = {},
       lualine_y = {},

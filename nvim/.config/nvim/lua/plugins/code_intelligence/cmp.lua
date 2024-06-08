@@ -15,6 +15,8 @@ return {
     'kristijanhusak/vim-dadbod-completion',
     'saadparwaiz1/cmp_luasnip',
 
+    { 'folke/lazydev.nvim', ft = 'lua', config = true },
+
     -- UI
     'onsails/lspkind-nvim'
   },
@@ -55,12 +57,25 @@ return {
           require('luasnip').lsp_expand(args.body)
         end,
       },
+
       sources =  {
-        { name = 'vim-dadbod-completion' },
         { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'buffer' }
+      }
+    })
+
+    -- Setup for Lua
+    cmp.setup.filetype({'lua'}, {
+      table.insert(cmp.opts.sources, 'nvim_lua'),
+      table.insert(cmp.opts.sources, 'lazydev')
+    })
+
+    -- Setup for SQL
+    cmp.setup.filetype({'sql'}, {
+      sources = {
+        { name = 'vim-dadbod-completion' },
         { name = 'buffer' }
       }
     })
