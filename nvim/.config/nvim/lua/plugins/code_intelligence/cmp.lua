@@ -28,7 +28,7 @@ return {
     -- Setup
     cmp.setup({
       formatting = {
-        format = lspkind.cmp_format()
+        format = lspkind.cmp_format {}
       },
       mapping = {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
@@ -68,8 +68,14 @@ return {
 
     -- Setup for Lua
     cmp.setup.filetype({'lua'}, {
-      table.insert(cmp.opts.sources, 'nvim_lua'),
-      table.insert(cmp.opts.sources, 'lazydev')
+      sources = {
+        { name = 'nvim_lua' },
+        { name = 'lazydev' },
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'path' },
+        { name = 'buffer' }
+      }
     })
 
     -- Setup for SQL
