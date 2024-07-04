@@ -23,8 +23,8 @@ fi
 # Setup Configs
 cd $HOME/.dotfiles
 
-stow -t $HOME/.config/ config
-stow -t $HOME/.local/ local
+stow --dotfiles -t $HOME/.config/ config
+stow --dotfiles -t $HOME/.local/ local
 
 # Setup Shell
 if [[ -f $HOME/.bashrc ]]
@@ -32,6 +32,6 @@ then
 mv $HOME/.bashrc $HOME/.bashrc.bak
 fi
 
-stow home
+stow --dotfiles -t $HOME home
 
 source $HOME/.bashrc
