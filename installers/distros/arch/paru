@@ -3,8 +3,8 @@
 mkdir tmp
 cd tmp
 
-git clone https://aur.archlinux.org/yay-bin
-cd yay-bin
+git clone https://aur.archlinux.org/paru-bin
+cd paru-bin
 makepkg -si
 
 cd ..
