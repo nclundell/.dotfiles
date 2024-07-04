@@ -22,23 +22,9 @@ fi
 
 # Setup Configs
 cd $HOME/.dotfiles
-stow abcde
-stow alacritty
-stow dnf
-stow git
-stow kitty
-stow mise
-stow mpd
-stow ncmpcpp
-stow nvim
-stow rubocop
-stow scripts
-stow starship
-stow tmux
 
-# Setup Mise and UBI
-source installers/tools/mise
-source installers/tools/ubi
+stow -t $HOME/.config/ config
+stow -t $HOME/.local/ local
 
 # Setup Shell
 if [[ -f $HOME/.bashrc ]]
@@ -46,6 +32,6 @@ then
 mv $HOME/.bashrc $HOME/.bashrc.bak
 fi
 
-stow shell
+stow home
 
 source $HOME/.bashrc
