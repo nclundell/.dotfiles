@@ -20,18 +20,8 @@ then
   git clone git@gitlab.com:nclundell/dotfiles $HOME/.dotfiles || { echo 'Error: Could not clone dotfiles.'; exit 1; }
 fi
 
-# Setup Configs
-cd $HOME/.dotfiles
+# Stow Dotfiles
+stow --dotfiles $HOME/.dotfiles
 
-stow --dotfiles -t $HOME/.config/ config
-stow --dotfiles -t $HOME/.local/ local
-
-# Setup Shell
-if [[ -f $HOME/.bashrc ]]
-then
-mv $HOME/.bashrc $HOME/.bashrc.bak
-fi
-
-stow --dotfiles -t $HOME home
-
+# Re-source Bash
 source $HOME/.bashrc
