@@ -28,6 +28,7 @@ flatpak install -y flathub org.bunkus.mkvtoolnix-gui                            
 flatpak install -y md.obsidian.Obsidian                                         # Obsidian
 flatpak install -y flathub org.nickvision.tubeconverter                         # Parabolic
 flatpak install -y flathub com.vysp3r.ProtonPlus                                # Proton Plus
+flatpak install -y flathub app.devsuite.Ptyxis                                  # Terminal
 # flatpak install -y flathub net.nokyan.Resources                                 # Resources
 flatpak install -y flathub com.valvesoftware.Steam                              # Steam
 flatpak install -y com.valvesoftware.Steam.Utility.steamtinkerlaunch            # SteamTinkerLaunch
