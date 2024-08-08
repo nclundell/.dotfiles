@@ -24,7 +24,9 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 # Setup FZF
-eval "$(fzf --bash)"
+if [[ -x "$(command -v fzf)" ]]; then
+  eval "$(fzf --bash)"
+fi
 
 # Setup Mise
 if [[ -x "$(command -v mise)" ]]; then
