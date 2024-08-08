@@ -36,8 +36,8 @@ flatpak install -y flathub org.telegram.desktop                                 
 flatpak install -y flathub io.github.flattool.Warehouse                         # Warehouse
 
 # Required Extras
-flatpak install -y adw-gtk3
-flatpak install -y adw-gtk3-dark
+# flatpak install -y adw-gtk3
+# flatpak install -y adw-gtk3-dark
 
 # Setup SteamTinkerLaunch
 # flatpak run --command=sh com.valvesoftware.Steam

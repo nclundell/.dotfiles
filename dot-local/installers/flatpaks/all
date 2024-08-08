@@ -1,5 +1,0 @@
-#! /bin/sh
-
-source ./gnome
-source ./handbrake
-source ./misc
