@@ -10,7 +10,7 @@ sudo zypper -n in gdbm-devel libopenssl-devel libyaml-devel libffi-devel ncurses
 sudo zypper -n in flac intel-media-driver libmfx opus-tools vorbis-tools
 
 # Install Personal Tools
-sudo zypper in abcde alacritty bat bottom fd fzf neovim starship tmux yazi zellij
+sudo zypper in abcde alacritty bat bottom eza fd fzf neovim starship tmux yazi zellij
 
 install lazygit sesh tpm
 
