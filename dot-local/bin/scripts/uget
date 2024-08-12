@@ -1,43 +1,45 @@
 #!/bin/sh
 
 if [ -z "$1" ]; then
-  echo "Usage: install [tool]"
+  echo "Usage: uget [tool]"
 else
-  if [[ ! -x "$(command -v mise)" ]]; then
-    curl https://mise.run | sh
-  fi
-
   if [[ ! -x "$(command -v ubi)" ]]; then
     curl --silent --location https://raw.githubusercontent.com/houseabsolute/ubi/master/bootstrap/bootstrap-ubi.sh | TARGET=$HOME/.local/bin sh
   fi
+
+  declare -a unrecognized=()
 
   for n in "$@" ; do
     case $n in
       bat)
         ubi -i $HOME/.local/bin -p sharkdp/bat
         ;;
-      bob)
-        ubi -i $HOME/.local/bin -p MordechaiHadad/bob
-        mkdir -p $HOME/.local/share/bash-completion/completions
-        bob complete bash >> ~/.local/share/bash-completion/completions/bob
-        ;;
       bottom)
         ubi -i $HOME/.local/bin -p ClementTsang/bottom -e btm
+        ;;
+      csvlens)
+        ubi -i $HOME/.local/bin -p YS-L/csvlens
         ;;
       delta)
         ubi -i $HOME/.local/bin -p dandavison/delta
         ;;
       eza)
-        ubi -i $HOME/.local/bin -p eza-community/eza-community
+        ubi -i $HOME/.local/bin -p eza-community/eza
         ;;
       fd)
         ubi -i $HOME/.local/bin -p sharkdp/fd
         ;;
+      fzf)
+        ubi -i $HOME/.local/bin -p junegunn/fzf
+        ;;
       gh)
-        ubi -i $HOME/.local/bin -p cli/cli
+        ubi -i $HOME/.local/bin -p cli/cli -e gh
         ;;
       glow)
         ubi -i $HOME/.local/bin -p charmbracelet/glow
+        ;;
+      just)
+        ubi -i $HOME/.local/bin -p casey/just
         ;;
       lazydocker)
         ubi -i $HOME/.local/bin -p jesseduffield/lazydocker
@@ -51,8 +53,14 @@ else
       mise)
         curl https://mise.run | sh
         ;;
+      neovim)
+        ubi -i $HOME/.local/bin -p neovim/neovim -e nvim
+        ;;
+      qsv)
+        ubi -i $HOME/.local/bin -p jqnatividad/qsv
+        ;;
       ripgrep)
-        ubi -i $HOME/.local/bin -p BurntSushi/ripgrep
+        ubi -i $HOME/.local/bin -p BurntSushi/ripgrep -e rg
         ;;
       sesh)
         ubi -i $HOME/.local/bin -p joshmedeski/sesh
@@ -84,9 +92,12 @@ else
         ubi -i $HOME/.local/bin -p zellij-org/zellij
         ;;
       *)
-        echo "installer for '$n' is unknown"
-        return 1
+        unrecognized+=($n)
         ;;
     esac
   done
+
+  if [[ ! -z ${unrecognized[@]} ]]; then
+    echo "Unrecognized app(s): ${unrecognized[@]}"
+  fi
 fi

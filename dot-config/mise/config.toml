@@ -1,5 +1,11 @@
+[settings]
+experimental = true
+
 [tools]
-node = 'lts'
+node   = 'lts'
 python = 'latest'
-ruby = 'latest'
-go = 'latest'
+ruby   = 'latest'
+go     = 'latest'
+
+# ASDF Apps
+neovim   = 'stable'

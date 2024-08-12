@@ -1,0 +1,153 @@
+#!/bin/sh
+
+if [[ ! -x "$(command -v flatpak)" ]]; then
+    echo "Flatpak not found.  Are you in a container?"
+    exit 1
+elif [ -z "$1" ]; then
+  echo "Usage: fget [tool]"
+else
+  flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+  declare -a unrecognized=()
+
+  for n in "$@" ; do
+    case $n in
+      # Apps
+      blackbox)
+        flatpak install -y flathub com.raggesilver.BlackBox
+      ;;
+      bottles)
+        flatpak install -y flathub com.usebottles.bottles
+        ;;
+      boxbuddy)
+        flatpak install -y flathub io.github.dvlv.boxbuddyrs
+        ;;
+      boxes)
+        flatpak install -y flathub org.gnome.Boxes
+        ;;
+      brave)
+        flatpak install -y flathub com.brave.Browser
+        ;;
+      celluloid)
+        flatpak install -y flathub io.github.celluloid_player.Celluloid
+        ;;
+      clamav)
+        flatpak install -y flathub com.gitlab.davem.ClamTk
+        ;;
+      delfin)
+        flatpak install -y flathub cafe.avery.Delfin
+        ;;
+      discord)
+        flatpak install -y flathub com.discordapp.Discord
+        ;;
+      dolphin-emu)
+        flatpak install -y flathub org.DolphinEmu.dolphin-emu
+        ;;
+      element)
+        flatpak install -y flathub im.riot.Riot
+        ;;
+      firefox)
+        flatpak install -y flathub org.mozilla.firefox
+        ;;
+      firmware)
+        flatpak install -y flathub org.gnome.Firmware
+        ;;
+      flatseal)
+        flatpak install -y flathub com.github.tchx84.Flatseal
+        ;;
+      fragments)
+        flatpak install -y flathub de.haeckerfelix.Fragments
+        ;;
+      freetube)
+        flatpak install -y flathub io.freetubeapp.FreeTube
+        ;;
+      gnome)
+        flatpak install -y flathub org.gnome.baobab
+        flatpak install -y flathub org.gnome.Boxes
+        flatpak install -y flathub org.gnome.Calculator
+        flatpak install -y flathub org.gnome.Calendar
+        flatpak install -y flathub org.gnome.clocks
+        flatpak install -y flathub org.gnome.Evince
+        flatpak install -y flathub org.gnome.Loupe
+        flatpak install -y flathub org.gnome.Music
+        flatpak install -y flathub org.gnome.SimpleScan
+        flatpak install -y flathub org.gnome.Weather
+
+        flatpak install -y flathub io.github.celluloid_player.Celluloid
+        flatpak install -y flathub com.mattjakeman.ExtensionManager
+        flatpak install -y flathub com.github.GradienceTeam.Gradience
+
+        #Themes
+        flatpak install -y flathub org.gtk.Gtk3theme.adw-gtk3
+        flatpak install -y flathub org.gtk.Gtk3theme.adw-gtk3-dark
+        ;;
+      handbrake)
+        flatpak install -y flathub fr.handbrake.ghb
+        flatpak install -y flathub fr.handbrake.ghb.Plugin.IntelMediaSDK
+        ;;
+      hedgewars)
+        flatpak install -y flathub org.hedgewars.Hedgewars
+        ;;
+      impression)
+        flatpak install -y flathub io.gitlab.adhami3310.Impression
+        ;;
+      lollypop)
+        flatpak install -y flathub org.gnome.Lollypop
+        ;;
+      lutris)
+        flatpak install -y flathub net.lutris.Lutris
+        flatpak install -y flathub com.vysp3r.ProtonPlus
+        ;;
+      makemkv)
+        flatpak install -y flathub com.makemkv.MakeMKV
+        ;;
+      mission-center)
+        flatpak install -y flathub io.missioncenter.MissionCenter
+        ;;
+      mkvtoolnix)
+        flatpak install -y flathub org.bunkus.mkvtoolnix-gui
+        ;;
+      obsidian)
+        flatpak install -y flathub md.obsidian.Obsidian
+        ;;
+      parabolic)
+        flatpak install -y flathub org.nickvision.tubeconverter
+        ;;
+      pinball)
+        flatpak install -y flathub com.github.k4zmu2a.spacecadetpinball
+        ;;
+      proton-plus)
+        flatpak install -y flathub com.vysp3r.ProtonPlus
+        ;;
+      proton-vpn)
+        flatpak install -y flathub com.protonvpn.www
+        ;;
+      ptyxis)
+        flatpak install -y flathub app.devsuite.Ptyxis
+        ;;
+      steam)
+        flatpak install -y flathub com.vysp3r.ProtonPlus
+        flatpak install -y flathub com.valvesoftware.Steam
+        flatpak install -y flathub com.valvesoftware.Steam.Utility.steamtinkerlaunch
+
+        # Setup SteamTinkerLaunch
+        # flatpak run --command=sh com.valvesoftware.Steam
+        # steamtinkerlaunch compat add
+        # exit
+        ;;
+      telegram)
+        flatpak install -y flathub org.telegram.desktop
+        ;;
+      warehouse)
+        flatpak install -y flathub io.github.flattool.Warehouse
+        ;;
+      *)
+        unrecognized+=($n)
+        ;;
+    esac
+  done
+
+  if [[ ! -z ${unrecognized[@]} ]]; then
+    echo "Unrecognized app(s): ${unrecognized[@]}"
+  fi
+fi
