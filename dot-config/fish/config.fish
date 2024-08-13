@@ -1,37 +1,45 @@
-### ASDF Settings
-set -x ASDF_DIR $HOME/.local/share/asdf
-set -x ASDF_DATA_DIR $HOME/.local/share/asdf
-set -x ASDF_CONFIG_FILE $HOME/.config/asdf
-# Source ASDF For OSX Install
-#source /usr/local/opt/asdf/libexec/asdf.fish
-# Source ASDF for AUR Install
-
 ### Set Defaults
 set fish_greeting
 set -x EDITOR "nvim"
 
-### Starship Prompt
-starship init fish | source
+### Setup CLI Apps
+# FZF
+if command -q fzf
+  fzf --fish | source
+end
 
-# ABCDE
+# Mise
+if command -q mise
+  set -x MISE_GO_DEFAULT_PACKAGES_FILE "$HOME/.config/mise/default/go-packages"
+  set -x MISE_NODE_DEFAULT_PACKAGES_FILE "$HOME/.config/mise/default/node-packages"
+  set -x MISE_PYTHON_DEFAULT_PACKAGES_FILE "$HOME/.config/mise/default/python-packages"
+  set -x MISE_RUBY_DEFAULT_PACKAGES_FILE "$HOME/.config/mise/default/ruby-gems"
+  mise activate fish | source
+end
 
-function cdrip
-  switch $argv
-    case ogg mp3 flac opus
-      abcde -o $argv
-    case '*'
-      echo "Ripping to ogg by default."
-      abcde -o ogg
-  end
+# Starship Prompt
+if command -q starship
+  set -x STARSHIP_CONFIG "$HOME/.config/starship/config.toml"
+  starship init fish | source
+end
+
+# Zoxide
+if command -q zoxide
+  zoxide init --cmd cd fish | source
 end
 
 ### Aliases
-# Set abcde config location
-alias abcde='abcde -c $HOME/.config/abcde/config'
+if command -q eza
+  alias ls='eza -alh --color=auto --icons=auto --group-directories-first'
+  alias la='eza -a   --color=auto --icons=auto --group-directories-first'
+  alias ll='eza -l   --color=auto --icons=auto --group-directories-first'
+  alias lt='eza -aT  --color=auto --icons=auto --group-directories-first'
+end
 
-# Use exa For ls
-alias ls='exa -alh --color=always --group-directories-first'
-alias la='exa -a   --color=always --group-directories-first'
-alias ll='exa -l   --color=always --group-directories-first'
-alias lt='exa -aT  --color=always --group-directories-first'
+if command -q pacman
+  alias p='sudo pacman'
+end
 
+if command -q zypper
+  alias z='sudo zypper'
+end

@@ -35,6 +35,9 @@ else
       gh)
         ubi -i $HOME/.local/bin -p cli/cli -e gh
         ;;
+      gitui)
+        ubi -i $HOME/.local/bin -p extrawurst/gitui
+        ;;
       glow)
         ubi -i $HOME/.local/bin -p charmbracelet/glow
         ;;
