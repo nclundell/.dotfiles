@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "$1" ]; then
   echo "Usage: uget [tool]"
@@ -11,6 +11,9 @@ else
 
   for n in "$@" ; do
     case $n in
+      atac)
+        ubi -i $HOME/.local/bin -p Julien-cpsn/ATAC
+        ;;
       bat)
         ubi -i $HOME/.local/bin -p sharkdp/bat
         ;;
@@ -67,6 +70,9 @@ else
         ;;
       sesh)
         ubi -i $HOME/.local/bin -p joshmedeski/sesh
+        ;;
+      sshs)
+        ubi -i $HOME/.local/bin -p quantumsheep/sshs
         ;;
       starship)
         ubi -i $HOME/.local/bin -p starship/starship

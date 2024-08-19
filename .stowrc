@@ -1,0 +1,5 @@
+--dotfiles
+--ignore=.stowrc
+--ignore=setup.sh
+--ignore=README.md
+--ignore=DS_Store
