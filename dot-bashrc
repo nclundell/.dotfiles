@@ -61,6 +61,10 @@ fi
 alias a="sudo apt"
 alias br="source $HOME/.bashrc"
 
+if [[ -x "$(command -v bat)" ]]; then
+  alias cat='bat'
+fi
+
 if [[ -f $HOME/.config/dnf/config ]]; then
   alias d="sudo dnf -c $HOME/.config/dnf/config"
 else

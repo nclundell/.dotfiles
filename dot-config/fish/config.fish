@@ -29,6 +29,10 @@ if command -q zoxide
 end
 
 ### Aliases
+if command -q bat
+  alias cat='bat'
+end
+
 if command -q eza
   alias ls='eza -alh --color=auto --icons=auto --group-directories-first'
   alias la='eza -a   --color=auto --icons=auto --group-directories-first'
