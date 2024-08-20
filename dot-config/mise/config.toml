@@ -8,4 +8,5 @@ ruby   = 'latest'
 go     = 'latest'
 
 # ASDF Apps
-neovim   = 'stable'
+neovim = 'stable'
+tmux   = 'latest'
