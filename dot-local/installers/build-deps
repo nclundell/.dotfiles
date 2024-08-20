@@ -1,0 +1,25 @@
+#!/bin/bash
+
+OS=$(uname)
+
+if [[ "$OS" = "Darwin" ]]; then
+  if [[ ! -x "$(command -v apt)" ]]; then
+    xcode-select --install
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+  fi
+
+  brew install openssl@3 readline libyaml gmp
+elif [[ "$OS" = "Linux" ]]; then
+  # Check Package Managers and install Deps
+  if [[ -x "$(command -v apt)" ]]; then
+    sudo apt install autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline-dev zlib1g-dev libgmp-dev libncurses-dev libffi-dev libgdbm6t64 libgdbm-dev libdb-dev uuid-dev
+  elif [[ -x "$(command -v dnf)" ]]; then
+    sudo dnf install -y autoconf gcc rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
+  elif [[ -x "$(command -v pacman)" ]]; then
+    sudo pacman -S --needed base-devel rust libffi libyaml openssl zlib 
+  elif [[ -x "$(command -v vso)" ]]; then
+    vso install autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline-dev zlib1g-dev libgmp-dev libncurses-dev libffi-dev libgdbm6t64 libgdbm-dev libdb-dev uuid-dev
+  elif [[ -x "$(command -v zypper)" ]]; then
+    sudo zypper install -y gcc make rust patch automake bzip2 libopenssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
+  fi
+fi
