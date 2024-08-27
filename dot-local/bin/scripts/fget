@@ -13,6 +13,12 @@ else
   for n in "$@" ; do
     case $n in
       # Apps
+      alpaca)
+      flatpak install -y flathub com.jeffser.Alpaca
+      ;;
+      apostrophe)
+      flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
+      ;;
       blackbox)
         flatpak install -y flathub com.raggesilver.BlackBox
       ;;
@@ -28,6 +34,9 @@ else
       brave)
         flatpak install -y flathub com.brave.Browser
         ;;
+      cartero)
+        flatpak install -y flathub es.danirod.Cartero
+        ;;
       celluloid)
         flatpak install -y flathub io.github.celluloid_player.Celluloid
         ;;
@@ -36,6 +45,9 @@ else
         ;;
       delfin)
         flatpak install -y flathub cafe.avery.Delfin
+        ;;
+      dev-toolbox)
+        flatpak install -y flathub me.iepure.devtoolbox
         ;;
       discord)
         flatpak install -y flathub com.discordapp.Discord
@@ -61,15 +73,19 @@ else
       freetube)
         flatpak install -y flathub io.freetubeapp.FreeTube
         ;;
+      gdm-settings)
+        flatpak install -y flathub io.github.realmazharhussain.GdmSettings
+        ;;
       gnome)
         flatpak install -y flathub org.gnome.baobab
         flatpak install -y flathub org.gnome.Boxes
         flatpak install -y flathub org.gnome.Calculator
         flatpak install -y flathub org.gnome.Calendar
         flatpak install -y flathub org.gnome.clocks
-        flatpak install -y flathub org.gnome.Evince
+        # flatpak install -y flathub org.gnome.Evince
         flatpak install -y flathub org.gnome.Loupe
         flatpak install -y flathub org.gnome.Music
+        flatpak install -y flathub org.gnome.Papers
         flatpak install -y flathub org.gnome.SimpleScan
         flatpak install -y flathub org.gnome.Weather
 
@@ -80,6 +96,12 @@ else
         #Themes
         flatpak install -y flathub org.gtk.Gtk3theme.adw-gtk3
         flatpak install -y flathub org.gtk.Gtk3theme.adw-gtk3-dark
+        ;;
+      gnome-games)
+        flatpak install -y flathub org.gnome.Chess
+        flatpak install -y flathub org.gnome.Mahjongg
+        flatpak install -y flathub org.gnome.Mines
+        flatpak install -y flathub org.gnome.Sudoku
         ;;
       handbrake)
         flatpak install -y flathub fr.handbrake.ghb
@@ -125,21 +147,29 @@ else
       ptyxis)
         flatpak install -y flathub app.devsuite.Ptyxis
         ;;
+      resources)
+        flatpak install -y flathub net.nokyan.Resources
+        ;;
+      shortwave)
+        flatpak install -y flathub de.haeckerfelix.Shortwave
+        ;;
+      spider)
+        flatpak install -y flathub io.github.zaedus.spider
+        ;;
       steam)
+        flatpak install -y flathub io.github.Foldex.AdwSteamGtk
         flatpak install -y flathub com.vysp3r.ProtonPlus
         flatpak install -y flathub com.valvesoftware.Steam
         flatpak install -y flathub com.valvesoftware.Steam.Utility.steamtinkerlaunch
-
-        # Setup SteamTinkerLaunch
-        # flatpak run --command=sh com.valvesoftware.Steam
-        # steamtinkerlaunch compat add
-        # exit
         ;;
       telegram)
         flatpak install -y flathub org.telegram.desktop
         ;;
       warehouse)
         flatpak install -y flathub io.github.flattool.Warehouse
+        ;;
+      watchmate)
+        flatpak install -y flathub io.gitlab.azymohliad.WatchMate
         ;;
       *)
         unrecognized+=($n)
