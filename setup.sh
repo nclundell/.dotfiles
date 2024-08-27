@@ -2,13 +2,21 @@
 
 mkdir -p $HOME/.local/bin
 
+if [[ -f $HOME/.bashrc ]]; then
+  if [[ -L $HOME/.bashrc ]]; then
+    rm $HOME/.bashrc
+  else
+    mv $HOME/.bashrc $HOME/.bashrc.bak
+  fi
+fi
+
 stow .
 
-source $HOME/.bashrc
-
 if [[ ! -x "$(command -v mise)" ]]; then
-  uget mise tmp
+  curl https://mise.run | sh
 fi
+
+source $HOME/.bashrc
 
 source $HOME/.local/installers/build-deps
 

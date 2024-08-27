@@ -7,5 +7,5 @@ git clone https://aur.archlinux.org/paru-bin
 cd paru-bin
 makepkg -si
 
-cd ..
+cd ../..
 rm -rf tmp
