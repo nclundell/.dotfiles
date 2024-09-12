@@ -17,6 +17,9 @@ else
       bat)
         ubi -i $HOME/.local/bin -p sharkdp/bat
         ;;
+      bluetui)
+        ubi -i $HOME/.local/bin -p pythops/bluetui
+        ;;
       bottom)
         ubi -i $HOME/.local/bin -p ClementTsang/bottom -e btm
         ;;
