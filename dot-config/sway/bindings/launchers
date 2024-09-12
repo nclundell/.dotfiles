@@ -1,8 +1,5 @@
 # Start Launcher
-bindsym $mod+d exec wofi -S drun
+bindsym $mod+d exec rofi -S drun
 
 # Terminal
 bindsym $mod+Return exec $term
-
-# Online Radio
-bindsym $mod+mod1+r exec radio

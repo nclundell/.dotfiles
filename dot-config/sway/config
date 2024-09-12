@@ -1,7 +1,7 @@
 ### Defaults
 set $alt Mod1
 set $mod Mod4
-set $term alacritty
+set $term footclient
 
 ### Floating (For Mouse)
 floating_modifier $mod normal
@@ -19,23 +19,14 @@ include bindings/sway
 include bindings/windows
 include bindings/workspaces
 
-include scratchpads/common
-include scratchpads/htop
-include scratchpads/music
-
 ### Wallpaper
 output * adaptive_sync on
-output * bg $HOME/Pictures/Wallpapers/Ultrawide/Abstract/abstract_3.png fill
+#output * bg $HOME/Pictures/Wallpapers/Ultrawide/Abstract/abstract_3.png fill
 
 ### Autostart
 exec {
   dunst
+  foot --server
   mpd
-  nm-applet --indicator
-  telegram-desktop
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 }
-
-# Scratchpads
-exec $term -t "HTOP" -e htop
-exec $term -t "NCMPCPP" -e ncmpcpp
