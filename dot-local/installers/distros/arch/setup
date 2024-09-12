@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Build Deps
+sudo pacman -S --needed --noconfirm base base-devel gawk git libffi libyaml openssl rust zlib
+
+# Background Services
+sudo pacman -S --needed --noconfirm bluez bluez-utils cups flatpak gvfs gvfs-mtp gvfs-smb xdg-user-dirs-gtk
+
+sudo systemctl enable --now bluetooth
+sudo systemctl enable --now cups
+
+# CLI Tools
+sudo pacman -S --needed --noconfirm bat bottom eza fd fzf gitui glow just lazygit neovim ripgrep starship tmux yazi zellij zoxide
+
+# Codecs
+sudo pacman -S gst-libav gst-plugin-pipewire gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly
+
+# Games
+sudo pacman -S --needed --noconfirm gamemode gamescope mangohud steam
+
+# Media
+sudo pacman -S --needed --noconfirm mpd mpv ncmpcpp yt-dlp
+
+# Sway
+sudo pacman -S --needed --noconfirm alacritty dunst foot rofi sway swaybg swayidle swaylock waybar wmenu
