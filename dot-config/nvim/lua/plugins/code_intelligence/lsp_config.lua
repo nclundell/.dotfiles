@@ -17,7 +17,7 @@ return {
     lsp.pyright.setup {}
     lsp.rust_analyzer.setup {}
     lsp.solargraph.setup {}
-    -- lsp.ruby_lsp.setup {}
+    lsp.ruby_lsp.setup {}
     lsp.stimulus_ls.setup {}
     lsp.tailwindcss.setup {}
     lsp.tsserver.setup {}
