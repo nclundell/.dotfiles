@@ -5,7 +5,6 @@ return {
 
     -- Extensions
     'LinArcX/telescope-env.nvim',
-    'nvim-telescope/telescope-file-browser.nvim',
     'debugloop/telescope-undo.nvim',
     'natecraddock/telescope-zf-native.nvim',
     'ThePrimeagen/git-worktree.nvim',

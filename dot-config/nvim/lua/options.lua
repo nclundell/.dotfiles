@@ -1,7 +1,7 @@
 -- COMMANDS --
 local cmd = vim.cmd
 
-cmd.colorscheme('catppuccin')   -- Set colorscheme
+cmd.colorscheme('catppuccin')      -- Set colorscheme
 cmd.syntax('on')                   -- Enable syntax highlighting
 cmd('filetype plugin indent on')   -- Enable filetype detection, plugins, and indentation
 
@@ -16,7 +16,7 @@ o.foldenable = true      -- Enable line folding
 o.foldexpr = 'nvim_treesitter#foldexpr()'
 o.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 o.fillchars = "fold: "
-o.foldlevel = 1         -- Set fold level to 99 (open all folds)
+o.foldlevel = 1         -- Set intitial fold level on buffer open
 o.foldmethod = 'expr'
 o.foldminlines = 1
 o.foldnestmax = 5
@@ -35,6 +35,7 @@ local go = vim.opt_global
 go.autoread = true                         -- Automatically read file if changed outside of vim
 go.backspace = {'indent', 'eol', 'start'}  -- Allow backspacing over everything in insert mode
 go.backup = false                          -- Disable backup files
+go.writebackup = false                     -- Disable backup files
 go.clipboard = {'unnamedplus'}             -- Use system clipboard
 go.completeopt = {'menuone', 'noinsert', 'noselect', 'preview'}  -- Set completion options
 go.hidden = true                           -- Allow hidden buffers
@@ -54,4 +55,3 @@ go.undofile = true                         -- Enable persistent undofile
 go.virtualedit = 'block'                   -- Enable block virtual edit
 -- go.wildmenu = true                         -- Enable wildmenu
 -- go.wildmode = 'list:longest'               -- Set wildmode to list:longest
-go.writebackup = false                     -- Disable backup files

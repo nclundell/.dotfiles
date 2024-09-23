@@ -1,15 +1,18 @@
 return {
   'nvim-lualine/lualine.nvim',
+  dependencies = {
+    'pnx/lualine-lsp-status'
+  },
   opts = {
     extensions = {
       'lazy',
       'mason',
-      'neo-tree'
     },
     options = {
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
       -- section_separators = { left = '', right = '' },
       -- section_separators = { left = '', right = '' },
-      component_separators = { left = '', right = '' },
       globalstatus = true,
       path = 1,
       refresh = {
@@ -18,7 +21,7 @@ return {
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics' },
+      lualine_b = { 'branch', 'diff', 'diagnostics', 'lsp-status' },
       lualine_c = { 'fileformat', 'filetype', 'filename' },
       lualine_x = {},
       lualine_y = {},
