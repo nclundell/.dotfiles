@@ -1,0 +1,6 @@
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+  { mime = "{image,audio,video}/*", run = "mediainfo"},
+  { mime = "application/x-subrip", run = "mediainfo"},
+]
