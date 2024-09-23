@@ -99,6 +99,7 @@ else
         ;;
       yazi)
         ubi -i $HOME/.local/bin -p sxyazi/yazi
+        ubi -i $HOME/.local/bin -p sxyazi/yazi -e ya
         ;;
       zellij)
         ubi -i $HOME/.local/bin -p zellij-org/zellij
