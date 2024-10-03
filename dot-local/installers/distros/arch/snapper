@@ -9,3 +9,10 @@ sudo rm -r /.snapshots
 sudo snapper -c root create-config /
 
 sudo mount -a
+
+sudo systemctl enable --now grub-btrfsd
+
+echo "Add the following to the HOOKS array in /etc/mkinitcpio.conf"
+echo "grub-btrfs-overlayfs"
+echo "Then regenerate the initramfs images with:"
+echo "mkinitcpio -p"
