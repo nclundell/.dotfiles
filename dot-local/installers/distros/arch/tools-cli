@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sudo pacman -S --noconfirm --needed bat cabextract eza fd fzf jq lazygit neovim p7zip poppler ripgrep starship tmux unace unrar unzip xz yazi zellij zoxide

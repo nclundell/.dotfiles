@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo pacman -S --noconfirm --needed bat devtools
+
 mkdir tmp
 cd tmp
 
