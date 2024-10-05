@@ -78,8 +78,18 @@ else
 fi
 
 # Check for pacman
-if [[ -x "$(command -v pacman)" ]]; then
-  alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"
+if [[ -x "$(command -v paru)" ]]; then
+  if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
+    alias p="paru --config $HOME/.config/pacman/pacman.conf"
+  else
+    alias p="paru"
+  fi
+else
+  if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
+    alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"
+  else
+    alias p="sudo pacman"
+  fi
 fi
 
 # Check for zypper
