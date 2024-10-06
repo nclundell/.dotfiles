@@ -1,6 +1,6 @@
 return {
   'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  event = { 'InsertEnter', 'CmdlineEnter' },
   dependencies = {
     -- Snippets
     'L3MON4D3/LuaSnip',
@@ -31,12 +31,24 @@ return {
         format = lspkind.cmp_format {}
       },
       mapping = {
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            if luasnip.expandable() then
+              luasnip.expand()
+            else
+              cmp.confirm({
+                select = true
+              })
+            end
+          else
+            fallback()
+          end
+        end),
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
+          elseif luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
           else
             fallback()
           end
@@ -57,7 +69,6 @@ return {
           require('luasnip').lsp_expand(args.body)
         end,
       },
-
       sources =  {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
