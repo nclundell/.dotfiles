@@ -1,0 +1,5 @@
+# Grab Whole Screen
+bindsym $mod+s exec grim - | wl-copy -t image/png
+
+# Grab Specified Area
+bindsym $mod+Control+s exec grim -g "$(slurp)" - | wl-copy -t image/png

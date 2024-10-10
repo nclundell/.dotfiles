@@ -1,4 +1,0 @@
-# NCMPCPP Scratchpad
-for_window [title="NCMPCPP"] move to scratchpad
-bindsym $mod+m [title="NCMPCPP"] scratchpad show, resize
-bindsym $mod+mod1+m exec $term -t "NCMPCPP" -e ncmpcpp

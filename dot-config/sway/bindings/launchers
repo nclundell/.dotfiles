@@ -1,5 +1,12 @@
-# Start Launcher
-bindsym $mod+d exec rofi -S drun
+# Files
+bindsym $mod+y exec $term -e yazi
+
+# Music
+bindsym $mod+m exec $term -e ncmpcpp
+
+# Rofi
+bindsym $mod+ctrl+p exec rofi -show drun -config $HOME/.config/rofi/combo.rasi
+bindsym $mod+ctrl+w exec rofi -show window -config $HOME/.config/rofi/combo.rasi
 
 # Terminal
 bindsym $mod+Return exec $term

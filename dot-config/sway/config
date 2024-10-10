@@ -1,7 +1,6 @@
 ### Defaults
-set $alt Mod1
 set $mod Mod4
-set $term footclient
+set $term wezterm
 
 ### Floating (For Mouse)
 floating_modifier $mod normal
@@ -9,24 +8,39 @@ floating_modifier $mod normal
 # include /etc/sway/config.d/*
 
 ### Imports
-include bar
-include ui
-
+include bindings/audio
 include bindings/launchers
 include bindings/movement
 include bindings/resize
+include bindings/screenshot
 include bindings/sway
 include bindings/windows
 include bindings/workspaces
 
+# Set Gaps
+gaps inner 10
+gaps outer 10
+
+# Set Borders and Titles
+default_border pixel 4
+default_floating_border pixel 4
+hide_edge_borders smart
+
+# Set gsettings
+exec gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+exec gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha" 
+
 ### Wallpaper
 output * adaptive_sync on
-#output * bg $HOME/Pictures/Wallpapers/Ultrawide/Abstract/abstract_3.png fill
+output * bg $HOME/.local/wallpaper/21:9/halo/halo_master_chief_helmet.jpg fill
 
 ### Autostart
 exec {
-  dunst
-  foot --server
-  mpd
+  mako &
+  nm-applet &
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+  udiskie -s -f yazi &
+}
+exec_always {
+  pkill waybar && waybar -c $HOME/.config/waybar/sway_config.jsonc
 }

@@ -1,4 +1,0 @@
-# HTOP Scratchpad
-for_window [title="HTOP"] move to scratchpad
-bindsym $mod+t [title="HTOP"] scratchpad show, resize 
-bindsym $mod+mod1+t exec $term -t "HTOP" -e htop

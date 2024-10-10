@@ -1,7 +1,0 @@
-# Set Gaps
-gaps inner 20
-
-# Set Borders and Titles
-default_border pixel 4
-default_floating_border pixel 4
-hide_edge_borders smart
