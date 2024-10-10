@@ -1,5 +1,9 @@
-# Colors
+# Notification Style
+border-radius=10
+default-timeout=10000
+font=Hack Nerd Font 16
 
+# Colors
 background-color=#1e1e2e
 text-color=#cdd6f4
 border-color=#89b4fa
