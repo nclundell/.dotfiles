@@ -1,0 +1,100 @@
+// vim:set ft=jsonc:
+{
+  "position": "top",
+  "modules-left": [
+    //"custom/arch-pill",
+    "sway/workspaces",
+    //"sway/window",
+    "mpd",
+    "sway/mode"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "custom/weather",
+    "bluetooth",
+    "pulseaudio",
+    "network"
+  ],
+
+  // Modules configuration
+  "mpd": {
+    "format": " {artist} - {title}",
+    "format-paused": " {artist} - {title}",
+    "format-stopped": "",
+    "on-click": "kitty -e ncmpcpp",
+    "tooltip": false
+  },
+  "sway/workspaces": {
+    "all-outputs": true,
+    "enable-bar-scroll": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": []
+    }
+  },
+  "custom/arch-pill": {
+    "format": "",
+    "on-click": "rofi -show drun -config $HOME/.config/rofi/combo.rasi",
+    "tooltip": false
+  },
+  "sway/window": {
+    "format": "{}",
+    "tooltip": false
+  },
+  "clock": {
+    "format": " {:%A, %B %d   %I:%M %p}",
+
+    "timezone": "America/Indiana/Indianapolis",
+    "tooltip": false
+  },
+  "custom/weather": {
+    "format": "<span> {} </span>",
+    "interval": 3600,
+    "exec": "curl -s 'https://wttr.in?format=1'",
+    "tooltip": false
+  },
+  "network": {
+    "format-disconnected": "  Disconnected",
+    "format-ethernet": "󰈀 ⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
+    "format-linked": "  {ifname} (No Internet)",
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "interval": 2,
+    "min-length": 20,
+    "max-length": 20
+  },
+  "bluetooth": {
+    "format-connected": "󰂯 {device_alias}",
+    "format-off": "󰂲 Disabled",
+    "format-on": "󰂯 Disconnected",
+    "on-click": "kitty -e bluetui"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}% {format_source}",
+    "format-muted": "  {volume}% {format_source}",
+    "format-bluetooth": " {icon}  {volume}% {format_source}",
+    "format-bluetooth-muted": "   {volume}% {format_source}",
+    "format-source": "  {volume}%",
+    "format-source-muted": "  {volume}%",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "tray": {
+    "icon-size": 20,
+    "reverse-direction": true,
+    "spacing": 10
+  }
+}
