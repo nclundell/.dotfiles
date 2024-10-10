@@ -5,7 +5,10 @@ packer_compiled.lua
 **/mpd
 !mpd.conf
 
-# Ignore Tmux Plugins
+# Ignore NCMPCPP Logging
+dot-config/ncmpcpp/error.log
+
+# Ignore App Plugins
 dot-config/tmux/plugins
 dot-config/yazi/flavors
 dot-config/yazi/plugins
