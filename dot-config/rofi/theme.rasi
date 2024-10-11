@@ -7,12 +7,8 @@
  *
  **/
 
-/* Import color-scheme from `colors` directory */
-
 @import "~/.config/rofi/colors/catppuccin.rasi"
 
-/* Set Font */
-
 * {
-    font: "Hack Nerd Font 12";
+    font: "JetBrainsMono Nerd Font 12";
 }
