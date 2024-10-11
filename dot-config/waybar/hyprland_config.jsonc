@@ -2,9 +2,8 @@
 {
   "position": "top",
   "modules-left": [
-    "sway/workspaces",
-    "mpd",
-    "sway/mode"
+    "hyprland/workspaces",
+    "mpd"
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -23,7 +22,7 @@
     "on-click": "kitty -e ncmpcpp",
     "tooltip": false
   },
-  "sway/workspaces": {
+  "hyprland/workspaces": {
     "all-outputs": true,
     "enable-bar-scroll": true,
     "persistent-workspaces": {
