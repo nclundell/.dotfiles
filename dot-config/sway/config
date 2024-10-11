@@ -34,15 +34,14 @@ exec gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha"
 output * adaptive_sync on
 output * bg $HOME/.local/wallpaper/21:9/halo/halo_master_chief_helmet.jpg fill
 
-### Start Bar
-bar {
-    swaybar_command bar.sh
-}
-
 ### Autostart
 exec {
   mako &
   nm-applet &
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
   udiskie -s -f yazi &
+}
+
+exec_always {
+  $HOME/.config/sway/bar.sh
 }
