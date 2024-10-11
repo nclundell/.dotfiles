@@ -1,7 +1,8 @@
 # Notification Style
 border-radius=10
 default-timeout=10000
-font=Hack Nerd Font 16
+font=JetBrainsMono Nerd Font 12
+width=500
 
 # Colors
 background-color=#1e1e2e
