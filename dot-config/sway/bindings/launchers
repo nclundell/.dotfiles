@@ -1,12 +1,18 @@
 # Files
-bindsym $mod+y exec $term -e yazi
+bindsym $mod+y exec wezterm start --class yazi -e yazi
 
 # Music
-bindsym $mod+m exec $term -e ncmpcpp
+bindsym $mod+m exec wezterm start --class ncmpcpp -e ncmpcpp
 
-# Rofi
-bindsym $mod+ctrl+p exec rofi -show drun -config $HOME/.config/rofi/combo.rasi
-bindsym $mod+ctrl+w exec rofi -show window -config $HOME/.config/rofi/combo.rasi
+# Power
+bindsym $mod+u exec $HOME/.config/rofi/power.sh
+
+# Rofi Combo Box
+bindsym $mod+alt+p exec rofi -show drun -config $HOME/.config/rofi/combo.rasi
+bindsym $mod+alt+r exec rofi -show run -config $HOME/.config/rofi/combo.rasi
+bindsym $mod+alt+f exec rofi -show filebrowser -config $HOME/.config/rofi/combo.rasi
+bindsym $mod+alt+s exec rofi -show ssh -config $HOME/.config/rofi/combo.rasi
+bindsym $mod+alt+w exec rofi -show window -config $HOME/.config/rofi/combo.rasi
 
 # Terminal
 bindsym $mod+Return exec $term

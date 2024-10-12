@@ -20,7 +20,7 @@
     "format": " {artist} - {title}",
     "format-paused": " {artist} - {title}",
     "format-stopped": "",
-    "on-click": "kitty -e ncmpcpp",
+    "on-click": "wezterm -e ncmpcpp",
     "tooltip": false
   },
   "sway/workspaces": {
@@ -68,7 +68,7 @@
     "format-connected": "󰂯 {device_alias}",
     "format-off": "󰂲 Disabled",
     "format-on": "󰂯 Disconnected",
-    "on-click": "kitty -e bluetui"
+    "on-click": "wezterm start --class bluetui -e bluetui"
   },
   "pulseaudio": {
     "format": "{icon}  {volume}% {format_source}",
@@ -84,7 +84,7 @@
         ""
       ]
     },
-    "on-click": "pavucontrol"
+    "on-click": "wezterm start --class pulsemixer -e pulsemixer"
   },
   "tray": {
     "icon-size": 20,
