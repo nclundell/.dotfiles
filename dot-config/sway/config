@@ -1,9 +1,5 @@
 ### Defaults
 set $mod Mod4
-# set $term wezterm
-
-### Floating (For Mouse)
-# floating_modifier $mod normal
 
 # include /etc/sway/config.d/*
 
@@ -39,7 +35,7 @@ exec {
   mako &
   nm-applet &
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-  udiskie -s -f "wezterm -e yazi" &
+  # udiskie -s -f "wezterm -e yazi" &
 }
 
 exec_always {
@@ -50,4 +46,3 @@ exec_always {
 for_window [app_id="bluetui"] floating enable
 for_window [app_id="ncmpcpp"] floating enable
 for_window [app_id="pulsemixer"] floating enable
-for_window [app_id="yazi"] floating enable

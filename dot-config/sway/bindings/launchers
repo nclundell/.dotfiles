@@ -15,4 +15,4 @@ bindsym $mod+alt+s exec rofi -show ssh -config $HOME/.config/rofi/combo.rasi
 bindsym $mod+alt+w exec rofi -show window -config $HOME/.config/rofi/combo.rasi
 
 # Terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec wezterm
