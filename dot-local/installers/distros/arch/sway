@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed rofi-wayland sway sway-contrib swaybg swayidle swayimg swaylock swaync waybar
+sudo pacman -S --noconfirm --needed rofi-wayland sway sway-contrib swaybg swayidle swayimg swaylock swaync waybar wezterm
