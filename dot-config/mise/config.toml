@@ -1,12 +1,15 @@
-[settings]
-experimental = true
-
 [tools]
 node   = 'lts'
 python = 'latest'
 ruby   = 'latest'
-go     = 'latest'
+# go     = 'latest'
 
 # ASDF Apps
-neovim = 'stable'
-tmux   = 'latest'
+# neovim = 'stable'
+# tmux   = 'latest'
+
+# UBI Apps
+'ubi:cli/cli'            = { exe = 'gh', version = 'latest' }
+'ubi:eza-community/eza'  = 'latest'
+'ubi:starship/starship'  = 'latest'
+'ubi:ajeetdsouza/zoxide' = 'latest'
