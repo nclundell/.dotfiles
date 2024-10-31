@@ -5,3 +5,5 @@ sudo pacman -S --noconfirm --needed bat bottom cabextract curl eza fd fzf github
 sudo pacman -S --noconfirm --needed ttf-nerd-fonts-symbols ttf-nerd-fonts-ymbols-mono
 
 sudo pacman -S --noconfirm --needed ttf-hack-nerd ttf-inconsolata-nerd ttf-jetbrains-mono-nerd
+
+source $HOME/.dotfiles/dot-local/installers/distros/arch/yay

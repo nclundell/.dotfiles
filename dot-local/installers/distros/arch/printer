@@ -1,5 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups system-config-printer
+sudo pacman -S --noconfirm --needed avahi cups cups-pdf
 
+sudo systemctl enable --now avahi-daemon
 sudo systemctl enable --now cups

@@ -1,6 +1,6 @@
-#!/bin/sh
+#! /bin/bash
 
-sudo pacman -S --noconfirm --needed snapper snap-pac grub-btrfs
+sudo pacman -S --noconfirm --needed brub-btrfs inotify-tools snapper
 
 sudo umount /.snapshots
 
@@ -8,11 +8,20 @@ sudo rm -r /.snapshots
 
 sudo snapper -c root create-config /
 
+sudo btrfs subvolume delete /.snapshots
+
+sudo mkdir /.snapshots
+
+sudo chmod 750 /.snapshots
+
+sudo chown :wheel /.snapshots
+
 sudo mount -a
+
+cat /etc/fstab
+
+sudo pacman -S --noconfirm --needed snap-pac
 
 sudo systemctl enable --now grub-btrfsd
 
-echo "Add the following to the HOOKS array in /etc/mkinitcpio.conf"
-echo "grub-btrfs-overlayfs"
-echo "Then regenerate the initramfs images with:"
-echo "mkinitcpio -p"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
