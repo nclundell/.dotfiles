@@ -30,10 +30,6 @@ fi
 
 # Setup Mise
 if [[ -x "$(command -v mise)" ]]; then
-  export MISE_GO_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/go-packages"
-  export MISE_NODE_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/node-packages"
-  export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/python-packages"
-  export MISE_RUBY_DEFAULT_PACKAGES_FILE="$HOME/.config/mise/default/ruby-gems"
   eval "$(mise activate bash)"
 fi
 
@@ -65,9 +61,7 @@ if [[ -x "$(command -v zoxide)" ]]; then
 fi
 
 # Aliases
-alias a="sudo apt"
-alias br="source $HOME/.bashrc"
-
+alias br='source $HOME/.bashrc'
 if [[ -x "$(command -v bat)" ]]; then
   alias cat='bat'
 fi
@@ -84,22 +78,16 @@ else
   alias ls="ls --color=auto"
 fi
 
-# Check for pacman
-if [[ -x "$(command -v paru)" ]]; then
-  if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
-    alias p="paru --config $HOME/.config/pacman/pacman.conf"
-  else
-    alias p="paru"
-  fi
+alias mup="source $HOME/.local/bin/scripts/arch-mirror-update"
+
+if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
+  alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"
 else
-  if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
-    alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"
-  else
-    alias p="sudo pacman"
-  fi
+  alias p="sudo pacman"
 fi
 
-# Check for zypper
-if [[ -x "$(command -v zypper)" ]]; then
-  alias z="sudo zypper"
+if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
+  alias y="yay --config $HOME/.config/pacman/pacman.conf"
+else
+  alias y="yay"
 fi
