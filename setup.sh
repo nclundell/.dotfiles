@@ -20,6 +20,13 @@ source $HOME/.bashrc
 
 source $HOME/.local/installers/build-deps
 
-mise i -y
-
-source $HOME/.local/installers/nerd-fonts Hack
+if [[ $(lsb_release -is) == *Arch* ]]; then
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/chaotic-aur
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/codecs
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/snapper
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/tools-cli
+elif [[ $(lsb_release -is) == *Fedora* ]]; then
+  echo "Matches Fedora!"
+elif [[ $(lsb_release -is) == *Tumbleweed* ]]; then
+  echo "Matches Tumbleweed!"
+fi
