@@ -2,14 +2,17 @@
 packer_compiled.lua
 
 # Ignore MPD files except mpd.conf
-**/mpd/database
-**/mpd/pid
-**/mpd/sticker.sql
+dot-config/mpd/database
+dot-config/mpd/pid
+dot-config/mpd/sticker.sql
 
 # Ignore NCMPCPP Logging
-**/ncmpcpp/error.log
+dot-config/ncmpcpp/error.log
 
 # Ignore App Plugins
-**/tmux/plugins
-**/yazi/flavors
-**/yazi/plugins
+dot-config/tmux/plugins
+dot-config/yazi/flavors
+dot-config/yazi/plugins
+
+# Ignore Local Bin Apps
+dot-local/bin/**
