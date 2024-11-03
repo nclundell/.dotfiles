@@ -1,6 +1,17 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed avahi cups cups-pdf
+sudo pacman -S --noconfirm --needed avahi cups cups-browsed cups-pdf nss-mdns
+
+sudo pacman -S --noconfirm --needed gutenprint foomatic-db-gutenprint-ppds
+
+sudo pacman -S --noconfirm --needed foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds
+
+if ! $(grep -qe "hosts:.*mdns_minimal" /etc/nsswitch.conf); then
+  sudo sed -re 's/hosts: mymachines /hosts: mymachines mdns_minimal [NOTFOUND=return] /gi' -i /etc/nsswitch.conf
+  echo 'Check up hostname resolution for avahi: https://wiki.archlinux.org/title/Avahi#Hostname_resolution'
+  cat /etc/nsswitch.conf
+fi
 
 sudo systemctl enable --now avahi-daemon
 sudo systemctl enable --now cups
+sudo systemctl enable --now cups-browsed
