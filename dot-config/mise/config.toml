@@ -9,7 +9,7 @@ ruby   = 'latest'
 # tmux   = 'latest'
 
 # UBI Apps
-'ubi:cli/cli'            = { exe = 'gh', version = 'latest' }
-'ubi:eza-community/eza'  = 'latest'
-'ubi:starship/starship'  = 'latest'
-'ubi:ajeetdsouza/zoxide' = 'latest'
+# 'ubi:cli/cli'            = { exe = 'gh', version = 'latest' }
+# 'ubi:eza-community/eza'  = 'latest'
+# 'ubi:starship/starship'  = 'latest'
+# 'ubi:ajeetdsouza/zoxide' = 'latest'
