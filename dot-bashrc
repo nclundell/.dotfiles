@@ -22,6 +22,7 @@ export PATH=$HOME/.local/scripts:$PATH
 # Export ENV Vars
 export VISUAL=nvim
 export EDITOR=nvim
+export MISE_RUBY_DEFAULT_PACKAGES_FILE='$HOME/.config/mise/defaults/ruby-gems'
 
 # Setup FZF
 if [[ -x "$(command -v fzf)" ]]; then
