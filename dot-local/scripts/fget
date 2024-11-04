@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 if [[ ! -x "$(command -v flatpak)" ]]; then
     echo "Flatpak not found.  Are you in a container?"
