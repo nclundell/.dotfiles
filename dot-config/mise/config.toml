@@ -1,8 +1,18 @@
+[settings]
+# Default Packages
+python.default_packages_file = './defaults/python-packages'
+ruby.default_packages_file = './defaults/ruby-gems'
+
 [tools]
 node   = 'lts'
 python = 'latest'
 ruby   = 'latest'
-# go     = 'latest'
+
+# Default NPM Packages
+'npm:@tailwindcss/language-server' = 'latest'
+'npm:bash-language-server' = 'latest'
+'npm:stimulus-language-server' = 'latest'
+'npm:typescript-language-server' = 'latest'
 
 # ASDF Apps
 # neovim = 'stable'

@@ -22,7 +22,6 @@ export PATH=$HOME/.local/scripts:$PATH
 # Export ENV Vars
 export VISUAL=nvim
 export EDITOR=nvim
-export MISE_RUBY_DEFAULT_PACKAGES_FILE='$HOME/.config/mise/defaults/ruby-gems'
 
 # Setup FZF
 if [[ -x "$(command -v fzf)" ]]; then
@@ -79,10 +78,13 @@ else
   alias ls="ls --color=auto"
 fi
 
-alias mup="source $HOME/.local/bin/scripts/arch-mirror-update"
+alias mup="source $HOME/.local/scripts/arch-mirror-update"
 
 if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
   alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"
+  if [[ -x "$(command -v yay)" ]]; then
+    alias p="yay --repo --config $HOME/.config/pacman/pacman.conf"
+  fi
 else
   alias p="sudo pacman"
 fi
