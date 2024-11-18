@@ -3,8 +3,8 @@ return {
   init = function()
     local lsp = require('lspconfig')
 
+    lsp.basedpyright.setup {}
     lsp.bashls.setup {}
-    lsp.gopls.setup {}
     lsp.lua_ls.setup {
       settings = {
         Lua = {
@@ -14,9 +14,8 @@ return {
         }
       }
     }
-    lsp.pyright.setup {}
-    lsp.rust_analyzer.setup {}
     lsp.ruby_lsp.setup {}
+    lsp.sorbet.setup {}
     lsp.stimulus_ls.setup {}
     lsp.tailwindcss.setup {}
     lsp.ts_ls.setup {}
