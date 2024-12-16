@@ -15,7 +15,41 @@ return {
       layout_config = {
         prompt_position = 'top'
       },
+      path_display = { 'smart' },
       sorting_strategy = 'ascending'
+    },
+    pickers = {
+      buffers = {
+        theme = 'dropdown',
+        previewer = false
+      },
+      colorscheme = {
+        theme = 'dropdown',
+        previewer = false
+      },
+      commands = {
+        theme = 'dropdown',
+        previewer = false
+      },
+      current_buffer_fuzzy_find = {
+        prompt_title = 'Search Current File'
+      },
+      help_tags = {
+        prompt_title = 'Help Files'
+      },
+      find_files = {
+        prompt_title = 'Project Files'
+      },
+      keymaps = {
+        theme = 'dropdown',
+        previewer = false
+      },
+      live_grep = {
+        prompt_title = 'Search Project'
+      },
+      oldfiles = {
+        prompt_title = 'Recent Files'
+      }
     }
   },
   cmd = {
@@ -23,30 +57,29 @@ return {
   },
   keys = {
     -- Commands and Keymaps
-    { '<leader><leader>', function() require('telescope.builtin').keymaps(require('telescope.themes').get_dropdown({ previewer = false })) end, desc = 'List Keymaps' },
-    { '<leader>p', function() require('telescope.builtin').commands(require('telescope.themes').get_dropdown({ previewer = false })) end, desc = 'List Commands' },
+    { '<leader><leader>', require('telescope.builtin').keymaps, desc = 'List Keymaps' },
+    { '<leader>p', require('telescope.builtin').commands , desc = 'List Commands' },
 
     -- List
-    { '<leader>lm', function() require('telescope.builtin').marks() end, desc = 'List Marks' },
-    { '<leader>ln', function() require('telescope').extensions.notify.notify({ initial_mode = 'normal' }) end, desc = 'List Man Pages' },
-    { '<leader>lr', function() require('telescope.builtin').registers() end, desc = 'List Registers' },
-    { '<leader>ls', function() require('telescope.builtin').lsp_document_symbols() end, desc = 'List Document Symbols' },
-    { '<leader>lS', function() require('telescope.builtin').lsp_workspace_symbols() end, desc = 'List Workspace Symbols' },
-    { '<leader>lt', function() require('telescope.builtin').treesitter() end, desc = 'List Treesitter Symbols' },
+    { '<leader>lm', require('telescope.builtin').marks, desc = 'List Marks' },
+    { '<leader>lr', require('telescope.builtin').registers, desc = 'List Registers' },
+    { '<leader>ls', require('telescope.builtin').lsp_document_symbols, desc = 'List Document Symbols' },
+    { '<leader>lS', require('telescope.builtin').lsp_workspace_symbols, desc = 'List Workspace Symbols' },
+    { '<leader>lt', require('telescope.builtin').treesitter, desc = 'List Treesitter Symbols' },
 
     -- Open
-    { '<leader>of', function() require('telescope.builtin').find_files({ prompt_title = 'Project Files' }) end, desc = 'Open Project Files' },
-    { '<leader>oh', function() require('telescope.builtin').help_tags({ prompt_title = 'Help Docs' }) end, desc = 'Open Help Docs' },
-    { '<leader>or', function() require('telescope.builtin').oldfiles({ prompt_title = 'Recent Files' }) end, desc = 'Open Recent Files' },
+    { '<leader>of', require('telescope.builtin').find_files, desc = 'Open Project Files' },
+    { '<leader>og', require('telescope.builtin').git_files, desc = 'Open Versioned Files' },
+    { '<leader>oh', require('telescope.builtin').help_tags, desc = 'Open Help Docs' },
+    { '<leader>or', require('telescope.builtin').oldfiles, desc = 'Open Recent Files' },
     { '<leader>ot', function() require('telescope.builtin').find_files({ prompt_title = 'Test Files', search_dirs = { 'specs', 'tests' } }) end, desc = 'Open Test Files' },
 
     -- Search
-    { '<leader>/', function() require('telescope.builtin').current_buffer_fuzzy_find() end, desc = 'Fuzzy Search Buffer' },
-    { '<leader>sa', function() require('telescope.builtin').live_grep({ prompt_title = 'Search Files' }) end, desc = 'Search Project Files' },
-    { '<leader>st', function() require('telescope.builtin').find_files({ prompt_title = 'Search Test Files', search_dirs = { 'specs', 'tests' } }) end, desc = 'Search Test Files' },
+    { '<leader>/', require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Fuzzy Search Buffer' },
+    { '<leader>?', require('telescope.builtin').live_grep, desc = 'Search Project Files' },
 
     -- Select Pickers
-    { '<leader>sb', function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ initial_mode = 'normal', previewer = false })) end, desc = 'Select Buffers' },
-    { '<leader>sc', function() require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown({ enable_preview = true, initial_mode = 'normal', previewer = false })) end, desc = 'Select Colorscheme' },
+    { '<leader>sb', require('telescope.builtin').buffers, desc = 'Select Buffers' },
+    { '<leader>sc', require('telescope.builtin').colorscheme, desc = 'Select Colorscheme' },
   }
 }
