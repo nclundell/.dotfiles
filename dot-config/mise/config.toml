@@ -1,25 +1,32 @@
-[settings]
-# Default Packages
-python.default_packages_file = './defaults/python-packages'
-ruby.default_packages_file = './defaults/ruby-gems'
-
 [tools]
-node   = 'lts'
-python = 'latest'
-ruby   = 'latest'
+# go     = 'latest'
+# java   = 'lts'
+# node   = 'lts'
+# python = 'latest'
+# ruby   = 'latest'
+# rust   = 'latest'
+# zig    = 'latest'
 
-# Default NPM Packages
-'npm:@tailwindcss/language-server' = 'latest'
-'npm:bash-language-server' = 'latest'
-'npm:stimulus-language-server' = 'latest'
-'npm:typescript-language-server' = 'latest'
-
-# ASDF Apps
-# neovim = 'stable'
-# tmux   = 'latest'
-
-# UBI Apps
-# 'ubi:cli/cli'            = { exe = 'gh', version = 'latest' }
-# 'ubi:eza-community/eza'  = 'latest'
-# 'ubi:starship/starship'  = 'latest'
-# 'ubi:ajeetdsouza/zoxide' = 'latest'
+# Apps
+aws-cli     = 'latest'
+bat         = 'latest'
+# eza         = 'latest'
+fd          = 'latest'
+fzf         = 'latest'
+glow        = 'latest'
+github-cli  = 'latest'
+gitui       = 'latest'
+jq          = 'latest'
+just        = 'latest'
+lazygit     = 'latest'
+lua-language-server = 'latest'
+neovim      = 'latest'
+# postgres    = 'latest'
+ripgrep     = 'latest'
+starship    = 'latest'
+# tmux        = 'latest'
+tree-sitter = 'latest'
+yazi        = 'latest'
+zellij      = 'latest'
+zls         = 'latest'
+zoxide      = 'latest'
