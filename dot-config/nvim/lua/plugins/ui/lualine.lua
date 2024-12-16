@@ -7,6 +7,8 @@ return {
     extensions = {
       'lazy',
       'mason',
+      'nvim-tree',
+      'trouble'
     },
     options = {
       component_separators = { left = '', right = '' },
