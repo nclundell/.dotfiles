@@ -4,10 +4,10 @@ local map = vim.keymap.set
 map('n', ';', '@=(foldlevel(".")?"za": ";") <CR>', { noremap = true })
 
 -- Buffer Movement
-map('n', '<c-h>', '<C-w>h', { noremap = true })
-map('n', '<c-j>', '<C-w>j', { noremap = true })
-map('n', '<c-k>', '<C-w>k', { noremap = true })
-map('n', '<c-l>', '<C-w>l', { noremap = true })
+-- map('n', '<c-h>', '<C-w>h', { noremap = true })
+-- map('n', '<c-j>', '<C-w>j', { noremap = true })
+-- map('n', '<c-k>', '<C-w>k', { noremap = true })
+-- map('n', '<c-l>', '<C-w>l', { noremap = true })
 
 -- Write and Close Files
 map('n', '<leader>c', '<CMD> bd <CR>', { noremap = true })

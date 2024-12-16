@@ -11,7 +11,7 @@ return {
     }
   },
   keys = {
-    { '<leader>eb', '<CMD>WindowsEqualize<CR>', desc = 'Equalize Buffers' },
-    { '<leader>mb', '<CMD>WindowsMaximize<CR>', desc = 'Maximize Buffers' }
+    { '<leader>=', '<CMD>WindowsEqualize<CR>', desc = 'Equalize Buffers' },
+    { '<leader>+', '<CMD>WindowsMaximize<CR>', desc = 'Maximize Buffers' }
   }
 }
