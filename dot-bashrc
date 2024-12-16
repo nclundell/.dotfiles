@@ -33,13 +33,6 @@ if [[ -x "$(command -v mise)" ]]; then
   eval "$(mise activate bash)"
 fi
 
-# Setup MPD
-if [[ -x "$(command -v mpd)" ]]; then
-  if [ ! -s ~/.config/mpd/pid ]; then
-    mpd
-  fi
-fi
-
 # Setup Starship Prompt
 if [[ -x "$(command -v starship)" ]]; then
   export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"

@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+if ! pgrep -x 'mpd' > /dev/null; then
+  if [ -f $HOME/.config/mpd/pid ]; then
+    rm $HOME/.config/mpd/pid
+  fi
+  mpd
+fi
+
+ncmpcpp
