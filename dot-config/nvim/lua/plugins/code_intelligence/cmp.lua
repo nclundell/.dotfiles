@@ -15,8 +15,6 @@ return {
     'kristijanhusak/vim-dadbod-completion',
     'saadparwaiz1/cmp_luasnip',
 
-    { 'folke/lazydev.nvim', ft = 'lua', config = true },
-
     -- UI
     'onsails/lspkind-nvim'
   },
