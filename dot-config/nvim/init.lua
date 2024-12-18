@@ -19,26 +19,19 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup Lazy
 require('lazy').setup {
-  install = {
-    colorscheme = {
-      'catppuccin'
-    }
-  },
   spec = {
-    { import = 'plugins.code_intelligence' },
-    { import = 'plugins.colors' },
-    { import = 'plugins.edit' },
-    { import = 'plugins.files' },
-    { import = 'plugins.git' },
-    { import = 'plugins.integrations' },
-    { import = 'plugins.misc' },
+    { import = 'plugins' },
+    { import = 'plugins.colorschemes' },
     { import = 'plugins.treesitter' },
-    { import = 'plugins.ui' },
   },
   ui = {
     border = 'single'
   }
 }
+
+vim.cmd.colorscheme('tokyonight')
+vim.cmd.syntax('on')
+vim.cmd('filetype plugin indent on')
 
 require('keymaps')
 require('options')

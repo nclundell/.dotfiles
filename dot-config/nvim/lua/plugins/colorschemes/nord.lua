@@ -1,4 +1,5 @@
 return {
   'shaunsingh/nord.nvim',
-  lazy = true
+  lazy = true,
+  priority = 1000
 }

@@ -1,10 +1,3 @@
--- COMMANDS --
-local cmd = vim.cmd
-
-cmd.colorscheme('catppuccin')      -- Set colorscheme
-cmd.syntax('on')                   -- Enable syntax highlighting
-cmd('filetype plugin indent on')   -- Enable filetype detection, plugins, and indentation
-
 -- OPTIONS --
 local o = vim.opt
 

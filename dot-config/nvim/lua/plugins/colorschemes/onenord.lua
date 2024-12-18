@@ -1,5 +1,6 @@
 return {
   'rmehri01/onenord.nvim',
-  lazy = true
+  lazy = true,
+  priority = 1000
 
 }
