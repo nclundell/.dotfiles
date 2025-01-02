@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "Reledia/glow", rev = "4e016fa" }, { use = "Ape/mediainfo", rev = "c69314e" }]
+deps = [{ use = "Reledia/glow", rev = "5ce76dc" }, { use = "Ape/mediainfo", rev = "df17c4f" }]
 
 [flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "d479f67" }]
+deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fc8eeaa" }]
