@@ -1,16 +1,21 @@
+[settings]
+rust.cargo_home  = '.local/cargo'
+rust.rustup_home = '.local/rustup'
+
 [tools]
 # go     = 'latest'
 # java   = 'lts'
-# node   = 'lts'
-# python = 'latest'
-# ruby   = 'latest'
+node   = 'lts'
+python = 'latest'
+ruby   = 'latest'
 # rust   = 'latest'
 # zig    = 'latest'
 
 # Apps
 aws-cli     = 'latest'
 bat         = 'latest'
-# eza         = 'latest'
+bottom      = 'latest'
+delta       = 'latest'
 fd          = 'latest'
 fzf         = 'latest'
 glow        = 'latest'
@@ -30,3 +35,6 @@ yazi        = 'latest'
 zellij      = 'latest'
 zls         = 'latest'
 zoxide      = 'latest'
+
+'ubi:eza-community/eza' = 'latest'
+'ubi:jorgerojas26/lazysql' = 'latest'
