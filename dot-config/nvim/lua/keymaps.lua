@@ -20,3 +20,6 @@ map('n', '<leader>W', '<CMD> wa! <CR>', { noremap = true })
 -- Indent and Unindent
 map('x', '>', '>gv', { noremap = true })
 map('x', '<', '<gv', { noremap = true })
+
+-- Terminal Mode
+map('t', '<esc>', '<c-\\><c-n>', { desc = 'Exit Terminal Mode' })
