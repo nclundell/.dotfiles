@@ -7,13 +7,12 @@ return {
     extensions = {
       'lazy',
       'mason',
-      'nvim-tree',
       'trouble'
     },
     options = {
       component_separators = { left = '', right = '' },
-      section_separators = { left = '', right = '' },
-      -- section_separators = { left = '', right = '' },
+      -- section_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
       -- section_separators = { left = '', right = '' },
       globalstatus = true,
       path = 1,
@@ -23,8 +22,8 @@ return {
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics', 'lsp-status' },
-      lualine_c = { 'fileformat', 'filetype', 'filename' },
+      lualine_b = { 'branch', 'diff', 'diagnostics' },
+      lualine_c = { 'lsp-status', 'fileformat', 'filetype', 'filename' },
       lualine_x = {},
       lualine_y = {},
       lualine_z = {},
