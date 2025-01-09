@@ -1,13 +1,17 @@
 return {
   'nvim-telescope/telescope.nvim',
+  enabled = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
 
     -- Extensions
     'LinArcX/telescope-env.nvim',
     'debugloop/telescope-undo.nvim',
-    'natecraddock/telescope-zf-native.nvim',
-    'ThePrimeagen/git-worktree.nvim',
+    -- 'natecraddock/telescope-zf-native.nvim',
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make'
+    }
   },
   opts = {
     defaults = {
@@ -57,8 +61,8 @@ return {
   },
   keys = {
     -- Commands and Keymaps
-    { '<leader><leader>', require('telescope.builtin').keymaps, desc = 'List Keymaps' },
-    { '<leader>p', require('telescope.builtin').commands , desc = 'List Commands' },
+    -- { '<leader><leader>', require('telescope.builtin').keymaps, desc = 'List Keymaps' },
+    -- { '<leader>p', require('telescope.builtin').commands , desc = 'List Commands' },
 
     -- List
     { '<leader>lm', require('telescope.builtin').marks, desc = 'List Marks' },
