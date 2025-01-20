@@ -82,6 +82,8 @@ else
   alias p="sudo pacman"
 fi
 
+alias v="nvim || nano"
+
 if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
   alias y="yay --config $HOME/.config/pacman/pacman.conf"
 else
