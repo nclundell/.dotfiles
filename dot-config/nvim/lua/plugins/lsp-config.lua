@@ -6,6 +6,7 @@ return {
 
     lsp.basedpyright.setup { capabilities = capabilities }
     lsp.bashls.setup { capabilities = capabilities }
+    lsp.ember.setup { capabilities = capabilities }
     lsp.lua_ls.setup { capabilities = capabilities }
     lsp.ruby_lsp.setup { capabilities = capabilities }
     lsp.solargraph.setup { capabilities = capabilities }

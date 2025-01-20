@@ -2,6 +2,13 @@ return {
   'folke/snacks.nvim',
   priority = 1000,
   lazy = false,
+  opts = {
+    styles = {
+      terminal = {
+        border = 'rounded'
+      }
+    }
+  },
   keys = {
     { '<leader>tt',      function() Snacks.terminal() end, desc = 'Toggle Terminal' },
     { '<leader>tt',      function() Snacks.terminal() end, mode = 't', desc = 'Toggle Terminal' },
