@@ -1,11 +1,13 @@
 return {
   'saghen/blink.cmp',
+  dependencies = 'rafamadriz/friendly-snippets',
   version = '*',
   opts = {
     keymap = { preset = 'super-tab' },
     completion = {
       documentation = {
-        auto_show = true
+        auto_show = true,
+        auto_show_delay_ms = 500
       },
       ghost_text = {
         enabled = true
@@ -26,7 +28,7 @@ return {
       }
     },
     sources = {
-      default = { 'dadbod', 'lazydev', 'lsp', 'path', 'buffer' },
+      default = { 'dadbod', 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
         dadbod = {
           name = 'Dadbod',

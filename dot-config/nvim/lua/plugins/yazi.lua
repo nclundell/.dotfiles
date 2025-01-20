@@ -2,10 +2,10 @@ return {
   "mikavilpas/yazi.nvim",
   event = "VeryLazy",
   opts = {
-    yazi_floating_window_border = 'none'
+    yazi_floating_window_border = 'solid'
   },
   keys = {
-    { '<leader>-', '<CMD>Yazi<CR>', desc = 'Toggle File Browser At File' },
-    { '<C-f>', '<CMD>Yazi cwd<CR>', desc = 'Toggle File Browser' }
+    { '<leader>tY', '<CMD>Yazi<CR>', desc = 'Toggle File Browser At File' },
+    { '<leader>ty', '<CMD>Yazi cwd<CR>', desc = 'Toggle File Browser' }
   },
 }

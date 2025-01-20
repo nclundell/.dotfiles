@@ -1,5 +1,2 @@
 pane_frames false
-
-theme "catppuccin-mocha"
-
-layout_dir "layouts"
+theme "tokyonight_moon"

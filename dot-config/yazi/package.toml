@@ -2,4 +2,4 @@
 deps = [{ use = "Reledia/glow", rev = "5ce76dc" }, { use = "Ape/mediainfo", rev = "df17c4f" }]
 
 [flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fc8eeaa" }]
+deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fc8eeaa" }, { use = "BennyOe/tokyo-night", rev = "caa00ab" }]

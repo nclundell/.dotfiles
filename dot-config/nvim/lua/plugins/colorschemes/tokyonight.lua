@@ -3,7 +3,7 @@ return {
   lazy = true,
   priority = 1000,
   opts = {
-    style = 'moon',
+    style = 'storm',
     transparent = vim.g.transparent_enabled
   }
 }

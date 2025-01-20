@@ -1,7 +1,22 @@
+[alias]
+	root = rev-parse --show-toplevel
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[pull]
+	rebase = true
+
 [user]
 	email = nclundell@pm.me
 	name = Nathan Lundell
-[pull]
-	rebase = true
-[alias]
-	root = rev-parse --show-toplevel
