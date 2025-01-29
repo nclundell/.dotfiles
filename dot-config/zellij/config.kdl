@@ -1,2 +1,13 @@
+default_mode "locked"
 pane_frames false
 theme "tokyonight_moon"
+
+keybinds {
+  locked {
+    bind "Ctrl q" { Detach; }
+    bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+    bind "Alt j" "Alt Down" { MoveFocus "Down"; }
+    bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+    bind "Alt l" "Alt right" { MoveFocusOrTab "Right"; }
+  }
+}
