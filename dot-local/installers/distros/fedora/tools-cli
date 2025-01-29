@@ -1,3 +1,3 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 sudo dnf -y bat bottom cabextract eza fd fzf github-cli gitui glow jq just lazygit neovim p7zip poppler ripgrep starship tmux unace unrar unzip xz yazi zellij zoxide

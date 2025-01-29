@@ -20,13 +20,21 @@ source $HOME/.bashrc
 
 source $HOME/.local/installers/build-deps
 
+if [[ ! -x "$(command -v lsb_release)" ]]; then
+  if [[ -x "$(command -v pacman)" ]]; then
+    sudo pacman -S --noconfirm --needed lsb_release
+  fi
+fi
+
 if [[ $(lsb_release -is) == *Arch* ]]; then
+  echo "Running Arch installers..."
   source $HOME/.dotfiles/dot-local/installers/distros/arch/chaotic-aur
   source $HOME/.dotfiles/dot-local/installers/distros/arch/codecs
   source $HOME/.dotfiles/dot-local/installers/distros/arch/snapper
   source $HOME/.dotfiles/dot-local/installers/distros/arch/tools-cli
 elif [[ $(lsb_release -is) == *Fedora* ]]; then
-  echo "Matches Fedora!"
-elif [[ $(lsb_release -is) == *Tumbleweed* ]]; then
-  echo "Matches Tumbleweed!"
+  echo "Running Fedora installers..."
+  source $HOME/.dotfiles/dot-local/installers/distros/fedora/codecs
+  source $HOME/.dotfiles/dot-local/installers/distros/fedora/fedy
+  source $HOME/.dotfiles/dot-local/installers/distros/fedora/tools-cli
 fi

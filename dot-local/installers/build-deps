@@ -14,12 +14,9 @@ elif [[ "$OS" = "Linux" ]]; then
   if [[ -x "$(command -v apt)" ]]; then
     sudo apt install autoconf patch build-essential gawk git stow rustc libssl-dev libyaml-dev libreadline-dev zlib1g-dev libgmp-dev libncurses-dev libffi-dev libgdbm6t64 libgdbm-dev libdb-dev uuid-dev
   elif [[ -x "$(command -v dnf)" ]]; then
-    sudo dnf install -y autoconf gcc rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel gawk
+    sudo dnf group install c-development development-tools
+    sudo dnf install -y autoconf rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel gawk
   elif [[ -x "$(command -v pacman)" ]]; then
     sudo pacman -S --needed --noconfirm base base-devel gawk git libffi libyaml openssl rust zlib
-  elif [[ -x "$(command -v vso)" ]]; then
-    vso install autoconf patch build-essential gawk git stow rustc libssl-dev libyaml-dev libreadline-dev zlib1g-dev libgmp-dev libncurses-dev libffi-dev libgdbm6t64 libgdbm-dev libdb-dev uuid-dev
-  elif [[ -x "$(command -v zypper)" ]]; then
-    sudo zypper install -y gcc make rust patch automake bzip2 libopenssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel gawk
   fi
 fi
