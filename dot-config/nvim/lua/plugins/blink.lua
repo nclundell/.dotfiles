@@ -3,7 +3,43 @@ return {
   dependencies = 'rafamadriz/friendly-snippets',
   version = '*',
   opts = {
-    keymap = { preset = 'super-tab' },
+    keymap = {
+      ['<C-h>'] = {
+        'hide',
+        'fallback'
+      },
+      ['<C-j>'] = {
+        'select_next',
+        'fallback'
+      },
+      ['<C-k>'] = {
+        'select_prev',
+        'fallback'
+      },
+      ['<C-l>'] = {
+        function (cmp)
+          if cmp.snippet_active then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        'fallback'
+      },
+      ['<C-SPACE>'] = {
+        'show',
+        'show_documentation',
+        'hide_documentation'
+      },
+      ['<TAB>'] = {
+        'snippet_forward',
+        'fallback'
+      },
+      ['<S-TAB>'] = {
+        'snippet_backward',
+        'fallback'
+      }
+    },
     completion = {
       documentation = {
         auto_show = true,

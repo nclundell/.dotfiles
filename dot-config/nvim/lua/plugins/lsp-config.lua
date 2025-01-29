@@ -9,7 +9,7 @@ return {
     lsp.ember.setup { capabilities = capabilities }
     lsp.lua_ls.setup { capabilities = capabilities }
     lsp.ruby_lsp.setup { capabilities = capabilities }
-    lsp.solargraph.setup { capabilities = capabilities }
+    -- lsp.solargraph.setup { capabilities = capabilities }
     lsp.stimulus_ls.setup { capabilities = capabilities }
     lsp.tailwindcss.setup { capabilities = capabilities }
     lsp.ts_ls.setup { capabilities = capabilities }
