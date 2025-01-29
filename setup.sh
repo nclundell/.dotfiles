@@ -38,3 +38,7 @@ elif [[ $(lsb_release -is) == *Fedora* ]]; then
   source $HOME/.dotfiles/dot-local/installers/distros/fedora/fedy
   source $HOME/.dotfiles/dot-local/installers/distros/fedora/tools-cli
 fi
+
+source $HOME/.bashrc
+
+mise i
