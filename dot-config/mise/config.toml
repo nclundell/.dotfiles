@@ -1,3 +1,6 @@
+[env]
+MISE_RUBY_DEFAULT_PACKAGES_FILE = '$HOME/.config/mise/default_gems'
+
 [settings]
 rust.cargo_home  = '.local/cargo'
 rust.rustup_home = '.local/rustup'
@@ -22,7 +25,9 @@ zls = 'latest'
 
 ## Apps
 aws-cli        = 'latest'
+bashly         = 'latest'
 bat            = 'latest'
+bat-extras     = 'latest'
 bottom         = 'latest'
 cargo-binstall = 'latest'
 delta          = 'latest'
