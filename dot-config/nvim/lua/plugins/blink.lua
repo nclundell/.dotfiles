@@ -4,39 +4,62 @@ return {
   version = '*',
   opts = {
     keymap = {
-      ['<C-h>'] = {
-        'hide',
-        'fallback'
-      },
-      ['<C-j>'] = {
-        'select_next',
-        'fallback'
-      },
-      ['<C-k>'] = {
-        'select_prev',
-        'fallback'
-      },
-      ['<C-l>'] = {
+      ['<TAB>'] = {
         function (cmp)
-          if cmp.snippet_active then
-            return cmp.accept()
+          if cmp.snippet_active() then
+            if cmp.is_visible() then
+              return cmp.select_next()
+            else
+              return cmp.snippet_forward()
+            end
           else
-            return cmp.select_and_accept()
+            return cmp.select_next()
           end
         end,
         'fallback'
       },
-      ['<C-SPACE>'] = {
-        'show',
-        'show_documentation',
-        'hide_documentation'
-      },
-      ['<TAB>'] = {
-        'snippet_forward',
+      ['<S-TAB>'] = {
+        function (cmp)
+          if cmp.snippet_active() then
+            if cmp.is_visible() then
+              return cmp.select_prev()
+            else
+              return cmp.snippet_backward()
+            end
+          else
+            return cmp.select_prev()
+          end
+        end,
         'fallback'
       },
-      ['<S-TAB>'] = {
-        'snippet_backward',
+      ['<ESC>'] = {
+        'hide',
+        'fallback'
+      },
+      ['<CR>'] = {
+        'select_and_accept',
+        'fallback'
+      },
+      ['<C-SPACE>'] = {
+        'show',
+        'show_signature',
+        'hide_signature',
+        'fallback'
+      },
+      ['<C-h>'] = {
+        'hide_documentation',
+        'fallback'
+      },
+      ['<C-j>'] = {
+        'scroll_documentation_down',
+        'fallback'
+      },
+      ['<C-k>'] = {
+        'scroll_documentation_up',
+        'fallback'
+      },
+      ['<C-l>'] = {
+        'show_documentation',
         'fallback'
       }
     },
@@ -44,9 +67,6 @@ return {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 500
-      },
-      ghost_text = {
-        enabled = true
       },
       list = {
         selection = {
@@ -76,6 +96,8 @@ return {
         }
       }
     },
-    signature = { enabled = true }
+    signature = {
+      enabled = true
+    }
   }
 }
