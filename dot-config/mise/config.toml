@@ -23,6 +23,7 @@ lua-language-server = 'latest'
 'npm:@tailwindcss/language-server' = 'latest'
 'npm:stimulus-language-server' = 'latest'
 'npm:typescript-language-server' = 'latest'
+'npm:vscode-langservers-extracted' = 'latest'
 'ubi:artempyanykh/marksman' = 'latest'
 
 ## Apps
