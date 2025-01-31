@@ -17,11 +17,13 @@ ruby   = 'latest'
 
 ## Language Servers
 lua-language-server = 'latest'
-zls = 'latest'
-'npm:@ember-tooling/ember-language-server' = 'latest'
+# rust-analyzer  = 'latest'
+# zls = 'latest'
+# 'npm:@ember-tooling/ember-language-server' = 'latest'
 'npm:@tailwindcss/language-server' = 'latest'
 'npm:stimulus-language-server' = 'latest'
 'npm:typescript-language-server' = 'latest'
+'ubi:artempyanykh/marksman' = 'latest'
 
 ## Apps
 aws-cli        = 'latest'
