@@ -4,6 +4,17 @@ return {
   lazy = false,
   opts = {
     picker = {
+      sources = {
+        commands = {
+          layout = 'select'
+        },
+        command_history = {
+          layout = 'select'
+        },
+        keymaps = {
+          layout = 'select'
+        }
+      },
       layouts = {
         select = {
           layout = {
@@ -15,12 +26,10 @@ return {
   },
   keys = {
     { "<leader>/", function() Snacks.picker.lines() end, desc = "Grep Buffer" },
-    { "<leader>;", function() Snacks.picker.commands({ layout = 'select'}) end, desc = "Command History" },
-    { "<leader><space>", function() Snacks.picker.keymaps({ layout = 'select' })end, desc = "Keymaps" },
+    { "<leader><space>", function() Snacks.picker.keymaps()end, desc = "Keymaps" },
 
     -- Find
-    { "<leader>fb", function() Snacks.picker.buffers({ layout = 'select'}) end, desc = "Buffers" },
-    { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
@@ -35,14 +44,12 @@ return {
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
     { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
     { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
+    { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
     { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
-    { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
     { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
     { "<leader>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
-    { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
     { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
-    { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
     { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
 
     -- LSP
