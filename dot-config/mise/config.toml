@@ -28,7 +28,6 @@ lua-language-server = 'latest'
 
 ## Apps
 aws-cli        = 'latest'
-bashly         = 'latest'
 bat            = 'latest'
 bat-extras     = 'latest'
 bottom         = 'latest'
