@@ -3,7 +3,9 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    explorer = {}
+    explorer = {
+      replace_netrw = true
+    }
   },
   keys = {
     { "<leader>te", function() Snacks.picker.explorer() end, desc = "Explorer" },
