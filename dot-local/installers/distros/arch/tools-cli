@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed bat bottom cabextract curl eza fd fzf github-cli gitui glow jq just lazygit neovim p7zip poppler ripgrep starship tmux udiskie unace unrar unzip wget xz yazi zellij zoxide
+sudo pacman -S --noconfirm --needed aws-cli bat bat-extras bottom cabextract curl direnv eza fd fzf git git-delta github-cli gitui glow jq just lazygit lsd neovim p7zip poppler ripgrep starship tmux tree-sitter udiskie unace unrar unzip wget xz yazi yt-dlp zellij zoxide
 
 sudo pacman -S --noconfirm --needed nerd-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji
 
