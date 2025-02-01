@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
 # Base
 sudo pacman -S --noconfirm --needed rofi-wayland sway sway-contrib swaybg swayidle swayimg swaylock swaync waybar wezterm

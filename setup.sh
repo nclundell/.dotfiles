@@ -29,12 +29,15 @@ fi
 if [[ $(lsb_release -is) == *Arch* ]]; then
   echo "Running Arch installers..."
   source $HOME/.dotfiles/dot-local/installers/distros/arch/codecs
-  source $HOME/.dotfiles/dot-local/installers/distros/arch/snapper
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/drivers-gpu
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/fonts
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/icons
   source $HOME/.dotfiles/dot-local/installers/distros/arch/tools-cli
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/tools-gui
+  source $HOME/.dotfiles/dot-local/installers/distros/arch/snapper
 elif [[ $(lsb_release -is) == *Fedora* ]]; then
   echo "Running Fedora installers..."
   source $HOME/.dotfiles/dot-local/installers/distros/fedora/codecs
-  source $HOME/.dotfiles/dot-local/installers/distros/fedora/tools-cli
 fi
 
 source $HOME/.bashrc

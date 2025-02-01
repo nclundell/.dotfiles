@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 
+sudo pacman -S --noconfirm --needed nerd-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji
+
 if [[ ! -x "$(command -v yay)" ]]; then
   source $HOME/.dotfiles/dot-local/installers/distros/arch/yay
 fi
 
-yay -S zramd
-sudo systemctl enable --now zramd
+yay -S ttf-ms-fonts

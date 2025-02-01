@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
 sudo pacman -S --noconfirm --needed gdm gnome-backgrounds gnome-console gnome-control-center gnome-keyring gnome-menus gnome-session gnome-shell gnome-software gnome-tweaks gnome-user-share grilo-plugins gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd malcontent nautilus nautilus-image-converter nautilus-share rygel sushi tecla xdg-desktop-portal-gnome xdg-user-dirs-gtk
 
