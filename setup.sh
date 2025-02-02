@@ -18,11 +18,9 @@ fi
 
 source $HOME/.bashrc
 
-source $HOME/.local/installers/build-deps
-
 if [[ ! -x "$(command -v lsb_release)" ]]; then
   if [[ -x "$(command -v pacman)" ]]; then
-    p --noconfirm --needed lsb-release
+    sudo pacman -S --noconfirm --needed lsb-release
   fi
 fi
 
@@ -32,7 +30,8 @@ if [[ $(lsb_release -is) == *Arch* ]]; then
 
   echo "Updating mirrors..."
   source $HOME/.dotfiles/dot-local/scripts/arch-mirror-update
-  sudo pacman -Syy
+
+  source $HOME/.dotfiles/dot-local/installers/build-deps
 
   echo "Running Arch installers..."
   source $HOME/.dotfiles/dot-local/installers/distros/arch/bluetooth
