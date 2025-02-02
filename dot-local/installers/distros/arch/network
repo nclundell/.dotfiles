@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed network-manager-applet networkmanager networkmanager-openvpn networkmanager-openconnect wireguard-tools
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed network-manager-applet networkmanager networkmanager-openvpn networkmanager-openconnect wireguard-tools
 
 sudo systemctl enable --now NetworkManager

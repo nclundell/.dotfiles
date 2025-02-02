@@ -1,9 +1,8 @@
 #! /usr/bin/env bash
 
-if [[ ! -x "$(command -v yay)" ]]; then
-  source $HOME/.dotfiles/dot-local/installers/distros/arch/yay
-fi
+#Apps
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed btrfs-assistant firefox ghostty octopi
 
-sudo pacman -S --noconfirm --needed ghostty
+# Deps
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed hunspell-en_us  speech-dispatcher
 
-yay -S btrfs-assistant octopi

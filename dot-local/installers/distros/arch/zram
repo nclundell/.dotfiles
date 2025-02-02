@@ -4,5 +4,5 @@ if [[ ! -x "$(command -v yay)" ]]; then
   source $HOME/.dotfiles/dot-local/installers/distros/arch/yay
 fi
 
-yay -S zramd
+yay -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf zramd
 sudo systemctl enable --now zramd

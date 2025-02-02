@@ -1,5 +1,5 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed bluez bluez-utils
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed bluez bluez-utils
 
 sudo systemctl enable --now bluetooth

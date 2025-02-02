@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed gamemode gamescope mangohud steam vulkan-radeon lib32-vulkan-radeon
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed gamemode gamescope mangohud steam

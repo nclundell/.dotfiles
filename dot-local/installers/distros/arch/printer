@@ -1,10 +1,10 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed avahi cups cups-browsed cups-pdf nss-mdns
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed avahi cups cups-browsed cups-pdf nss-mdns
 
-sudo pacman -S --noconfirm --needed gutenprint foomatic-db-gutenprint-ppds
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed gutenprint foomatic-db-gutenprint-ppds
 
-sudo pacman -S --noconfirm --needed foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds
 
 if ! $(grep -qe "hosts:.*mdns_minimal" /etc/nsswitch.conf); then
   sudo sed -re 's/hosts: mymachines /hosts: mymachines mdns_minimal [NOTFOUND=return] /gi' -i /etc/nsswitch.conf

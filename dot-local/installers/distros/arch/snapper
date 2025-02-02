@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed snapper
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed snapper
 
 sudo umount /.snapshots
 
@@ -19,7 +19,7 @@ sudo chown :wheel /.snapshots
 sudo mount -a
 
 if [[ ! -x "$(command -v grub-mkconfig)" ]]; then
-  sudo pacman -S --noconfirm --needed grub-btrfs inotify-tools
+  sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed grub-btrfs inotify-tools
 
   if ! $(grep -qe "^HOOKS=.*grub-btrfs-overlayfs" /etc/mkinitcpio.conf); then
     sudo sed -re 's/(^HOOKS=[\"|(][^")]+)/\1 grub-btrfs-overlayfs/gi' -i /etc/mkinitcpio.conf
@@ -31,4 +31,4 @@ if [[ ! -x "$(command -v grub-mkconfig)" ]]; then
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
-sudo pacman -S --noconfirm --needed snap-pac
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed snap-pac

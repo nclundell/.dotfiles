@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed ffmpeg gst-libav gst-plugin-pipewire gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly opus-tools vorbis-tools
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed ffmpeg gst-libav gst-plugin-pipewire gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly opus-tools vorbis-tools

@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed bat devtools
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed bat devtools
 
 mkdir tmp
 cd tmp

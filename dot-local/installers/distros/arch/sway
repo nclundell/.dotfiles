@@ -1,11 +1,11 @@
 #! /usr/bin/env bash
 
 # Base
-sudo pacman -S --noconfirm --needed rofi-wayland sway sway-contrib swaybg swayidle swayimg swaylock swaync waybar wezterm
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed rofi-wayland sway sway-contrib swaybg swayidle swayimg swaylock swaync waybar wezterm
 
 # Multimedia
 source ./codecs
-sudo pacman -S --noconfirm --needed mpd mpv ncmpcpp
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed mpd mpv ncmpcpp
 
 # Get CLI Tools
 source ./tools-cli
