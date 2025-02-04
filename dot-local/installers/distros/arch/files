@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf" --noconfirm --needed gvfs gvfs-mtp gvfs-smb xdg-user-dirs
+sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed gvfs gvfs-mtp gvfs-smb xdg-user-dirs
