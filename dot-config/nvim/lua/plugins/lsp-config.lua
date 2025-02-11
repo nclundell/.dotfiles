@@ -17,5 +17,6 @@ return {
     lsp.stimulus_ls.setup { capabilities = capabilities }
     lsp.tailwindcss.setup { capabilities = capabilities }
     lsp.ts_ls.setup { capabilities = capabilities }
+    lsp.yamlls.setup { capabilities = capabilities }
   end
 }
