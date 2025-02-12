@@ -26,7 +26,6 @@ return {
   },
   keys = {
     { "<leader>/", function() Snacks.picker.lines() end, desc = "Grep Buffer" },
-    { "<leader><space>", function() Snacks.picker.keymaps()end, desc = "Keymaps" },
 
     -- Find
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
