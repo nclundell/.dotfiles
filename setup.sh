@@ -16,4 +16,6 @@ if [[ ! -x "$(command -v mise)" ]]; then
   curl https://mise.run | sh
 fi
 
+source $HOME/.local/installers/fonts-nerd hack iconsolata jetbrainsmono
+
 source $HOME/.bashrc
