@@ -1,0 +1,46 @@
+#! /usr/bin/env bash
+
+set -euo pipefail
+
+URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download"
+DEST="$HOME/.local/share/fonts/nerd-fonts"
+REMOVE=false
+
+while getopts "usr" opt; do
+  case $opt in
+    r)
+      REMOVE=true
+      ;;
+  esac
+done
+
+shift $(($OPTIND - 1))
+
+echo "${DEST}"
+echo "${REMOVE}"
+
+for i in "$@"; do
+  FONT="${i,,}"
+  if [ ${#FONT} -gt 0 ]; then
+    if [ "$REMOVE" = true ]; then
+      echo "Removing ${FONT} nerd font..."
+    fi
+
+    rm -rf "${DEST}/${FONT}"
+
+    if [ "$REMOVE" = false ]; then
+      echo "Installing ${FONT} nerd font..."
+      mkdir -p "${DEST}/${FONT}"
+
+      echo "Downloading ${FONT} from ${URL}/${FONT}.tar.xz"
+      curl -fLs --create-dirs "${URL}/${FONT}.tar.xz" -o "/tmp/fonts/${FONT}.tar.xz"
+      echo "Downloaded ${FONT}"
+
+      tar -xf "/tmp/fonts/${FONT}.tar.xz" -C "${DEST}/${FONT}"
+
+      rm -rf /tmp/fonts
+    fi
+  fi
+done
+
+fc-cache --system-only --really-force "${DEST}"
