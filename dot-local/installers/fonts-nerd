@@ -43,4 +43,4 @@ for i in "$@"; do
   fi
 done
 
-fc-cache --system-only --really-force "${DEST}"
+fc-cache --really-force "${DEST}"
