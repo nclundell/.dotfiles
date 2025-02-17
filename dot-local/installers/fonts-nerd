@@ -16,9 +16,6 @@ done
 
 shift $(($OPTIND - 1))
 
-echo "${DEST}"
-echo "${REMOVE}"
-
 for i in "$@"; do
   FONT="${i,,}"
   if [ ${#FONT} -gt 0 ]; then
