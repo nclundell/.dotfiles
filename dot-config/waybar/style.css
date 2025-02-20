@@ -6,7 +6,7 @@
   padding: 0;
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 18;
+  font-size: 14;
   padding-bottom: 1;
   padding-top: 1;
   background-color: transparent;
@@ -44,6 +44,17 @@ tooltip {
   border-radius: 8;
   background-color: @lavender;
   color: @background;
+}
+
+#custom-notification {
+  margin-top: 4;
+  margin-left: 10;
+  margin-right: 10;
+  padding-left: 10;
+  padding-right: 10;
+  border: 2 solid @background;
+  border-radius: 8;
+  background-color: @background;
 }
 
 #custom-weather {

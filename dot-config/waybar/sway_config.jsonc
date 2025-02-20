@@ -6,7 +6,10 @@
     "mpd",
     "sway/mode"
   ],
-  "modules-center": ["clock"],
+  "modules-center": [
+    "clock",
+    "custom/notification"
+  ],
   "modules-right": [
     "tray",
     "custom/weather",
@@ -20,7 +23,7 @@
     "format": " {artist} - {title}",
     "format-paused": " {artist} - {title}",
     "format-stopped": "",
-    "on-click": "wezterm -e ncmpcpp",
+    "on-click": "ghostty --class=io.sway.ncmpcpp -e ncmpcpp",
     "tooltip": false
   },
   "sway/workspaces": {
@@ -60,6 +63,8 @@
     "format-ethernet": "󰈀 ⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
     "format-linked": "  {ifname} (No Internet)",
     "format-wifi": "  {essid} ({signalStrength}%)",
+    "on-click": "ghostty --class=io.sway.nm-tui nm-tui",
+    "tooltip": false,
     "interval": 2,
     "min-length": 20,
     "max-length": 20
@@ -68,7 +73,7 @@
     "format-connected": "󰂯 {device_alias}",
     "format-off": "󰂲 Disabled",
     "format-on": "󰂯 Disconnected",
-    "on-click": "wezterm start --class bluetui -e bluetui"
+    "on-click": "ghostty --class=io.sway.bluetui -e bluetui"
   },
   "pulseaudio": {
     "format": "{icon}  {volume}% {format_source}",
@@ -84,7 +89,27 @@
         ""
       ]
     },
-    "on-click": "wezterm start --class pulsemixer -e pulsemixer"
+    "on-click": "ghostty --class=io.sway.bluetui -e pulsemixer"
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      //"none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
   "tray": {
     "icon-size": 20,
