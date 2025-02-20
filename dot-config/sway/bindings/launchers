@@ -1,8 +1,8 @@
 # Files
-bindsym $mod+y exec wezterm start --class yazi -e yazi
+bindsym $mod+y exec $term --class=io.sway.yazi -e yazi
 
 # Music
-bindsym $mod+m exec wezterm start --class ncmpcpp -e ncmpcpp
+bindsym $mod+m exec $term --class=io.sway.ncmpcpp -e ncmpcpp
 
 # Power
 bindsym $mod+u exec $HOME/.config/rofi/power.sh
@@ -15,4 +15,4 @@ bindsym $mod+alt+s exec rofi -show ssh -config $HOME/.config/rofi/combo.rasi
 bindsym $mod+alt+w exec rofi -show window -config $HOME/.config/rofi/combo.rasi
 
 # Terminal
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec ghostty

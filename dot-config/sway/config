@@ -1,5 +1,6 @@
 ### Defaults
 set $mod Mod4
+set $term ghostty
 
 # include /etc/sway/config.d/*
 
@@ -23,8 +24,8 @@ default_floating_border pixel 4
 hide_edge_borders smart
 
 # Set gsettings
-exec gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-exec gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha" 
+# exec gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+# exec gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha" 
 
 ### Wallpaper
 output * adaptive_sync on
@@ -32,10 +33,10 @@ output * bg $HOME/.local/wallpaper/21:9/halo/halo_master_chief_helmet.jpg fill
 
 ### Autostart
 exec {
-  mako &
+  swaync &
   nm-applet &
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-  # udiskie -s -f "wezterm -e yazi" &
+  udiskie -s -f "$term -e yazi" &
 }
 
 exec_always {
@@ -43,6 +44,6 @@ exec_always {
 }
 
 # Set Floating Rules
-for_window [app_id="bluetui"] floating enable
-for_window [app_id="ncmpcpp"] floating enable
-for_window [app_id="pulsemixer"] floating enable
+for_window [title="bluetui"] floating enable
+for_window [title="ncmpcpp"] floating enable
+for_window [title="pulsemixer"] floating enable
