@@ -12,10 +12,16 @@ fi
 
 stow .
 
-if [[ ! -x "$(command -v mise)" ]]; then
-  curl https://mise.run | sh
+# Always install Homebrew on Darwin
+if [[ $(uname) == "Darwin" ]]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-source $HOME/.local/installers/fonts-nerd hack iconsolata jetbrainsmono
+# Run brew bundle if Brew installed, otherwise install Mise
+if [[ -x "$(command -v brew)" ]]; then
+  brew bundle --file $HOME/.dotfiles/Brewfile
+else
+  curl https://mise.run | sh
+fi
 
 source $HOME/.bashrc
