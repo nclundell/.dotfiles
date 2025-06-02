@@ -1,5 +1,47 @@
 [plugin]
-deps = [{ use = "Reledia/glow", rev = "5ce76dc" }, { use = "Ape/mediainfo", rev = "df17c4f" }]
+deps = []
 
-[flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fc8eeaa" }, { use = "BennyOe/tokyo-night", rev = "caa00ab" }]
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "02f3fc6"
+hash = "2ac87e1b3a61f5887472899e86535d29"
+
+[[flavor.deps]]
+use = "kalidyasin/yazi-flavors:tokyonight-storm"
+rev = "92a09a6"
+hash = "86d1a02d46e5786af0774dd593cc55aa"
+
+[[flavor.deps]]
+use = "kalidyasin/yazi-flavors:tokyonight-day"
+rev = "92a09a6"
+hash = "f69f88b52743cadfaf2f1f77a54e4693"
+
+[[flavor.deps]]
+use = "kalidyasin/yazi-flavors:tokyonight-night"
+rev = "92a09a6"
+hash = "845c5ee33e147b1a57f48728e42600ee"
+
+[[flavor.deps]]
+use = "kalidyasin/yazi-flavors:tokyonight-moon"
+rev = "92a09a6"
+hash = "b12f6278d4fdd2db3a631cc0377d0318"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "02f3fc6"
+hash = "3ec21bcfd2735cfcbab61faaf43e59e4"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "02f3fc6"
+hash = "5dffea1e87c50b18b8bb1599f6d4881a"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "02f3fc6"
+hash = "7780fbbc8965da5a31a76a0dcd4d1216"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "02f3fc6"
+hash = "53e1f10ae0f6abd406e463fceca8622a"
