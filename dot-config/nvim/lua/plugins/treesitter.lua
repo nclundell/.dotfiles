@@ -10,15 +10,6 @@ return {
   },
   main = 'nvim-treesitter.configs',
   opts = {
-    auto_install = true,
-    endwise = {
-      enable = true,
-    },
-    highlight = {
-      enable = true
-    },
-    indentation = {
-      enable = true
-    }
+    auto_install = true
   }
 }
