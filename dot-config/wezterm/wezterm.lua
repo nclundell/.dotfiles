@@ -1,10 +1,10 @@
 local wezterm = require 'wezterm'
 local config = {}
 
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = 'Tokyo Night Storm'
 
 -- Fonts
-config.font = wezterm.font('Hack Nerd Font')
+config.font = wezterm.font('JetBrainsMono Nerd Font')
 config.font_size = 20
 
 -- Tab Bar
