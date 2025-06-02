@@ -1,6 +1,9 @@
 # tools
+brew "bat"
 brew "bottom"
 brew "eza"
+brew "fd"
+brew "fzf"
 brew "gawk"
 brew "lazydocker"
 brew "lazygit"
@@ -37,4 +40,6 @@ if OS.mac?
 
   cask "ghostty"
   cask "raycast"
+  cask "nikitabobko/tap/aerospace"
+  cask "mediosz/tap/swipeaerospace"
 end
