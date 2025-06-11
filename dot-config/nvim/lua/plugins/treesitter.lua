@@ -10,6 +10,9 @@ return {
   },
   main = 'nvim-treesitter.configs',
   opts = {
-    auto_install = true
+    auto_install = true,
+    highlight = {
+      enable = true
+    }
   }
 }
