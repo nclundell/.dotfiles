@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+if ! command -v sesh 2>&1 >/dev/null; then
+  echo "sesh isn't on your path, is it installed?"
+  exit 0
+fi
+
+if ! command -v tmux 2>&1 >/dev/null; then
+  echo "tmux isn't on your path, is it installed?"
+  exit 0
+fi
+
+if command -v gum 2>&1 > /dev/null; then
+  sesh connect $(sesh list -i | gum filter --limit 1 --no-sort --fuzzy --height 50)
+elif command -v fzf 2>&1 > /dev/null; then
+  sesh connect $(sesh list | fzf --reverse --ansi --color='bg+:-1,fg:gray,fg+:white,border:-1,spinner:0,hl:yellow,header:blue,info:green,pointer:red,marker:blue,prompt:gray,hl+:red')
+else
+  echo "fzf or gum aren't on your path, is at least one installed?"
+  exit 0
+fi
