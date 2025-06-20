@@ -6,10 +6,12 @@ return {
   },
   opts = {
     ensure_installed = {
+      'bashls',
       'cssls',
       'html',
       'eslint',
       'lua_ls',
+      'marksman',
       'rubocop',
       'ruby_lsp',
       'ts_ls'
