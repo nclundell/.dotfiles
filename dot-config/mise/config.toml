@@ -4,29 +4,12 @@ MISE_RUBY_DEFAULT_PACKAGES_FILE = '$HOME/.config/mise/default_gems'
 [settings]
 rust.cargo_home  = '.local/share/cargo'
 rust.rustup_home = '.local/share/rustup'
+idiomatic_version_file_enable_tools = ['node', 'ruby']
 
 [tools]
-## Languages
-# go     = 'latest'
-# java   = 'lts'
 node   = 'lts'
-# python = 'latest'
-# ruby   = 'latest'
-# rust   = 'latest'
-# zig    = 'latest'
-
-## Language Servers
-lua-language-server = 'latest'
-# rust-analyzer  = 'latest'
-# zls = 'latest'
-'npm:bash-language-server' = 'latest'
-# 'npm:@ember-tooling/ember-language-server' = 'latest'
-'npm:@tailwindcss/language-server' = 'latest'
-'npm:stimulus-language-server' = 'latest'
-'npm:typescript-language-server' = 'latest'
-'npm:vscode-langservers-extracted' = 'latest'
-'npm:yaml-language-server' = 'latest'
-'ubi:artempyanykh/marksman' = 'latest'
+python = 'latest'
+ruby   = 'latest'
 
 ## Apps
 # aws-cli        = 'latest'
