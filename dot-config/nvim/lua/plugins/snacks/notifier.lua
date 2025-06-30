@@ -4,7 +4,7 @@ return {
   lazy = false,
   opts = {
     notifier = {
-      enabled = true,
+      enabled = false,
       timeout = 3000
     },
     styles = {

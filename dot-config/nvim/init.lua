@@ -1,6 +1,5 @@
 -- Leader Keys --
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '<'
+vim.g.mapleader = ','
 
 -- Bootstrap Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -35,5 +34,5 @@ vim.cmd('filetype plugin indent on')
 
 require('autocmds')
 require('keymaps')
--- require('language_servers')
+require('language_servers')
 require('options')

@@ -1,6 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
+    'AndreM222/copilot-lualine',
     'pnx/lualine-lsp-status'
   },
   opts = {
@@ -23,7 +24,7 @@ return {
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch', 'diff', 'diagnostics' },
-      lualine_c = { 'lsp-status', 'fileformat', 'filetype', 'filename' },
+      lualine_c = { 'lsp-status', 'copilot', 'fileformat', 'filetype', 'filename' },
       lualine_x = {},
       lualine_y = {},
       lualine_z = {},

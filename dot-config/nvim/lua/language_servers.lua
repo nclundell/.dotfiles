@@ -1,18 +1,17 @@
 local lsp = vim.lsp
 
--- lsp.enable({
---   'basedpyright',
---   'bashls',
---   'cssls',
---   'ember',
---   'eslint',
---   'html',
---   'jsonls',
---   'lua_ls',
---   'ruby_lsp',
---   'solargraph',
---   'stimulus_ls',
---   'tailwindcss',
---   'ts_ls',
---   'yamlls'
--- })
+lsp.enable({
+  'bashls',
+  'cssls',
+  'ember',
+  'eslint_d',
+  'html',
+  'jsonls',
+  'lua_ls',
+  'marksman',
+  'ruby_lsp',
+  'stimulus_ls',
+  'tailwindcss',
+  'ts_ls',
+  'yamlls'
+})

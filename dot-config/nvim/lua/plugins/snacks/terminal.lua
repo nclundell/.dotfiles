@@ -10,9 +10,9 @@ return {
     }
   },
   keys = {
-    { '<leader>tt',      function() Snacks.terminal() end, desc = 'Toggle Terminal' },
-    { '<leader>tt',      function() Snacks.terminal() end, mode = 't', desc = 'Toggle Terminal' },
-    { '<leader>tT',      function() Snacks.terminal('$SHELL') end, desc = 'Toggle Floating Terminal' },
-    { '<leader>tT',      function() Snacks.terminal('$SHELL') end, mode = 't', desc = 'Toggle Floating Terminal' },
+    { '<leader>tt',      function() Snacks.terminal() end, desc = 'Terminal' },
+    { '<leader>tt',      function() Snacks.terminal() end, mode = 't', desc = 'Terminal' },
+    { '<leader>tT',      function() Snacks.terminal('$SHELL') end, desc = 'Floating Terminal' },
+    { '<leader>tT',      function() Snacks.terminal('$SHELL') end, mode = 't', desc = 'Floating Terminal' },
   }
 }
