@@ -1,17 +1,12 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = {
-    'AndreM222/copilot-lualine',
-    'pnx/lualine-lsp-status'
-  },
   opts = {
     extensions = {
       'lazy',
-      'mason',
-      'trouble'
+      'mason'
     },
     options = {
-      component_separators = { left = '', right = '' },
+      component_separators = { left = '', right = '' },
       -- section_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
       -- section_separators = { left = '', right = '' },
@@ -24,10 +19,10 @@ return {
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch', 'diff', 'diagnostics' },
-      lualine_c = { 'lsp-status', 'copilot', 'fileformat', 'filetype', 'filename' },
+      lualine_c = { 'lsp_status', 'fileformat', 'filetype', 'filename' },
       lualine_x = {},
       lualine_y = {},
       lualine_z = {},
-    }
+    },
   }
 }
