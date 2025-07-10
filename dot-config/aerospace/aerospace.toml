@@ -69,8 +69,8 @@ automatically-unhide-macos-hidden-apps = false
   alt-shift-7 = 'move-node-to-workspace 7'
   alt-shift-8 = 'move-node-to-workspace 8'
   alt-shift-9 = 'move-node-to-workspace 9'
-  alt-shift-c = 'move-node-to-workspace C' # VSCode
-  alt-shift-m = 'move-node-to-workspace M' # Messaging Stuff
+  alt-shift-c = 'move-node-to-workspace C' # Calendar
+  alt-shift-m = 'move-node-to-workspace M' # Mail/Messaging Stuff
   alt-shift-t = 'move-node-to-workspace T' # Terminal Stuff
   alt-shift-v = 'move-node-to-workspace V' # Video Stuff
   alt-shift-z = 'move-node-to-workspace Z' # Zoom
@@ -98,8 +98,12 @@ automatically-unhide-macos-hidden-apps = false
   alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-  if.app-id = 'com.microsoft.VSCode'
+  if.app-id = 'com.apple.iCal'
   run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.mail'
+  run = 'move-node-to-workspace M'
 
 [[on-window-detected]]
   if.app-id = 'com.tinyspeck.slackmacgap'
