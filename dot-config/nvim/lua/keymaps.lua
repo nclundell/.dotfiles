@@ -17,10 +17,6 @@ map('n', '<leader>Q', '<CMD> qa! <CR>', { noremap = true })
 map('n', '<leader>w', '<CMD> w <CR>', { noremap = true })
 map('n', '<leader>W', '<CMD> wa! <CR>', { noremap = true })
 
--- Tab Movement
-map('n', '>', '<CMD>tabnext<CR>', { noremap = true })
-map('n', '<', '<CMD>tabprev<CR>', { noremap = true })
-
 -- Indent and Unindent
 map('x', '>', '>gv', { noremap = true })
 map('x', '<', '<gv', { noremap = true })
