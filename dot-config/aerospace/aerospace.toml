@@ -55,6 +55,7 @@ automatically-unhide-macos-hidden-apps = false
   alt-9 = 'workspace 9'
   alt-c = 'workspace C'
   alt-m = 'workspace M'
+  alt-r = 'workspace R'
   alt-t = 'workspace T'
   alt-v = 'workspace V'
   alt-z = 'workspace Z'
@@ -71,6 +72,7 @@ automatically-unhide-macos-hidden-apps = false
   alt-shift-9 = 'move-node-to-workspace 9'
   alt-shift-c = 'move-node-to-workspace C' # Calendar
   alt-shift-m = 'move-node-to-workspace M' # Mail/Messaging Stuff
+  alt-shift-r = 'move-node-to-workspace R' # REST Client
   alt-shift-t = 'move-node-to-workspace T' # Terminal Stuff
   alt-shift-v = 'move-node-to-workspace V' # Video Stuff
   alt-shift-z = 'move-node-to-workspace Z' # Zoom
@@ -110,8 +112,16 @@ automatically-unhide-macos-hidden-apps = false
   run = 'move-node-to-workspace M'
 
 [[on-window-detected]]
+  if.app-id = 'com.postmanlabs.mac'
+  run = 'move-node-to-workspace R'
+
+[[on-window-detected]]
   if.app-id = 'com.mitchellh.ghostty'
   run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+  if.app-id = 'com.futo.grayjay.desktop'
+  run = 'move-node-to-workspace V'
 
 [[on-window-detected]]
   if.app-id = 'io.freetubeapp.freetube'
