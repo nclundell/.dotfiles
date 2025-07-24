@@ -1,13 +1,55 @@
 default_mode "locked"
 pane_frames false
-theme "tokyonight_storm"
+session_serialization false
+theme "tokyo-night-dark"
 
 keybinds {
   locked {
-    bind "Ctrl q" { Detach; }
+    // Detatch instead of destroying session
+    bind "Ctrl d" { Detach; }
+
+    // Move focus or tab
     bind "Ctrl Alt h" "Ctrl Alt Left" { MoveFocusOrTab "Left"; }
     bind "Ctrl Alt j" "Ctrl Alt Down" { MoveFocus "Down"; }
     bind "Ctrl Alt k" "Ctrl Alt Up" { MoveFocus "Up"; }
     bind "Ctrl Alt l" "Ctrl Alt right" { MoveFocusOrTab "Right"; }
+
+    // Lazydocker
+    bind "Ctrl Alt d" {
+      Run "lazydocker" {
+        close_on_exit true
+        floating true
+        x "10%"
+        y "10%"
+        width "80%"
+        height "80%"
+      }
+    }
+
+    // Lazygit
+    bind "Ctrl Alt g" {
+      Run "lazygit" {
+        close_on_exit true
+        floating true
+        x "10%"
+        y "10%"
+        width "80%"
+        height "80%"
+      }
+    }
+
+   bind "Ctrl Alt t" {
+    LaunchOrFocusPlugin "zellij:shell" {
+      floating true
+      toggle true
+    }
+  }
+    
+    // Session manager
+    bind "Ctrl Alt s" {
+      LaunchOrFocusPlugin "zellij:session-manager" {
+        floating true
+      }
+    }
   }
 }
