@@ -5,6 +5,7 @@ brew "eza"
 brew "fd"
 brew "fzf"
 brew "gawk"
+brew "jq"
 brew "lazydocker"
 brew "lazygit"
 brew "mise"
@@ -16,19 +17,6 @@ brew "tmux"
 brew "yazi"
 brew "zellij"
 brew "zoxide"
-
-# linux
-if OS.linux?
-  # tools
-  brew "abcde"
-  brew "flac"
-  brew "lame"
-  brew "mpd"
-  brew "ncmpcpp"
-  brew "opus-tools"
-  brew "vorbis-tools"
-  brew "yt-dlp"
-end
 
 # mac
 if OS.mac?
