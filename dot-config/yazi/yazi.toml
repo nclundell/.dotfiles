@@ -1,6 +1,9 @@
-[plugin]
-prepend_previewers = [
-  { name = "*.md", run = "glow" },
-  { mime = "{image,audio,video}/*", run = "mediainfo"},
-  { mime = "application/x-subrip", run = "mediainfo"},
-]
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
