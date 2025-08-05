@@ -2,27 +2,35 @@ return {
   'nvim-lualine/lualine.nvim',
   opts = {
     extensions = {
-      'lazy',
-      'mason'
+      'lazy'
     },
     options = {
-      component_separators = { left = '', right = '' },
+      component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
-      -- section_separators = { left = '', right = '' },
-      -- section_separators = { left = '', right = '' },
       globalstatus = true,
       path = 1,
-      refresh = {
-        winbar = 100
-      }
+      refresh = { winbar = 100 }
     },
     sections = {
       lualine_a = { 'mode' },
       lualine_b = {},
-      lualine_c = { 'branch', 'diff', 'diagnostics', 'lsp_status', 'fileformat', 'filetype', 'filename' },
-      lualine_x = {},
+      lualine_c = {
+        'filetype',
+        function()
+          return vim.fn.expand('%:.')
+        end
+      },
+      lualine_x = {
+        {
+          'lsp_status',
+          symbols = {
+            done = '',
+            spinner = {}
+          }
+        },
+      },
       lualine_y = {},
       lualine_z = {},
-    },
+    }
   }
 }

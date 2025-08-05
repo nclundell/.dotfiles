@@ -4,5 +4,21 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {}
+  opts = {},
+  keys = {
+    {
+      "<leader>cc",
+      function()
+        require("codecompanion").toggle()
+      end,
+      desc = "Toggle Code Companion",
+    },
+    {
+      "<leader>cC",
+      function()
+        require("codecompanion").toggle(true)
+      end,
+      desc = "Toggle Code Companion (with focus)",
+    },
+  },
 }
