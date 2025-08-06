@@ -16,9 +16,12 @@ return {
       lualine_b = {},
       lualine_c = {
         'filetype',
-        function()
-          return vim.fn.expand('%:.')
-        end
+        {
+          'filename',
+          symbols = {
+            unnamed = ''
+          }
+        }
       },
       lualine_x = {
         {
