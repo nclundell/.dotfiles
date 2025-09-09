@@ -22,4 +22,4 @@ map('x', '>', '>gv', { noremap = true })
 map('x', '<', '<gv', { noremap = true })
 
 -- Terminal Mode
-map('t', '<esc>', '<c-\\><c-n>', { desc = 'Exit Terminal Mode' })
+-- map('t', 'jk', '<c-\\><c-n>', { desc = 'Exit Terminal Mode' })

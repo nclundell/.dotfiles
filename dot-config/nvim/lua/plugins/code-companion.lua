@@ -7,6 +7,13 @@ return {
   opts = {},
   keys = {
     {
+      "<leader>ca",
+      function()
+        require("codecompanion").actions()
+      end,
+      desc = "Code Companion Actions",
+    },
+    {
       "<leader>cc",
       function()
         require("codecompanion").toggle()

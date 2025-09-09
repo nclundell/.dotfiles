@@ -1,3 +1,5 @@
+-- Language Server Protocol (LSP) --
+
 local lsp = vim.lsp
 
 lsp.enable({

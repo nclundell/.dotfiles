@@ -31,6 +31,9 @@ fi
 # Setup Mise
 if [[ -x "$(command -v mise)" ]]; then
   eval "$(mise activate bash)"
+else
+  curl https://mise.run | sh
+  eval "$(mise activate bash)"
 fi
 
 # Setup Starship Prompt
