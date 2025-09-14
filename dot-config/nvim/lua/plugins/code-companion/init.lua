@@ -1,10 +1,16 @@
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
+    "j-hui/fidget.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {},
+  opts = {
+    prompt_library = require("plugins.code-companion.prompt_library")
+  },
+  init = function()
+    require("plugins.code-companion.fidget"):init()
+  end,
   keys = {
     {
       "<leader>ca",
@@ -28,4 +34,5 @@ return {
       desc = "Toggle Code Companion (with focus)",
     },
   },
+
 }
