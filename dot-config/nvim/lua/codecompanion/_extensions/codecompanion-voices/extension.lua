@@ -2,10 +2,30 @@ local voices = require("codecompanion._extensions.codecompanion-voices.voices")
 local prompt_wrapper = require("codecompanion._extensions.codecompanion-voices.prompt")
 local picker = require("codecompanion._extensions.codecompanion-voices.pickers")
 
+local function deep_merge(tbl1, tbl2)
+  for k, v in pairs(tbl2) do
+    if type(v) == "table" and type(tbl1[k]) == "table" then
+      deep_merge(tbl1[k], v)
+    else
+      tbl1[k] = v
+    end
+  end
+end
+
 local M = {}
 
 function M.setup(opts)
   opts = opts or {}
+
+  if type(opts.voices) == "table" then
+    for key, voice in pairs(opts.voices) do
+      if type(voices[key]) == "table" and type(voice) == "table" then
+        deep_merge(voices[key], voice)
+      else
+        voices[key] = voice
+      end
+    end
+  end
 
   vim.schedule(function()
     local config = require("codecompanion.config")
