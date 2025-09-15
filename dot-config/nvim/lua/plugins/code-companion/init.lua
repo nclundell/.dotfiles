@@ -6,7 +6,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {
-    prompt_library = require("plugins.code-companion.prompt_library")
+    extensions = {
+      ["codecompanion-voices"] = { enabled = true }
+    }
   },
   init = function()
     require("plugins.code-companion.fidget"):init()
