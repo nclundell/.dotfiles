@@ -23,27 +23,35 @@ export PATH=$HOME/.local/scripts:$PATH
 export VISUAL=nvim
 export EDITOR=nvim
 
-# Setup FZF
-if [[ -x "$(command -v fzf)" ]]; then
-  eval "$(fzf --bash)"
+# Setup Atuin
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init bash)"
 fi
 
+# Setup Carapace
+if command -v carapace >/dev/null 2>&1; then
+  export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+  source <(carapace _carapace)
+fi
+
+# Setup FZF
+# if command -v fzf >/dev/null 2>&1; then
+#   eval "$(fzf --bash)"
+# fi
+
 # Setup Mise
-if [[ -x "$(command -v mise)" ]]; then
-  eval "$(mise activate bash)"
-else
-  curl https://mise.run | sh
+if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate bash)"
 fi
 
 # Setup Starship Prompt
-if [[ -x "$(command -v starship)" ]]; then
+if command -v starship >/dev/null 2>&1; then
   export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
   eval "$(starship init bash)"
 fi
 
 # Setup Tmuxifier
-if [[ -x "$(command -v tmux)" ]]; then
+if command -v tmux >/dev/null 2>&1; then
   if [[ -d $HOME/.config/tmux/plugins/tmuxifier ]]; then
     export PATH=$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH
     export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmuxifier/"
@@ -52,7 +60,7 @@ if [[ -x "$(command -v tmux)" ]]; then
 fi
 
 # Setup Zoxide
-if [[ -x "$(command -v zoxide)" ]]; then
+if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init --cmd cd bash)"
 fi
 

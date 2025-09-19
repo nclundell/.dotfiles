@@ -1,0 +1,5 @@
+enter_accept = true
+store_failed = false
+
+[theme]
+name = "tokyo-night"
