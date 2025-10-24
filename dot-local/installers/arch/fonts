@@ -1,3 +1,16 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed nerd-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-ms-fonts
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+fonts_pkgs=(
+  nerd-fonts
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  ttf-ms-fonts
+)
+
+echo "Installing font packages..."
+paru -S --noconfirm --needed --quiet "${fonts_pkgs[@]}"

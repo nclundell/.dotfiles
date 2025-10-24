@@ -1,0 +1,28 @@
+#! /usr/bin/env bash
+
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+niri_pkgs=(
+  ghostty
+  libnotify
+  mako
+  mpd
+  mpv
+  ncmpcpp
+  niri
+  swaybg
+  swayidle
+  swaylock
+  waybar
+  wofi
+  wl-clipboard
+  xdg-desktop-portal
+  xdg-desktop-portal-gtk
+  xdg-user-dirs
+  xwayland-satellite
+)
+
+echo "Installing Niri environment packages..."
+paru -S --noconfirm --needed --quiet "${niri_pkgs[@]}"

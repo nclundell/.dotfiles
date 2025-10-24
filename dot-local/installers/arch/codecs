@@ -1,3 +1,20 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed ffmpeg gst-libav gst-plugin-pipewire gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly opus-tools vorbis-tools
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+codecs=(
+  ffmpeg
+  gst-libav
+  gst-plugin-pipewire
+  gst-plugins-bad
+  gst-plugins-base
+  gst-plugins-good
+  gst-plugins-ugly
+  opus-tools
+  vorbis-tools
+)
+
+echo "Installing multimedia codecs..."
+paru -S --noconfirm --needed --quiet "${codecs[@]}"

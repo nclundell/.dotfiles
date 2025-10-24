@@ -1,3 +1,12 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed papirus-icon-theme
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+icon_pkgs=(
+  papirus-icon-theme
+)
+
+echo "Installing icon sets..."
+paru -S --noconfirm --needed --quiet "${icon_pkgs[@]}"

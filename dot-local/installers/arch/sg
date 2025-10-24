@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 
-sudo su
+# Ensure the sg kernel module is loaded at boot
+echo "Enabling sg kernel module for SCSI generic support..."
+echo sg | sudo tee /etc/modules-load.d/sg.conf > /dev/null
 
-echo sg > /etc/modules-load.d/sg.conf
-modprobe sg
-
-exit
+# Load the sg module immediately
+echo "Loading sg kernel module..."
+sudo modprobe sg

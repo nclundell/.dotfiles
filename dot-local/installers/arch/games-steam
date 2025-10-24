@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+steam_pkgs=(
+  game-devices-udev
+  gamemode
+  gamescope
+  lib32-vulkan-icd-loader
+  mangohud
+  steam
+  steam-devices
+  vulkan-icd-loader
+)
+
+echo "Installing Steam and gaming packages..."
+paru -S --noconfirm --needed --quiet "${steam_pkgs[@]}"

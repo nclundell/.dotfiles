@@ -1,0 +1,62 @@
+#! /usr/bin/env bash
+
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+base_packages=(
+  arch-update
+  archlinux-contrib
+  archlinux-keyring
+  bash-completion
+  bat
+  bat-extras
+  bottom
+  cabextract
+  curl
+  direnv
+  eza
+  fd
+  firefox
+  fzf
+  ghostty
+  git
+  git-delta
+  github-cli
+  glow
+  hunspell-en_us
+  jq
+  just
+  lazydocker
+  lazygit
+  localsend
+  neovim
+  p7zip
+  pacman-contrib
+  poppler
+  resvg
+  ripgrep
+  speech-dispatcher
+  starship
+  stow
+  tmux
+  tree-sitter
+  udiskie
+  unace
+  unrar
+  unzip
+  wget
+  xdg-user-dirs
+  xdg-utils
+  xz
+  yazi
+  yt-dlp
+  zellij
+  zoxide
+)
+
+echo "Installing CLI tools..."
+paru -S --noconfirm --needed --quiet ${base_packages[@]}"
+
+echo "Enabling arch-update timer..."
+systemctl --user enable --now arch-update.timer

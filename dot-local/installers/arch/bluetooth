@@ -1,5 +1,11 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed bluez bluez-utils
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
 
+echo "Installing Bluetooth packages..."
+paru -S --noconfirm --needed --quiet bluetui bluez bluez-utils
+
+echo "Enabling Bluetooth service..."
 sudo systemctl enable --now bluetooth

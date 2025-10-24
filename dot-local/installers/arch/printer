@@ -1,17 +1,37 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed avahi cups cups-browsed cups-pdf nss-mdns
-
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed gutenprint foomatic-db-gutenprint-ppds
-
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds
-
-if ! $(grep -qe "hosts:.*mdns_minimal" /etc/nsswitch.conf); then
-  sudo sed -re 's/hosts: mymachines /hosts: mymachines mdns_minimal [NOTFOUND=return] /gi' -i /etc/nsswitch.conf
-  echo 'Check up hostname resolution for avahi: https://wiki.archlinux.org/title/Avahi#Hostname_resolution'
-  cat /etc/nsswitch.conf
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
 fi
 
+printer_pkgs=(
+  avahi
+  cups
+  cups-filters
+  cups-pdf
+  nss-mdns
+  ghostscript
+  gutenprint
+  foomatic-db-gutenprint-ppds
+  foomatic-db-engine
+  foomatic-db
+  foomatic-db-ppds
+  foomatic-db-nonfree
+  foomatic-db-nonfree-ppds
+  sane
+  sane-airscan
+)
+
+echo "Installing printer packages..."
+paru -S --noconfirm --needed --quiet "${printer_pkgs[@]}"
+
+# Update /etc/nsswitch.conf for Avahi hostname resolution
+if ! grep -qe "hosts:.*mdns_minimal" /etc/nsswitch.conf; then
+  echo "Configuring /etc/nsswitch.conf for Avahi hostname resolution..."
+  sudo sed -i '/^hosts:/ s/$/ mdns_minimal [NOTFOUND=return]/' /etc/nsswitch.conf
+fi
+
+echo "Enabling printer services..."
 sudo systemctl enable --now avahi-daemon
 sudo systemctl enable --now cups
 sudo systemctl enable --now cups-browsed

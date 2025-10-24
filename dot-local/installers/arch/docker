@@ -1,9 +1,16 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed docker docker-buildx docker-compose
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
 
+echo "Installing Docker packages..."
+paru -S --noconfirm --needed docker docker-buildx docker-compose
+
+echo "Enabling Docker service..."
 sudo systemctl enable --now docker
 
-sudo usermod -aG docker $USER
-
-newgrp docker
+if ! groups $USER | grep -qw docker; then
+  sudo usermod -aG docker $USER
+  echo "You have been added to the docker group. Please log out and log back in for changes to take effect."
+fi

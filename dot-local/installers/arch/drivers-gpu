@@ -1,16 +1,23 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed lshw jq
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+paru -S --noconfirm --needed --quiet lshw jq
 
 vendor_check=$(sudo lshw -json -c display | jq '.[0]["vendor"]')
 
+base_drivers=(mesa lib32-mesa libva-utils)
+amd_extra=(vulkan-radeon lib32-vulkan-radeon)
+intel_extra=(vulkan-intel lib32-vulkan-intel intel-media-driver)
+
 if [[ $vendor_check == *"Advanced Micro Devices"* ]]; then
   echo "Installing AMD drivers..."
-  sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-utils
+  paru -S --noconfirm --needed --quiet "${base_drivers[@]}" "${amd_extra[@]}"
 elif [[ $vendor_check == *"Intel"* ]]; then
   echo "Installing Intel drivers..."
-  sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed mesa lib32-mesa vulkan-intel lib32-vulkan-intel libva-utils intel-media-driver
+  paru -S --noconfirm --needed --quiet "${base_drivers[@]}" "${intel_extra[@]}"
 else
-  sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed mesa lib32-mesa libva-utils
+  paru -S --noconfirm --needed --quiet "${base_drivers[@]}"
 fi
-

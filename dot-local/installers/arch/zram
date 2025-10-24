@@ -1,8 +1,18 @@
 #! /usr/bin/env bash
 
-if [[ ! -x "$(command -v yay)" ]]; then
-  source $HOME/.dotfiles/dot-local/installers/distros/arch/yay
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
 fi
 
-yay -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf zramd
-sudo systemctl enable --now zramd
+echo "Installing zram-generator..."
+paru -S --noconfirm --needed --quiet zram-generator
+
+echo "Configuring zram-generator..."
+sudo tee /etc/systemd/zram-generator.conf > /dev/null <<EOF
+[zram0]
+zram-size = ram / 2
+compression-algorithm = zstd
+EOF
+
+echo "Enabling zram swap..."
+sudo systemctl enable --now systemd-zram-setup@zram0.service

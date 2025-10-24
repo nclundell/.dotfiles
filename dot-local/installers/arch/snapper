@@ -1,34 +1,31 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed snapper
-
-sudo umount /.snapshots
-
-sudo rm -r /.snapshots
-
-sudo snapper -c root create-config /
-
-sudo btrfs subvolume delete /.snapshots
-
-sudo mkdir /.snapshots
-
-sudo chmod 750 /.snapshots
-
-sudo chown :wheel /.snapshots
-
-sudo mount -a
-
-if [[ ! -x "$(command -v grub-mkconfig)" ]]; then
-  sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed grub-btrfs inotify-tools
-
-  if ! $(grep -qe "^HOOKS=.*grub-btrfs-overlayfs" /etc/mkinitcpio.conf); then
-    sudo sed -re 's/(^HOOKS=[\"|(][^")]+)/\1 grub-btrfs-overlayfs/gi' -i /etc/mkinitcpio.conf
-    sudo mkinitcpio -P
-  fi
-
-  sudo systemctl enable --now grub-btrfsd
-
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
 fi
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed snap-pac
+snapper_pkgs=(
+  snapper
+  snap-pac
+)
+
+echo "Installing Snapper and related packages..."
+paru -S --noconfirm --needed --quiet "${snapper_pkgs[@]}"
+
+echo "Configuring Snapper root subvolume..."
+sudo umount /.snapshots 2>/dev/null || true
+sudo rm -rf /.snapshots
+sudo snapper -c root create-config /
+sudo btrfs subvolume delete /.snapshots 2>/dev/null || true
+sudo mkdir /.snapshots
+sudo chmod 750 /.snapshots
+sudo chown :wheel /.snapshots
+sudo mount -a
+
+if command -v grub-mkconfig &> /dev/null; then
+  echo "Configuring grub-btrfs integration..."
+  paru -S --noconfirm --needed --quiet grub-btrfs inotify-tools
+
+  sudo systemctl enable --now grub-btrfsd
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+fi

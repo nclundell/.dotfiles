@@ -1,5 +1,19 @@
 #! /usr/bin/env bash
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed network-manager-applet networkmanager networkmanager-openvpn networkmanager-openconnect wireguard-tools
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
 
+network_pkgs=(
+  network-manager-applet
+  networkmanager
+  networkmanager-openvpn
+  networkmanager-openconnect
+  wireguard-tools
+)
+
+echo "Installing networking packages..."
+paru -S --noconfirm --needed --quiet "${network_pkgs[@]}"
+
+echo "Enabling NetworkManager service..."
 sudo systemctl enable --now NetworkManager

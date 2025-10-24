@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+fi
+
+heroic_pkgs=(
+  gamemode
+  gamescope
+  heroic-games-launcher-bin
+  mangohud
+  vulkan-icd-loader
+  lib32-vulkan-icd-loader
+  wine
+  wine-gecko
+  wine-mono
+)
+
+echo "Installing Heroic Games Launcher and core dependencies..."
+paru -S --noconfirm --needed --quiet "${heroic_pkgs[@]}"
