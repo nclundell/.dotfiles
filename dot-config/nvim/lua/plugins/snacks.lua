@@ -60,7 +60,9 @@ return {
 
     -- Non-Picker Keymaps
     { "<leader>dd", function() Snacks.terminal.toggle("lazydocker") end, desc = "Lazydocker" },
-    { "<leader>gg", function() Snacks.lazygit.open() end, desc = "Lazygit" },
-    { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Logs" },
+    { "<leader>gg", function() Snacks.terminal.toggle("lazygit") end, desc = "Lazygit" },
+    { "<leader>gl", function() Snacks.terminal.toggle("lazygit log") end, desc = "Lazygit Log" },
+    { "<leader>gs", function() Snacks.terminal.toggle("lazygit status") end, desc = "Lazygit Status" },
+    { "<leader>tt", function() Snacks.terminal.toggle(_, { win = { position = "float" } }) end, desc = "Toggle Terminal", mode = { "n", "t" } }
   },
 }
