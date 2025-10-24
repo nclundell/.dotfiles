@@ -1,0 +1,126 @@
+#! /usr/bin/env bash
+
+# === DRY-RUN MODE CHECK ===
+dry_run=false
+if [[ "$1" == "--dry-run" ]]; then
+  dry_run=true
+  echo "Dry-run mode enabled. No changes will be made."
+fi
+
+# === DRIVE SELECTION ===
+echo "Available drives:"
+mapfile -t drives < <(lsblk -dpno NAME,SIZE,TYPE | grep "disk" | awk '{print $1 " (" $2 ")"}')
+
+if [[ ${#drives[@]} -eq 0 ]]; then
+  echo "No drives found."
+  exit 1
+fi
+
+PS3="Select the device for your root filesystem: "
+select drive in "${drives[@]}"; do
+  if [[ -n "$drive" ]]; then
+    rootdev=$(echo "$drive" | awk '{print $1}')
+    break
+  else
+    echo "Invalid selection."
+  fi
+done
+
+# === VARIABLE SETUP ===
+mnt="/mnt"
+root_subvol="@"
+snapshots_dir=".snapshots"
+
+# === ENCRYPTION DETECTION AND UNLOCK ===
+if sudo cryptsetup isLuks "$rootdev" &>/dev/null; then
+  default_name=$(basename "$rootdev")
+  cryptname="$default_name"
+  echo "Detected LUKS encryption. Using '$cryptname' as the name for the unlocked device."
+  echo "Unlocking LUKS container..."
+  if ! $dry_run; then
+    sudo cryptsetup open "$rootdev" "$cryptname" || { echo "Failed to unlock LUKS device."; exit 1; }
+  fi
+  mountdev="/dev/mapper/$cryptname"
+else
+  echo "No LUKS encryption detected. Mounting directly."
+  mountdev="$rootdev"
+fi
+
+# === MOUNT BTRFS ROOT SUBVOLUME ===
+echo "Mounting Btrfs root subvolume..."
+if ! $dry_run; then
+  sudo mount -o subvol=/ "$mountdev" "$mnt" || { echo "Failed to mount Btrfs root."; exit 1; }
+fi
+
+# === SNAPSHOT SELECTION ===
+echo "Available Snapper snapshots for root:"
+mapfile -t snapshots < <(ls "$mnt/$snapshots_dir" | grep -E '^[0-9]+$')
+if [[ ${#snapshots[@]} -eq 0 ]]; then
+  echo "No snapshots found."
+  exit 1
+fi
+
+PS3="Select the snapshot ID to roll back to: "
+select snap_id in "${snapshots[@]}"; do
+  if [[ -n "$snap_id" ]]; then
+    snapshot_path="$mnt/$snapshots_dir/$snap_id/snapshot"
+    break
+  else
+    echo "Invalid selection."
+  fi
+done
+
+if [[ ! -d "$snapshot_path" ]]; then
+  echo "Snapshot $snap_id does not exist!"
+  exit 1
+fi
+
+# === ACTION SUMMARY AND CONFIRMATION ===
+echo
+echo "=== ACTION SUMMARY ==="
+echo "- Device: $mountdev"
+echo "- Mount point: $mnt"
+echo "- Root subvolume: $root_subvol"
+echo "- Snapshot to restore: $snap_id ($snapshot_path)"
+echo "- Will delete: $mnt/$root_subvol"
+echo "- Will restore: $snapshot_path -> $mnt/$root_subvol"
+if $dry_run; then
+  echo "- DRY RUN: No changes will be made."
+fi
+echo
+
+read -rp "Proceed with rollback? [y/N]: " confirm
+if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
+  echo "Rollback cancelled."
+  if ! $dry_run; then
+    echo "Unmounting and closing LUKS (if needed)..."
+    sudo umount "$mnt"
+    if sudo cryptsetup isLuks "$rootdev" &>/dev/null; then
+      sudo cryptsetup close "$cryptname"
+    fi
+  fi
+  exit 0
+fi
+
+if $dry_run; then
+  echo "Dry-run complete. No changes made."
+  if sudo cryptsetup isLuks "$rootdev" &>/dev/null; then
+    echo "Would close LUKS device: $cryptname"
+  fi
+  exit 0
+fi
+
+# === ROLLBACK EXECUTION ===
+echo "Deleting current root subvolume..."
+sudo btrfs subvolume delete "$mnt/$root_subvol" || { echo "Failed to delete root subvolume."; exit 1; }
+
+echo "Restoring snapshot $snap_id as new root..."
+sudo btrfs subvolume snapshot "$snapshot_path" "$mnt/$root_subvol" || { echo "Failed to restore snapshot."; exit 1; }
+
+echo "Rollback complete. You can now reboot into your restored system."
+
+# === CLEANUP: UNMOUNT AND CLOSE LUKS ===
+sudo umount "$mnt"
+if sudo cryptsetup isLuks "$rootdev" &>/dev/null; then
+  sudo cryptsetup close "$cryptname"
+fi
