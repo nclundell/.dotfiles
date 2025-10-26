@@ -6,21 +6,23 @@ fi
 
 niri_pkgs=(
   ghostty
-  libnotify
+  gnome-keyring
   mako
   mpd
   mpv
   ncmpcpp
   niri
+  polkit-gnome
   swaybg
   swayidle
   swaylock
+  udiskie
   waybar
   wofi
   wl-clipboard
   xdg-desktop-portal
   xdg-desktop-portal-gtk
-  xdg-user-dirs
+  xdg-user-dirs-gtk
   xwayland-satellite
 )
 
