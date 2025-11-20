@@ -2,17 +2,17 @@
 	root = rev-parse --show-toplevel
 
 [core]
-    pager = delta
+  pager = delta
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-    navigate = true
-    dark = true
+  navigate = true
+  side-by-side = true
 
 [merge]
-    conflictstyle = zdiff3
+  conflictstyle = zdiff3
 
 [pull]
 	rebase = true
