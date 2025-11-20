@@ -56,6 +56,7 @@ automatically-unhide-macos-hidden-apps = false
   alt-c = 'workspace C'
   alt-m = 'workspace M'
   alt-r = 'workspace R'
+  alt-s = 'workspace S'
   alt-t = 'workspace T'
   alt-v = 'workspace V'
   alt-w = 'workspace W'
@@ -74,6 +75,7 @@ automatically-unhide-macos-hidden-apps = false
   alt-shift-c = 'move-node-to-workspace C' # Calendar
   alt-shift-m = 'move-node-to-workspace M' # Mail/Messaging Stuff
   alt-shift-r = 'move-node-to-workspace R' # REST Client
+  alt-shift-s = 'move-node-to-workspace S' # Live Share
   alt-shift-t = 'move-node-to-workspace T' # Terminal Stuff
   alt-shift-v = 'move-node-to-workspace V' # Video Stuff
   alt-shift-w = 'move-node-to-workspace W' # Web Browser
@@ -120,6 +122,10 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
   if.app-id = 'com.usebruno.app'
   run = 'move-node-to-workspace R'
+
+[[on-window-detected]]
+  if.app-id = 'com.microsoft.VSCode'
+  run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
   if.app-id = 'com.mitchellh.ghostty'
