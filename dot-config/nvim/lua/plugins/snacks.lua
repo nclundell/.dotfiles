@@ -50,7 +50,7 @@ return {
     -- Search/Grep
     { "<leader>gb", function() Snacks.picker.lines() end, desc = "Grep Current Buffer" },
     { "<leader>gB", function() Snacks.picker.grep_buffers() end, desc = "Grep Buffers" },
-    { "<leader>gf", function() Snacks.picker.grep() end, desc = "Grep Project" },
+    { "<leader>gf", function() Snacks.picker.grep() end, desc = "Grep Project Files" },
     { "<leader>gw", function() Snacks.picker.grep_word() end, desc = "Grep Word Under Cursor" },
 
     -- Other Pickers
@@ -59,10 +59,10 @@ return {
     { "<leader>u", function() Snacks.picker.undo() end, desc = "Undo History" },
 
     -- Non-Picker Keymaps
-    { "<leader>dd", function() Snacks.terminal.toggle("lazydocker") end, desc = "Lazydocker" },
-    { "<leader>gg", function() Snacks.terminal.toggle("lazygit") end, desc = "Lazygit" },
-    { "<leader>gl", function() Snacks.terminal.toggle("lazygit log") end, desc = "Lazygit Log" },
-    { "<leader>gs", function() Snacks.terminal.toggle("lazygit status") end, desc = "Lazygit Status" },
-    { "<leader>tt", function() Snacks.terminal.toggle(_, { win = { position = "float" } }) end, desc = "Toggle Terminal", mode = { "n", "t" } }
+    { "<leader>dd", function() Snacks.terminal.toggle("lazydocker") end, desc = "Lazydocker", mode = { "n", "t" } },
+    { "<leader>gg", function() Snacks.terminal.toggle("lazygit") end, desc = "Lazygit", mode = { "n", "t" } },
+    { "<leader>gl", function() Snacks.terminal.toggle("lazygit log") end, desc = "Lazygit Log", mode = { "n", "t" } },
+    { "<leader>gs", function() Snacks.terminal.toggle("lazygit status") end, desc = "Lazygit Status", mode = { "n", "t" } },
+    { "<leader>tt", function() Snacks.terminal.toggle("$SHELL", { win = { position = "float" } }) end, desc = "Toggle Terminal", mode = { "n", "t" } }
   },
 }
