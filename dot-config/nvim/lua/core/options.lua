@@ -16,4 +16,4 @@ o.tabstop = 2            -- Set tabstop to 2
 
 -- Line Numbers
 o.number = true          -- Show line numbers
-o.relativenumber = true  -- Show relative line numbers
+-- o.relativenumber = true  -- Show relative line numbers
