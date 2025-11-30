@@ -33,17 +33,6 @@ if command -v atuin >/dev/null 2>&1; then
   eval "$(atuin init bash)"
 fi
 
-# Setup Carapace
-if command -v carapace >/dev/null 2>&1; then
-  export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
-  source <(carapace _carapace)
-fi
-
-# Setup FZF
-# if command -v fzf >/dev/null 2>&1; then
-#   eval "$(fzf --bash)"
-# fi
-
 # Setup Starship Prompt
 if command -v starship >/dev/null 2>&1; then
   export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
