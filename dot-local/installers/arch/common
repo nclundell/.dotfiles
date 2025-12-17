@@ -5,6 +5,7 @@ if ! command -v paru &> /dev/null; then
 fi
 
 base_packages=(
+  abcde
   arch-update
   archlinux-contrib
   archlinux-keyring
@@ -41,6 +42,7 @@ base_packages=(
   stow
   tmux
   tree-sitter
+  tree-sitter-cli
   udiskie
   unace
   unrar
