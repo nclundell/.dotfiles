@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 if ! command -v paru &> /dev/null; then
-  bash $HOME/.dotfiles/dot-local/installers/arch/paru.sh
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru
 fi
 
 heroic_pkgs=(

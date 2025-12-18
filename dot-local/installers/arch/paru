@@ -11,12 +11,12 @@ original_dir=$(pwd)
 tmpdir=$(mktemp -d)
 cd "$tmpdir" || exit 1
 
-if ! git clone https://aur.archlinux.org/paru-bin.git; then
-  echo "Failed to clone paru-bin repository."
+if ! git clone https://aur.archlinux.org/paru.git; then
+  echo "Failed to clone paru repository."
   exit 1
 fi
 
-cd paru-bin || exit 1
+cd paru || exit 1
 makepkg -si
 
 cd "$original_dir"
