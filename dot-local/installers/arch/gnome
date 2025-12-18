@@ -1,0 +1,31 @@
+#! /usr/bin/env bash
+
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru
+fi
+
+gnome_pkgs=(
+  gdm
+  gnome-control-center
+  gnome-shell
+)
+
+echo "Installing Gnome Shell packages..."
+paru -S --noconfirm --needed --quiet "${gnome_pkgs[@]}"
+
+sudo systemctl enable gdm
+
+# Ensure default flatpaks are set up
+bash $HOME/.dotfiles/dot-local/installers/arch/flatpak
+
+gnome_flatpaks=(
+  com.mattjakeman.ExtensionManager
+  io.github.celluloid_player.Celluloid
+  org.altlinux.Tuner
+  org.gnome.Loupe
+  org.gnome.Papers
+  org.gnome.SimpleScan
+  org.gnome.Weather
+)
+
+flatpak install -y --system "${gnome_flatpaks[@]}"

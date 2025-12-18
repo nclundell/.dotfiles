@@ -8,15 +8,7 @@ audio_pkgs=(
   alsa-firmware
   alsa-plugins
   alsa-utils
-  lib32-pipewire
-  lib32-pipewire-jack
-  lib32-pipewire-alsa
-  lib32-pipewire-pulse
-  lib32-openal
-  lib32-libpulse
   libpulse
-  pamixer
-  pasystray
   pipewire
   pipewire-alsa
   pipewire-pulse

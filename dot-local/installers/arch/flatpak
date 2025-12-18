@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+
+if ! command -v paru &> /dev/null; then
+  bash $HOME/.dotfiles/dot-local/installers/arch/paru
+fi
+
+echo "Setting up flatpak and flathub repositories"
+paru -S --noconfirm --needed --quiet flatpak
+
+flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists --user   flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+flatpak_user_pkgs=(
+  com.brave.Browser
+)
+
+flatpak_system_pkgs=(
+  com.github.tchx84.Flatseal
+  io.github.flattool.Warehouse
+  io.github.kolunmi.Bazaar
+  io.missioncenter.MissionCenter
+)
+
+echo "Installing flatpak packages"
+flatpak install -y --system "${flatpak_system_pkgs[@]}"
+flatpak install -y --user   "${flatpak_user_pkgs[@]}"
+
