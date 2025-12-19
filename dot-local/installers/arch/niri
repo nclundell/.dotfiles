@@ -5,8 +5,15 @@ if ! command -v paru &> /dev/null; then
 fi
 
 niri_pkgs=(
+  cliphist
+  elephant-all-bin
   ghostty
   gnome-keyring
+  gvfs
+  gvfs-afc
+  gvfs-goa
+  gvfs-google
+  gvfs-mtp
   mako
   mpd
   mpv
@@ -17,14 +24,24 @@ niri_pkgs=(
   swayidle
   swaylock
   udiskie
+  walker-bin
   waybar
-  wofi
   wl-clipboard
   xdg-desktop-portal
   xdg-desktop-portal-gtk
+  xdg-desktop-portal-gnome
   xdg-user-dirs-gtk
   xwayland-satellite
 )
 
 echo "Installing Niri environment packages..."
 paru -S --noconfirm --needed --quiet "${niri_pkgs[@]}"
+
+echo "Setting up services..."
+systemctl --user daemon-reload
+systemctl --user add-wants niri.service cliphist.service
+systemctl --user add-wants niri.service mako.service
+systemctl --user add-wants niri.service mpd.service
+systemctl --user add-wants niri.service walker.service
+systemctl --user add-wants niri.service waybar.service
+

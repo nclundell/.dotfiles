@@ -8,6 +8,16 @@ gnome_pkgs=(
   gdm
   gnome-control-center
   gnome-shell
+  gnome-shell-extensions
+  gnome-shell-extension-appindicator
+  gnome-shell-extension-arc-menu
+  gnome-shell-extension-dash-to-panel
+  gnome-shell-extension-vitals
+  gnome-shell-extension-weather-oclock
+  gnome-tuner
+  gnome-tuner-gdm
+  gnome-tuner-panel
+  gnome-tuner-tweaks
 )
 
 echo "Installing Gnome Shell packages..."
@@ -21,7 +31,6 @@ bash $HOME/.dotfiles/dot-local/installers/arch/flatpak
 gnome_flatpaks=(
   com.mattjakeman.ExtensionManager
   io.github.celluloid_player.Celluloid
-  org.altlinux.Tuner
   org.gnome.Loupe
   org.gnome.Papers
   org.gnome.SimpleScan

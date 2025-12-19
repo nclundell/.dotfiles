@@ -1,0 +1,9 @@
+[Unit]
+Description=Cliphist clipboard history
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'wl-paste --watch cliphist store'
+Restart=on-failure
+RestartSec=1

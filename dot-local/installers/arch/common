@@ -6,7 +6,7 @@ fi
 
 base_packages=(
   abcde
-  arch-update
+  abcde-musicbrainz-meta
   archlinux-contrib
   archlinux-keyring
   bash-completion
@@ -25,12 +25,12 @@ base_packages=(
   git-delta
   github-cli
   glow
+  glyr
   hunspell-en_us
   jq
   just
   lazydocker
   lazygit
-  localsend
   neovim
   p7zip
   pacman-contrib
@@ -43,6 +43,7 @@ base_packages=(
   tmux
   tree-sitter
   tree-sitter-cli
+  tuned-ppd
   udiskie
   unace
   unrar
@@ -60,5 +61,6 @@ base_packages=(
 echo "Installing CLI tools..."
 paru -S --noconfirm --needed --quiet "${base_packages[@]}"
 
-echo "Enabling arch-update timer..."
-systemctl --user enable --now arch-update.timer
+echo "Start tuneD service"
+sudo systemctl enable --now tuned.service
+
