@@ -6,7 +6,7 @@ fi
 
 niri_pkgs=(
   cliphist
-  elephant-all-bin
+  fuzzel
   ghostty
   gnome-keyring
   gvfs
@@ -24,7 +24,6 @@ niri_pkgs=(
   swayidle
   swaylock
   udiskie
-  walker-bin
   waybar
   wl-clipboard
   xdg-desktop-portal

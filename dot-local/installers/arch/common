@@ -9,6 +9,7 @@ base_packages=(
   abcde-musicbrainz-meta
   archlinux-contrib
   archlinux-keyring
+  base-devel
   bash-completion
   bat
   bat-extras
@@ -31,12 +32,16 @@ base_packages=(
   just
   lazydocker
   lazygit
+  libffi
+  libyaml
   neovim
+  openssl
   p7zip
   pacman-contrib
   poppler
   resvg
   ripgrep
+  rust
   speech-dispatcher
   starship
   stow
@@ -55,6 +60,7 @@ base_packages=(
   yazi
   yt-dlp
   zellij
+  zlib
   zoxide
 )
 
