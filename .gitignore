@@ -16,3 +16,6 @@ dot-config/yazi/plugins
 
 # Ignore Local Bin Apps
 dot-local/bin/**
+
+# Ignore Niri Wants
+dot-config/systemd/user/niri.service.wants/**
