@@ -10,21 +10,24 @@ niri_pkgs=(
   ghostty
   gnome-keyring
   gvfs
-  gvfs-afc
-  gvfs-goa
-  gvfs-google
+  gvfs-dnssd
+  gvfs-gphoto2
   gvfs-mtp
+  gvfs-nfs
+  gvfs-smb
   mako
   mpd
   mpv
+  nautilus
   ncmpcpp
   niri
-  polkit-gnome
+  soteria-git
   swaybg
   swayidle
   swaylock
-  udiskie
   waybar
+  waypaper
+  wiremix
   wl-clipboard
   xdg-desktop-portal
   xdg-desktop-portal-gtk
@@ -39,8 +42,9 @@ paru -S --noconfirm --needed --quiet "${niri_pkgs[@]}"
 echo "Setting up services..."
 systemctl --user daemon-reload
 systemctl --user add-wants niri.service cliphist.service
-systemctl --user add-wants niri.service gnome-keyring-daemon.sedrvice
+systemctl --user add-wants niri.service gnome-keyring-daemon.service
 systemctl --user add-wants niri.service mako.service
 systemctl --user add-wants niri.service mpd.service
+systemctl --user add-wants niri.service soteria.service
 systemctl --user add-wants niri.service waybar.service
 

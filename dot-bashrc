@@ -73,19 +73,10 @@ fi
 
 alias mup="source $HOME/.local/scripts/arch-mirror-update"
 
-if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
+if [[ -x "$(command -v paru)" ]]; then
+  alias p="paru"
+elif [[ -f $HOME/.config/pacman/pacman.conf ]]; then
   alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"
-  if [[ -x "$(command -v yay)" ]]; then
-    alias p="yay --repo --config $HOME/.config/pacman/pacman.conf"
-  fi
 else
   alias p="sudo pacman"
-fi
-
-alias v="nvim || nano"
-
-if [[ -f $HOME/.config/pacman/pacman.conf ]]; then
-  alias y="yay --config $HOME/.config/pacman/pacman.conf"
-else
-  alias y="yay"
 fi

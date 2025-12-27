@@ -11,3 +11,8 @@ run = "plugin mount"
 on   = "<C-d>"
 run  = "plugin diff"
 desc = "Diff the selected with the hovered file"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /run/media/$USER"
+desc = "Go to mounted drives"

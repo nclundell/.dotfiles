@@ -27,6 +27,12 @@ base_packages=(
   github-cli
   glow
   glyr
+  gvfs
+  gvfs-dnssd
+  gvfs-gphoto2
+  gvfs-mtp
+  gvfs-nfs
+  gvfs-smb
   hunspell-en_us
   jq
   just
@@ -35,6 +41,7 @@ base_packages=(
   libffi
   libyaml
   neovim
+  openssh
   openssl
   p7zip
   pacman-contrib
@@ -43,6 +50,7 @@ base_packages=(
   ripgrep
   rust
   speech-dispatcher
+  sshfs
   starship
   stow
   tmux
@@ -55,6 +63,7 @@ base_packages=(
   unzip
   wget
   xdg-user-dirs
+  xdg-user-dirs-gtk
   xdg-utils
   xz
   yazi
@@ -64,7 +73,7 @@ base_packages=(
   zoxide
 )
 
-echo "Installing CLI tools..."
+echo "Installing base packages..."
 paru -S --noconfirm --needed --quiet "${base_packages[@]}"
 
 echo "Start tuneD service"

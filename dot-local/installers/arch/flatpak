@@ -15,6 +15,7 @@ flatpak_system_pkgs=(
   io.github.flattool.Warehouse
   io.missioncenter.MissionCenter
   one.ablaze.floorp
+  org.altlinux.Tuner
 )
 
 echo "Installing flatpak packages"

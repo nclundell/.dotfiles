@@ -14,11 +14,6 @@ gnome_pkgs=(
   gnome-shell-extension-dash-to-panel
   gnome-shell-extension-vitals
   gnome-shell-extension-weather-oclock
-  gnome-software
-  gnome-tuner
-  gnome-tuner-gdm
-  gnome-tuner-panel
-  gnome-tuner-tweaks
 )
 
 echo "Installing Gnome Shell packages..."
