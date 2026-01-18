@@ -22,9 +22,11 @@ niri_pkgs=(
   ncmpcpp
   niri
   soteria-git
+  sushi
   swaybg
   swayidle
   swaylock
+  swaync
   waybar
   waypaper
   wiremix
@@ -43,8 +45,8 @@ echo "Setting up services..."
 systemctl --user daemon-reload
 systemctl --user add-wants niri.service cliphist.service
 systemctl --user add-wants niri.service gnome-keyring-daemon.service
-systemctl --user add-wants niri.service mako.service
 systemctl --user add-wants niri.service mpd.service
 systemctl --user add-wants niri.service soteria.service
+systemctl --user add-wants niri.service swaync.service
 systemctl --user add-wants niri.service waybar.service
 

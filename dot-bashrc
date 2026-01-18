@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Source global definitions
+# Source global interactive definitions
 if [ -f /etc/bashrc ]; then
   source /etc/bashrc
 fi
@@ -14,50 +14,16 @@ set -o vi
 
 bind 'set completion-ignore-case on'
 
-# Add Local Build Paths to $PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/man:$PATH
-export PATH=$HOME/.local/scripts:$PATH
-
-# Setup Mise
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate bash)"
-fi
-
-# Export ENV Vars
-export VISUAL=nvim
-export EDITOR=nvim
-
-# Setup Atuin
-if command -v atuin >/dev/null 2>&1; then
-  eval "$(atuin init bash)"
-fi
-
-# Setup Starship Prompt
-if command -v starship >/dev/null 2>&1; then
-  export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
-  eval "$(starship init bash)"
-fi
-
-# Setup Tmuxifier
-if command -v tmux >/dev/null 2>&1; then
-  if [[ -d $HOME/.config/tmux/plugins/tmuxifier ]]; then
-    export PATH=$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH
-    export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmuxifier/"
-    eval "$(tmuxifier init -)"
-  fi
-fi
-
-# Setup Zoxide
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init --cmd cd bash)"
-fi
+# Shell Tools Initialization
+[[ $(command -v mise) ]] && eval "$(mise activate bash)"
+[[ $(command -v atuin) ]] && eval "$(atuin init bash)"
+[[ $(command -v starship) ]] && eval "$(starship init bash)"
+[[ $(command -v tmuxifier) ]] && eval "$(tmuxifier init -)"
+[[ $(command -v zoxide) ]] && eval "$(zoxide init --cmd cd bash)"
 
 # Aliases
 alias br='source $HOME/.bashrc'
-if [[ -x "$(command -v bat)" ]]; then
-  alias cat='bat'
-fi
+[[ $(command -v bat) ]] && alias cat='bat'
 
 if [[ -f $HOME/.config/dnf/config ]]; then
   alias d="sudo dnf -c $HOME/.config/dnf/config"
@@ -65,15 +31,13 @@ else
   alias d="sudo dnf"
 fi
 
-if [[ -x "$(command -v eza)" ]]; then
+if [[ $(command -v eza) ]]; then
   alias ls="eza --color=auto --icons=auto --group-directories-first"
 else
   alias ls="ls --color=auto"
 fi
 
-alias mup="source $HOME/.local/scripts/arch-mirror-update"
-
-if [[ -x "$(command -v paru)" ]]; then
+if [[ $(command -v paru) ]]; then
   alias p="paru"
 elif [[ -f $HOME/.config/pacman/pacman.conf ]]; then
   alias p="sudo pacman --config $HOME/.config/pacman/pacman.conf"

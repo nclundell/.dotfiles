@@ -16,3 +16,9 @@ desc = "Diff the selected with the hovered file"
 on   = [ "g", "m" ]
 run  = "cd /run/media/$USER"
 desc = "Go to mounted drives"
+
+[[mgr.prepend_keymap]]
+on   = [ "s", "w" ]
+run  = 'shell -- set-wallpaper "$1"'
+desc = "Set wallpaper"
+

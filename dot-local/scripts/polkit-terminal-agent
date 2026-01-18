@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+# Wait for a polkit request and spawn a terminal only when needed
+pkttyagent --notify-fd 3 3> >(read; foot --title="polkit-auth-popup" pkttyagent)
+

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+LINK_PATH="$HOME/.local/state/current_wallpaper"
+IMAGE_PATH="$1"
+
+if [ -z "$IMAGE_PATH" ]; then
+    echo "Error: No image path provided."
+    exit 1
+fi
+
+[ -e "$LINK_PATH" ] || [ -L "$LINK_PATH" ] && rm "$LINK_PATH"
+ln -s "$IMAGE_PATH" "$LINK_PATH"
+
+OLD_PID=$(pgrep -x swaybg)
+
+swaybg -i "$LINK_PATH" -m fill &
+
+# If a previous swaybg was running, wait for the new one to load, then kill the old one.
+#
+# This prevents "flickering" that may happen if the old swaybg
+# instance is still loading while the new swaybg is starting up.
+if [ -n "$OLD_PID" ]; then
+    sleep 0.5
+    kill "$OLD_PID"
+fi
+

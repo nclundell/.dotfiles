@@ -19,6 +19,9 @@ gestures {
   }
 }
 
+spawn-at-startup "swaybg" "-i" "/home/nclundell/.local/state/current_wallpaper" "-m" "fill"
+spawn-at-startup "polkit-terminal-agent"
+
 //=== Screenshot ===
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 binds {

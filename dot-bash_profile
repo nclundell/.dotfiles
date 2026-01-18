@@ -1,0 +1,20 @@
+if [ -f /etc/profile ]; then
+  source /etc/profile
+fi
+
+export PATH=$HOME/.local/bin:$HOME/.local/scripts:$PATH
+export VISUAL=nvim
+export EDITOR=nvim
+
+if [[ -d $HOME/.config/tmux/plugins/tmuxifier ]]; then
+  export PATH=$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH
+  export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmuxifier/"
+fi
+
+if command -v starship >/dev/null 2>&1; then
+  export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
+fi
+
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc
+fi
