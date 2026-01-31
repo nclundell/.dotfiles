@@ -1,0 +1,10 @@
+
+[Unit]
+Description=Dank Material Shell
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=dms run
+Restart=on-failure
