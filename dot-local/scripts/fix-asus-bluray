@@ -1,0 +1,4 @@
+# Apply the ASUS BW-16D1X-U stability fixes
+rpm-ostree kargs \
+  --append-if-missing="usb-storage.quirks=0b05:1aec:u" \
+  --append-if-missing="usbcore.autosuspend=-1"
