@@ -5,11 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {
-    extensions = {
-      ["codecompanion-voices"] = { enabled = true }
-    }
-  },
+  opts = {},
   init = function()
     require("plugins.code-companion.fidget"):init()
   end,
