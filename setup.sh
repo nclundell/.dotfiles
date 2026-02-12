@@ -8,6 +8,14 @@ if [[ -f $HOME/.bashrc ]]; then
   fi
 fi
 
+if [[ -f $HOME/.bash_profile ]]; then
+  if [[ -L $HOME/.bash_profile ]]; then
+    rm $HOME/.bash_profile
+  else
+    mv $HOME/.bash_profile $HOME/.bash_profile.bak
+  fi
+fi
+
 stow .
 
 # Install Mise
