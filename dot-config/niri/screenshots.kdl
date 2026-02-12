@@ -1,0 +1,7 @@
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+binds {
+  Mod+P { screenshot; }
+  Mod+Alt+P { screenshot-window; }
+  Mod+Shift+P { screenshot-screen; }
+}

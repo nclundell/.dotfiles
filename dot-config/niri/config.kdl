@@ -1,6 +1,10 @@
+include "cursor.kdl"
 include "environment.kdl"
+include "gestures.kdl"
 include "keybinds.kdl"
 include "layout.kdl"
+include "monitors.kdl"
+include "screenshots.kdl"
 include "window-rules.kdl"
 
 prefer-no-csd
@@ -8,25 +12,3 @@ prefer-no-csd
 hotkey-overlay {
   skip-at-startup
 }
-
-/-output "DP-3" {
-  variable-refresh-rate
-}
-
-gestures {
-  hot-corners {
-    off
-  }
-}
-
-spawn-at-startup "swaybg" "-i" "/home/nclundell/.local/state/current_wallpaper" "-m" "fill"
-spawn-at-startup "polkit-terminal-agent"
-
-//=== Screenshot ===
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-binds {
-  Mod+P { screenshot; }
-  Mod+Alt+P { screenshot-window; }
-  Mod+Shift+P { screenshot-screen; }
-}
-
