@@ -1,15 +1,28 @@
 binds {
   // === System & Overview ===
   Mod+Tab         repeat=false { toggle-overview; }
-  Mod+Ctrl+Escape repeat=false { quit; }
   Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
   // === Application Launchers ===
-  Mod+T     hotkey-overlay-title="Open Terminal"        { spawn "ghostty"; }
-  Mod+F     hotkey-overlay-title="Open File Explorer"   { spawn "ghostty" "-e" "yazi"; }
-  Mod+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
+  Mod+T hotkey-overlay-title="Open Terminal"        { spawn "ghostty"; }
+  Mod+E hotkey-overlay-title="Open File Explorer"   { spawn "ghostty" "-e" "yazi"; }
+  Mod+Space hotkey-overlay-title="Application Launcher" {
+      spawn "dms" "ipc" "call" "spotlight" "toggle";
+  }
+  Mod+M hotkey-overlay-title="Task Manager" {
+      spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
+  }
+  Mod+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+  Mod+Comma hotkey-overlay-title="Settings" {
+      spawn "dms" "ipc" "call" "settings" "focusOrToggle";
+  }
+  Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+      spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+  }
+  Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+  Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
 
-  // === Audio Controls ===
+  // === Auio Controls ===
   XF86AudioRaiseVolume allow-when-locked=true {
     spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0";
   }
@@ -23,26 +36,26 @@ binds {
     spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
   }
 
-  // === Media Controls ===
-  XF86AudioPlay allow-when-locked=true {
-    spawn-sh "playerctl play-pause";
-  }
-  XF86AudioStop allow-when-locked=true {
-    spawn-sh "playerctl stop";
-  }
-  XF86AudioPrev allow-when-locked=true {
-    spawn-sh "playerctl previous";
-  }
-  XF86AudioNext allow-when-locked=true {
-    spawn-sh "playerctl next";
-  }
-
   // === Brightness Controls ===
   XF86MonBrightnessUp allow-when-locked=true {
      spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
   }
   XF86MonBrightnessDown allow-when-locked=true {
      spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+  }
+
+  // === Media Controls ===
+  XF86AudioPause allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "playPause";
+  }
+  XF86AudioPlay allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "playPause";
+  }
+  XF86AudioPrev allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "previous";
+  }
+  XF86AudioNext allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "next";
   }
 
   // === Window Management ===
@@ -59,16 +72,24 @@ binds {
   Mod+J     { focus-window-or-workspace-down; }
   Mod+K     { focus-window-or-workspace-up; }
   Mod+L     { focus-column-right; }
+  Mod+Left  { focus-column-left; }
+  Mod+Down  { focus-window-or-workspace-down; }
+  Mod+Up    { focus-window-or-workspace-up; }
+  Mod+Right { focus-column-right; }
 
   // === Window Movement ===
   Mod+Ctrl+J      { move-column-to-workspace-down; }
   Mod+Ctrl+K      { move-column-to-workspace-up; }
+  Mod+Shift+Home  { move-column-to-first; }
+  Mod+Shift+End   { move-column-to-last; }
   Mod+Shift+H     { move-column-left; }
   Mod+Shift+J     { move-window-down; }
   Mod+Shift+K     { move-window-up; }
   Mod+Shift+L     { move-column-right; }
-  Mod+Shift+Home  { move-column-to-first; }
-  Mod+Shift+End   { move-column-to-last; }
+  Mod+Shift+Left  { move-column-left; }
+  Mod+Shift+Down  { move-window-down; }
+  Mod+Shift+Up    { move-window-up; }
+  Mod+Shift+Right { move-column-right; }
 
   // === Mouse Wheel Navigation ===
   Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }

@@ -2,6 +2,7 @@ include "cursor.kdl"
 include "environment.kdl"
 include "gestures.kdl"
 include "keybinds.kdl"
+include "layer-rules.kdl"
 include "layout.kdl"
 include "monitors.kdl"
 include "screenshots.kdl"
@@ -11,4 +12,10 @@ prefer-no-csd
 
 hotkey-overlay {
   skip-at-startup
+}
+
+overview {
+  workspace-shadow {
+    off
+  }
 }
