@@ -1,23 +1,27 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
+set -e
 
+# Check if paru is already installed
 if command -v paru &> /dev/null; then
   echo "paru is already installed."
   exit 0
 fi
 
-sudo pacman -S --config $HOME/.dotfiles/dot-config/pacman/pacman.conf --noconfirm --needed bat devtools
+# Install required build dependencies
+sudo pacman -S --config "$HOME/.dotfiles/dot-config/pacman/pacman.conf" --noconfirm --needed bat devtools
 
-original_dir=$(pwd)
+# Create and enter a temporary directory
 tmpdir=$(mktemp -d)
-cd "$tmpdir" || exit 1
+pushd "$tmpdir"
 
-if ! git clone https://aur.archlinux.org/paru.git; then
-  echo "Failed to clone paru repository."
-  exit 1
-fi
+# Clone paru from AUR
+git clone https://aur.archlinux.org/paru.git
 
-cd paru || exit 1
+# Build and install paru
+cd paru
 makepkg -si
 
-cd "$original_dir"
+# Return to original directory and clean up
+popd
 rm -rf "$tmpdir"
+
