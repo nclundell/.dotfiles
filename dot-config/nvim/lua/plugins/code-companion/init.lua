@@ -5,7 +5,33 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {},
+  opts = {
+    context = {
+      buffers = 'all',
+      include_unsaved = true
+    },
+    display = {
+      chat = {
+        window = {
+          layout = 'float',
+          width = 0.8,
+          number = false,
+          relativenumber = false
+        }
+      }
+    },
+    interactions = {
+      chat = {
+        tools = {
+          opts = {
+            default_tools = {
+              "full_stack_dev"
+            }
+          },
+        }
+      }
+    }
+  },
   init = function()
     require("plugins.code-companion.fidget"):init()
   end,
@@ -31,6 +57,12 @@ return {
       end,
       desc = "Toggle Code Companion (with focus)",
     },
-  },
-
+    { 
+      "<leader>ce",
+      function()
+        require("codecompanion").explain()
+      end,
+      desc = "Explain Code"
+    },
+  }
 }
