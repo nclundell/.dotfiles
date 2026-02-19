@@ -1,0 +1,11 @@
+{
+  // theme: system, tokyonight, everforest, ayu, catppuccin, catppuccin-macchiato, gruvbox, opencode
+  "theme": "tokyonight",
+  "default_agent": "build",
+  "autoupdate": false,
+  "small_model": "opencode/gpt-5-nano",
+  "permission": {
+    "edit": "ask",
+    "bash": "ask"
+  }
+}
