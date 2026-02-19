@@ -2,26 +2,6 @@ return {
   "nickjvandyke/opencode.nvim",
   version = "*",
   dependencies = {
-    {
-      "folke/snacks.nvim",
-      optional = true,
-      opts = {
-        input = {},
-        picker = {
-          actions = {
-            opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
-          },
-          win = {
-            input = {
-              keys = {
-                ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
-              },
-            },
-          },
-        },
-        terminal = {},
-      },
-    },
   },
   config = function()
     vim.g.opencode_opts = {
@@ -29,7 +9,8 @@ return {
         enabled = "snacks",
         snacks = {
           win = {
-            position = "float"
+            position = "float",
+            enter = true,
           }
         }
       },
@@ -42,7 +23,10 @@ return {
     {
       '<leader>gc',
       function() require("opencode").toggle() end,
-      desc = "Toggle opencode"
-    }
+      desc = "Toggle opencode",
+      mode = { 'n', 't' }
+    },
+    { "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, desc = "Ask opencode with @this", mode = { "n", "x" } },
+    { "<C-x>", function() require("opencode").select() end, desc = "Opencode select", mode = { "n", "x" } },
   }
 }
