@@ -1,6 +1,7 @@
 -- OPTIONS --
 local o = vim.opt
 
+o.autoread = true       -- Reload files when changed on disk (required for opencode.nvim)
 o.scrolloff = 10         -- Set scrolloff to 10 (scroll lines from top/bottom)
 o.signcolumn = 'yes'     -- Set sign coloumn to yes (always)
 

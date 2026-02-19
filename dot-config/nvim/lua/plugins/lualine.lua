@@ -33,7 +33,12 @@ return {
         },
       },
       lualine_y = {},
-      lualine_z = {},
+      lualine_z = {
+        function()
+          local ok, opencode = pcall(require, "opencode")
+          return ok and opencode.statusline() or ""
+        end
+      },
     }
   }
 }
