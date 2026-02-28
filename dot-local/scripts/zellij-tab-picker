@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+options=(lazygit lazydocker)
+
+# Try skim first, then fzf
+if command -v sk >/dev/null 2>&1; then
+  choice=$(printf '%s\n' "${options[@]}" | sk --prompt="Add tab: ")
+elif command -v fzf >/dev/null 2>&1; then
+  choice=$(printf '%s\n' "${options[@]}" | fzf --prompt="Add tab: ")
+else
+  echo "Error: No picker found (sk or fzf)"
+  exit 1
+fi
+
+zellij action new-tab --layout "$choice"

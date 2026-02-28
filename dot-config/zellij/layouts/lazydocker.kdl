@@ -1,0 +1,14 @@
+layout {
+  default_tab_template {
+    pane size=1 borderless=true {
+      plugin location="compact-bar"
+    }
+    children
+  }
+
+  tab name="Lazydocker" {
+    pane command="lazydocker" {
+      close_on_exit true
+    }
+  }
+}

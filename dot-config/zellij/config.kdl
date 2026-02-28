@@ -4,52 +4,33 @@ session_serialization false
 theme "tokyo-night-dark"
 
 keybinds {
+  // Keybinds that work in locked mode
   locked {
-    // Detatch instead of destroying session
+    // Detach instead of destroying session
     bind "Ctrl d" { Detach; }
 
     // Move focus or tab
     bind "Ctrl Alt h" "Ctrl Alt Left" { MoveFocusOrTab "Left"; }
     bind "Ctrl Alt j" "Ctrl Alt Down" { MoveFocus "Down"; }
     bind "Ctrl Alt k" "Ctrl Alt Up" { MoveFocus "Up"; }
-    bind "Ctrl Alt l" "Ctrl Alt right" { MoveFocusOrTab "Right"; }
+    bind "Ctrl Alt l" "Ctrl Alt Right" { MoveFocusOrTab "Right"; }
 
-    // Lazydocker
-    bind "Ctrl Alt d" {
-      Run "lazydocker" {
-        close_on_exit true
+    // Session manager (floating)
+    bind "Ctrl Alt s" {
+      LaunchOrFocusPlugin "session-manager" {
         floating true
-        x "10%"
-        y "10%"
-        width "80%"
-        height "80%"
       }
-    }
-
-    // Lazygit
-    bind "Ctrl Alt g" {
-      Run "lazygit" {
-        close_on_exit true
-        floating true
-        x "10%"
-        y "10%"
-        width "80%"
-        height "80%"
-      }
-    }
-
-   bind "Ctrl Alt t" {
-    LaunchOrFocusPlugin "zellij:shell" {
-      floating true
-      toggle true
     }
   }
-    
-    // Session manager
-    bind "Ctrl Alt s" {
-      LaunchOrFocusPlugin "zellij:session-manager" {
+
+  // Tab mode: add 'a' to open picker for adding new tabs
+  tab {
+    bind "a" {
+      Run "zellij-tab-picker" {
         floating true
+        close_on_exit true
       }
+      SwitchToMode "locked"
     }
   }
 }
