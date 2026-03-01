@@ -32,7 +32,7 @@ OPUSENCOPTS="--vbr --bitrate 128"
 
 OUTPUTTYPE="ogg,mp3,flac,opus"
 
-CDROMREADERSYNTAX=cdda2wav
+CDROMREADERSYNTAX=icedax
 CDDA2WAVOPTS="-paranoia 2"
 
 CDDISCID=mb-discid
