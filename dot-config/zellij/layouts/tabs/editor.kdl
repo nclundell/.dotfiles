@@ -1,0 +1,12 @@
+layout {
+  tab name="Editor" {
+    pane size=1 borderless=true {
+      plugin location="compact-bar"
+    }
+
+    pane command="nvim" {
+      close_on_exit true
+    }
+  }
+
+}

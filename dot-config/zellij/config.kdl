@@ -23,10 +23,10 @@ keybinds {
     }
   }
 
-  // Tab mode: add 'a' to open picker for adding new tabs
   tab {
+    // Add one or more pre-defined tabs
     bind "a" {
-      Run "zellij-tab-picker" {
+      Run "./plugins/composable-tabs/composable-tabs.sh" "--picker" "fzf" {
         floating true
         close_on_exit true
       }

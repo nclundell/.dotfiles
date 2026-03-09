@@ -1,0 +1,11 @@
+layout {
+  tab name="Kiro" {
+    pane size=1 borderless=true {
+      plugin location="compact-bar"
+    }
+
+    pane command="kiro" {
+      close_on_exit true
+    }
+  }
+}

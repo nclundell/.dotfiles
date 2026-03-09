@@ -1,14 +1,11 @@
 layout {
-  default_tab_template {
+  tab name="Lazydocker" {
     pane size=1 borderless=true {
       plugin location="compact-bar"
     }
-    children
-  }
 
-  tab name="Editor" {
-    pane {
-      command "nvim"
+    pane command="lazydocker" {
+      close_on_exit true
     }
   }
 }

@@ -1,0 +1,12 @@
+layout {
+  tab name="Docker Compose" {
+    pane size=1 borderless=true {
+      plugin location="compact-bar"
+    }
+
+    pane command="docker" {
+      args "compose" "up"
+      close_on_exit true
+    }
+  }
+}
