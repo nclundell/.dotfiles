@@ -1,11 +1,11 @@
 layout {
-  tab name="Docker Compose" {
+  tab name="Console" {
     pane size=1 borderless=true {
       plugin location="compact-bar"
     }
 
-    pane command="docker" {
-      args "compose" "up"
+    pane command="rails" {
+      args "console"
     }
   }
 }
