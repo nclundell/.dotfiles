@@ -8,6 +8,7 @@ idiomatic_version_file_enable_tools = ['node', 'ruby']
 atuin       = 'latest'
 bat         = 'latest'
 bottom      = 'latest'
+codex       = 'latest'
 delta       = 'latest'
 direnv      = 'latest'
 eza         = 'latest'
@@ -20,21 +21,26 @@ jq          = 'latest'
 just        = 'latest'
 lazydocker  = 'latest'
 lazygit     = 'latest'
-neovim      = 'latest'
+neovim      = 'stable'
 opencode    = 'latest'
+pi          = 'latest'
 resvg       = 'latest'
 ripgrep     = 'latest'
 starship    = 'latest'
+television  = 'latest'
+tmux        = 'latest'
 tree-sitter = 'latest'
 uv          = 'latest'
 yazi        = 'latest'
+zellij      = 'latest'
 zoxide      = 'latest'
 
-'github:rgwood/systemctl-tui' = 'latest'
-'pipx:sqlit-tui'              = 'latest'
+'github:joshmedeski/sesh'     = 'latest'
+'github:rgwood/systemctl-tui' = { version = 'latest', os = ['linux'] }
 
 ## Languages
 node   = 'lts'
+python = 'latest'
 
 ## LSPs
-marksman    = 'latest'
+marksman = 'latest'
