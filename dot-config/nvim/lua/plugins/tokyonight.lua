@@ -1,9 +1,5 @@
-return {
-  'folke/tokyonight.nvim',
-  lazy = true,
-  priority = 1000,
-  -- name = 'theme-tokyonight',
-  opts = {
-    style = 'night'
-  }
+vim.pack.add({'https://github.com/folke/tokyonight.nvim'})
+
+require('tokyonight').setup {
+  style = 'night'
 }

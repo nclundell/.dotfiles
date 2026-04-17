@@ -1,25 +1,29 @@
-local map = vim.keymap.set
+local map = require("core.utils").map
 
 -- Folding
-map('n', ';', '@=(foldlevel(".")?"za": ";") <CR>', { noremap = true })
+map(";", '@=(foldlevel(".")?"za": ";") <CR>')
 
--- Buffer Movement
--- map('n', '<c-h>', '<C-w>h', { noremap = true })
--- map('n', '<c-j>', '<C-w>j', { noremap = true })
--- map('n', '<c-k>', '<C-w>k', { noremap = true })
--- map('n', '<c-l>', '<C-w>l', { noremap = true })
+-- Window Movement
+map('<C-h>', [[<C-w>h]], { desc = "Move to left window"  })
+map('<C-j>', [[<C-w>j]], { desc = "Move to below window" })
+map('<C-k>', [[<C-w>k]], { desc = "Move to above window" })
+map('<C-l>', [[<C-w>l]], { desc = "Move to right window" })
+map('<C-h>', [[<C-\><C-n><C-w>h]], { desc = "Move to left window",  mode = 't' })
+map('<C-j>', [[<C-\><C-n><C-w>j]], { desc = "Move to below window", mode = 't' })
+map('<C-k>', [[<C-\><C-n><C-w>k]], { desc = "Move to above window", mode = 't' })
+map('<C-l>', [[<C-\><C-n><C-w>l]], { desc = "Move to right window", mode = 't' })
 
 -- Write and Close Files
 -- map('n', '<leader>c', '<CMD> bd <CR>', { noremap = true })
 -- map('n', '<leader>C', '<CMD> bd! <CR>', { noremap = true })
-map('n', '<leader>q', '<CMD> q <CR>', { noremap = true })
-map('n', '<leader>Q', '<CMD> qa! <CR>', { noremap = true })
-map('n', '<leader>w', '<CMD> w <CR>', { noremap = true })
-map('n', '<leader>W', '<CMD> wa! <CR>', { noremap = true })
+map("<leader>q", "<CMD> q <CR>")
+map("<leader>Q", "<CMD> qa! <CR>")
+map("<leader>w", "<CMD> w <CR>")
+map("<leader>W", "<CMD> wa! <CR>")
 
 -- Indent and Unindent
-map('x', '>', '>gv', { noremap = true })
-map('x', '<', '<gv', { noremap = true })
+map(">", ">gv", { mode = "x" })
+map("<", "<gv", { mode = "x" })
 
 -- Terminal Mode
--- map('t', 'jk', '<c-\\><c-n>', { desc = 'Exit Terminal Mode' })
+map('<C-g>', [[<C-\><C-n>]], { desc = 'Exit Terminal Mode', mode = 't' })

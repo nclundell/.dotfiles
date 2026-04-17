@@ -1,0 +1,13 @@
+-- Plugin List
+require('plugins.autopairs')
+require('plugins.copilot')
+require('plugins.fidget')
+require('plugins.fzf')
+require('plugins.gitsigns')
+require('plugins.lspkind')
+require('plugins.lualine')
+require('plugins.opencode')
+require('plugins.surround')
+require('plugins.tokyonight')
+require('plugins.treesitter')
+require('plugins.yazi')
