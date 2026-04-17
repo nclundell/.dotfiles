@@ -1,26 +1,17 @@
 [metadata]
 name = "tmux-windows"
 description = "Add a tmuxifier window to the current tmux session"
-requirements = ["tmuxifier"]
+requirements = ["tmuxifier", "tmux"]
 
 [source]
-command = '''
-for file in "$HOME/.dotfiles/dot-config/tmuxifier"/*.window.sh; do
-  [ -f "$file" ] || continue
-  layout=$(basename "$file" .window.sh)
-  name=$(sed -n "s/^new_window \"\(.*\)\"$/\1/p" "$file" | head -n1)
-  printf "%s\t%s\n" "${name:-$layout}" "$layout"
-done | sort
-'''
+command = 'sh "$HOME/.dotfiles/dot-config/television/cable/scripts/tmux-windows-source.sh"'
 no_sort = true
 display = "{split:\t:0}"
 output = "{split:\t:1}"
 
 [actions.load_window]
 description = "Load selected tmuxifier window"
-command = '''
-TMUXIFIER_LAYOUT_PATH="$HOME/.dotfiles/dot-config/tmuxifier" tmuxifier load-window '{}'
-'''
+command = 'bash "$HOME/.dotfiles/dot-config/television/cable/scripts/tmux-windows-load.sh" "{split:\t:1}"'
 mode = "execute"
 
 [keybindings]
