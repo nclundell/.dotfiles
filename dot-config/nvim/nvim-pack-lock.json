@@ -1,47 +1,39 @@
 {
   "plugins": {
     "copilot.lua": {
-      "rev": "ad7e729e9a6348f7da482be0271d452dbc4c8e2c",
+      "rev": "adff470bca742b7658228ed144589250ecb3dc0a",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "fidget.nvim": {
       "rev": "889e2e96edef4e144965571d46f7a77bcc4d0ddf",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
-    "focus.nvim": {
-      "rev": "36ebedeebe82ebea250c9d671769194caa033902",
-      "src": "https://github.com/nvim-focus/focus.nvim"
-    },
     "fzf-lua": {
-      "rev": "eee072d89ccdc0a4627bf67d0757d2e4981c7292",
+      "rev": "8223eb24a7adf72c4b24e04b751486b492775414",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
+      "rev": "6d808f99bd63303646794406e270bd553ad7792e",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
-    "indent-blankline.nvim": {
-      "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
-      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    "lazygit.nvim": {
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
     },
     "lspkind.nvim": {
       "rev": "c7274c48137396526b59d86232eabcdc7fed8a32",
       "src": "https://github.com/onsails/lspkind.nvim"
     },
     "lualine.nvim": {
-      "rev": "f5d2a8570f8b736ddb9bb4be504355bcd6e15ec8",
+      "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
-    "mini.pairs": {
-      "rev": "42387c7fe68fc0b6e95eaf37f1bb76e7bffaa0d9",
-      "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "cb5bc0b2b35a6d513e3298d285db81453e791f4f",
+      "rev": "e146efacbafed3789ac568abcc5a981c5decaa58",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -57,7 +49,7 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "opencode.nvim": {
-      "rev": "6ed56733b19dce45d1f02abc34547cb21857ca95",
+      "rev": "b3cdd746a5ca321b6884badefa0ba22c86c3d45e",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "plenary.nvim": {
@@ -68,12 +60,8 @@
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"
     },
-    "vim-tmux-navigator": {
-      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
-      "src": "https://github.com/christoomey/vim-tmux-navigator"
-    },
     "yazi.nvim": {
-      "rev": "91cebd40716a73534165762e23c9f96847e7587c",
+      "rev": "d34b366517a21fb2366e8ac393fc903008345173",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }

@@ -15,7 +15,10 @@ function M.copilot_auto_trigger_enabled()
     return vim.b.copilot_suggestion_auto_trigger
   end
 
-  return require("copilot.config").suggestion.auto_trigger
+  local ok, config = pcall(require, 'copilot.config')
+  if not ok then return false end
+
+  return config.suggestion.auto_trigger
 end
 
 return M

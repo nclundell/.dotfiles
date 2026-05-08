@@ -5,6 +5,8 @@ vim.g.mapleader = ','
 require('core.diagnostics')
 require('core.keymaps')
 require('core.options')
+require('core.autocmds')
+require('core.pack')
 require('core.indent-guides')
 
 -- Language Servers

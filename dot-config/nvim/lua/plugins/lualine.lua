@@ -6,6 +6,9 @@ local function copilot_suggestions()
 end
 
 require("lualine").setup({
+  extensions = {
+    'opencode'
+  },
   options = {
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
@@ -17,7 +20,8 @@ require("lualine").setup({
     lualine_a = { "mode" },
     lualine_b = {},
     lualine_c = {
-      "filetype",
+      "branch",
+      "diff",
       {
         "filename",
         symbols = {

@@ -4,15 +4,24 @@ vim.pack.add({ "https://github.com/nickjvandyke/opencode.nvim" }, { version = "*
 vim.api.nvim_create_autocmd("BufEnter", {
   group = vim.api.nvim_create_augroup("OpencodeEnter", { clear = true }),
   callback = function(args)
+    -- Check if buffer type is a terminal
     if vim.bo[args.buf].buftype ~= "terminal" then
       return
     end
+
+    -- Check if 'opencode' in buffer/terminal name
     local name = vim.api.nvim_buf_get_name(args.buf)
     if not name:find("opencode", 1, true) then
       return
     end
+
+    -- Set filetype as 'opencode'
+    vim.bo[args.buf].filetype = 'opencode'
+
+    -- If the buffer is valid and is the current buffer, run 'startinsert'
     vim.schedule(function()
       if vim.api.nvim_buf_is_valid(args.buf) and vim.api.nvim_get_current_buf() == args.buf then
+        vim.api.nvim_buf_set_name(args.buf, 'opencode')
         vim.cmd("startinsert")
       end
     end)
