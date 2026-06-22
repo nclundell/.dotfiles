@@ -11,7 +11,7 @@ hash = "47865a70cade14a0b9b6bc6a54f16bdb"
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
 rev = "d7588f6"
-hash = "63b6c222bf2103b3023389dde5e2ecfe"
+hash = "3cce60031b27cbce80b50f68ca319c0a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
@@ -26,19 +26,19 @@ hash = "e1de3054c0d1a2d8dc6f007eadc0fa31"
 [[flavor.deps]]
 use = "kalidyasin/yazi-flavors:tokyonight-storm"
 rev = "fa19b40"
-hash = "b9aa812b133d03b4445beac37c28caa8"
+hash = "91bd85a94f1a11f3f994906b729375ae"
 
 [[flavor.deps]]
 use = "kalidyasin/yazi-flavors:tokyonight-day"
 rev = "fa19b40"
-hash = "13c91fa66e369081d01969b930199620"
+hash = "104ad366bf3c87da47d3ffcafec33e51"
 
 [[flavor.deps]]
 use = "kalidyasin/yazi-flavors:tokyonight-night"
 rev = "fa19b40"
-hash = "648270973268682226755084692d6dfc"
+hash = "fd99189fe362330c683de88d7189b44"
 
 [[flavor.deps]]
 use = "kalidyasin/yazi-flavors:tokyonight-moon"
 rev = "fa19b40"
-hash = "716fd834e7d9cdb80c9d111657f637c2"
+hash = "92456bb341a39ad5e30c78b30de72e28"
