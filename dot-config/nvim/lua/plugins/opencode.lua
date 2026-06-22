@@ -4,19 +4,17 @@ vim.pack.add({ "https://github.com/nickjvandyke/opencode.nvim" }, { version = "*
 vim.api.nvim_create_autocmd("BufEnter", {
   group = vim.api.nvim_create_augroup("OpencodeEnter", { clear = true }),
   callback = function(args)
-    -- Check if buffer type is a terminal
-    if vim.bo[args.buf].buftype ~= "terminal" then
-      return
-    end
-
-    -- Check if 'opencode' in buffer/terminal name
-    local name = vim.api.nvim_buf_get_name(args.buf)
-    if not name:find("opencode", 1, true) then
+    if vim.b[args.buf].opencode_terminal ~= true then
       return
     end
 
     -- Set filetype as 'opencode'
     vim.bo[args.buf].filetype = 'opencode'
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+    vim.wo.signcolumn = 'no'
+    vim.wo.foldcolumn = '0'
+    vim.wo.statuscolumn = ''
 
     -- If the buffer is valid and is the current buffer, run 'startinsert'
     vim.schedule(function()
@@ -38,7 +36,7 @@ vim.keymap.set({ "n", "x" }, "<C-x>", function()
 end, { desc = "Opencode actions" })
 
 vim.keymap.set({ "n", "t" }, "<leader>gc", function()
-  require("opencode").toggle()
+  require("utils.opencode").toggle()
 end, { desc = "Toggle opencode" })
 
 vim.keymap.set({ "n", "x" }, "go", function()
