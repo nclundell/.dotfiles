@@ -1,7 +1,29 @@
 [settings]
-rust.cargo_home  = '.local/share/cargo'
-rust.rustup_home = '.local/share/rustup'
 idiomatic_version_file_enable_tools = ['node', 'ruby']
+
+[tasks.herdr-setup]
+run = [
+  'herdr plugin install cloudmanic/herdr-plus --yes',
+  'npx skills add ogulcancelik/herdr --skill herdr -g --yes',
+]
+
+[tasks.opencode-setup]
+depends = 'herdr-setup'
+run = [
+  'herdr integration install opencode',
+]
+
+[tasks.pi-setup]
+depends = 'herdr-setup'
+run = [
+  'herdr integration install pi',
+  'pi install npm:@gotgenes/pi-permission-system',
+  'pi install npm:@gotgenes/pi-subagents',
+]
+
+[tasks.agent-setup]
+description = 'Run all agent setups'
+depends = ['opencode-setup', 'pi-setup']
 
 [tools]
 ## Binaries and TUIs
@@ -15,8 +37,7 @@ eza         = 'latest'
 fd          = 'latest'
 fzf         = 'latest'
 github-cli  = 'latest'
-glow        = 'latest'
-gum         = 'latest'
+herdr       = 'latest'
 jq          = 'latest'
 just        = 'latest'
 lazydocker  = 'latest'
@@ -28,14 +49,11 @@ resvg       = 'latest'
 ripgrep     = 'latest'
 starship    = 'latest'
 television  = 'latest'
-tmux        = 'latest'
 tree-sitter = 'latest'
-uv          = 'latest'
 yazi        = 'latest'
 zellij      = 'latest'
 zoxide      = 'latest'
 
-'github:joshmedeski/sesh'     = 'latest'
 'github:rgwood/systemctl-tui' = { version = 'latest', os = ['linux'] }
 
 ## Languages
