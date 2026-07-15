@@ -1,0 +1,11 @@
+layout {
+  tab name="Console" {
+    pane size=1 borderless=true {
+      plugin location="compact-bar"
+    }
+
+    pane command="rails" {
+      args "console"
+    }
+  }
+}

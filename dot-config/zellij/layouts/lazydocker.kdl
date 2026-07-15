@@ -1,0 +1,11 @@
+layout {
+  tab name="Lazydocker" {
+    pane size=1 borderless=true {
+      plugin location="compact-bar"
+    }
+
+    pane command="lazydocker" {
+      close_on_exit true
+    }
+  }
+}

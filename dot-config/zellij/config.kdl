@@ -2,36 +2,33 @@ default_shell "zsh"
 default_mode "locked"
 pane_frames false
 session_serialization false
+show_startup_tips false
 theme "tokyo-night-dark"
 
 keybinds {
   // Keybinds that work in locked mode
   locked {
-    // Detach instead of destroying session
-    bind "Ctrl d" { Detach; }
-
     // Move focus or tab
     bind "Ctrl Alt h" "Ctrl Alt Left" { MoveFocusOrTab "Left"; }
     bind "Ctrl Alt j" "Ctrl Alt Down" { MoveFocus "Down"; }
     bind "Ctrl Alt k" "Ctrl Alt Up" { MoveFocus "Up"; }
     bind "Ctrl Alt l" "Ctrl Alt Right" { MoveFocusOrTab "Right"; }
 
+    // Detach instead of destroying session
+    bind "Ctrl Alt d" { Detach; }
+
     // Session manager (floating)
     bind "Ctrl Alt s" {
-      LaunchOrFocusPlugin "session-manager" {
+      LaunchOrFocusPlugin "zellij:session-manager" {
         floating true
       }
     }
-  }
 
-  tab {
-    // Add one or more pre-defined tabs
-    bind "a" {
-      Run "./plugins/composable-tabs/composable-tabs.sh" "--picker" "fzf" {
+    // Layout Manager (floating)
+    bind "Ctrl Alt t" {
+      LaunchOrFocusPlugin "zellij:layout-manager" {
         floating true
-        close_on_exit true
       }
-      SwitchToMode "locked"
     }
   }
 }
