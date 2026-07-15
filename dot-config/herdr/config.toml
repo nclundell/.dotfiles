@@ -1,0 +1,39 @@
+onboarding = false
+[theme]
+name = "tokyo-night"
+
+[keys]
+prefix = "ctrl+space"
+previous_tab = "ctrl+alt+h"
+next_tab = "ctrl+alt+l"
+next_workspace = "ctrl+alt+j"
+previous_workspace = "ctrl+alt+k"
+
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.projects"
+description = "herdr-plus: projects"
+
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.quick-actions"
+description = "herdr-plus: quick actions"
+
+[[keys.command]]
+key = "prefix+g"
+type = "pane"
+command = "lazygit"
+description = "lazygit"
+
+[[keys.command]]
+key = "prefix+d"
+type = "pane"
+command = "lazydocker"
+description = "lazydocker"
+
+[ui]
+pane_gaps = false
+hide_tab_bar_when_single_tab = true
+agent_panel_sort = "spaces"
