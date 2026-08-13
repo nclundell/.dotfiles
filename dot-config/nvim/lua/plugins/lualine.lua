@@ -1,14 +1,11 @@
 vim.pack.add({"https://github.com/nvim-lualine/lualine.nvim"})
 vim.pack.add({"https://github.com/nvim-tree/nvim-web-devicons"})
 
-local function copilot_suggestions()
+local function copilot_status()
   return require('core.utils').copilot_auto_trigger_enabled() and "" or ""
 end
 
 require("lualine").setup({
-  extensions = {
-    'opencode'
-  },
   options = {
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
@@ -30,7 +27,7 @@ require("lualine").setup({
       },
     },
     lualine_x = {
-      copilot_suggestions,
+      copilot_status,
       "lsp_status"
     },
     lualine_y = {},

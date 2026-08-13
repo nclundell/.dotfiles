@@ -1,9 +1,7 @@
-local function should_update_indent_guides()
-  return vim.bo.buftype == '' and vim.bo.modifiable
-end
-
 local function update_indent_guides()
-  if not should_update_indent_guides() then
+  local should_update_indent_guides = vim.bo.buftype == '' and vim.bo.modifiable
+
+  if not should_update_indent_guides then
     vim.opt_local.list = false
 
     return
@@ -42,5 +40,3 @@ vim.api.nvim_create_autocmd(
     callback = update_indent_guides,
   }
 )
-
-update_indent_guides()
