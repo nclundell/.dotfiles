@@ -1,0 +1,53 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "peer",
+  "autoupdate": false,
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    }
+  },
+  "permission": {
+    "edit": "ask",
+    "glob": "allow",
+    "list": "allow",
+    "bash": {
+      "*":                        "allow",
+      "git checkout --*":         "deny",
+      "git clean*":               "deny",
+      "git commit*":              "deny",
+      "git push*":                "deny",
+      "git reset --hard*":        "deny",
+      "git restore*":             "deny",
+      "*rails db:drop*":          "deny",
+      "*rails db:purge*":         "deny",
+      "*rails db:reset*":         "deny",
+      "*rails db:migrate:reset*": "deny",
+      "*rake db:drop*":           "deny",
+      "*rake db:purge*":          "deny",
+      "*rake db:reset*":          "deny",
+      "*rake db:migrate:reset*":  "deny",
+      "rm -rf*":                  "deny",
+      "sudo*":                    "deny"
+    },
+    "external_directory": {
+      "*": "ask",
+      "/home/*/projects/**":   "allow",
+      "/home/*/Projects/**":   "allow",
+      "/home/*/.config/**":    "allow",
+      "/home/*/.dotfiles/**":  "allow",
+      "/Users/*/projects/**":  "allow",
+      "/Users/*/Projects/**":  "allow",
+      "/Users/*/.config/**":   "allow",
+      "/Users/*/.dotfiles/**": "allow"
+    },
+    "read": {
+      "*":        "allow",
+      "*.env*":    "deny",
+      "**/*.env*": "deny"
+    }
+  }
+}
