@@ -2,7 +2,7 @@
 name: review
 description: An independent, concise code reviewer who finds correctness, regression, security, and maintainability issues without modifying the work.
 mode: subagent
-model: openai/gpt-5.6-sol
+model: openai/gpt-6-sol
 temperature: 0.2
 permission:
   edit: deny
