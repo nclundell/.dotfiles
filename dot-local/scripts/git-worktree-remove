@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+
+_worktree_root() {
+  local common_dir
+  common_dir=$(git rev-parse --git-common-dir) || return 1
+  common_dir=$(builtin cd -P "$common_dir" && pwd -P) || return 1
+  if [[ $(git --git-dir="$common_dir" rev-parse --is-bare-repository) != true ]]; then
+    printf 'Worktree commands require a bare common repository\n' >&2
+    return 1
+  fi
+  (builtin cd -P "$common_dir" && builtin cd .. && pwd -P)
+}
+
+_select_branch() {
+  if command -v gum >/dev/null 2>&1; then
+    gum filter
+  elif command -v fzf >/dev/null 2>&1; then
+    fzf
+  else
+    printf '%s: Requires a branch (or install gum or fzf to select one)\n' "$1" >&2
+    return 1
+  fi
+}
+
+_list_worktrees() {
+  local line worktrees
+  worktrees=$(git worktree list --porcelain) || return 1
+  while IFS= read -r line; do
+    case $line in
+      'branch refs/heads/'*)
+        printf '%s\n' "${line#branch refs/heads/}"
+        ;;
+    esac
+  done <<< "$worktrees"
+}
+
+_worktree_path() {
+  local branch=$1 line path= worktrees
+  worktrees=$(git worktree list --porcelain) || return 1
+  while IFS= read -r line; do
+    case $line in
+      'worktree '*) path=${line#worktree } ;;
+      "branch refs/heads/$branch")
+        [[ -n $path ]] || break
+        printf '%s\n' "$path"
+        return 0
+        ;;
+    esac
+  done <<< "$worktrees"
+  printf 'Branch is not in a worktree: %s\n' "$branch" >&2
+  return 1
+}
+
+_print_worktree_status() {
+  printf 'These files may be preventing worktree removal:\n'
+  git -C "$1" status --short --untracked-files=all --ignored=traditional
+}
+
+_restore_env_links() {
+  if ! "$HOME/.local/scripts/git/git-worktree-env-files" "$1"; then
+    printf 'Warning: could not restore env links in %s after failed removal\n' "$1" >&2
+  fi
+}
+
+main() {
+  local branch=${1-} branches target current_dir target_dir remove_status
+  if (( $# > 1 )) || [[ $branch == --* ]]; then
+    printf 'Usage: git-worktree-remove [branch]\n' >&2
+    return 1
+  fi
+  if [[ -z $branch ]]; then
+    branches=$(_list_worktrees) || return 1
+    if [[ -z $branches ]]; then
+      printf 'No current worktree branches\n' >&2
+      return 1
+    fi
+    branch=$(printf '%s\n' "$branches" | _select_branch gwr) || return 1
+    [[ -n $branch ]] || return 1
+  fi
+
+  if ! git check-ref-format --branch "$branch" >/dev/null 2>&1; then
+    printf 'Invalid branch name: %s\n' "$branch" >&2
+    return 1
+  fi
+  _worktree_root >/dev/null || return 1
+  target=$(_worktree_path "$branch") || return 1
+  current_dir=$(pwd -P) || return 1
+  target_dir=$(builtin cd -P -- "$target" && pwd -P) || return 1
+  if [[ $current_dir == "$target_dir" || $current_dir == "$target_dir/"* ]]; then
+    printf 'Cannot remove the worktree from inside it; cd elsewhere first: %s\n' "$target" >&2
+    return 1
+  fi
+  if "$HOME/.local/scripts/git/git-worktree-env-files" --remove-links "$target"; then
+    :
+  else
+    remove_status=$?
+    _restore_env_links "$target"
+    return "$remove_status"
+  fi
+  if git worktree remove -- "$target"; then
+    return 0
+  else
+    remove_status=$?
+  fi
+  _restore_env_links "$target"
+  _print_worktree_status "$target"
+  return "$remove_status"
+}
+
+main "$@"

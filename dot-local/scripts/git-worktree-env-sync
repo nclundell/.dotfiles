@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+
+_sync_env_files() {
+  local env_dir=$1 worktree=$2 source name target
+  shopt -s nullglob dotglob
+  for source in "$env_dir"/*; do
+    [[ -f $source ]] || continue
+    name=${source##*/}
+    target=$worktree/$name
+    [[ -e $target || -L $target ]] && continue
+
+    ln -s -- "$source" "$target" || return 1
+    printf 'Linked env file: %s -> %s\n' "$target" "$source"
+  done
+}
+
+_remove_env_files() {
+  local env_dir=$1 worktree=$2 target name
+  shopt -s nullglob dotglob
+  for target in "$worktree"/*; do
+    [[ -L $target ]] || continue
+    name=${target##*/}
+    [[ $(readlink "$target") == "$env_dir/$name" ]] || continue
+    rm -- "$target" || return 1
+  done
+}
+
+_validate_worktree() {
+  local common_dir=$1 path=$2 worktree worktrees line
+  worktree=$(cd -P -- "$path" 2>/dev/null && pwd -P) || {
+    printf 'Expected an existing worktree path: %s\n' "$path" >&2
+    return 1
+  }
+  if [[ $worktree == "$common_dir" ]]; then
+    printf 'Not a checked-out worktree: %s\n' "$worktree" >&2
+    return 1
+  fi
+  worktrees=$(git --git-dir="$common_dir" worktree list --porcelain) || return 1
+  while IFS= read -r line; do
+    if [[ $line == "worktree $worktree" ]]; then
+      printf '%s\n' "$worktree"
+      return 0
+    fi
+  done <<< "$worktrees"
+  printf 'Not a registered worktree: %s\n' "$worktree" >&2
+  return 1
+}
+
+_list_worktrees() {
+  local common_dir=$1 line path worktrees
+  worktrees=$(git --git-dir="$common_dir" worktree list --porcelain) || return 1
+  while IFS= read -r line; do
+    if [[ $line == 'worktree '* ]]; then
+      path=${line#worktree }
+      [[ $path != "$common_dir" && -d $path ]] && printf '%s\n' "$path"
+    fi
+  done <<< "$worktrees"
+}
+
+_select_worktree() {
+  if command -v gum >/dev/null 2>&1; then
+    gum filter
+  elif command -v fzf >/dev/null 2>&1; then
+    fzf
+  else
+    printf 'Install gum or fzf to select a worktree\n' >&2
+    return 1
+  fi
+}
+
+main() {
+  local common_dir project env_dir worktree choices remove_links=false
+  if [[ ${1-} == --remove-links ]]; then
+    remove_links=true
+    shift
+  fi
+  if (( $# > 1 )) || [[ ${1-} == --* ]]; then
+    printf 'Usage: git-worktree-env-files [--remove-links] [worktree-path]\n' >&2
+    return 1
+  fi
+  common_dir=$(git rev-parse --git-common-dir) || return 1
+  common_dir=$(cd "$common_dir" && pwd -P) || return 1
+  if [[ ${common_dir##*/} != .git || $(git --git-dir="$common_dir" rev-parse --is-bare-repository 2>/dev/null) != true ]]; then
+    printf 'Worktree commands require a bare common repository\n' >&2
+    return 1
+  fi
+  project=$(dirname "$common_dir")
+  env_dir=$project/env
+
+  if [[ -n ${1-} ]]; then
+    worktree=$(_validate_worktree "$common_dir" "$1") || return 1
+  else
+    if (( $# )); then
+      printf 'Expected an existing worktree path\n' >&2
+      return 1
+    fi
+    choices=$(_list_worktrees "$common_dir") || return 1
+    if [[ -z $choices ]]; then
+      printf 'No current worktrees\n' >&2
+      return 1
+    fi
+    worktree=$(printf '%s\n' "$choices" | _select_worktree) || return 1
+    [[ -n $worktree ]] || return 1
+    worktree=$(_validate_worktree "$common_dir" "$worktree") || return 1
+  fi
+
+  if [[ $remove_links == true ]]; then
+    _remove_env_files "$env_dir" "$worktree"
+    return $?
+  fi
+
+  mkdir -p -- "$env_dir" || return 1
+  _sync_env_files "$env_dir" "$worktree"
+}
+
+main "$@"

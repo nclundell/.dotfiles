@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+_gc_project() {
+  local name=${1%/}
+  name=${name##*/}
+  name=${name##*:}
+  printf '%s\n' "${name%.git}"
+}
+
+_gc_bare() {
+  local url=${1-} project=${2-}
+
+  if (( $# > 2 )) || [[ -z $url ]]; then
+    printf 'Expected repository URL and optional project name\n' >&2
+    return 1
+  fi
+
+  project=${project:-$(_gc_project "$url")}
+  if [[ -z $project ]]; then
+    printf 'Could not derive project name from URL\n' >&2
+    return 1
+  fi
+  if [[ -e $project || -L $project ]]; then
+    printf 'Destination already exists: %s\n' "$project" >&2
+    return 1
+  fi
+
+  mkdir -- "$project" || return
+  git clone --bare -- "$url" "$project/.git" || {
+    local status=$?
+    printf 'Bare clone failed for %s\n' "$project/.git" >&2
+    rm -rf -- "$project" || printf 'Could not clean up project directory: %s\n' "$project" >&2
+    return "$status"
+  }
+  mkdir -- "$project/env" || {
+    local status=$?
+    printf 'Env directory setup failed for %s\n' "$project/env" >&2
+    rm -rf -- "$project" || printf 'Could not clean up project directory: %s\n' "$project" >&2
+    return "$status"
+  }
+}
+
+main() {
+  case ${1-} in
+    -b) shift; _gc_bare "$@" ;;
+    *) git clone "$@" ;;
+  esac
+}
+
+main "$@"

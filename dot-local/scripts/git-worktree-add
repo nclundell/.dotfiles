@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+
+_worktree_root() {
+  local common_dir
+  common_dir=$(git rev-parse --git-common-dir) || return 1
+  common_dir=$(builtin cd -P "$common_dir" && pwd -P) || return 1
+  if [[ $(git --git-dir="$common_dir" rev-parse --is-bare-repository) != true ]]; then
+    printf 'Worktree commands require a bare common repository\n' >&2
+    return 1
+  fi
+  (builtin cd -P "$common_dir" && builtin cd .. && pwd -P)
+}
+
+_select_branch() {
+  if command -v gum >/dev/null 2>&1; then
+    gum filter
+  elif command -v fzf >/dev/null 2>&1; then
+    fzf
+  else
+    printf '%s: Requires a branch (or install gum or fzf to select one)\n' "$1" >&2
+    return 1
+  fi
+}
+
+_list_worktrees() {
+  local line worktrees
+  worktrees=$(git worktree list --porcelain) || return 1
+  while IFS= read -r line; do
+    case $line in
+      'branch refs/heads/'*)
+        printf '%s\n' "${line#branch refs/heads/}"
+        ;;
+    esac
+  done <<< "$worktrees"
+}
+
+_available_branches() {
+  local remote=$1 remote_configured=$2 checked_out locals remotes= branch ref
+  checked_out=$(_list_worktrees) || return 1
+  locals=$(git for-each-ref --format='%(refname:strip=2)' refs/heads) || return 1
+  if [[ $remote_configured == true ]]; then
+    remotes=$(git for-each-ref --format='%(refname)' "refs/remotes/$remote") || return 1
+  fi
+
+  while IFS= read -r branch; do
+    [[ -n $branch ]] || continue
+    [[ $'\n'"$checked_out"$'\n' == *$'\n'"$branch"$'\n'* ]] && continue
+    printf '[ local ] %s\n' "$branch"
+  done <<< "$locals"
+
+  while IFS= read -r ref; do
+    [[ -n $ref && $ref != "refs/remotes/$remote/HEAD" ]] || continue
+    branch=${ref#"refs/remotes/$remote/"}
+    [[ $'\n'"$locals"$'\n' == *$'\n'"$branch"$'\n'* ]] && continue
+    [[ $'\n'"$checked_out"$'\n' == *$'\n'"$branch"$'\n'* ]] && continue
+    if [[ $remote == local ]]; then
+      printf '[ remote:local ] %s\n' "$branch"
+    else
+      printf '[ %s ] %s\n' "$remote" "$branch"
+    fi
+  done <<< "$remotes"
+}
+
+_add_worktree() {
+  local branch=$1 remote=$2 root=$3 remote_configured=$4
+  if git show-ref --verify --quiet "refs/heads/$branch"; then
+    git worktree add -- "$root/$branch" "$branch"
+  elif [[ $remote_configured == true ]] && git show-ref --verify --quiet "refs/remotes/$remote/$branch"; then
+    git worktree add --track -b "$branch" -- "$root/$branch" "refs/remotes/$remote/$branch"
+  else
+    printf 'Branch not found: %s (local or %s)\n' "$branch" "$remote" >&2
+    return 1
+  fi
+}
+
+main() {
+  local remote=origin remote_explicit=false remote_configured=false branch= selection choices root remotes other
+  if [[ ${1-} == --remote ]]; then
+    (( $# >= 2 )) && [[ -n $2 ]] || { printf '--remote requires a name\n' >&2; return 1; }
+    remote=$2
+    remote_explicit=true
+    shift 2
+  fi
+  if (( $# > 1 )) || [[ ${1-} == --* ]]; then
+    printf 'Usage: git-worktree-add [--remote name] [branch]\n' >&2
+    return 1
+  fi
+  branch=${1-}
+  remotes=$(git remote) || return 1
+  if [[ $'\n'"$remotes"$'\n' == *$'\n'"$remote"$'\n'* ]]; then
+    remote_configured=true
+  elif [[ $remote_explicit == true ]]; then
+    printf 'Unknown remote: %s\n' "$remote" >&2
+    return 1
+  fi
+  if [[ $remote_configured == true ]]; then
+    while IFS= read -r other; do
+      if [[ $other == "$remote/"* || $remote == "$other/"* ]]; then
+        printf 'Ambiguous remote names: %s and %s\n' "$remote" "$other" >&2
+        return 1
+      fi
+    done <<< "$remotes"
+  fi
+  root=$(_worktree_root) || return 1
+  if [[ -z $branch ]]; then
+    choices=$(_available_branches "$remote" "$remote_configured") || return 1
+    if [[ -z $choices ]]; then
+      printf 'No available branches\n' >&2
+      return 1
+    fi
+    selection=$(printf '%s\n' "$choices" | _select_branch gwa) || return 1
+    [[ -n $selection ]] || return 1
+    branch=${selection#*' ] '}
+  fi
+  _add_worktree "$branch" "$remote" "$root" "$remote_configured"
+}
+
+main "$@"
