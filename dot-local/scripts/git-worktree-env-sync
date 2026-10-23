@@ -57,17 +57,6 @@ _list_worktrees() {
   done <<< "$worktrees"
 }
 
-_select_worktree() {
-  if command -v gum >/dev/null 2>&1; then
-    gum filter
-  elif command -v fzf >/dev/null 2>&1; then
-    fzf
-  else
-    printf 'Install gum or fzf to select a worktree\n' >&2
-    return 1
-  fi
-}
-
 main() {
   local common_dir project env_dir worktree choices remove_links=false
   if [[ ${1-} == --remove-links ]]; then
@@ -99,7 +88,7 @@ main() {
       printf 'No current worktrees\n' >&2
       return 1
     fi
-    worktree=$(printf '%s\n' "$choices" | _select_worktree) || return 1
+    worktree=$(printf '%s\n' "$choices" | "$(dirname -- "${BASH_SOURCE[0]}")/helpers/_picker") || return 1
     [[ -n $worktree ]] || return 1
     worktree=$(_validate_worktree "$common_dir" "$worktree") || return 1
   fi

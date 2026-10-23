@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+choices="$(cat)"
+if [[ -z "$choices" ]]; then
+  printf 'No choices available.\n' >&2
+  exit 1
+fi
+
+if command -v gum >/dev/null 2>&1; then
+  picker=(gum filter --strict)
+elif command -v fzf >/dev/null 2>&1; then
+  picker=(fzf)
+else
+  printf 'Install gum or fzf to pick a choice.\n' >&2
+  exit 1
+fi
+
+choice="$(printf '%s\n' "$choices" | "${picker[@]}")" || choice=""
+if [[ -z "$choice" ]]; then
+  printf 'No choice selected.\n' >&2
+  exit 1
+fi
+printf '%s\n' "$choice"

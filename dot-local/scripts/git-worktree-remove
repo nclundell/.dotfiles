@@ -11,17 +11,6 @@ _worktree_root() {
   (builtin cd -P "$common_dir" && builtin cd .. && pwd -P)
 }
 
-_select_branch() {
-  if command -v gum >/dev/null 2>&1; then
-    gum filter
-  elif command -v fzf >/dev/null 2>&1; then
-    fzf
-  else
-    printf '%s: Requires a branch (or install gum or fzf to select one)\n' "$1" >&2
-    return 1
-  fi
-}
-
 _list_worktrees() {
   local line worktrees
   worktrees=$(git worktree list --porcelain) || return 1
@@ -74,7 +63,7 @@ main() {
       printf 'No current worktree branches\n' >&2
       return 1
     fi
-    branch=$(printf '%s\n' "$branches" | _select_branch gwr) || return 1
+    branch=$(printf '%s\n' "$branches" | "$(dirname -- "${BASH_SOURCE[0]}")/helpers/_picker") || return 1
     [[ -n $branch ]] || return 1
   fi
 

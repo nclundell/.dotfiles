@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+main() {
+  local arg
+  local -a services build_option
+  services=()
+  build_option=()
+  for arg in "$@"; do
+    if [[ "$arg" == -b || "$arg" == --build ]]; then
+      build_option=(--build)
+    else
+      services+=("$arg")
+    fi
+  done
+  docker compose up -d "${build_option[@]}" "${services[@]}"
+}
+
+main "$@"

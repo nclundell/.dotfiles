@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+main() {
+  local service services
+  if (( $# == 0 )); then
+    printf 'Usage: dcc [service] [--] command [args...]\n' >&2
+    return 1
+  fi
+  if [[ "$1" == -- ]]; then
+    shift
+    services="$(docker compose config --services)" || return $?
+    if [[ -z "$services" ]]; then
+      printf 'No Docker Compose services found.\n' >&2
+      return 1
+    fi
+    service="$(printf '%s\n' "$services" | "$(dirname -- "${BASH_SOURCE[0]}")/helpers/_picker")" || return $?
+  else
+    service="$1"
+    shift
+  fi
+  if (( $# > 0 )) && [[ "$1" == -- ]]; then
+    shift
+  fi
+  if (( $# == 0 )); then
+    printf 'Usage: dcc [service] [--] command [args...]\n' >&2
+    return 1
+  fi
+  docker compose run "$service" "$@"
+}
+
+main "$@"
