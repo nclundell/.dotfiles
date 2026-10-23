@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+_worktree_env_sync() {
+  local common_dir project env_dir worktree source target
+  common_dir=$(git rev-parse --git-common-dir 2>/dev/null) || return 0
+  common_dir=$(cd -P -- "$common_dir" && pwd -P) || return 1
+  if [[ ${common_dir##*/} != .git || $(git --git-dir="$common_dir" rev-parse --is-bare-repository 2>/dev/null) != true ]]; then
+    return 0
+  fi
+  worktree=$(git rev-parse --show-toplevel 2>/dev/null) || return 0
+  project=$(dirname "$common_dir")
+  env_dir=$project/env
+  mkdir -p -- "$env_dir" || return 1
+
+  shopt -s nullglob dotglob
+  for source in "$env_dir"/*; do
+    [[ -f $source ]] || continue
+    target=$worktree/${source##*/}
+    [[ -e $target || -L $target ]] && continue
+    ln -s -- "$source" "$target" || return 1
+    printf 'Linked env file: %s -> %s\n' "$target" "$source"
+  done
+}
+
+_worktree_env_sync "$@"
