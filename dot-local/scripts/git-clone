@@ -22,7 +22,7 @@ _gc_fetch_branches() {
 }
 
 _gc_bare() {
-  local url=${1-} project=${2-}
+  local url=${1-} project=${2-} branch status
 
   if (( $# > 2 )) || [[ -z $url ]]; then
     printf 'Expected repository URL and optional project name\n' >&2
@@ -40,9 +40,24 @@ _gc_bare() {
   fi
 
   mkdir -- "$project" || return
-  git clone --bare --single-branch -- "$url" "$project/.git" || return
-  _gc_initial_worktree "$project" || return
-  _gc_fetch_branches "$project" || return
+  git clone --bare -- "$url" "$project/.git" || {
+    status=$?
+    printf 'Bare clone failed for %s\n' "$project/.git" >&2
+    rm -rf -- "$project" || printf 'Could not clean up project directory: %s\n' "$project" >&2
+    return "$status"
+  }
+  branch=$(git --git-dir="$project/.git" symbolic-ref --quiet --short HEAD) || {
+    status=$?
+    printf 'Could not determine default branch for %s\n' "$project/.git" >&2
+    rm -rf -- "$project" || printf 'Could not clean up project directory: %s\n' "$project" >&2
+    return "$status"
+  }
+  git --git-dir="$project/.git" worktree add -- "$project/$branch" "$branch" || {
+    status=$?
+    printf 'Could not create worktree for %s in %s\n' "$branch" "$project/$branch" >&2
+    rm -rf -- "$project" || printf 'Could not clean up project directory: %s\n' "$project" >&2
+    return "$status"
+  }
 }
 
 main() {

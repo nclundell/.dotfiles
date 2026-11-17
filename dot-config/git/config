@@ -2,7 +2,6 @@
 	root = rev-parse --show-toplevel
 
 [core]
-  hooksPath = ~/.config/git/hooks
   pager = delta
 
 [interactive]
