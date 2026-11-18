@@ -7,20 +7,6 @@ _gc_project() {
   printf '%s\n' "${name%.git}"
 }
 
-_gc_initial_worktree() {
-  local project=$1 branch
-  branch=$(git --git-dir="$project/.git" symbolic-ref --quiet --short HEAD) || return
-  mkdir -- "$project/work" || return
-  git --git-dir="$project/.git" worktree add -- "$project/work/current" "$branch"
-}
-
-_gc_fetch_branches() {
-  local project=$1 remote
-  remote=$(git --git-dir="$project/.git" remote) || return
-  git --git-dir="$project/.git" config "remote.$remote.fetch" "+refs/heads/*:refs/remotes/$remote/*" || return
-  git --git-dir="$project/.git" fetch "$remote"
-}
-
 _gc_bare() {
   local url=${1-} project=${2-} branch status
 
